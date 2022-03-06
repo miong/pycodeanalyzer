@@ -1,11 +1,15 @@
-from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
+from injector import Injector
+
+from pycodeanalyzer.core.console.console import Console
+from pycodeanalyzer.core.engine.engine import Engine
+
 
 def main():
-    LoggerFactory.init()
-    LoggerFactory.setLoggerLevel("DEBUG")
-    logger = LoggerFactory.createLogger(__name__)
-    logger.debug("Start")
-    logger.debug("End")
+    injector = Injector()
+    console = injector.get(Console)
+    console.init()
+    engine = injector.get(Engine)
+    console.run(engine)
 
 
 if __name__ == "__main__":
