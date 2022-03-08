@@ -30,6 +30,8 @@ setup(
     install_requires=[
         "robotpy-cppheaderparser==5.0.16",
         "injector==0.19.0",
+        "pathlib==1.0.1",
+        "python-magic==0.4.25",
         "pytest"
     ],
 
