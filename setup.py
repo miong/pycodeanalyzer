@@ -29,6 +29,11 @@ setup(
 
     install_requires=[
         "robotpy-cppheaderparser==5.0.16",
+        "Flask==2.0.3",
+        "Flask-SocketIO==5.1.1",
+        "Flask-Classful==0.14.2",
+        "flaskwebgui==0.3.4",
+        "simple-websocket==0.5.1",
         "injector==0.19.0",
         "pathlib==1.0.1",
         "python-magic==0.4.25",

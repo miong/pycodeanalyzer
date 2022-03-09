@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>PyCodeAnalyzer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/keepalive.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+    </head>
+    <body>
+        <div class="center">
+            <h1>PyCodeAnalyzer</h1>
+            <h2>Analysis ended</h2><br><br>
+            <div>
+                Files analysed : <span id="nbFiles">0</span><br>
+                Classes found : <span id="nbClasses">0</span><br>
+                Enums found : <span id="nbEnums">0</span><br>
+                Functions found : <span id="nbFunctions">0</span><br>
+                Time spent for analysis : <span id="duration">0</span> seconds<br>
+            </div>
+            <br><br>
+            <button onclick="location.href = './browse';">Browse</button>
+        </div>
+    </body>
+</html>

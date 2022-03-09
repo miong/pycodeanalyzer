@@ -1,11 +1,11 @@
-from injector import Injector
 
+from pycodeanalyzer.injection import injector
 from pycodeanalyzer.core.console.console import Console
 from pycodeanalyzer.core.engine.engine import Engine
+from pycodeanalyzer.ui import socketlistener 
 
 
 def main():
-    injector = Injector()
     console = injector.get(Console)
     console.init()
     engine = injector.get(Engine)

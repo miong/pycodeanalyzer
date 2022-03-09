@@ -63,6 +63,7 @@ class CppAnalyzer(Analyzer):
         ]
         CppHeaderParser.CppHeaderParser.is_enum_namestack = CustomCppHeader.is_enum_namestack
         CppHeaderParser.CppHeaderParser.is_method_namestack = CustomCppHeader.is_method_namestack
+        self.objectPaths = []
 
     def analyze(self, rootDir, path):
         abstractObjects = []
@@ -75,29 +76,36 @@ class CppAnalyzer(Analyzer):
         encoding = m.buffer(blob)
 
         try:
+            #TODO : handle using
             header = CustomCppHeader(abspath, encoding=encoding)
             for klass in header.classes.values():
-                #TODO Handle namespace !
-                #TODO Handle nested !
-                abstraction = AbstractClass(klass["name"], path)
-                self.addMethods(abstraction, klass, "public")
-                self.addMethods(abstraction, klass, "protected")
-                self.addMembers(abstraction, klass, "public")
-                self.addMembers(abstraction, klass, "protected")
-                self.addMembers(abstraction, klass, "private")
-                abstractObjects.append(abstraction)
+                self.handleClass(path, klass, abstractObjects)
             for enum in header.enums:
-                values = []
-                for val in enum["values"]:
-                    values.append(val["name"])
-                name = enum["name"] if "name" in enum else "Anon-enum"
-                abstraction = AbstractEnum(name, path, values)
-                abstractObjects.append(abstraction)
+                self.handleEnum(path, enum, abstractObjects)
+            for function in header.functions:
+                self.handleFunction(path, function, abstractObjects)
         except AssertionError as err:
             self.logger.warning("Error analyzing %s", path)
         except CppHeaderParser.CppHeaderParser.CppParseError as err:
             self.logger.warning("Error analyzing %s", path)
+        except UnicodeDecodeError as err:
+            self.logger.warning("Error analyzing %s : can't decode file", path)
         return abstractObjects
+
+    def handleClass(self, path, klass, abstractObjects):
+        objectPath = (klass["namespace"] + "::" + klass["name"]).strip()
+        if objectPath in self.objectPaths:
+            self.logger.warning("Name collision for %s in %s. It will be drop from the analysis.", klass["name"], path)
+            return
+        abstraction = AbstractClass(klass["name"], klass["namespace"], path)
+        self.addParents(abstraction, klass)
+        self.addMethods(abstraction, klass, "public")
+        self.addMethods(abstraction, klass, "protected")
+        self.addMembers(abstraction, klass, "public")
+        self.addMembers(abstraction, klass, "protected")
+        self.addMembers(abstraction, klass, "private")
+        self.objectPaths.append(objectPath)
+        abstractObjects.append(abstraction)
 
     def addMethods(self, abstraction, klass, visibility):
         for method in klass["methods"][visibility]:
@@ -109,3 +117,23 @@ class CppAnalyzer(Analyzer):
     def addMembers(self, abstraction, klass, visibility):
         for member in klass["properties"][visibility]:
             abstraction.addMember(member["type"], member["name"], visibility)
+
+    def addParents(self, abstraction, klass):
+        for declParent in klass["inherits"]:
+            abstraction.addParent(declParent["class"], declParent["decl_name"],declParent["access"])
+
+    def handleEnum(self, path, enum, abstractObjects):
+        #TODO handle namespace
+        values = []
+        for val in enum["values"]:
+            values.append(val["name"])
+        name = enum["name"] if "name" in enum else "Anon-enum"
+        abstraction = AbstractEnum(name, path, values)
+        abstractObjects.append(abstraction)
+
+    def handleFunction(self, path, function, abstractObjects):
+        params = [];
+        for param in function["parameters"]:
+            params.append((param["type"], param["name"]))
+        abstraction = AbstractFunction(function["name"], path, function["rtnType"], params)
+        abstractObjects.append(abstraction)

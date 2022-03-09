@@ -1,0 +1,161 @@
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+div.main-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+    padding:0;
+}
+
+div.horizontal-navbar-container {
+    width: 100%;
+    height: 5%;
+    margin: 0;
+    padding:0;
+    border: 1px solid blue;
+}
+
+div.vertical-navbar-container {
+    top : 10%;
+    width: 20%;
+    height: 90%;
+    margin: 0;
+    padding:0;
+    border: 1px solid blue;
+}
+
+div.navcontent {
+    position:absolute;
+    top: 10%;
+    left: 20%;
+    width: 80%;
+    height: 90%;
+}
+
+ul.navbar {
+    list-style-type: none;
+    position:absolute;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #dddddd;
+}
+
+ul.horizontal {
+    width: 100%;
+    height: 5%;
+}
+
+ul.vertical {
+    top : 10%;
+    width: 20%;
+    height: 90%; /* Full height */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+li.horizontal-navbar {
+    float: left;
+    height: 100%;
+    border-right: 1px solid #bbb;
+}
+
+li.horizontal-navbar a {
+    display: inline-block;
+    vertical-align: middle;
+    color: #000;
+    height: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+}
+
+li.horizontal-navbar a:hover{
+    background-color: #3683ff;
+    color: white;
+}
+
+li.vertical-navbar {
+    float: left;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    width: 100%
+}
+
+li.vertical-navbar a {
+    display: block;
+    padding: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: #000;
+    text-decoration: none;
+}
+
+li.vertical-navbar a:hover{
+    background-color: #3683ff;
+    color: white;
+}
+
+ul.inherits-link {
+    list-style: square;
+}
+
+li.inherits-link {
+    max-width: 10%;
+    margin: auto;
+    text-align: left;
+}
+
+li.inherits-link a {
+    color: blue;
+    text-decoration: none;
+}
+
+h1 {
+    color: blue;
+    height: 5%;
+    padding : 0;
+    margin: 0;
+}
+
+button {
+    color: white;
+    background-color: blue;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.class-item {
+    background-color: #87CEFA
+}
+
+.namespace-item {
+    background-color: #B0C4DE
+}
+
+.control-item {
+    background-color: #9825f9
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

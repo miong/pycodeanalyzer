@@ -1,20 +1,28 @@
 
 import logging
+from functools import partial
 
 class LoggerFactory:
 
     level = logging.INFO
+    defaultLogger = None
 
     @staticmethod
     def init():
         logging.basicConfig(format='%(asctime)s - LoggerFactory - %(levelname)s - %(message)s', level=logging.INFO)
+        LoggerFactory.defaultLogger = LoggerFactory.createLogger("DefaultLogger")
+        logging.root = LoggerFactory.defaultLogger
+        # Setting log level for known used packages
+        logging.getLogger('werkzeug').setLevel(logging.WARNING)
+
 
     @staticmethod
     def setLoggerLevel(loglevel):
         LoggerFactory.level = getattr(logging, loglevel, None)
         if not isinstance(LoggerFactory.level, int):
             raise ValueError('Invalid log level: %s' % loglevel)
-        logging.info("Debug level set to %s", logging.getLevelName(LoggerFactory.level))
+        logging.debug("Debug level set to %s", logging.getLevelName(LoggerFactory.level))
+        logging.root.setLevel(LoggerFactory.level)
 
 
     @staticmethod

@@ -3,7 +3,9 @@ from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 import os
 import pathlib
 import magic
+from injector import singleton
 
+@singleton
 class FileFetcher:
 
     def __init__(self):
