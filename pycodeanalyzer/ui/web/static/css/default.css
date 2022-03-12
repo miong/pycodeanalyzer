@@ -49,6 +49,7 @@ div.navcontent {
     left: 20%;
     width: 80%;
     height: 90%;
+    overflow: auto;
 }
 
 ul.navbar {
