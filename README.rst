@@ -18,11 +18,6 @@ Requirements
 
 - robotpy-cppheaderparser - 5.0.16
 
-Windows
-^^^^^^^^^^^^
-
-You can have an exception about libmagic not installed.
-In thus case, see https://github.com/pidydx/libmagicwin64 for fixing this issue.
 
 Compatibility
 -------------
