@@ -1,9 +1,11 @@
-from pycodeanalyzer.core.languages.analyzer import Analyzer
-from pycodeanalyzer.core.abstraction.objects import *
+import os
 
 import CppHeaderParser
-import os
 import magic
+
+from pycodeanalyzer.core.abstraction.objects import *
+from pycodeanalyzer.core.languages.analyzer import Analyzer
+
 
 class CustomCppHeader(CppHeaderParser.CppHeader):
     def is_enum_namestack(nameStack):
@@ -36,7 +38,7 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
                 else:
                     r = stack.index("(") > 1
             elif "{" in stack:
-                    r = True  # ideally we catch both braces... TODO
+                r = True  # ideally we catch both braces... TODO
         else:
             r = False
         # Test for case of property set to something with parens such as "static const int CONST_A = (1 << 7) - 1;"
@@ -45,11 +47,11 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
                 r = False
         return r
 
-class CppAnalyzer(Analyzer):
 
+class CppAnalyzer(Analyzer):
     def __init__(self):
         super().__init__()
-        #TODO : parse it from configuration
+        # TODO : parse it from configuration
         CppHeaderParser.CppHeaderParser.ignoreSymbols = [
             "_sd_printf_attr_()",
             "_sd_hidden_",
@@ -59,11 +61,14 @@ class CppAnalyzer(Analyzer):
             "G_GNUC_PRINTF()",
             "G_GNUC_MALLOC",
             "G_GNUC_ALLOC_SIZE2 ()",
-            "G_GNUC_ALLOC_SIZE2()"
-            "PROTOBUF_EXPORT"
+            "G_GNUC_ALLOC_SIZE2()" "PROTOBUF_EXPORT",
         ]
-        CppHeaderParser.CppHeaderParser.is_enum_namestack = CustomCppHeader.is_enum_namestack
-        CppHeaderParser.CppHeaderParser.is_method_namestack = CustomCppHeader.is_method_namestack
+        CppHeaderParser.CppHeaderParser.is_enum_namestack = (
+            CustomCppHeader.is_enum_namestack
+        )
+        CppHeaderParser.CppHeaderParser.is_method_namestack = (
+            CustomCppHeader.is_method_namestack
+        )
         self.objectPaths = []
 
     def analyze(self, rootDir, path):
@@ -71,10 +76,12 @@ class CppAnalyzer(Analyzer):
         self.logger.info("Analysing %s", path)
         abspath = os.path.join(rootDir, path)
 
-        encoding = magic.Magic(mime_encoding=True,).from_file(abspath)
+        encoding = magic.Magic(
+            mime_encoding=True,
+        ).from_file(abspath)
 
         try:
-            #TODO : handle using
+            # TODO : handle using
             header = CustomCppHeader(abspath, encoding=encoding)
             for klass in header.classes.values():
                 self.handleClass(path, klass, abstractObjects)
@@ -93,7 +100,11 @@ class CppAnalyzer(Analyzer):
     def handleClass(self, path, klass, abstractObjects):
         objectPath = (klass["namespace"] + "::" + klass["name"]).strip()
         if objectPath in self.objectPaths:
-            self.logger.warning("Name collision for %s in %s. It will be drop from the analysis.", klass["name"], path)
+            self.logger.warning(
+                "Name collision for %s in %s. It will be drop from the analysis.",
+                klass["name"],
+                path,
+            )
             return
         abstraction = AbstractClass(klass["name"], klass["namespace"], path)
         self.addParents(abstraction, klass)
@@ -107,7 +118,7 @@ class CppAnalyzer(Analyzer):
 
     def addMethods(self, abstraction, klass, visibility):
         for method in klass["methods"][visibility]:
-            params = [];
+            params = []
             for param in method["parameters"]:
                 params.append((param["type"], param["name"]))
             abstraction.addMethod(method["rtnType"], method["name"], params, visibility)
@@ -118,10 +129,12 @@ class CppAnalyzer(Analyzer):
 
     def addParents(self, abstraction, klass):
         for declParent in klass["inherits"]:
-            abstraction.addParent(declParent["class"], declParent["decl_name"],declParent["access"])
+            abstraction.addParent(
+                declParent["class"], declParent["decl_name"], declParent["access"]
+            )
 
     def handleEnum(self, path, enum, abstractObjects):
-        #TODO handle namespace
+        # TODO handle namespace
         values = []
         for val in enum["values"]:
             values.append(val["name"])
@@ -130,8 +143,10 @@ class CppAnalyzer(Analyzer):
         abstractObjects.append(abstraction)
 
     def handleFunction(self, path, function, abstractObjects):
-        params = [];
+        params = []
         for param in function["parameters"]:
             params.append((param["type"], param["name"]))
-        abstraction = AbstractFunction(function["name"], path, function["rtnType"], params)
+        abstraction = AbstractFunction(
+            function["name"], path, function["rtnType"], params
+        )
         abstractObjects.append(abstraction)

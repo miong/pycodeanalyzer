@@ -4,6 +4,7 @@ class AbstractObject:
         self.type = "Object"
         self.origin = origin
 
+
 class AbstractEnum(AbstractObject):
     def __init__(self, name, origin, values):
         self.name = name
@@ -12,7 +13,7 @@ class AbstractEnum(AbstractObject):
         self.origin = origin
 
     def print(self):
-        print("Enum : ",self.name)
+        print("Enum : ", self.name)
         print("\tValues : ")
         for value in self.values:
             print("\t\t * ", value)
@@ -27,7 +28,7 @@ class AbstractFunction(AbstractObject):
         self.parameters = parameters
 
     def print(self):
-        print("Enum : ",self.name)
+        print("Enum : ", self.name)
         print("\tValues : ")
         for value in self.values:
             print("\t\t * ", value)
@@ -59,8 +60,14 @@ class AbstractClass(AbstractObject):
             if type not in types:
                 types.append(type)
             if parent[0] != parent[1]:
-                #TODO Handle nested
-                templateTypeList = parent[0].replace(parent[1], '').replace('<', '').replace(">", '').split(',')
+                # TODO Handle nested
+                templateTypeList = (
+                    parent[0]
+                    .replace(parent[1], "")
+                    .replace("<", "")
+                    .replace(">", "")
+                    .split(",")
+                )
                 for templateType in templateTypeList:
                     type = self.getDependanceFromType(templateType)
                     if type not in types:
@@ -75,10 +82,12 @@ class AbstractClass(AbstractObject):
                     types.append(type)
         for member in self.members:
             if "<" in member[0]:
-                #TODO Handle nested
+                # TODO Handle nested
                 print(member[0])
                 index = member[0].index("<")
-                templateTypeList = member[0][index:].replace('<', '').replace(">", '').split(',')
+                templateTypeList = (
+                    member[0][index:].replace("<", "").replace(">", "").split(",")
+                )
                 print(templateTypeList)
                 for templateType in templateTypeList:
                     type = self.getDependanceFromType(templateType)
@@ -91,11 +100,8 @@ class AbstractClass(AbstractObject):
         return types
 
     def getDependanceFromType(self, type):
-        #remove all languages artefact that are not needed to get the type we depends on
-        return type.replace('*', '') \
-                   .replace('&', '') \
-                   .replace('const', '') \
-                   .strip()
+        # remove all languages artefact that are not needed to get the type we depends on
+        return type.replace("*", "").replace("&", "").replace("const", "").strip()
 
     def removeNonObjectTypes(self, typeList):
         NonObjectTypes = [
@@ -116,21 +122,25 @@ class AbstractClass(AbstractObject):
             "uint32_t",
             "uint64_t",
         ]
-        cleaned_list = [ x for x in typeList if x not in NonObjectTypes ]
+        cleaned_list = [x for x in typeList if x not in NonObjectTypes]
         return cleaned_list
 
     def print(self):
-        print("Class : ",self.name, " in namespace ",self.namespace)
+        print("Class : ", self.name, " in namespace ", self.namespace)
         print("\tInherits : ")
         for tuple in self.parents:
-                print("\t\t * {1} {0}".format(tuple[0], tuple[2]))
+            print("\t\t * {1} {0}".format(tuple[0], tuple[2]))
         print("\tMethods : ")
         for tuple in self.methodes:
             paramStr = ""
             for param in tuple[2]:
                 paramStr = paramStr + param[0] + " " + param[1] + ", "
-            paramStr=paramStr[:-2]
-            print("\t\t * {3} {0} {1} ({2})".format(tuple[0], tuple[1],paramStr,tuple[3]))
+            paramStr = paramStr[:-2]
+            print(
+                "\t\t * {3} {0} {1} ({2})".format(
+                    tuple[0], tuple[1], paramStr, tuple[3]
+                )
+            )
         print("\tMembers : ")
         for tuple in self.members:
             print("\t\t * {2} {0} {1}".format(tuple[0], tuple[1], tuple[2]))

@@ -1,5 +1,4 @@
 class IdentityAnalyser:
-
     def __init__(self):
         self.mapping = {}
         self.mapping["Classes"] = []
@@ -15,7 +14,6 @@ class IdentityAnalyser:
             elif object.type == "Function":
                 self.mapping["Functions"].append(object)
 
-
     def getClasses(self):
         return self.mapping["Classes"]
 
@@ -29,28 +27,28 @@ class IdentityAnalyser:
         tree = {}
         currentTree = None
         for klass in self.getClasses():
-            klassName = klass.name.replace("::","££")
-            klassPath = klass.namespace+"::"+klassName
+            klassName = klass.name.replace("::", "££")
+            klassPath = klass.namespace + "::" + klassName
             pathElements = klassPath.split("::")
             currentTree = tree
             for element in pathElements:
                 if len(element) == 0:
                     continue
-                if pathElements.index(element) < len(pathElements)-1:
+                if pathElements.index(element) < len(pathElements) - 1:
                     if not element in currentTree.keys():
                         currentTree[element] = {}
                     currentTree = currentTree[element]
                 else:
                     if not "__classes__" in currentTree.keys():
                         currentTree["__classes__"] = []
-                    currentTree["__classes__"].append(element.replace("££","::"))
+                    currentTree["__classes__"].append(element.replace("££", "::"))
         return tree
 
     def getClass(self, classNamespacePath):
         for klass in self.getClasses():
             klassPath = klass.name
             if len(klass.namespace) > 0:
-                klassPath = klass.namespace+"::"+klass.name
+                klassPath = klass.namespace + "::" + klass.name
             if classNamespacePath == klassPath:
                 return klass
         return None

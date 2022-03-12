@@ -1,15 +1,16 @@
+import pathlib
+
+from injector import inject, singleton
+
 from pycodeanalyzer.core.languages.analyzers.cppanalyzer import CppAnalyzer
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.ui.app import UiFileDispatcherListener
 
-from injector import inject, singleton
-import pathlib
 
 @singleton
 class FileDispatcher:
-
     @inject
-    def __init__(self, cppAnalyzer : CppAnalyzer, uiListener : UiFileDispatcherListener):
+    def __init__(self, cppAnalyzer: CppAnalyzer, uiListener: UiFileDispatcherListener):
         self.logger = LoggerFactory.createLogger(__name__)
         self.cppAnalyzer = cppAnalyzer
         self.uiListener = uiListener

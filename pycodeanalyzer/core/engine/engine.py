@@ -1,16 +1,16 @@
+import time
+
 from injector import inject, singleton
 
-from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
 from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
+from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
 from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.core.utils.math import round_up
-from pycodeanalyzer.ui.app import UiStatListener
-from pycodeanalyzer.ui.app import UiBrowseListener
+from pycodeanalyzer.ui.app import UiBrowseListener, UiStatListener
 
-import time
 
 class AnalysisStats:
     def __init__(self):
@@ -20,11 +20,20 @@ class AnalysisStats:
         self.nbFunctions = 0
         self.timeSpent = 0
 
+
 @singleton
 class Engine:
-
     @inject
-    def __init__(self, fileFetcher : FileFetcher, fileDispatcher : FileDispatcher, identityAnalyser : IdentityAnalyser, dependancyAnalyser : DependancyAnalyser, uiStatListener : UiStatListener, uiBrowseListener : UiBrowseListener, classDiagramBuild : ClassDiagramBuild):
+    def __init__(
+        self,
+        fileFetcher: FileFetcher,
+        fileDispatcher: FileDispatcher,
+        identityAnalyser: IdentityAnalyser,
+        dependancyAnalyser: DependancyAnalyser,
+        uiStatListener: UiStatListener,
+        uiBrowseListener: UiBrowseListener,
+        classDiagramBuild: ClassDiagramBuild,
+    ):
         self.fileFetcher = fileFetcher
         self.fileDispatcher = fileDispatcher
         self.identityAnalyser = identityAnalyser
@@ -42,7 +51,7 @@ class Engine:
         self.logger.debug("Setting up analyzers")
         self.logger.info("Start analysis")
         self.logger.debug("Fetching files")
-        #TODO allow multiple src dirs
+        # TODO allow multiple src dirs
         self.files = self.fileFetcher.fetch(args.path)
         if not self.files:
             self.logger.debug("No files to analyze, quitting.")
@@ -69,7 +78,13 @@ class Engine:
 
     def sendAnalysisStats(self):
         self.logger.debug("Stats sent to UI")
-        self.uiStatListener.notifyStats(self.stats.nbFiles, self.stats.nbClasses, self.stats.nbEnums, self.stats.nbFunctions, self.stats.timeSpent)
+        self.uiStatListener.notifyStats(
+            self.stats.nbFiles,
+            self.stats.nbClasses,
+            self.stats.nbEnums,
+            self.stats.nbFunctions,
+            self.stats.timeSpent,
+        )
 
     def sendClasseNames(self):
         self.logger.debug("Class name tree sent to UI")
@@ -80,7 +95,9 @@ class Engine:
         if not klass:
             self.logger.error("Unknow class requested : %s", className)
             return
-        objects = self.dependancyAnalyser.analyze(self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass)
+        objects = self.dependancyAnalyser.analyze(
+            self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass
+        )
         self.classDiagramBuild.reset()
         self.classDiagramBuild.create(objects[0], objects[1], objects[2], objects[3])
         mermaidDiag = self.classDiagramBuild.build()
@@ -92,4 +109,4 @@ class Engine:
         for parent in klass.parents:
             klassDesc["parents"].append(parent[0])
         self.logger.debug("Class data sent to UI")
-        self.uiBrowseListener.notifyClassData(klassDesc, mermaidDiag);
+        self.uiBrowseListener.notifyClassData(klassDesc, mermaidDiag)

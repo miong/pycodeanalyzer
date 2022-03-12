@@ -1,7 +1,7 @@
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
-class Analyzer:
 
+class Analyzer:
     def __init__(self):
         self.logger = LoggerFactory.createLogger(__name__)
 

@@ -1,4 +1,3 @@
-
 def rindex(lst, value):
     lst.reverse()
     i = lst.index(value)

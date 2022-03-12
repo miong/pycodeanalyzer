@@ -1,11 +1,12 @@
+from injector import inject, singleton
+
 from pycodeanalyzer.core.engine.engine import Engine
 
-from injector import inject, singleton
 
 @singleton
 class EngineCommands:
     @inject
-    def __init__(self, engine : Engine):
+    def __init__(self, engine: Engine):
         self.engine = engine
 
     def requestAnalysisStats(self):
