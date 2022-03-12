@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="773c8d35-5c48-40bc-9f4f-7d3369e4f2f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/abstraction/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/abstraction/object.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/console/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/console/console.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/engine/engine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/filetree/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/filetree/filefetcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/languages/analyzer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/languages/analyzers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/languages/analyzers/cppanalyzer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/languages/filedispatcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pycodeanalyzer/core/utils/math.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/utils/test_math.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/README.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pycodeanalyzer/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycodeanalyzer/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycodeanalyzer/core/languages/cpp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycodeanalyzer/core/filetree/filefetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycodeanalyzer/core/filetree/filefetcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycodeanalyzer/core/languages/analyzers/cppanalyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycodeanalyzer/core/languages/analyzers/cppanalyzer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_sample.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +32,11 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/tests/utils/test_math.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pycodeanalyzer/__main__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/setup.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -117,7 +107,55 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pycodeanalyzer/__main__.py" />
+  </component>
+  <component name="RunManager" selected="Python.Example - CPP">
+    <configuration name="Example - CPP" type="PythonConfigurationType" factoryName="Python">
+      <module name="pycodeanalyzer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\PC\AppData\Local\Programs\Python\Python37-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pycodeanalyzer" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pycodeanalyzer/__main__.py" />
+      <option name="PARAMETERS" value="--log=DEBUG D:\pythonProj\pycodeanalyzer\tests\ressources\protobuf-extract\cpp" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="help" type="PythonConfigurationType" factoryName="Python">
+      <module name="pycodeanalyzer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\PC\AppData\Local\Programs\Python\Python37-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pycodeanalyzer" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pycodeanalyzer/__main__.py" />
+      <option name="PARAMETERS" value="-h" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.help" />
+      <item itemvalue="Python.Example - CPP" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
