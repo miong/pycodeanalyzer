@@ -60,6 +60,7 @@ class CppAnalyzer(Analyzer):
             "G_GNUC_MALLOC",
             "G_GNUC_ALLOC_SIZE2 ()",
             "G_GNUC_ALLOC_SIZE2()"
+            "PROTOBUF_EXPORT"
         ]
         CppHeaderParser.CppHeaderParser.is_enum_namestack = CustomCppHeader.is_enum_namestack
         CppHeaderParser.CppHeaderParser.is_method_namestack = CustomCppHeader.is_method_namestack
@@ -70,10 +71,7 @@ class CppAnalyzer(Analyzer):
         self.logger.info("Analysing %s", path)
         abspath = os.path.join(rootDir, path)
 
-        blob = open(abspath, 'rb').read()
-        m = magic.open(magic.MAGIC_MIME_ENCODING)
-        m.load()
-        encoding = m.buffer(blob)
+        encoding = magic.Magic(mime_encoding=True,).from_file(abspath)
 
         try:
             #TODO : handle using

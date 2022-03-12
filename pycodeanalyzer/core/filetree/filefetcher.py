@@ -24,10 +24,7 @@ class FileFetcher:
         extension = p.suffix
         filename = p.stem
 
-        blob = open(fileabspath, 'rb').read()
-        m = magic.open(magic.MAGIC_MIME_ENCODING)
-        m.load()
-        encoding = m.buffer(blob)
+        encoding = magic.Magic(mime_encoding=True,).from_file(fileabspath)
 
         return encoding not in self.rejected_encoding and extension in self.suported_extensions and not filename.startswith(".")
 
