@@ -6,6 +6,8 @@ pycodeanalyzer
     :alt: Latest PyPI version
 .. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/quality.yml/badge.svg
     :alt: Code Quality
+.. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/build.yml/badge.svg
+    :alt: Build
 
 Code analyzer to get information to help developers to understand how projects works.
 
