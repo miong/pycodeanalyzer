@@ -1,3 +1,4 @@
+import codecs
 import subprocess
 from distutils.core import run_setup
 
@@ -32,7 +33,8 @@ def main():
                     readme += "    :alt: - {} - {} {}\n".format(item[0], sep, item[1])
             else:
                 readme += line
-    print(readme)
+    with codecs.open("README.rst", "w", "utf-8") as output:
+        output.write(readme)
 
 
 if __name__ == "__main__":
