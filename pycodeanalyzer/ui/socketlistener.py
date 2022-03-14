@@ -37,6 +37,3 @@ def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
 @app.socketio.on("fetchClassData")
 def fetchClassData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchClassData(json["className"])
-
-
-app.run()

@@ -9,6 +9,7 @@ from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 class Console:
     def _parseArgs(self):
         parser = argparse.ArgumentParser()
+        parser.prog = "pycodeanalyzer"
         parser.add_argument(
             "--log",
             default="INFO",

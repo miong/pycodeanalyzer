@@ -1,0 +1,56 @@
+pycodeanalyzer
+==============
+.. image:: https://img.shields.io/pypi/l/pycodeanalyzer
+    :target: https://raw.githubusercontent.com/miong/pycodeanalyzer/main/LICENSE
+    :alt: License
+.. image:: https://img.shields.io/pypi/v/pycodeanalyzer.svg
+    :target: https://pypi.python.org/pypi/pycodeanalyzer
+    :alt: Latest PyPI version
+.. image:: https://img.shields.io/badge/TestPyPi-Latest-blue
+   :target: https://test.pypi.org/project/pycodeanalyzer/
+   :alt: TestPyPI
+.. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/quality.yml/badge.svg
+    :alt: Code Quality
+.. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/build.yml/badge.svg
+    :alt: Build
+
+Code analyzer to get information to help developers to understand how projects works.
+
+Installation
+------------
+
+pycodeanlyzer is available on PyPI:
+::
+        pip install pycodeanalyzer
+see https://pip.pypa.io/en/stable/installation/ for more detail on pip
+
+Requirements
+^^^^^^^^^^^^
+
+[[REQUIREMENTS]]
+
+Usage
+-----
+The following is the help of pycodeanalyzer:
+::
+[[USAGE]]
+
+To get more information during the run, use --log=DEBUG
+
+Languages
+-----
+
+pycodeanalyser supports the following languages:
+
+- C/C++
+
+Licence
+-------
+
+.. include:: LICENSE
+   :literal:
+
+Authors
+-------
+
+`pycodeanalyzer` was written by `Giovanni Mion <mion.ggb@gmail.com>`_.

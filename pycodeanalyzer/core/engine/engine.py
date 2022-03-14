@@ -9,8 +9,10 @@ from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.core.utils.math import round_up
-from pycodeanalyzer.ui.app import UiBrowseListener, UiStatListener
+from pycodeanalyzer.ui.app import UiBrowseListener, UiStatListener, Application
+from pycodeanalyzer.injection import injector
 
+app = injector.get(Application)
 
 class AnalysisStats:
     def __init__(self):
@@ -45,6 +47,7 @@ class Engine:
         self.classDiagramBuild = classDiagramBuild
 
     def run(self, args):
+        app.run()
         time.sleep(2)
         self.logger = LoggerFactory.createLogger(__name__)
         start_time = time.time()
