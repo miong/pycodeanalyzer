@@ -36,7 +36,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run tests
-        run: py.test .\tests --ignore=tests/ressources
+        run: py.test ./tests --ignore=tests/ressources
         
   tu_windows:
     # The type of runner that the job will run on
@@ -80,5 +80,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run tests
-        run: py.test .\tests --ignore=tests/ressources
+        run: py.test ./tests --ignore=tests/ressources
         
