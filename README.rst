@@ -45,6 +45,8 @@ Requirements
     :alt: - pathlib - equals 1.0.1
 - .. image:: https://img.shields.io/static/v1?label=python-magic&message=equals%200.4.25&color=blue
     :alt: - python-magic - equals 0.4.25
+- .. image:: https://img.shields.io/static/v1?label=pcpp&message=equals%201.30&color=blue
+    :alt: - pcpp - equals 1.30
 - .. image:: https://img.shields.io/static/v1?label=pytest&message=the%20latest&color=blue
     :alt: - pytest - the latest
 
