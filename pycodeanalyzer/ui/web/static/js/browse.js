@@ -183,14 +183,15 @@ function updateFunctionView(functionData) {
 
 	let defLine = functionData.rtype + ' ' + functionData.name + '(';
 
-    if (functionData.params.length > 0) {
-        for (const key of Object.keys(functionData.params).values()) {
-            defLine += functionData.params[key] + ' ' + key + ', ';
-        }
-       defLine = defLine.slice(0, -2);
-   }
+	if (functionData.params.length > 0) {
+		for (const key of Object.keys(functionData.params).values()) {
+			defLine += functionData.params[key] + ' ' + key + ', ';
+		}
 
-    defLine += ')';
+		defLine = defLine.slice(0, -2);
+	}
+
+	defLine += ')';
 	defLine = functionData.doxygen + '\n' + defLine;
 	const desc = '<b>Name : </b>' + functionData.name + '<br>'
            + '<b>Namespace : </b>' + namespace + '<br>'
