@@ -9,7 +9,7 @@ pycodeanalyzer
 .. image:: https://img.shields.io/badge/TestPyPi-Latest-blue
    :target: https://test.pypi.org/project/pycodeanalyzer/
    :alt: TestPyPI
-.. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/unittest.yml/badge.svg
+.. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/unittests.yml/badge.svg
     :alt: Unit tests
 .. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/quality.yml/badge.svg
     :alt: Code Quality
