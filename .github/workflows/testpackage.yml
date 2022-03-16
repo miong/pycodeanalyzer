@@ -30,11 +30,11 @@ jobs:
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
       - name: Archive Python package
-          uses: actions/upload-artifact@v3
-          with:
-            name: pycodeanalyzer-package
-            retention-days: 1
-            path: dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: pycodeanalyzer-package
+          retention-days: 1
+          path: dist
   publish-test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
