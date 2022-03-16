@@ -38,11 +38,11 @@ class IdentityAnalyser:
                 if len(element) == 0:
                     continue
                 if pathElements.index(element) < len(pathElements) - 1:
-                    if not element in currentTree.keys():
+                    if element not in currentTree.keys():
                         currentTree[element] = {}
                     currentTree = currentTree[element]
                 else:
-                    if not "__classes__" in currentTree.keys():
+                    if "__classes__" not in currentTree.keys():
                         currentTree["__classes__"] = []
                     currentTree["__classes__"].append(element.replace("££", "::"))
         return tree
@@ -59,11 +59,11 @@ class IdentityAnalyser:
                 if len(element) == 0:
                     continue
                 if pathElements.index(element) < len(pathElements) - 1:
-                    if not element in currentTree.keys():
+                    if element not in currentTree.keys():
                         currentTree[element] = {}
                     currentTree = currentTree[element]
                 else:
-                    if not "__enums__" in currentTree.keys():
+                    if "__enums__" not in currentTree.keys():
                         currentTree["__enums__"] = []
                     currentTree["__enums__"].append(element.replace("££", "::"))
         return tree
@@ -80,11 +80,11 @@ class IdentityAnalyser:
                 if len(element) == 0:
                     continue
                 if pathElements.index(element) < len(pathElements) - 1:
-                    if not element in currentTree.keys():
+                    if element not in currentTree.keys():
                         currentTree[element] = {}
                     currentTree = currentTree[element]
                 else:
-                    if not "__functions__" in currentTree.keys():
+                    if "__functions__" not in currentTree.keys():
                         currentTree["__functions__"] = []
                     elementValue = element.replace("££", "::")
                     data = {}
@@ -96,13 +96,13 @@ class IdentityAnalyser:
     def getFiles(self):
         files = []
         for item in self.getClasses():
-            if not item.origin in files:
+            if item.origin not in files:
                 files.append(item.origin)
         for item in self.getEnums():
-            if not item.origin in files:
+            if item.origin not in files:
                 files.append(item.origin)
         for item in self.getFunctions():
-            if not item.origin in files:
+            if item.origin not in files:
                 files.append(item.origin)
         return files
 
@@ -118,15 +118,15 @@ class IdentityAnalyser:
         currentTree = tree
         for file in files:
             currentTree = tree
-            fileRelPath = file[len(self.commonFilePath) + 1 :]
+            fileRelPath = file[len(self.commonFilePath)+1:]
             elements = fileRelPath.split("/")
             for element in elements:
                 if fileRelPath.index(element) < len(fileRelPath) - 1 - len(element):
-                    if not element in currentTree.keys():
+                    if element not in currentTree.keys():
                         currentTree[element] = {}
                     currentTree = currentTree[element]
                 else:
-                    if not "__files__" in currentTree.keys():
+                    if "__files__" not in currentTree.keys():
                         currentTree["__files__"] = []
                     currentTree["__files__"].append(element)
         return tree

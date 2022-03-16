@@ -1,4 +1,3 @@
-from flask_socketio import SocketIO
 from injector import inject, singleton
 
 from pycodeanalyzer.injection import injector
@@ -56,17 +55,17 @@ def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
 
 
 @app.socketio.on("fetchAnalysedEnumNames")
-def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
+def fetchAnalysedEnumNames(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchAnalysedEnumNames()
 
 
 @app.socketio.on("fetchAnalysedFunctionNames")
-def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
+def fetchAnalysedFunctionNames(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchAnalysedFunctionNames()
 
 
 @app.socketio.on("fetchAnalysedFileNames")
-def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
+def fetchAnalysedFileNames(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchAnalysedFileNames()
 
 
@@ -76,17 +75,17 @@ def fetchClassData(json, methods=["GET", "POST"]):
 
 
 @app.socketio.on("fetchEnumData")
-def fetchClassData(json, methods=["GET", "POST"]):
+def fetchEnumData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchEnumData(json["enumName"])
 
 
 @app.socketio.on("fetchFunctionData")
-def fetchClassData(json, methods=["GET", "POST"]):
+def fetchFunctionData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchFunctionData(json["functionDef"])
 
 
 @app.socketio.on("fetchFileData")
-def fetchClassData(json, methods=["GET", "POST"]):
+def fetchFileData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchFileData(json["fileName"])
 
 

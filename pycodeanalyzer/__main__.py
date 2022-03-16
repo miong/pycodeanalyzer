@@ -1,7 +1,8 @@
 from pycodeanalyzer.core.console.console import Console
 from pycodeanalyzer.core.engine.engine import Engine
 from pycodeanalyzer.injection import injector
-from pycodeanalyzer.ui import socketlistener  # this start UI
+# socketlistener need to be imported just to init socket listening
+from pycodeanalyzer.ui import socketlistener # noqa
 
 
 def main():

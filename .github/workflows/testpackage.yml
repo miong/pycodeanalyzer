@@ -1,15 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI - Build and Publish on TestPyPI
+name: TestPackage
 
-# Controls when the workflow will run
+# Allows you to run this workflow manually from the Actions tab
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main, release ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,7 +17,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+        with:
+            ref: stable
+
       - name: Initialize Python 3.7
         uses: actions/setup-python@v1
         with:
@@ -36,7 +33,6 @@ jobs:
     needs: build
 
     # Steps represent a sequence of tasks that will be executed as part of the job only on release branch
-    if: github.ref == 'refs/heads/release'
     steps:
       - name: Publish distribution to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
@@ -44,4 +40,6 @@ jobs:
             password: ${{ secrets.test_pypi_password }}
             repository_url: https://test.pypi.org/legacy/
       - name: Verify packet on TestPyPI
-        run: pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
+        run: |
+        sed -i -E -e "s?version=\"(.*)\"?version=\"\1-$(git rev-parse --short HEAD)\"?g" setup.py
+        pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer

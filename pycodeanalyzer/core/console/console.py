@@ -1,7 +1,5 @@
 import argparse
 
-from injector import inject
-
 from pycodeanalyzer.core.engine.engine import Engine
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
