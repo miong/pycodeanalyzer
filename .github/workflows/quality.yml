@@ -6,13 +6,13 @@ name: Quality
 on:
   # Triggers the workflow on unit tests success
   workflow_run:
-    workflows: [Unit tests]
+    workflows: [ UnitTests ]
     branches: [ main, stable ]
     types:
       - completed
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
