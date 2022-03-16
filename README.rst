@@ -11,8 +11,6 @@ pycodeanalyzer
    :alt: TestPyPI
 .. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/quality.yml/badge.svg
     :alt: Code Quality
-.. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/build.yml/badge.svg
-    :alt: Build
 
 Code analyzer to get information to help developers to understand how projects works.
 
@@ -55,10 +53,10 @@ Usage
 The following is the help of pycodeanalyzer:
 ::
 	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path
-	
+
 	positional arguments:
 	  path            Path of the root directory to be analysed
-	
+
 	optional arguments:
 	  -h, --help      show this help message and exit
 	  --log LOGLEVEL  Log level to be used

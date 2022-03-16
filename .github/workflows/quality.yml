@@ -1,14 +1,15 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI - Quality
+name: Quality
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main, release ]
-  pull_request:
-    branches: [ main, release ]
+  # Triggers the workflow on unit tests success
+  workflow_run:
+    workflows: [Unit tests]
+    branches: [ main, stable ]
+    types:
+      - completed
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,6 +18,7 @@ on:
 jobs:
   # This workflow contains a single job called "quality-check"
   quality-check:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -46,7 +48,7 @@ jobs:
             # stop the build if there are Python syntax errors or undefined names
             flake8 ./pycodeanalyzer --count --select=E9,F63,F7,F82 --show-source --statistics
             # exit-zero treats all errors as warnings.
-            flake8 ./pycodeanalyzer --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+            flake8 ./pycodeanalyzer --count --exit-zero --max-complexity=20 --max-line-length=127 --statistics
       - name: Lint JS with StandardJs
         uses: iCrawl/action-eslint@v1
         with:
