@@ -2,13 +2,12 @@ import argparse
 import io
 import os
 import re
-import sys
 
 import CppHeaderParser
 import magic
 from pcpp import Action, OutputDirective, Preprocessor
 
-from pycodeanalyzer.core.abstraction.objects import *
+from pycodeanalyzer.core.abstraction.objects import AbstractEnum, AbstractFunction, AbstractClass
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
 

@@ -172,7 +172,7 @@ class AbstractClass(AbstractObject):
             "uint64_t",
         ]
         cleaned_list = [
-            x for x in typeList if x not in NonObjectTypes and not "std::" in x
+            x for x in typeList if x not in NonObjectTypes and "std::" not in x
         ]
         return cleaned_list
 
