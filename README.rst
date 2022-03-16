@@ -19,9 +19,10 @@ Code analyzer to get information to help developers to understand how projects w
 Installation
 ------------
 
-pycodeanlyzer is available on PyPI:
-::
+pycodeanlyzer is available on PyPI::
+
         pip install pycodeanalyzer
+
 see https://pip.pypa.io/en/stable/installation/ for more detail on pip
 
 Requirements
@@ -52,13 +53,13 @@ Requirements
 
 Usage
 -----
-The following is the help of pycodeanalyzer:
-::
-	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path
+The following is the help of pycodeanalyzer::
 
+	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path
+	
 	positional arguments:
 	  path            Path of the root directory to be analysed
-
+	
 	optional arguments:
 	  -h, --help      show this help message and exit
 	  --log LOGLEVEL  Log level to be used
@@ -66,17 +67,38 @@ The following is the help of pycodeanalyzer:
 To get more information during the run, use --log=DEBUG
 
 Languages
------
+---------
 
 pycodeanalyser supports the following languages:
 
 - C/C++
 
-Licence
+License
 -------
 
-.. include:: LICENSE
-   :literal:
+This project is under the MIT license::
+
+    The MIT License (MIT)
+
+    Copyright (c) 2022 Giovanni Mion
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
 
 Authors
 -------

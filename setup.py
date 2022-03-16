@@ -18,6 +18,7 @@ setup(
     version="0.0.1",
     url="https://github.com/miong/pycodeanalyzer",
     license='MIT',
+    long_description_content_type="text/x-rst",
 
     author="Giovanni Mion",
     author_email="mion.ggb@gmail.com",
