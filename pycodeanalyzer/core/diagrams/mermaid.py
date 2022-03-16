@@ -73,8 +73,6 @@ class ClassDiagramBuild:
             res += relation[0] + " --|> " + relation[1] + "\n"
         for relation in self.relations:
             res += relation[0] + " ..> " + relation[1] + "\n"
-        print("----------------")
-        print(res)
         return res
 
     def addInheritance(self, target, linkedObject):
