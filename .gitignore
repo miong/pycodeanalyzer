@@ -35,3 +35,11 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# Node modules
+node_modules/
+package-lock.json
+package.json
+
+# Any temporary data
+temp

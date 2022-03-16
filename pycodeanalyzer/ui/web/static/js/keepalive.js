@@ -1,21 +1,19 @@
-async function getRequest(url='') {
-    const response = await fetch(url, {
-      method: 'GET',
-      cache: 'no-cache'
-    })
-    return response.json()
+async function getRequest(url = '') {
+	const response = await fetch(url, {
+		method: 'GET',
+		cache: 'no-cache',
+	});
+	return response.json();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+	const url = document.location;
+	const route = '/flaskwebgui-keep-server-alive';
+	const intervalRequest = 3 * 1000; // Sec
 
-let url = document.location
-let route = "/flaskwebgui-keep-server-alive"
-let interval_request = 3 * 1000 //sec
+	function keepAliveServer() {
+		getRequest(url + route);
+	}
 
-function keep_alive_server(){
-    getRequest(url + route)
-}
-
-setInterval(keep_alive_server, interval_request)()
-
-})
+	setInterval(keepAliveServer, intervalRequest)();
+});

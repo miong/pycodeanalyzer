@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Initialize Python 3.7
         uses: actions/setup-python@v1
         with:
@@ -40,7 +40,7 @@ jobs:
       - name: install JS dependencies
         run: |
             yarn install
-            npm install eslint --save-dev
+            npm install --save-dev eslint eslint-config-xo babel-eslint
       - name: Lint python with flake8
         run: |
             # stop the build if there are Python syntax errors or undefined names
@@ -51,4 +51,3 @@ jobs:
         uses: iCrawl/action-eslint@v1
         with:
             custom-glob: pycodeanalyzer
-
