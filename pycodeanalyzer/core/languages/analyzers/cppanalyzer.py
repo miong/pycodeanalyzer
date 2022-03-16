@@ -186,7 +186,8 @@ class CppAnalyzer(Analyzer):
                 path,
             )
             return
-        abstraction = AbstractClass(klass["name"], klass["namespace"], path)
+        namespace = self.clearNamespace(klass["namespace"])
+        abstraction = AbstractClass(klass["name"], namespace, path)
         self.addParents(abstraction, klass)
         self.addMethods(abstraction, klass, "public")
         self.addMethods(abstraction, klass, "protected")
@@ -231,17 +232,13 @@ class CppAnalyzer(Analyzer):
         for val in enum["values"]:
             values.append(val["name"])
         name = enum["name"] if "name" in enum else "Anon-enum"
-        namespace = enum["namespace"]
-        if namespace[-2:] == "::":
-            namespace = enum["namespace"][:-2]
+        namespace = self.clearNamespace(enum["namespace"])
         abstraction = AbstractEnum(name, namespace, path, values)
         abstractObjects.append(abstraction)
         self.objectPaths.append(objectPath)
 
     def handleFunction(self, path, function, abstractObjects):
-        namespace = function["namespace"]
-        if namespace[-2:] == "::":
-            namespace = function["namespace"][:-2]
+        namespace = self.clearNamespace(function["namespace"])
         params = []
         for param in function["parameters"]:
             params.append((param["type"], param["name"]))
@@ -252,3 +249,11 @@ class CppAnalyzer(Analyzer):
             function["name"], path, function["rtnType"], params, namespace, doxygen
         )
         abstractObjects.append(abstraction)
+
+    def clearNamespace(self, namespace):
+        cleared = namespace.strip()
+        if cleared[-2:] == "::":
+            cleared = cleared[:-2]
+        if cleared[:2] == "::":
+            cleared = cleared[2:]
+        return cleared
