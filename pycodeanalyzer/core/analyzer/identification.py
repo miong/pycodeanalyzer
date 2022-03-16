@@ -1,3 +1,6 @@
+
+import os
+
 class IdentityAnalyser:
     def __init__(self):
         self.mapping = {}
@@ -44,6 +47,81 @@ class IdentityAnalyser:
                     currentTree["__classes__"].append(element.replace("££", "::"))
         return tree
 
+    def getEnumTree(self):
+        tree = {}
+        currentTree = None
+        for enum in self.getEnums():
+            enumName = enum.name.replace("::", "££")
+            enumPath = enum.namespace + "::" + enumName
+            pathElements = enumPath.split("::")
+            currentTree = tree
+            for element in pathElements:
+                if len(element) == 0:
+                    continue
+                if pathElements.index(element) < len(pathElements) - 1:
+                    if not element in currentTree.keys():
+                        currentTree[element] = {}
+                    currentTree = currentTree[element]
+                else:
+                    if not "__enums__" in currentTree.keys():
+                        currentTree["__enums__"] = []
+                    currentTree["__enums__"].append(element.replace("££", "::"))
+        return tree
+
+    def getFunctionTree(self):
+        tree = {}
+        currentTree = None
+        for func in self.getFunctions():
+            funcName = func.name.replace("::", "££")
+            funcPath = func.namespace + "::" + funcName
+            pathElements = funcPath.split("::")
+            currentTree = tree
+            for element in pathElements:
+                if len(element) == 0:
+                    continue
+                if pathElements.index(element) < len(pathElements) - 1:
+                    if not element in currentTree.keys():
+                        currentTree[element] = {}
+                    currentTree = currentTree[element]
+                else:
+                    if not "__functions__" in currentTree.keys():
+                        currentTree["__functions__"] = []
+                    elementValue = element.replace("££", "::")
+                    data = {}
+                    data["name"] = elementValue
+                    data["fullDef"] = func.getFullDef()
+                    currentTree["__functions__"].append(data)
+        return tree
+
+    def getFileTree(self):
+        files = []
+        tree = {}
+        for item in self.getClasses():
+            if not item.origin in files:
+                files.append(item.origin)
+        for item in self.getEnums():
+            if not item.origin in files:
+                files.append(item.origin)
+        for item in self.getFunctions():
+            if not item.origin in files:
+                files.append(item.origin)
+        self.commonFilePath = os.path.commonpath(files)
+        currentTree = tree
+        for file in files:
+            currentTree = tree
+            fileRelPath = file[len(self.commonFilePath)+1:]
+            elements = fileRelPath.split("/")
+            for element in elements:
+                if fileRelPath.index(element) < len(fileRelPath) - 1 - len(element):
+                    if not element in currentTree.keys():
+                        currentTree[element] = {}
+                    currentTree = currentTree[element]
+                else:
+                    if not "__files__" in currentTree.keys():
+                        currentTree["__files__"] = []
+                    currentTree["__files__"].append(element)
+        return tree
+
     def getClass(self, classNamespacePath):
         for klass in self.getClasses():
             klassPath = klass.name
@@ -52,3 +130,37 @@ class IdentityAnalyser:
             if classNamespacePath == klassPath:
                 return klass
         return None
+
+    def getEnum(self, enumNamespacePath):
+        for enum in self.getEnums():
+            enumPath = enum.name
+            if len(enum.namespace) > 0:
+                enumPath = enum.namespace + "::" + enum.name
+            if enumNamespacePath == enumPath:
+                return enum
+        return None
+
+    def getFunction(self, funcFullDef):
+        for func in self.getFunctions():
+            if funcFullDef == func.getFullDef():
+                return func
+        return None
+
+    def getObjectInFile(self, file):
+        ret = {}
+        if len(self.getClasses()) > 0:
+            ret["classes"] = []
+            for item in self.getClasses():
+                if item.origin == file:
+                    ret["classes"].append(item.getFullName())
+        if len(self.getEnums()) > 0:
+            ret["enums"] = []
+            for item in self.getEnums():
+                if item.origin == file:
+                    ret["enums"].append(item.getFullName())
+        if len(self.getFunctions()) > 0:
+            ret["functions"] = []
+            for item in self.getFunctions():
+                if item.origin == file:
+                    ret["functions"].append(item.getFullDef())
+        return ret

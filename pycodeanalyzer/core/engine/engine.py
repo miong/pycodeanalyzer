@@ -93,6 +93,18 @@ class Engine:
         self.logger.debug("Class name tree sent to UI")
         self.uiBrowseListener.notifyClasseNames(self.identityAnalyser.getClasseTree())
 
+    def sendEnumNames(self):
+        self.logger.debug("Enum name tree sent to UI")
+        self.uiBrowseListener.notifyEnumNames(self.identityAnalyser.getEnumTree())
+
+    def sendFunctionNames(self):
+        self.logger.debug("Function name tree sent to UI")
+        self.uiBrowseListener.notifyFunctionNames(self.identityAnalyser.getFunctionTree())
+
+    def sendFileNames(self):
+        self.logger.debug("File name tree sent to UI")
+        self.uiBrowseListener.notifyFileNames(self.identityAnalyser.getFileTree())
+
     def sendClassData(self, className):
         klass = self.identityAnalyser.getClass(className)
         if not klass:
@@ -102,7 +114,7 @@ class Engine:
             self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass
         )
         self.classDiagramBuild.reset()
-        self.classDiagramBuild.create(objects[0], objects[1], objects[2], objects[3])
+        self.classDiagramBuild.createClass(objects[0], objects[1], objects[2], objects[3])
         mermaidDiag = self.classDiagramBuild.build()
         klassDesc = {}
         klassDesc["name"] = klass.name
@@ -113,3 +125,50 @@ class Engine:
             klassDesc["parents"].append(parent[0])
         self.logger.debug("Class data sent to UI")
         self.uiBrowseListener.notifyClassData(klassDesc, mermaidDiag)
+
+    def sendEnumData(self, enumName):
+        enum = self.identityAnalyser.getEnum(enumName)
+        if not enum:
+            self.logger.error("Unknow enum requested : %s", enumName)
+            return
+        self.classDiagramBuild.reset()
+        self.classDiagramBuild.createEnum(enum)
+        mermaidDiag = self.classDiagramBuild.build()
+        enumDesc = {}
+        enumDesc["name"] = enum.name
+        enumDesc["namespace"] = enum.namespace
+        enumDesc["file"] = enum.origin
+        self.logger.debug("Enum data sent to UI")
+        self.uiBrowseListener.notifyEnumData(enumDesc, mermaidDiag)
+
+
+    def sendFunctionData(self, functionDef):
+        func = self.identityAnalyser.getFunction(functionDef)
+        if not func:
+            self.logger.error("Unknow function requested : %s", functionDef)
+            return
+        functionDesc = {}
+        functionDesc["name"] = func.name
+        functionDesc["namespace"] = func.namespace
+        functionDesc["file"] = func.origin
+        functionDesc["rtype"] = func.returnType
+        params = {}
+        for param in func.parameters:
+            params[param[1]] = param[0]
+        functionDesc["params"] = params
+        functionDesc["doxygen"] = func.doxygen
+        self.logger.debug("Function data sent to UI")
+        self.uiBrowseListener.notifyFunctionData(functionDesc)
+
+
+    def sendFileData(self, fileName):
+        filePath = fileName
+        if "::" in fileName:
+            filePath = self.identityAnalyser.commonFilePath +"/"+ fileName.replace("::", "/");
+        fileDesc = {}
+        fileDesc["name"] = fileName
+        fileDesc["path"] = filePath
+        fileDesc["objects"] = self.identityAnalyser.getObjectInFile(filePath)
+        fileDesc["content"] = open(filePath,mode='r').read()
+        self.logger.debug("File data sent to UI")
+        self.uiBrowseListener.notifyFileData(fileDesc)

@@ -6,11 +6,17 @@ class AbstractObject:
 
 
 class AbstractEnum(AbstractObject):
-    def __init__(self, name, origin, values):
+    def __init__(self, name, namespace, origin, values):
         self.name = name
+        self.namespace = namespace
         self.type = "Enum"
         self.values = values
         self.origin = origin
+
+    def getFullName(self):
+        if len(self.namespace) <= 0:
+            return self.name
+        return self.namespace + "::" + self.name
 
     def print(self):
         print("Enum : ", self.name)
@@ -20,18 +26,31 @@ class AbstractEnum(AbstractObject):
 
 
 class AbstractFunction(AbstractObject):
-    def __init__(self, name, origin, returnType, parameters):
+    def __init__(self, name, origin, returnType, parameters, namespace, doxygen):
         self.name = name
+        self.namespace = namespace
         self.type = "Function"
         self.returnType = returnType
         self.origin = origin
         self.parameters = parameters
+        self.doxygen = doxygen
 
     def print(self):
-        print("Enum : ", self.name)
-        print("\tValues : ")
-        for value in self.values:
-            print("\t\t * ", value)
+        print("Function : ", self.name)
+        print("\tNamespace :", self.namespace)
+        print("\tReturn :", self.returnType)
+        print("\tParams :")
+        for param in self.parameters:
+            print("\t\t -",param[0],param[1])
+
+    def getFullDef(self):
+        ret = self.returnType+" "+self.namespace+"::"+self.name+"("
+        for param in self.parameters:
+            ret += param[0]+" "+param[1]+", "
+        ret = ret[:-2]
+        ret += ")"
+        return ret
+
 
 
 class AbstractClass(AbstractObject):
@@ -56,9 +75,9 @@ class AbstractClass(AbstractObject):
     def getLinkedTypes(self):
         types = []
         for parent in self.parents:
-            type = self.getDependanceFromType(parent[1])
-            if type not in types:
-                types.append(type)
+            for type in self.getDependanceFromType(parent[1]):
+                if type not in types and self.isPotentialClassName(type):
+                    types.append(type)
             if parent[0] != parent[1]:
                 # TODO Handle nested
                 templateTypeList = (
@@ -69,39 +88,58 @@ class AbstractClass(AbstractObject):
                     .split(",")
                 )
                 for templateType in templateTypeList:
-                    type = self.getDependanceFromType(templateType)
-                    if type not in types:
-                        types.append(type)
+                    for type in self.getDependanceFromType(templateType):
+                        if type not in types and self.isPotentialClassName(type):
+                            types.append(type)
         for method in self.methodes:
-            type = self.getDependanceFromType(method[0])
-            if type not in types:
-                types.append(type)
-            for param in method[2]:
-                type = self.getDependanceFromType(param[0])
-                if type not in types:
+            for type in self.getDependanceFromType(method[0]):
+                if type not in types and type != self.name and self.isPotentialClassName(type):
                     types.append(type)
-        for member in self.members:
-            if "<" in member[0]:
-                # TODO Handle nested
-                print(member[0])
-                index = member[0].index("<")
-                templateTypeList = (
-                    member[0][index:].replace("<", "").replace(">", "").split(",")
-                )
-                print(templateTypeList)
-                for templateType in templateTypeList:
-                    type = self.getDependanceFromType(templateType)
-                    if type not in types:
+            for param in method[2]:
+                for type in self.getDependanceFromType(param[0]):
+                    if type not in types and self.isPotentialClassName(type):
                         types.append(type)
-            type = self.getDependanceFromType(member[0])
-            if type not in types:
-                types.append(type)
+        for member in self.members:
+            for type in  self.getDependanceFromType(member[0]):
+                if type not in types and self.isPotentialClassName(type):
+                    types.append(type)
         types = self.removeNonObjectTypes(types)
         return types
 
+    def isPotentialClassName(self, type):
+        if not type:
+            return False
+        if len(type) <= 0:
+            return False
+        if "(" in type:
+            return False
+        return True
+
     def getDependanceFromType(self, type):
+        deps = []
+        if "<" in type:
+            # TODO Handle nested
+            index = type.index("<")
+            templateTypeList = (
+                type[index:].replace("<", "").replace(">", "").split(",")
+            )
+            for templateType in templateTypeList:
+                innerTypes = self.getDependanceFromType(templateType)
+                for dep in innerTypes:
+                    if dep not in deps:
+                        deps.append(self.cleanLanguageArtifacts(dep))
+            type = type[:index].replace("<", "")
+        deps.append(self.cleanLanguageArtifacts(type))
+        return deps
+
+    def getFullName(self):
+        if len(self.namespace) <= 0:
+            return self.name
+        return self.namespace + "::" + self.name
+
+    def cleanLanguageArtifacts(self, type):
         # remove all languages artefact that are not needed to get the type we depends on
-        return type.replace("*", "").replace("&", "").replace("const", "").strip()
+        return type.replace("*", "").replace("&", "").replace("const", "").replace("static", "").strip()
 
     def removeNonObjectTypes(self, typeList):
         NonObjectTypes = [
@@ -117,13 +155,23 @@ class AbstractClass(AbstractObject):
             "unsigned long long",
             "float",
             "double",
+            "int8_t",
+            "int16_t",
+            "int32_t",
+            "int64_t",
             "uint8_t",
             "uint16_t",
             "uint32_t",
             "uint64_t",
         ]
-        cleaned_list = [x for x in typeList if x not in NonObjectTypes]
+        cleaned_list = [x for x in typeList if x not in NonObjectTypes and not "std::" in x]
         return cleaned_list
+
+    def isParent(self, klass):
+        for tuple in self.parents:
+            if tuple[0] == klass.name:
+                return True
+        return False
 
     def print(self):
         print("Class : ", self.name, " in namespace ", self.namespace)

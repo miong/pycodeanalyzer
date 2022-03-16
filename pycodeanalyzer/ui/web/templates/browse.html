@@ -4,22 +4,24 @@
         <meta charset="utf-8">
         <title>PyCodeAnalyzer</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}"/>
+        <link rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/keepalive.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/browse.js') }}"></script>
-        <script>mermaid.initialize({startOnLoad:true});</script>
     </head>
     <body>
         <div class="center main-container">
             <h1>PyCodeAnalyzer</h1>
             <div class="horizontal-navbar-container">
                 <ul class="navbar horizontal">
-                    <li class="horizontal-navbar" ><a href="./browse/classes">Classes</a></li>
-                    <li class="horizontal-navbar" ><a href="./browse/enums">Enums</a></li>
-                    <li class="horizontal-navbar" ><a href="./browse/functions">Functions</a></li>
-                    <li class="horizontal-navbar" ><a href="./browse/files">Files</a></li>
+                    <li class="horizontal-navbar" ><a href="/browse/classes">Classes</a></li>
+                    <li class="horizontal-navbar" ><a href="/browse/enums">Enums</a></li>
+                    <li class="horizontal-navbar" ><a href="/browse/functions">Functions</a></li>
+                    <li class="horizontal-navbar" ><a href="/browse/files">Files</a></li>
                 </ul>
             </div>
             <div class="vertical-navbar-container">
@@ -29,11 +31,11 @@
             <div class="navcontent" >
                 <h2 id="ItemName">Welcome</h2>
                 <div id="ItemDesc">
-                    Please select a class to see it here.
+                    Please select an item to see it here.
                 </div>
-                <div id="ItemDiag" class="mermaid">
-                    flowchart LR
-                    SelectClass --> Enjoy
+                <div id="ItemDiag" class="mermaid scrollable diag">
+                    flowchart TD
+                    SelectItem --> Enjoy
                 </div>
             </div>
         </div>

@@ -50,10 +50,40 @@ class UiBrowseListener(UiLink):
         if self.socketio:
             self.socketio.emit("classeNamesChange", {"tree": tree})
 
+    def notifyEnumNames(self, tree):
+        if self.socketio:
+            self.socketio.emit("enumNamesChange", {"tree": tree})
+
+    def notifyFunctionNames(self, tree):
+        if self.socketio:
+            self.socketio.emit("functionNamesChange", {"tree": tree})
+
+    def notifyFileNames(self, tree):
+        if self.socketio:
+            self.socketio.emit("fileNamesChange", {"tree": tree})
+
     def notifyClassData(self, klass, mermaidDiag):
         if self.socketio:
             self.socketio.emit(
                 "classDataChange", {"class": klass, "mermaidDiag": mermaidDiag}
+            )
+
+    def notifyEnumData(self, enum, mermaidDiag):
+        if self.socketio:
+            self.socketio.emit(
+                "enumDataChange", {"enum": enum, "mermaidDiag": mermaidDiag}
+            )
+
+    def notifyFunctionData(self, function):
+        if self.socketio:
+            self.socketio.emit(
+                "functionDataChange", {"function": function}
+            )
+
+    def notifyFileData(self, file):
+        if self.socketio:
+            self.socketio.emit(
+                "fileDataChange", {"file": file}
             )
 
 
@@ -102,5 +132,9 @@ class FlaskHolder(FlaskView):
         return render_template("home.html")
 
     @route("/browse")
+    @route("/browse/classes")
+    @route("/browse/enums")
+    @route("/browse/functions")
+    @route("/browse/files")
     def browse(self):
         return render_template("browse.html")

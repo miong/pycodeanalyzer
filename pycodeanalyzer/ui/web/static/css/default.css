@@ -13,6 +13,12 @@
   text-align: center;
 }
 
+.left {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
 div {
     margin: 0;
     padding: 0;
@@ -48,8 +54,12 @@ div.navcontent {
     top: 10%;
     left: 20%;
     width: 80%;
-    height: 90%;
-    overflow: auto;
+    height: 88%;
+    overflow: scroll;
+}
+
+ul.nobullets {
+    list-style-type: none;
 }
 
 ul.navbar {
@@ -144,6 +154,12 @@ button {
     font-size: 20px;
 }
 
+.scrollable {
+    overflow-x: visible;
+    overflow-y: visible;
+
+}
+
 .class-item {
     background-color: #87CEFA
 }
@@ -155,6 +171,15 @@ button {
 .control-item {
     background-color: #9825f9
 }
+
+
+.diag svg{
+    width: auto;
+    height: auto;
+    overflow: scroll;
+    max-width: none;
+}
+
 
 @keyframes spin {
   0% { transform: rotate(0deg); }

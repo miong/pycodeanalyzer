@@ -62,6 +62,8 @@ class CppAnalyzer(Analyzer):
             "G_GNUC_MALLOC",
             "G_GNUC_ALLOC_SIZE2 ()",
             "G_GNUC_ALLOC_SIZE2()" "PROTOBUF_EXPORT",
+            "PROTOBUF_DEPRECATED_ATTR",
+            "PROTOBUF_DEPRECATED"
         ]
         CppHeaderParser.CppHeaderParser.is_enum_namestack = (
             CustomCppHeader.is_enum_namestack
@@ -90,10 +92,13 @@ class CppAnalyzer(Analyzer):
             for function in header.functions:
                 self.handleFunction(path, function, abstractObjects)
         except AssertionError as err:
+            self.logger.warning(err)
             self.logger.warning("Error analyzing %s", path)
         except CppHeaderParser.CppHeaderParser.CppParseError as err:
+            self.logger.warning(err)
             self.logger.warning("Error analyzing %s", path)
         except UnicodeDecodeError as err:
+            self.logger.warning(err)
             self.logger.warning("Error analyzing %s : can't decode file", path)
         return abstractObjects
 
@@ -110,6 +115,7 @@ class CppAnalyzer(Analyzer):
         self.addParents(abstraction, klass)
         self.addMethods(abstraction, klass, "public")
         self.addMethods(abstraction, klass, "protected")
+        self.addMethods(abstraction, klass, "private")
         self.addMembers(abstraction, klass, "public")
         self.addMembers(abstraction, klass, "protected")
         self.addMembers(abstraction, klass, "private")
@@ -121,7 +127,10 @@ class CppAnalyzer(Analyzer):
             params = []
             for param in method["parameters"]:
                 params.append((param["type"], param["name"]))
-            abstraction.addMethod(method["rtnType"], method["name"], params, visibility)
+            rtnType = method["rtnType"]
+            if method["name"] == klass["name"]:
+                rtnType = klass["name"]
+            abstraction.addMethod(rtnType, method["name"], params, visibility)
 
     def addMembers(self, abstraction, klass, visibility):
         for member in klass["properties"][visibility]:
@@ -129,24 +138,44 @@ class CppAnalyzer(Analyzer):
 
     def addParents(self, abstraction, klass):
         for declParent in klass["inherits"]:
+            declName = declParent["class"]
+            if "decl_name" in declParent:
+                declName = declParent["decl_name"]
             abstraction.addParent(
-                declParent["class"], declParent["decl_name"], declParent["access"]
+                declParent["class"], declName, declParent["access"]
             )
 
     def handleEnum(self, path, enum, abstractObjects):
-        # TODO handle namespace
+        objectPath = (enum["namespace"] + "::" + enum["name"]).strip()
+        if objectPath in self.objectPaths:
+            self.logger.warning(
+                "Name collision for %s in %s. It will be drop from the analysis.",
+                enum["name"],
+                path,
+            )
+            return
         values = []
         for val in enum["values"]:
             values.append(val["name"])
         name = enum["name"] if "name" in enum else "Anon-enum"
-        abstraction = AbstractEnum(name, path, values)
+        namespace = enum["namespace"]
+        if namespace[-2:] == "::":
+            namespace = enum["namespace"][:-2]
+        abstraction = AbstractEnum(name, namespace, path, values)
         abstractObjects.append(abstraction)
+        self.objectPaths.append(objectPath)
 
     def handleFunction(self, path, function, abstractObjects):
+        namespace = function["namespace"]
+        if namespace[-2:] == "::":
+            namespace = function["namespace"][:-2]
         params = []
         for param in function["parameters"]:
             params.append((param["type"], param["name"]))
+        doxygen = "/* No comments in file */"
+        if "doxygen" in function:
+            doxygen = function["doxygen"]
         abstraction = AbstractFunction(
-            function["name"], path, function["rtnType"], params
+            function["name"], path, function["rtnType"], params, namespace, doxygen
         )
         abstractObjects.append(abstraction)
