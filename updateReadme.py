@@ -1,15 +1,19 @@
 import codecs
 import subprocess
+import platform
 from distutils.core import run_setup
 
 
 def main():
     readme = ""
     with open('readme.template') as f:
+        pythonCmd = 'python'
+        if platform.system() == 'Linux' or platform.system() == 'Darwin':
+            pythonCmd = 'python3'
         lines = f.readlines()
         for line in lines:
             if line == "[[USAGE]]\n":
-                helpstr = "\t"+subprocess.check_output(['python', '-m', "pycodeanalyzer", "-h"]).decode("utf-8")
+                helpstr = "\t"+subprocess.check_output([pythonCmd, '-m', "pycodeanalyzer", "-h"]).decode("utf-8")
                 readme += '\t'.join(helpstr.splitlines(True))
                 pass
             elif line == "[[REQUIREMENTS]]\n":
