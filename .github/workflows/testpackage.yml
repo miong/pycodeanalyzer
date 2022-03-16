@@ -51,6 +51,9 @@ jobs:
         with:
             password: ${{ secrets.test_pypi_password }}
             repository_url: https://test.pypi.org/legacy/
+            packages_dir: pycodeanalyzer-package
+            verbose: true
+            print_hash: true
       - name: Verify packet on TestPyPI
         run: |
           pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
