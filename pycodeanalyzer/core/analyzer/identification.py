@@ -106,6 +106,9 @@ class IdentityAnalyser:
             if not item.origin in files:
                 files.append(item.origin)
         self.commonFilePath = os.path.commonpath(files)
+        self.singleFile = len(files) == 1
+        if self.singleFile:
+            self.commonFilePath = os.path.abspath(os.path.join(self.commonFilePath, os.pardir))
         currentTree = tree
         for file in files:
             currentTree = tree
