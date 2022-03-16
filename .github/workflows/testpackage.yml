@@ -26,7 +26,7 @@ jobs:
             python-version: 3.7
       - name: Change version to test version
         run: |
-          sed -i -E -e "s?version=\"(.*)\"?version=\"\1a+$(git rev-parse --short HEAD)\"?g" setup.py
+          sed -i -E -e "s?version=\"(.*)\"?version=\"\1a$(git rev-list --count remotes/origin/stable)\"?g" setup.py
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
       - name: Publish distribution to Test PyPI
