@@ -82,6 +82,10 @@ class UiBrowseListener(UiLink):
         if self.socketio:
             self.socketio.emit("fileDataChange", {"file": file})
 
+    def notifySearchResult(self, searchRes):
+        if self.socketio:
+            self.socketio.emit("searchResult", {"res": searchRes})
+
 
 @singleton
 class Application:
@@ -132,5 +136,6 @@ class FlaskHolder(FlaskView):
     @route("/browse/enums")
     @route("/browse/functions")
     @route("/browse/files")
+    @route("/browse/search")
     def browse(self):
         return render_template("browse.html")

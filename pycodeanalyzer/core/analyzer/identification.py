@@ -93,9 +93,8 @@ class IdentityAnalyser:
                     currentTree["__functions__"].append(data)
         return tree
 
-    def getFileTree(self):
+    def getFiles(self):
         files = []
-        tree = {}
         for item in self.getClasses():
             if not item.origin in files:
                 files.append(item.origin)
@@ -105,6 +104,11 @@ class IdentityAnalyser:
         for item in self.getFunctions():
             if not item.origin in files:
                 files.append(item.origin)
+        return files
+
+    def getFileTree(self):
+        files = self.getFiles()
+        tree = {}
         self.commonFilePath = os.path.commonpath(files)
         self.singleFile = len(files) == 1
         if self.singleFile:

@@ -35,3 +35,6 @@ class EngineCommands:
 
     def requestFileData(self, fileName):
         self.engine.sendFileData(fileName)
+
+    def requestSearchData(self, token):
+        self.engine.sendSearchResult(token)

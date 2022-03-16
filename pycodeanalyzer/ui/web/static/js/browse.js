@@ -257,6 +257,38 @@ function requestFileData(fileData) {
     });
 }
 
+function setupSearch() {
+    const itemName = document.getElementById('ItemName');
+    const itemDiag = document.getElementById('ItemDiag');
+    const itemDesc = document.getElementById('ItemDesc');
+
+    itemName.innerHTML = "Search";
+    itemDesc.innerHTML = "<input type=\"search\" id=\"code-search-text\" name=\"q\"><button onclick=\"performSearch();\">Search</button>";
+    itemDiag.innerHTML = "";
+}
+
+function performSearch() {
+    const itemSearch = document.getElementById('code-search-text');
+    token = itemSearch.value
+    socket.emit('searchData', {
+        data: 'request searchData',
+        token : token
+    });
+}
+
+function showSearchResult(res) {
+    const itemDiag = document.getElementById('ItemDiag');
+    presentation = "Found "+res.length+" results.<h2>Results :</h2><div class=\"left\">";
+    for (item of res) {
+        path = item[0];
+        context = item[1];
+        presentation += "<div><a href=\"#\" onclick=\"requestFileData('"+path+"');return false;\">"+path+"</a></div><br><div><pre><code>"+context+"</pre></code></div><br><br>";
+    }
+    presentation += "</div>"
+    itemDiag.innerHTML = presentation;
+    hljs.highlightAll();
+}
+
 socket.on( 'connect', function() {
     pathItems = window.location.pathname.split("/")
     key = pathItems[pathItems.length - 1];
@@ -276,11 +308,13 @@ socket.on( 'connect', function() {
         socket.emit('fetchAnalysedFunctionNames', {
             data: 'request data to feed browse'
         });
-    } else if (key == "files") {
+    } else if (key == "files" || key == 'search') {
         currentItemKey = "__files__";
         socket.emit('fetchAnalysedFileNames', {
             data: 'request data to feed browse'
         });
+        if(key == 'search')
+            setupSearch()
     } else {
         console.log("Unknow path to handle : "+key+" in "+window.location.pathname)
     }
@@ -334,6 +368,12 @@ socket.on( 'fileDataChange', function( msg ) {
     console.log("fileDataChange received");
     fileData = msg.file;
     updateFileView(fileData);
+})
+
+socket.on( 'searchResult', function( msg ) {
+    console.log("searchResult received");
+    res = msg.res;
+    showSearchResult(res);
 })
 
 var onNodeClick = function(text){

@@ -41,6 +41,9 @@ class SocketListner:
     def fetchFileData(self, fileName):
         self.engineCommands.requestFileData(fileName)
 
+    def searchData(self, token):
+        self.engineCommands.requestSearchData(token)
+
 
 @app.socketio.on("fetchStats")
 def fetchStats(json, methods=["GET", "POST"]):
@@ -85,3 +88,8 @@ def fetchClassData(json, methods=["GET", "POST"]):
 @app.socketio.on("fetchFileData")
 def fetchClassData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchFileData(json["fileName"])
+
+
+@app.socketio.on("searchData")
+def searchData(json, methods=["GET", "POST"]):
+    injector.get(SocketListner).searchData(json["token"])

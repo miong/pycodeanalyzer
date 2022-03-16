@@ -4,6 +4,7 @@ from injector import inject, singleton
 
 from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
 from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
+from pycodeanalyzer.core.analyzer.search import SearchAnalyser
 from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
@@ -33,6 +34,7 @@ class Engine:
         fileDispatcher: FileDispatcher,
         identityAnalyser: IdentityAnalyser,
         dependancyAnalyser: DependancyAnalyser,
+        searchAnalyser: SearchAnalyser,
         uiStatListener: UiStatListener,
         uiBrowseListener: UiBrowseListener,
         classDiagramBuild: ClassDiagramBuild,
@@ -41,6 +43,7 @@ class Engine:
         self.fileDispatcher = fileDispatcher
         self.identityAnalyser = identityAnalyser
         self.dependancyAnalyser = dependancyAnalyser
+        self.searchAnalyser = searchAnalyser
         self.uiStatListener = uiStatListener
         self.uiBrowseListener = uiBrowseListener
         self.files = []
@@ -177,3 +180,9 @@ class Engine:
         fileDesc["content"] = open(filePath, mode="r").read()
         self.logger.debug("File data sent to UI")
         self.uiBrowseListener.notifyFileData(fileDesc)
+
+    def sendSearchResult(self, token):
+        searchRes = self.searchAnalyser.searchInAllFiles(
+            token, self.identityAnalyser.getFiles()
+        )
+        self.uiBrowseListener.notifySearchResult(searchRes)
