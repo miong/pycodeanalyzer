@@ -24,9 +24,17 @@ jobs:
         uses: actions/setup-python@v1
         with:
             python-version: 3.7
-
+      - name: Change version to test version
+        run: |
+          sed -i -E -e "s?version=\"(.*)\"?version=\"\1-$(git rev-parse --short HEAD)\"?g" setup.py
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
+      - name: Archive Python package
+          uses: actions/upload-artifact@v3
+          with:
+            name: pycodeanalyzer-package
+            retention-days: 1
+            path: dist
   publish-test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -34,6 +42,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job only on release branch
     steps:
+      - name: Download Python package
+        uses: actions/download-artifact@v3
+        with:
+          name: pycodeanalyzer-package
       - name: Publish distribution to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
@@ -41,5 +53,4 @@ jobs:
             repository_url: https://test.pypi.org/legacy/
       - name: Verify packet on TestPyPI
         run: |
-          sed -i -E -e "s?version=\"(.*)\"?version=\"\1-$(git rev-parse --short HEAD)\"?g" setup.py
           pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
