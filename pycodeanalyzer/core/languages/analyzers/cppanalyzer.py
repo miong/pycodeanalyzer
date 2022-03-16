@@ -1,11 +1,61 @@
+import io
 import os
+import re
+import sys
+import argparse
 
 import CppHeaderParser
 import magic
+from pcpp import Preprocessor, OutputDirective, Action
 
 from pycodeanalyzer.core.abstraction.objects import *
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
+class CustumCppPreprocessor(Preprocessor):
+
+    def __init__(self):
+        super().__init__()
+        self.passthru_includes = re.compile(".*")
+        self.expand_linemacro = False
+        self.expand_filemacro = False
+        self.expand_countermacro = False
+        self.bypass_ifpassthru = False
+
+
+    def parseFile(self, path):
+        item = argparse.FileType('rt')(path)
+        self.parse(item)
+
+    def addDefine(self, d):
+        if '=' not in d:
+            d += '=1'
+            d = d.replace('=', ' ', 1)
+        self.define(d)
+
+    def getResult(self):
+        string = ""
+        ss = io.StringIO(string)
+        self.write(ss)
+        return ss.getvalue()
+
+    def on_include_not_found(self,is_malformed,is_system_include,curdir,includepath):
+        raise OutputDirective(Action.IgnoreAndPassThrough)
+
+    def on_comment(self,tok):
+        return True
+
+    def on_directive_handle(self,directive,toks,ifpassthru,precedingtoks):
+        if ifpassthru:
+            if directive.value == 'if' or directive.value == 'elif' or directive == 'else' or directive.value == 'endif':
+                self.bypass_ifpassthru = len([tok for tok in toks if tok.value == '__PCPP_ALWAYS_FALSE__' or tok.value == '__PCPP_ALWAYS_TRUE__']) > 0
+            if not self.bypass_ifpassthru and (directive.value == 'define' or directive.value == 'undef'):
+                if toks[0].value != self.potential_include_guard:
+                    raise OutputDirective(Action.IgnoreAndPassThrough)  # Don't execute anything with effects when inside an #if expr with undefined macro
+        super().on_directive_handle(directive,toks,ifpassthru,precedingtoks)
+        return None  # Pass through where possible
+
+    def on_unknown_macro_in_defined_expr(self,tok):
+        return False
 
 class CustomCppHeader(CppHeaderParser.CppHeader):
     def is_enum_namestack(nameStack):
@@ -83,8 +133,10 @@ class CppAnalyzer(Analyzer):
         ).from_file(abspath)
 
         try:
-            # TODO : handle using
-            header = CustomCppHeader(abspath, encoding=encoding)
+            preproc = CustumCppPreprocessor()
+            preproc.parseFile(abspath)
+            header = CustomCppHeader(preproc.getResult(), argType="string", encoding=encoding)
+            header.headerFileName = abspath
             for klass in header.classes.values():
                 self.handleClass(path, klass, abstractObjects)
             for enum in header.enums:
