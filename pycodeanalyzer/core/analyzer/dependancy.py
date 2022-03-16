@@ -1,11 +1,11 @@
-
 from pycodeanalyzer.core.abstraction.objects import AbstractClass
+
 
 class DependancyAnalyser:
     def analyze(self, klasses, enums, target):
         linkedClasses = []
         linkedEnums = []
-        linkedFunctions = [] #TODO : need to process .c / .cc / .cpp files
+        linkedFunctions = []  # TODO : need to process .c / .cc / .cpp files
         for type in target.getLinkedTypes():
             typeDeclaredNamespace = ""
             typeName = ""
@@ -18,13 +18,17 @@ class DependancyAnalyser:
             linkedClass = self.findClass(
                 typeDeclaredNamespace, typeName, klasses, target.namespace
             )
-            linkedEnum = self.findEnum(typeDeclaredNamespace, typeName, enums, target.namespace)
+            linkedEnum = self.findEnum(
+                typeDeclaredNamespace, typeName, enums, target.namespace
+            )
             if linkedEnum:
                 linkedEnums.append(linkedEnum)
             elif linkedClass:
                 linkedClasses.append(linkedClass)
             else:
-                linkedClasses.append(AbstractClass(typeName,typeDeclaredNamespace,None))
+                linkedClasses.append(
+                    AbstractClass(typeName, typeDeclaredNamespace, None)
+                )
         return (target, linkedClasses, linkedEnums, linkedFunctions)
 
     def findClass(self, namespace, name, klasses, currentNamespace):

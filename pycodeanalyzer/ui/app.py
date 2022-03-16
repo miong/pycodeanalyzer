@@ -76,15 +76,11 @@ class UiBrowseListener(UiLink):
 
     def notifyFunctionData(self, function):
         if self.socketio:
-            self.socketio.emit(
-                "functionDataChange", {"function": function}
-            )
+            self.socketio.emit("functionDataChange", {"function": function})
 
     def notifyFileData(self, file):
         if self.socketio:
-            self.socketio.emit(
-                "fileDataChange", {"file": file}
-            )
+            self.socketio.emit("fileDataChange", {"file": file})
 
 
 @singleton

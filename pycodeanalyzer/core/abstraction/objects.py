@@ -41,16 +41,15 @@ class AbstractFunction(AbstractObject):
         print("\tReturn :", self.returnType)
         print("\tParams :")
         for param in self.parameters:
-            print("\t\t -",param[0],param[1])
+            print("\t\t -", param[0], param[1])
 
     def getFullDef(self):
-        ret = self.returnType+" "+self.namespace+"::"+self.name+"("
+        ret = self.returnType + " " + self.namespace + "::" + self.name + "("
         for param in self.parameters:
-            ret += param[0]+" "+param[1]+", "
+            ret += param[0] + " " + param[1] + ", "
         ret = ret[:-2]
         ret += ")"
         return ret
-
 
 
 class AbstractClass(AbstractObject):
@@ -93,14 +92,18 @@ class AbstractClass(AbstractObject):
                             types.append(type)
         for method in self.methodes:
             for type in self.getDependanceFromType(method[0]):
-                if type not in types and type != self.name and self.isPotentialClassName(type):
+                if (
+                    type not in types
+                    and type != self.name
+                    and self.isPotentialClassName(type)
+                ):
                     types.append(type)
             for param in method[2]:
                 for type in self.getDependanceFromType(param[0]):
                     if type not in types and self.isPotentialClassName(type):
                         types.append(type)
         for member in self.members:
-            for type in  self.getDependanceFromType(member[0]):
+            for type in self.getDependanceFromType(member[0]):
                 if type not in types and self.isPotentialClassName(type):
                     types.append(type)
         types = self.removeNonObjectTypes(types)
@@ -120,9 +123,7 @@ class AbstractClass(AbstractObject):
         if "<" in type:
             # TODO Handle nested
             index = type.index("<")
-            templateTypeList = (
-                type[index:].replace("<", "").replace(">", "").split(",")
-            )
+            templateTypeList = type[index:].replace("<", "").replace(">", "").split(",")
             for templateType in templateTypeList:
                 innerTypes = self.getDependanceFromType(templateType)
                 for dep in innerTypes:
@@ -139,7 +140,13 @@ class AbstractClass(AbstractObject):
 
     def cleanLanguageArtifacts(self, type):
         # remove all languages artefact that are not needed to get the type we depends on
-        return type.replace("*", "").replace("&", "").replace("const", "").replace("static", "").strip()
+        return (
+            type.replace("*", "")
+            .replace("&", "")
+            .replace("const", "")
+            .replace("static", "")
+            .strip()
+        )
 
     def removeNonObjectTypes(self, typeList):
         NonObjectTypes = [
@@ -164,7 +171,9 @@ class AbstractClass(AbstractObject):
             "uint32_t",
             "uint64_t",
         ]
-        cleaned_list = [x for x in typeList if x not in NonObjectTypes and not "std::" in x]
+        cleaned_list = [
+            x for x in typeList if x not in NonObjectTypes and not "std::" in x
+        ]
         return cleaned_list
 
     def isParent(self, klass):

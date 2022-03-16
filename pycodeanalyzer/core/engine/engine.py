@@ -9,10 +9,11 @@ from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.core.utils.math import round_up
-from pycodeanalyzer.ui.app import UiBrowseListener, UiStatListener, Application
 from pycodeanalyzer.injection import injector
+from pycodeanalyzer.ui.app import Application, UiBrowseListener, UiStatListener
 
 app = injector.get(Application)
+
 
 class AnalysisStats:
     def __init__(self):
@@ -99,7 +100,9 @@ class Engine:
 
     def sendFunctionNames(self):
         self.logger.debug("Function name tree sent to UI")
-        self.uiBrowseListener.notifyFunctionNames(self.identityAnalyser.getFunctionTree())
+        self.uiBrowseListener.notifyFunctionNames(
+            self.identityAnalyser.getFunctionTree()
+        )
 
     def sendFileNames(self):
         self.logger.debug("File name tree sent to UI")
@@ -114,7 +117,9 @@ class Engine:
             self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass
         )
         self.classDiagramBuild.reset()
-        self.classDiagramBuild.createClass(objects[0], objects[1], objects[2], objects[3])
+        self.classDiagramBuild.createClass(
+            objects[0], objects[1], objects[2], objects[3]
+        )
         mermaidDiag = self.classDiagramBuild.build()
         klassDesc = {}
         klassDesc["name"] = klass.name
@@ -141,7 +146,6 @@ class Engine:
         self.logger.debug("Enum data sent to UI")
         self.uiBrowseListener.notifyEnumData(enumDesc, mermaidDiag)
 
-
     def sendFunctionData(self, functionDef):
         func = self.identityAnalyser.getFunction(functionDef)
         if not func:
@@ -160,15 +164,16 @@ class Engine:
         self.logger.debug("Function data sent to UI")
         self.uiBrowseListener.notifyFunctionData(functionDesc)
 
-
     def sendFileData(self, fileName):
         filePath = fileName
         if "::" in fileName or self.identityAnalyser.singleFile:
-            filePath = self.identityAnalyser.commonFilePath +"/"+ fileName.replace("::", "/");
+            filePath = (
+                self.identityAnalyser.commonFilePath + "/" + fileName.replace("::", "/")
+            )
         fileDesc = {}
         fileDesc["name"] = fileName
         fileDesc["path"] = filePath
         fileDesc["objects"] = self.identityAnalyser.getObjectInFile(filePath)
-        fileDesc["content"] = open(filePath,mode='r').read()
+        fileDesc["content"] = open(filePath, mode="r").read()
         self.logger.debug("File data sent to UI")
         self.uiBrowseListener.notifyFileData(fileDesc)

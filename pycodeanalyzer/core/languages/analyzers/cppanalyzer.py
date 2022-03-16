@@ -1,18 +1,18 @@
+import argparse
 import io
 import os
 import re
 import sys
-import argparse
 
 import CppHeaderParser
 import magic
-from pcpp import Preprocessor, OutputDirective, Action
+from pcpp import Action, OutputDirective, Preprocessor
 
 from pycodeanalyzer.core.abstraction.objects import *
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
-class CustumCppPreprocessor(Preprocessor):
 
+class CustumCppPreprocessor(Preprocessor):
     def __init__(self):
         super().__init__()
         self.passthru_includes = re.compile(".*")
@@ -21,15 +21,14 @@ class CustumCppPreprocessor(Preprocessor):
         self.expand_countermacro = False
         self.bypass_ifpassthru = False
 
-
     def parseFile(self, path):
-        item = argparse.FileType('rt')(path)
+        item = argparse.FileType("rt")(path)
         self.parse(item)
 
     def addDefine(self, d):
-        if '=' not in d:
-            d += '=1'
-            d = d.replace('=', ' ', 1)
+        if "=" not in d:
+            d += "=1"
+            d = d.replace("=", " ", 1)
         self.define(d)
 
     def getResult(self):
@@ -38,24 +37,46 @@ class CustumCppPreprocessor(Preprocessor):
         self.write(ss)
         return ss.getvalue()
 
-    def on_include_not_found(self,is_malformed,is_system_include,curdir,includepath):
+    def on_include_not_found(
+        self, is_malformed, is_system_include, curdir, includepath
+    ):
         raise OutputDirective(Action.IgnoreAndPassThrough)
 
-    def on_comment(self,tok):
+    def on_comment(self, tok):
         return True
 
-    def on_directive_handle(self,directive,toks,ifpassthru,precedingtoks):
+    def on_directive_handle(self, directive, toks, ifpassthru, precedingtoks):
         if ifpassthru:
-            if directive.value == 'if' or directive.value == 'elif' or directive == 'else' or directive.value == 'endif':
-                self.bypass_ifpassthru = len([tok for tok in toks if tok.value == '__PCPP_ALWAYS_FALSE__' or tok.value == '__PCPP_ALWAYS_TRUE__']) > 0
-            if not self.bypass_ifpassthru and (directive.value == 'define' or directive.value == 'undef'):
+            if (
+                directive.value == "if"
+                or directive.value == "elif"
+                or directive == "else"
+                or directive.value == "endif"
+            ):
+                self.bypass_ifpassthru = (
+                    len(
+                        [
+                            tok
+                            for tok in toks
+                            if tok.value == "__PCPP_ALWAYS_FALSE__"
+                            or tok.value == "__PCPP_ALWAYS_TRUE__"
+                        ]
+                    )
+                    > 0
+                )
+            if not self.bypass_ifpassthru and (
+                directive.value == "define" or directive.value == "undef"
+            ):
                 if toks[0].value != self.potential_include_guard:
-                    raise OutputDirective(Action.IgnoreAndPassThrough)  # Don't execute anything with effects when inside an #if expr with undefined macro
-        super().on_directive_handle(directive,toks,ifpassthru,precedingtoks)
+                    raise OutputDirective(
+                        Action.IgnoreAndPassThrough
+                    )  # Don't execute anything with effects when inside an #if expr with undefined macro
+        super().on_directive_handle(directive, toks, ifpassthru, precedingtoks)
         return None  # Pass through where possible
 
-    def on_unknown_macro_in_defined_expr(self,tok):
+    def on_unknown_macro_in_defined_expr(self, tok):
         return False
+
 
 class CustomCppHeader(CppHeaderParser.CppHeader):
     def is_enum_namestack(nameStack):
@@ -113,7 +134,7 @@ class CppAnalyzer(Analyzer):
             "G_GNUC_ALLOC_SIZE2 ()",
             "G_GNUC_ALLOC_SIZE2()" "PROTOBUF_EXPORT",
             "PROTOBUF_DEPRECATED_ATTR",
-            "PROTOBUF_DEPRECATED"
+            "PROTOBUF_DEPRECATED",
         ]
         CppHeaderParser.CppHeaderParser.is_enum_namestack = (
             CustomCppHeader.is_enum_namestack
@@ -135,7 +156,9 @@ class CppAnalyzer(Analyzer):
         try:
             preproc = CustumCppPreprocessor()
             preproc.parseFile(abspath)
-            header = CustomCppHeader(preproc.getResult(), argType="string", encoding=encoding)
+            header = CustomCppHeader(
+                preproc.getResult(), argType="string", encoding=encoding
+            )
             header.headerFileName = abspath
             for klass in header.classes.values():
                 self.handleClass(path, klass, abstractObjects)
@@ -193,9 +216,7 @@ class CppAnalyzer(Analyzer):
             declName = declParent["class"]
             if "decl_name" in declParent:
                 declName = declParent["decl_name"]
-            abstraction.addParent(
-                declParent["class"], declName, declParent["access"]
-            )
+            abstraction.addParent(declParent["class"], declName, declParent["access"])
 
     def handleEnum(self, path, enum, abstractObjects):
         objectPath = (enum["namespace"] + "::" + enum["name"]).strip()

@@ -51,29 +51,36 @@ def fetchStats(json, methods=["GET", "POST"]):
 def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchAnalysedClassNames()
 
+
 @app.socketio.on("fetchAnalysedEnumNames")
 def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchAnalysedEnumNames()
+
 
 @app.socketio.on("fetchAnalysedFunctionNames")
 def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchAnalysedFunctionNames()
 
+
 @app.socketio.on("fetchAnalysedFileNames")
 def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchAnalysedFileNames()
+
 
 @app.socketio.on("fetchClassData")
 def fetchClassData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchClassData(json["className"])
 
+
 @app.socketio.on("fetchEnumData")
 def fetchClassData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchEnumData(json["enumName"])
 
+
 @app.socketio.on("fetchFunctionData")
 def fetchClassData(json, methods=["GET", "POST"]):
     injector.get(SocketListner).fetchFunctionData(json["functionDef"])
+
 
 @app.socketio.on("fetchFileData")
 def fetchClassData(json, methods=["GET", "POST"]):

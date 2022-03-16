@@ -1,5 +1,5 @@
-
 import os
+
 
 class IdentityAnalyser:
     def __init__(self):
@@ -108,11 +108,13 @@ class IdentityAnalyser:
         self.commonFilePath = os.path.commonpath(files)
         self.singleFile = len(files) == 1
         if self.singleFile:
-            self.commonFilePath = os.path.abspath(os.path.join(self.commonFilePath, os.pardir))
+            self.commonFilePath = os.path.abspath(
+                os.path.join(self.commonFilePath, os.pardir)
+            )
         currentTree = tree
         for file in files:
             currentTree = tree
-            fileRelPath = file[len(self.commonFilePath)+1:]
+            fileRelPath = file[len(self.commonFilePath) + 1 :]
             elements = fileRelPath.split("/")
             for element in elements:
                 if fileRelPath.index(element) < len(fileRelPath) - 1 - len(element):
