@@ -28,7 +28,7 @@ jobs:
         run: |
           sed -i -E -e "s?version=\"(.*)\"?version=\"\1+a$(git rev-parse --short HEAD)\"?g" setup.py
       - name: Build binary wheel and a source tarball
-        run: python setup.py sdist bdist_wheel
+        run: python setup.py sdist
       - name: Publish distribution to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
