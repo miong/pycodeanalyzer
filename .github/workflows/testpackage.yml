@@ -26,6 +26,7 @@ jobs:
             python-version: 3.7
       - name: Change version to test version
         run: |
+          git fetch --all
           sed -i -E -e "s?version=\"(.*)\"?version=\"\1a$(git rev-list --count remotes/origin/stable)\"?g" setup.py
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
@@ -36,6 +37,24 @@ jobs:
             repository_url: https://test.pypi.org/legacy/
             verbose: true
             print_hash: true
+  verify-linux:
+    needs: [build-and-publish]
+    runs-on: ubuntu-latest
+    steps:
       - name: Verify packet on TestPyPI
         run: |
-          pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
+          pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
+  verify-mac:
+    needs: [ build-and-publish ]
+    runs-on: macos-latest
+    steps:
+      - name: Verify packet on TestPyPI
+        run: |
+          pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
+  verify-windows:
+    needs: [build-and-publish]
+    runs-on: windows-latest
+    steps:
+      - name: Verify packet on TestPyPI
+        run: |
+          pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
