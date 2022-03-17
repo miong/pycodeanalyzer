@@ -40,13 +40,13 @@ class TestFileFetcher:
         mocker.patch.object(os, "walk", return_value=[("/home/toto/dir", (), ("toto.h",))])
         filelist = fetcher.fetch("toto/dir")
         assert len(filelist) == 1
-        assert filelist[0] == "/home/toto/dir/toto.h"
+        assert filelist[0] == os.path.join("/home/toto/dir","toto.h")
         mocker.patch.object(os, "walk", return_value=[("/home/toto/dir", (), ("toto.h", "titi.h",)), ("/home/toto/dir2", (), ("tutu.h",))])
         filelist = fetcher.fetch("toto/dir")
         assert len(filelist) == 3
-        assert filelist[0] == "/home/toto/dir/toto.h"
-        assert filelist[1] == "/home/toto/dir/titi.h"
-        assert filelist[2] == "/home/toto/dir2/tutu.h"
+        assert filelist[0] == os.path.join("/home/toto/dir","toto.h")
+        assert filelist[1] == os.path.join("/home/toto/dir","titi.h")
+        assert filelist[2] == os.path.join("/home/toto/dir2","tutu.h")
         mocker.patch.object(fetcher, "isAnalyzed", return_value=False)
         filelist = fetcher.fetch("toto/dir")
         assert len(filelist) == 0
