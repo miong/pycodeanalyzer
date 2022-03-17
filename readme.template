@@ -31,6 +31,15 @@ pycodeanlyzer is available on PyPI::
 see https://pip.pypa.io/en/stable/installation/ for more detail on pip
 see https://test.pypi.org/search/?q=pycodeanalyzer to see the last release candidate
 
+Macos
+^^^^^
+
+On MacOS, you will need to install libmagic::
+
+    brew install libmagic
+
+This is not needed for other platforms.
+
 Requirements
 ^^^^^^^^^^^^
 
