@@ -38,7 +38,7 @@ setup(
         "injector==0.19.0",
         "pathlib==1.0.1",
         "python-magic==0.4.25",
-        'python-magic-bin==0.4.14;platform_system=="Windows"',
+        'python-magic-bin==0.4.14;platform_system!="Linux"',
         "pcpp==1.30"
     ],
 
