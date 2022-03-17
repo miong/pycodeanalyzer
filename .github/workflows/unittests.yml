@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install pytest
+            pip install pytest coverage
 
       # Runs a single command using the runners shell
       - name: Run tests
@@ -62,7 +62,7 @@ jobs:
       - name: Install dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install pytest
+            pip install pytest coverage
 
       # Runs a single command using the runners shell
       - name: Run tests
@@ -92,7 +92,7 @@ jobs:
       - name: Install dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install pytest
+            pip install pytest coverage
 
       # Runs a single command using the runners shell
       - name: Run tests
