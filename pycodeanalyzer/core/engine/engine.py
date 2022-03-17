@@ -46,7 +46,8 @@ class Engine:
         self.searchAnalyser = searchAnalyser
         self.uiStatListener = uiStatListener
         self.uiBrowseListener = uiBrowseListener
-        self.files = []
+        self.roots = []
+        self.nbFiles = 0
         self.stats = AnalysisStats()
         self.classDiagramBuild = classDiagramBuild
 
@@ -59,18 +60,22 @@ class Engine:
         self.logger.info("Start analysis")
         self.logger.debug("Fetching files")
         # TODO allow multiple src dirs
-        self.files = self.fileFetcher.fetch(args.path)
-        if not self.files:
+        for path in args.path:
+            files = self.fileFetcher.fetch(path)
+            self.nbFiles += len(files)
+            self.roots.append((path, files))
+        if self.nbFiles == 0:
             self.logger.debug("No files to analyze, quitting.")
-        self.logger.debug("Analysing fetched files")
-        abstractObjects = self.fileDispatcher.dispatch(args.path, self.files)
-        self.identityAnalyser.analyze(abstractObjects)
-        self.logger.info("End analysis")
+        else:
+            self.logger.debug("Analysing fetched files")
+            abstractObjects = self.fileDispatcher.dispatchRoots(self.roots)
+            self.identityAnalyser.analyze(abstractObjects)
+            self.logger.info("End analysis")
         end_time = time.time()
         self.recordStats(round_up(end_time - start_time, 2))
 
     def recordStats(self, duration):
-        self.stats.nbFiles = len(self.files)
+        self.stats.nbFiles = self.nbFiles
         self.stats.nbClasses = len(self.identityAnalyser.getClasses())
         self.stats.nbEnums = len(self.identityAnalyser.getEnums())
         self.stats.nbFunctions = len(self.identityAnalyser.getFunctions())

@@ -29,6 +29,7 @@ pycodeanlyzer is available on PyPI::
         pip install pycodeanalyzer
 
 see https://pip.pypa.io/en/stable/installation/ for more detail on pip
+see https://test.pypi.org/search/?q=pycodeanalyzer to see the last release candidate
 
 Requirements
 ^^^^^^^^^^^^
@@ -58,10 +59,10 @@ Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path
+	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path [path ...]
 	
 	positional arguments:
-	  path            Path of the root directory to be analysed
+	  path            Path of a root directory to be analysed
 	
 	optional arguments:
 	  -h, --help      show this help message and exit

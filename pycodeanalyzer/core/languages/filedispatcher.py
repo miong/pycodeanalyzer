@@ -15,14 +15,20 @@ class FileDispatcher:
         self.cppAnalyzer = cppAnalyzer
         self.uiListener = uiListener
 
+    def dispatchRoots(self, roots):
+        self.logger.debug("start file dispatching")
+        abstractObjects = []
+        for rootDir, files in roots:
+            abstractObjects.extend(self.dispatch(rootDir, files))
+        self.logger.debug("end file dispatching")
+        self.uiListener.notifyAnalysisEnd()
+        return abstractObjects
+
     def dispatch(self, rootDir, files):
         abstractObjects = []
-        self.logger.debug("start file dispatching")
         for file in files:
             extension = pathlib.Path(file).suffix
             if extension == ".h" or extension == ".hpp":
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.cppAnalyzer.analyze(rootDir, file)
-        self.logger.debug("end file dispatching")
-        self.uiListener.notifyAnalysisEnd()
         return abstractObjects
