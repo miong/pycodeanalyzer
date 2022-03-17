@@ -42,20 +42,35 @@ jobs:
     needs: [build-and-publish]
     runs-on: ubuntu-latest
     steps:
+      - name: Initialize Python 3.7
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.7
       - name: Verify packet on TestPyPI
         run: |
+          python -m pip install --upgrade pip
           pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
   verify-mac:
     needs: [ build-and-publish ]
     runs-on: macos-latest
     steps:
+      - name: Initialize Python 3.7
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.7
       - name: Verify packet on TestPyPI
         run: |
+          python -m pip install --upgrade pip
           pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
   verify-windows:
     needs: [build-and-publish]
     runs-on: windows-latest
     steps:
+      - name: Initialize Python 3.7
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.7
       - name: Verify packet on TestPyPI
         run: |
+          python -m pip install --upgrade pip
           pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pycodeanalyzer
