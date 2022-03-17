@@ -1,5 +1,10 @@
 pycodeanalyzer
 ==============
+.. image:: https://img.shields.io/badge/status-active-green
+    :alt: Status - active
+.. image:: https://img.shields.io/pypi/pyversions/pycodeanalyzer
+    :target: https://pypi.python.org/pypi/pycodeanalyzer
+    :alt: Python version
 .. image:: https://img.shields.io/pypi/l/pycodeanalyzer
     :target: https://raw.githubusercontent.com/miong/pycodeanalyzer/main/LICENSE
     :alt: License
@@ -50,6 +55,8 @@ Requirements
     :alt: - pcpp - equals 1.30
 - .. image:: https://img.shields.io/static/v1?label=pytest&message=the%20latest&color=blue
     :alt: - pytest - the latest
+- .. image:: https://img.shields.io/static/v1?label=pytest-cov&message=the%20latest&color=blue
+    :alt: - pytest-cov - the latest
 
 Usage
 -----
@@ -73,7 +80,7 @@ pycodeanalyser supports the following languages:
 
 - C/C++
 
-License
+Licence
 -------
 
 This project is under the MIT license::

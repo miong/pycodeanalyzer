@@ -1,5 +1,10 @@
 pycodeanalyzer
 ==============
+.. image:: https://img.shields.io/badge/status-active-green
+    :alt: Status - active
+.. image:: https://img.shields.io/pypi/pyversions/pycodeanalyzer
+    :target: https://pypi.python.org/pypi/pycodeanalyzer
+    :alt: Python version
 .. image:: https://img.shields.io/pypi/l/pycodeanalyzer
     :target: https://raw.githubusercontent.com/miong/pycodeanalyzer/main/LICENSE
     :alt: License
