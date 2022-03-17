@@ -178,6 +178,10 @@ class Engine:
             filePath = (
                 self.identityAnalyser.commonFilePath + "/" + fileName.replace("::", "/")
             )
+        if "::" not in fileName:
+            fileName = fileName.replace(
+                self.identityAnalyser.commonFilePath + "/", ""
+            ).replace("/", "::")
         fileDesc = {}
         fileDesc["name"] = fileName
         fileDesc["path"] = filePath

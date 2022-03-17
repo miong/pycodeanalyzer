@@ -7,6 +7,8 @@ class IdentityAnalyser:
         self.mapping["Classes"] = []
         self.mapping["Enums"] = []
         self.mapping["Functions"] = []
+        self.commonFilePath = "/"
+        self.singleFile = False
 
     def analyze(self, objects):
         for object in objects:
