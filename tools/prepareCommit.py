@@ -1,4 +1,5 @@
 import subprocess
+import os
 import platform
 
 from updateReadme import updateReadme
@@ -14,7 +15,7 @@ def runBlack():
     return subprocess.run(["black", "pycodeanalyzer"]).returncode == 0
 
 def runUT():
-    res = subprocess.run(["coverage","run","--source=pycodeanalyzer","-m","pytest","-v","tests/pycodeanalyzer"]).returncode == 0
+    res = subprocess.run(["coverage","run","--source=pycodeanalyzer","-m","pytest","-v", os.path.join("tests", "pycodeanalyzer")]).returncode == 0
     if res:
         subprocess.run(["coverage","report","-m"])
     return res

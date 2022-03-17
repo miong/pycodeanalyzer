@@ -67,7 +67,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run tests
         run: |
-            coverage run --source=pycodeanalyzer -m pytest -v tests\pycodeanalyzer
+            coverage run --source=pycodeanalyzer -m pytest -v tests/pycodeanalyzer
             coverage report -m
             coverage html
       - name: Store coverage report

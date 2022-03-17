@@ -47,6 +47,7 @@ setup(
             "pytest",
             "pytest-cov",
             "pytest-mock",
+            "coverage",
             "black",
             "isort",
             "flake8"
