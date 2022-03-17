@@ -19,6 +19,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
             ref: stable
+            fetch-depth: 0
 
       - name: Initialize Python 3.7
         uses: actions/setup-python@v1
@@ -26,7 +27,7 @@ jobs:
             python-version: 3.7
       - name: Change version to test version
         run: |
-          git fetch --all --unshallow
+          git fetch --all
           sed -i -E -e "s?version=\"(.*)\"?version=\"\1a$(git rev-list --count remotes/origin/stable)\"?g" setup.py
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
