@@ -29,6 +29,7 @@ pycodeanlyzer is available on PyPI::
         pip install pycodeanalyzer
 
 see https://pip.pypa.io/en/stable/installation/ for more detail on pip
+see https://test.pypi.org/search/?q=pycodeanalyzer to see the last release candidate
 
 Requirements
 ^^^^^^^^^^^^
