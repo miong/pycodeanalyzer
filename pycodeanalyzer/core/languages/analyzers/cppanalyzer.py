@@ -7,7 +7,11 @@ import CppHeaderParser
 import magic
 from pcpp import Action, OutputDirective, Preprocessor
 
-from pycodeanalyzer.core.abstraction.objects import AbstractEnum, AbstractFunction, AbstractClass
+from pycodeanalyzer.core.abstraction.objects import (
+    AbstractClass,
+    AbstractEnum,
+    AbstractFunction,
+)
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
 

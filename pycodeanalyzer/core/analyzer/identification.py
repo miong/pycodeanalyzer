@@ -118,7 +118,7 @@ class IdentityAnalyser:
         currentTree = tree
         for file in files:
             currentTree = tree
-            fileRelPath = file[len(self.commonFilePath)+1:]
+            fileRelPath = file[len(self.commonFilePath) + 1 :]
             elements = fileRelPath.split("/")
             for element in elements:
                 if fileRelPath.index(element) < len(fileRelPath) - 1 - len(element):

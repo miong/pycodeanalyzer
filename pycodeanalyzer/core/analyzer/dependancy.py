@@ -12,7 +12,7 @@ class DependancyAnalyser:
             if "::" in type:
                 lastSeparatorIndx = type.rindex("::")
                 typeDeclaredNamespace = type[:lastSeparatorIndx]
-                typeName = type[lastSeparatorIndx+2:]
+                typeName = type[lastSeparatorIndx + 2 :]
             else:
                 typeName = type
             linkedClass = self.findClass(
