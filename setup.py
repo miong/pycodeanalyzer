@@ -39,10 +39,19 @@ setup(
         "pathlib==1.0.1",
         "python-magic==0.4.25",
         'python-magic-bin==0.4.14;platform_system=="Windows"',
-        "pcpp==1.30",
-        "pytest",
-        "pytest-cov"
+        "pcpp==1.30"
     ],
+
+    extras_require={
+        'dev': [
+            "pytest",
+            "pytest-cov",
+            "pytest-mock",
+            "black",
+            "isort",
+            "flake8"
+        ]
+    },
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
