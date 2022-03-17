@@ -22,9 +22,11 @@ class DependancyAnalyser:
                 typeDeclaredNamespace, typeName, enums, target.namespace, target.name
             )
             if linkedEnum:
-                linkedEnums.append(linkedEnum)
+                if linkedEnum != target:
+                    linkedEnums.append(linkedEnum)
             elif linkedClass:
-                linkedClasses.append(linkedClass)
+                if linkedClass != target:
+                    linkedClasses.append(linkedClass)
             else:
                 linkedClasses.append(
                     AbstractClass(typeName, typeDeclaredNamespace, None)
