@@ -46,7 +46,9 @@ class CustumCppPreprocessor(Preprocessor):
         raise OutputDirective(Action.IgnoreAndPassThrough)
 
     def on_comment(self, tok):
-        return True
+        if tok.value.strip().startswith("/**"):
+            return True
+        return super().on_comment(tok)
 
     def on_directive_handle(self, directive, toks, ifpassthru, precedingtoks):
         if ifpassthru:
@@ -125,20 +127,7 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
 class CppAnalyzer(Analyzer):
     def __init__(self):
         super().__init__()
-        # TODO : parse it from configuration
-        CppHeaderParser.CppHeaderParser.ignoreSymbols = [
-            "_sd_printf_attr_()",
-            "_sd_hidden_",
-            "BAGADM_ATTRIBUTE_FORMAT_PRINTF()",
-            "BAGADM_ATTRIBUTE_FORMAT_SCANF()",
-            "G_GNUC_PRINTF ()",
-            "G_GNUC_PRINTF()",
-            "G_GNUC_MALLOC",
-            "G_GNUC_ALLOC_SIZE2 ()",
-            "G_GNUC_ALLOC_SIZE2()" "PROTOBUF_EXPORT",
-            "PROTOBUF_DEPRECATED_ATTR",
-            "PROTOBUF_DEPRECATED",
-        ]
+        CppHeaderParser.CppHeaderParser.ignoreSymbols = []
         CppHeaderParser.CppHeaderParser.is_enum_namestack = (
             CustomCppHeader.is_enum_namestack
         )
@@ -147,6 +136,7 @@ class CppAnalyzer(Analyzer):
         )
         self.objectPaths = []
         self.encoding = Encoding()
+        self.forceIgnoredSymbols = []
 
     def analyze(self, rootDir, path):
         abstractObjects = []
@@ -158,25 +148,46 @@ class CppAnalyzer(Analyzer):
         try:
             preproc = CustumCppPreprocessor()
             preproc.parseFile(abspath)
-            header = CustomCppHeader(
-                preproc.getResult(), argType="string", encoding=encoding
-            )
-            header.headerFileName = abspath
-            for klass in header.classes.values():
-                self.handleClass(path, klass, abstractObjects)
-            for enum in header.enums:
-                self.handleEnum(path, enum, abstractObjects)
-            for function in header.functions:
-                self.handleFunction(path, function, abstractObjects)
+            code = preproc.getResult()
+
+            continueTryParsing = True
+            while continueTryParsing:
+                try:
+                    for symb in self.forceIgnoredSymbols:
+                        code = code.replace(" "+symb+" ", " ")
+
+                    header = CustomCppHeader(
+                        code, argType="string", encoding=encoding
+                    )
+                    header.headerFileName = abspath
+                    for klass in header.classes.values():
+                        self.handleClass(path, klass, abstractObjects)
+                    for enum in header.enums:
+                        self.handleEnum(path, enum, abstractObjects)
+                    for function in header.functions:
+                        self.handleFunction(path, function, abstractObjects)
+                    continueTryParsing = False
+                except CppHeaderParser.CppHeaderParser.CppParseError as err:
+                    unexpectedToken = self.extractUnexpectedFromParseError(err)
+                    if not unexpectedToken or unexpectedToken in self.forceIgnoredSymbols:
+                        continueTryParsing = False
+                        print(err)
+                        self.logger.error(err)
+                        self.logger.error("Error analyzing %s", path)
+                    elif unexpectedToken in CppHeaderParser.CppHeaderParser.ignoreSymbols:
+                        self.logger.warning("Addind '%s' to forced ignored symbols", unexpectedToken)
+                        self.forceIgnoredSymbols.append(unexpectedToken)
+                    else:
+                        self.logger.warning("Addind '%s' to ignored symbols", unexpectedToken)
+                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(unexpectedToken)
+                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(unexpectedToken+"()")
+                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(unexpectedToken+" ()")
         except AssertionError as err:
-            self.logger.warning(err)
-            self.logger.warning("Error analyzing %s", path)
-        except CppHeaderParser.CppHeaderParser.CppParseError as err:
-            self.logger.warning(err)
-            self.logger.warning("Error analyzing %s", path)
+            self.logger.error(err)
+            self.logger.error("Error analyzing %s", path)
         except UnicodeDecodeError as err:
-            self.logger.warning(err)
-            self.logger.warning("Error analyzing %s : can't decode file", path)
+            self.logger.error(err)
+            self.logger.error("Error analyzing %s : can't decode file", path)
         return abstractObjects
 
     def handleClass(self, path, klass, abstractObjects):
@@ -262,3 +273,13 @@ class CppAnalyzer(Analyzer):
         if cleared[:2] == "::":
             cleared = cleared[2:]
         return cleared
+
+    def extractUnexpectedFromParseError(self, err):
+        msg = str(err)
+        startDelim = "evaluating"
+        endDelim = ":"
+        if startDelim not in msg:
+            return None
+        token = msg[msg.index(startDelim)+len(startDelim):]
+        token = token[:token.index(endDelim)-1].replace("'","").strip()
+        return token
