@@ -5,13 +5,13 @@ import re
 
 import CppHeaderParser
 from pcpp import Action, OutputDirective, Preprocessor
-from pycodeanalyzer.core.encoding.encodings import Encoding
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
     AbstractEnum,
     AbstractFunction,
 )
+from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
 
@@ -154,11 +154,9 @@ class CppAnalyzer(Analyzer):
             while continueTryParsing:
                 try:
                     for symb in self.forceIgnoredSymbols:
-                        code = code.replace(" "+symb+" ", " ")
+                        code = code.replace(" " + symb + " ", " ")
 
-                    header = CustomCppHeader(
-                        code, argType="string", encoding=encoding
-                    )
+                    header = CustomCppHeader(code, argType="string", encoding=encoding)
                     header.headerFileName = abspath
                     for klass in header.classes.values():
                         self.handleClass(path, klass, abstractObjects)
@@ -169,19 +167,34 @@ class CppAnalyzer(Analyzer):
                     continueTryParsing = False
                 except CppHeaderParser.CppHeaderParser.CppParseError as err:
                     unexpectedToken = self.extractUnexpectedFromParseError(err)
-                    if not unexpectedToken or unexpectedToken in self.forceIgnoredSymbols:
+                    if (
+                        not unexpectedToken
+                        or unexpectedToken in self.forceIgnoredSymbols
+                    ):
                         continueTryParsing = False
                         print(err)
                         self.logger.error(err)
                         self.logger.error("Error analyzing %s", path)
-                    elif unexpectedToken in CppHeaderParser.CppHeaderParser.ignoreSymbols:
-                        self.logger.warning("Addind '%s' to forced ignored symbols", unexpectedToken)
+                    elif (
+                        unexpectedToken in CppHeaderParser.CppHeaderParser.ignoreSymbols
+                    ):
+                        self.logger.warning(
+                            "Addind '%s' to forced ignored symbols", unexpectedToken
+                        )
                         self.forceIgnoredSymbols.append(unexpectedToken)
                     else:
-                        self.logger.warning("Addind '%s' to ignored symbols", unexpectedToken)
-                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(unexpectedToken)
-                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(unexpectedToken+"()")
-                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(unexpectedToken+" ()")
+                        self.logger.warning(
+                            "Addind '%s' to ignored symbols", unexpectedToken
+                        )
+                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(
+                            unexpectedToken
+                        )
+                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(
+                            unexpectedToken + "()"
+                        )
+                        CppHeaderParser.CppHeaderParser.ignoreSymbols.append(
+                            unexpectedToken + " ()"
+                        )
         except AssertionError as err:
             self.logger.error(err)
             self.logger.error("Error analyzing %s", path)
@@ -280,6 +293,6 @@ class CppAnalyzer(Analyzer):
         endDelim = ":"
         if startDelim not in msg:
             return None
-        token = msg[msg.index(startDelim)+len(startDelim):]
-        token = token[:token.index(endDelim)-1].replace("'","").strip()
+        token = msg[msg.index(startDelim) + len(startDelim) :]
+        token = token[: token.index(endDelim) - 1].replace("'", "").strip()
         return token
