@@ -26,7 +26,7 @@ setup(
     description="Code analyzer to get information to help developers to understand how projects works.",
     long_description=read("README.rst"),
 
-    packages=find_packages(exclude=('tests',)),
+    packages=find_packages(exclude=('tests','tools',)),
 
     install_requires=[
         "robotpy-cppheaderparser==5.0.16",
@@ -54,6 +54,13 @@ setup(
             "mypy"
         ]
     },
+
+    package_dir={'pycodeanalyzer': 'pycodeanalyzer'},
+    package_data={'pycodeanalyzer': [
+        'ui/web/static/css/*.css',
+        'ui/web/static/js/*.js',
+        'ui/web/templates/*.html'
+    ]},
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
