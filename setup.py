@@ -37,12 +37,22 @@ setup(
         "simple-websocket==0.5.1",
         "injector==0.19.0",
         "pathlib==1.0.1",
-        "python-magic==0.4.25",
-        'python-magic-bin==0.4.14;platform_system=="Windows"',
-        "pcpp==1.30",
-        "pytest",
-        "pytest-cov"
+        'python-magic-bin==0.4.14;platform_system!="Linux"',
+        'python-magic==0.4.25;platform_system=="Linux"',
+        "pcpp==1.30"
     ],
+
+    extras_require={
+        'dev': [
+            "pytest",
+            "pytest-cov",
+            "pytest-mock",
+            "coverage",
+            "black",
+            "isort",
+            "flake8"
+        ]
+    },
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

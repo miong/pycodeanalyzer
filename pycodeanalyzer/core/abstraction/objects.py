@@ -145,6 +145,9 @@ class AbstractClass(AbstractObject):
             .replace("&", "")
             .replace("const", "")
             .replace("static", "")
+            .replace("...", "")
+            .replace("enum", "")
+            .replace("struct", "")
             .strip()
         )
 

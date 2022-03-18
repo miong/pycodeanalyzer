@@ -4,10 +4,14 @@ import os
 import re
 
 import CppHeaderParser
-import magic
 from pcpp import Action, OutputDirective, Preprocessor
+from pycodeanalyzer.core.encoding.encodings import Encoding
 
-from pycodeanalyzer.core.abstraction.objects import AbstractEnum, AbstractFunction, AbstractClass
+from pycodeanalyzer.core.abstraction.objects import (
+    AbstractClass,
+    AbstractEnum,
+    AbstractFunction,
+)
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
 
@@ -142,15 +146,14 @@ class CppAnalyzer(Analyzer):
             CustomCppHeader.is_method_namestack
         )
         self.objectPaths = []
+        self.encoding = Encoding()
 
     def analyze(self, rootDir, path):
         abstractObjects = []
         self.logger.info("Analysing %s", path)
         abspath = os.path.join(rootDir, path)
 
-        encoding = magic.Magic(
-            mime_encoding=True,
-        ).from_file(abspath)
+        encoding = self.encoding.getFileEncoding(abspath)
 
         try:
             preproc = CustumCppPreprocessor()
@@ -219,6 +222,9 @@ class CppAnalyzer(Analyzer):
             abstraction.addParent(declParent["class"], declName, declParent["access"])
 
     def handleEnum(self, path, enum, abstractObjects):
+        if "name" not in enum:
+            self.logger.warning("Anonymous enum found in %s, dropping it", path)
+            return
         objectPath = (enum["namespace"] + "::" + enum["name"]).strip()
         if objectPath in self.objectPaths:
             self.logger.warning(

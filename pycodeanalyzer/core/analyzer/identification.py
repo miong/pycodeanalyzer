@@ -7,6 +7,8 @@ class IdentityAnalyser:
         self.mapping["Classes"] = []
         self.mapping["Enums"] = []
         self.mapping["Functions"] = []
+        self.commonFilePath = "/"
+        self.singleFile = False
 
     def analyze(self, objects):
         for object in objects:
@@ -118,7 +120,7 @@ class IdentityAnalyser:
         currentTree = tree
         for file in files:
             currentTree = tree
-            fileRelPath = file[len(self.commonFilePath)+1:]
+            fileRelPath = file[len(self.commonFilePath) + 1 :]
             elements = fileRelPath.split("/")
             for element in elements:
                 if fileRelPath.index(element) < len(fileRelPath) - 1 - len(element):

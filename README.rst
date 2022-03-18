@@ -29,6 +29,16 @@ pycodeanlyzer is available on PyPI::
         pip install pycodeanalyzer
 
 see https://pip.pypa.io/en/stable/installation/ for more detail on pip
+see https://test.pypi.org/search/?q=pycodeanalyzer to see the last release candidate
+
+Macos
+^^^^^
+
+On MacOS, you will need to install libmagic::
+
+    brew install libmagic
+
+This is not needed for other platforms.
 
 Requirements
 ^^^^^^^^^^^^
@@ -49,23 +59,19 @@ Requirements
     :alt: - injector - equals 0.19.0
 - .. image:: https://img.shields.io/static/v1?label=pathlib&message=equals%201.0.1&color=blue
     :alt: - pathlib - equals 1.0.1
-- .. image:: https://img.shields.io/static/v1?label=python-magic&message=equals%200.4.25&color=blue
-    :alt: - python-magic - equals 0.4.25
+- .. image:: https://img.shields.io/static/v1?label=python-magic-bin&message=equals%200.4.14&color=blue
+    :alt: - python-magic-bin - equals 0.4.14
 - .. image:: https://img.shields.io/static/v1?label=pcpp&message=equals%201.30&color=blue
     :alt: - pcpp - equals 1.30
-- .. image:: https://img.shields.io/static/v1?label=pytest&message=the%20latest&color=blue
-    :alt: - pytest - the latest
-- .. image:: https://img.shields.io/static/v1?label=pytest-cov&message=the%20latest&color=blue
-    :alt: - pytest-cov - the latest
 
 Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path
+	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path [path ...]
 	
 	positional arguments:
-	  path            Path of the root directory to be analysed
+	  path            Path of a root directory to be analysed
 	
 	optional arguments:
 	  -h, --help      show this help message and exit

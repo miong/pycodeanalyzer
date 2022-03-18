@@ -3,8 +3,7 @@ import subprocess
 import platform
 from distutils.core import run_setup
 
-
-def main():
+def updateReadme():
     readme = ""
     with open('readme.template') as f:
         pythonCmd = 'python'
@@ -39,7 +38,10 @@ def main():
                 readme += line
     with codecs.open("README.rst", "w", "utf-8") as output:
         output.write(readme)
+    print("Readme updated")
 
+def main():
+    updateReadme()
 
 if __name__ == "__main__":
     main()

@@ -15,7 +15,9 @@ class Console:
             help="Log level to be used",
             dest="loglevel",
         )
-        parser.add_argument("path", help="Path of the root directory to be analysed")
+        parser.add_argument(
+            "path", nargs="+", help="Path of a root directory to be analysed"
+        )
         return parser.parse_args()
 
     def init(self):
