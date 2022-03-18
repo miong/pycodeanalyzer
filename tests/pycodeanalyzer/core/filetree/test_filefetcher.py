@@ -2,7 +2,7 @@ import pytest
 
 import os
 
-from build.lib.pycodeanalyzer.core.encoding.encodings import Encoding
+from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 
 class TestFileFetcher:
