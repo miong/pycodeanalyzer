@@ -1,7 +1,9 @@
 import pathlib
+from typing import List, Tuple
 
 from injector import inject, singleton
 
+from pycodeanalyzer.core.abstraction.objects import AbstractObject
 from pycodeanalyzer.core.languages.analyzers.cppanalyzer import CppAnalyzer
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.ui.app import UiFileDispatcherListener
@@ -15,16 +17,16 @@ class FileDispatcher:
         self.cppAnalyzer = cppAnalyzer
         self.uiListener = uiListener
 
-    def dispatchRoots(self, roots):
+    def dispatchRoots(self, roots: List[Tuple[str, List[str]]]) -> List[AbstractObject]:
         self.logger.debug("start file dispatching")
-        abstractObjects = []
+        abstractObjects: List[AbstractObject] = []
         for rootDir, files in roots:
             abstractObjects.extend(self.dispatch(rootDir, files))
         self.logger.debug("end file dispatching")
         self.uiListener.notifyAnalysisEnd()
         return abstractObjects
 
-    def dispatch(self, rootDir, files):
+    def dispatch(self, rootDir: str, files: List[str]) -> List[AbstractObject]:
         abstractObjects = []
         for file in files:
             extension = pathlib.Path(file).suffix

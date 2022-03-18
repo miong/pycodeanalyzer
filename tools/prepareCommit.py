@@ -20,6 +20,9 @@ def runUT():
         subprocess.run(["coverage","report","-m"])
     return res
 
+def runMypy():
+    return subprocess.run(["mypy","--config-file",".mypy.ini","pycodeanalyzer"]).returncode == 0
+
 def runQA():
     res = subprocess.run(["flake8","pycodeanalyzer","--count","--select=E9,F63,F7,F82","--show-source","--statistics"]).returncode == 0
     if res:
@@ -39,6 +42,10 @@ def main():
         print("Black not passing, it's strange...")
         exit(1)
     print("Black done")
+    if not runMypy():
+        print("Mypy not passing, fix before commit")
+        exit(1)
+    print("Mypy passing")
     if not runUT():
         print("Unit test not passing, fix before commit")
         exit(1)

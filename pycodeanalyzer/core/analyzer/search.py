@@ -1,11 +1,12 @@
 import re
 from threading import Thread
+from typing import Dict, List, Tuple
 
 
 class SearchAnalyser:
-    def searchInAllFiles(self, token, files):
-        self.results = []
-        self.threads = []
+    def searchInAllFiles(self, token: str, files: List[str]) -> List[Tuple[str, str]]:
+        self.results: List[Tuple[str, str]] = []
+        self.threads: List[Thread] = []
         for file in files:
             thread = Thread(target=self.seachInFileThreaded, args=(token, file))
             self.threads.append(thread)
@@ -14,10 +15,10 @@ class SearchAnalyser:
             thread.join()
         return self.results
 
-    def seachInFile(self, token, filePath):
-        res = []
+    def seachInFile(self, token: str, filePath: str) -> List[Tuple[str, str]]:
+        res: List[Tuple[str, str]] = []
         with open(filePath, "r") as file:
-            enumeration = dict((i, j) for i, j in enumerate(file))
+            enumeration: Dict[int, str] = dict((i, j) for i, j in enumerate(file))
             for linenb, line in enumeration.items():
                 if re.search(token.lower(), line.lower()):
                     context = ""
@@ -27,5 +28,5 @@ class SearchAnalyser:
                     res.append((filePath, context))
         return res
 
-    def seachInFileThreaded(self, token, filePath):
+    def seachInFileThreaded(self, token: str, filePath: str) -> None:
         self.results.extend(self.seachInFile(token, filePath))
