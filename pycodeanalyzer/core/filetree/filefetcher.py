@@ -1,9 +1,9 @@
 import os
 import pathlib
 
-import magic
 from injector import singleton
 
+from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
 
@@ -19,15 +19,14 @@ class FileFetcher:
             "unknown-8bit",
             "binary",
         ]
+        self.encoding = Encoding()
 
     def isAnalyzed(self, fileabspath):
         p = pathlib.Path(fileabspath)
         extension = p.suffix
         filename = p.stem
 
-        encoding = magic.Magic(
-            mime_encoding=True,
-        ).from_file(fileabspath)
+        encoding = self.encoding.getFileEncoding(fileabspath)
 
         return (
             encoding not in self.rejected_encoding

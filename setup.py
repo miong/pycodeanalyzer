@@ -37,8 +37,7 @@ setup(
         "simple-websocket==0.5.1",
         "injector==0.19.0",
         "pathlib==1.0.1",
-        'python-magic-bin==0.4.14;platform_system!="Linux"',
-        "python-magic==0.4.25",
+        'python-magic-bin==0.4.14',
         "pcpp==1.30"
     ],
 

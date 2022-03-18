@@ -1,14 +1,17 @@
 import pytest
 
-import magic
 import os
+
+from build.lib.pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 
 class TestFileFetcher:
 
     def test_isAnalyzed(self, mocker):
         fetcher = FileFetcher()
-        mocker.patch.object(magic.Magic, "from_file", return_value="utf-8")
+        encodingMock = Encoding()
+        fetcher.encoding = encodingMock
+        encodingMock.getFileEncoding = mocker.MagicMock(return_value="utf-8")
         extensions = [".h", ".hpp"];
         #file type
         for ext in extensions:
@@ -21,9 +24,9 @@ class TestFileFetcher:
             assert not fetcher.isAnalyzed("dir/.toto"+ext)
             assert not fetcher.isAnalyzed("complex/file/tree/dir/.toto"+ext)
         #file encoding
-        mocker.patch.object(magic.Magic, "from_file", return_value="binary")
+        encodingMock.getFileEncoding = mocker.MagicMock(return_value="binary")
         assert not fetcher.isAnalyzed("complex/file/tree/dir/toto.hpp")
-        mocker.patch.object(magic.Magic, "from_file", return_value="unknown-8bit")
+        encodingMock.getFileEncoding = mocker.MagicMock(return_value="unknown-8bit")
         assert not fetcher.isAnalyzed("complex/file/tree/dir/toto.hpp")
 
     def test_fetch(self, mocker):

@@ -59,8 +59,8 @@ Requirements
     :alt: - injector - equals 0.19.0
 - .. image:: https://img.shields.io/static/v1?label=pathlib&message=equals%201.0.1&color=blue
     :alt: - pathlib - equals 1.0.1
-- .. image:: https://img.shields.io/static/v1?label=python-magic&message=equals%200.4.25&color=blue
-    :alt: - python-magic - equals 0.4.25
+- .. image:: https://img.shields.io/static/v1?label=python-magic-bin&message=equals%200.4.14&color=blue
+    :alt: - python-magic-bin - equals 0.4.14
 - .. image:: https://img.shields.io/static/v1?label=pcpp&message=equals%201.30&color=blue
     :alt: - pcpp - equals 1.30
 
