@@ -1,0 +1,2 @@
+recursive-include pycodeanalyzer *.js *.html *.css
+prune tools
