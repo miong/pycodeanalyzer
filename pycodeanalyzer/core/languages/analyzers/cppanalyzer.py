@@ -46,7 +46,9 @@ class CustumCppPreprocessor(Preprocessor):
         raise OutputDirective(Action.IgnoreAndPassThrough)
 
     def on_comment(self, tok):
-        return True
+        if tok.value.strip().startswith("/**"):
+            return True
+        return super().on_comment(tok)
 
     def on_directive_handle(self, directive, toks, ifpassthru, precedingtoks):
         if ifpassthru:
