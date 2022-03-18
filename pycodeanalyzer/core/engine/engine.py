@@ -1,4 +1,5 @@
 import time
+from typing import Any, Dict, List, Tuple
 
 from injector import inject, singleton
 
@@ -17,12 +18,12 @@ app = injector.get(Application)
 
 
 class AnalysisStats:
-    def __init__(self):
+    def __init__(self) -> None:
         self.nbFiles = 0
         self.nbClasses = 0
         self.nbEnums = 0
         self.nbFunctions = 0
-        self.timeSpent = 0
+        self.timeSpent = 0.0
 
 
 @singleton
@@ -38,7 +39,7 @@ class Engine:
         uiStatListener: UiStatListener,
         uiBrowseListener: UiBrowseListener,
         classDiagramBuild: ClassDiagramBuild,
-    ):
+    ) -> None:
         self.fileFetcher = fileFetcher
         self.fileDispatcher = fileDispatcher
         self.identityAnalyser = identityAnalyser
@@ -46,12 +47,12 @@ class Engine:
         self.searchAnalyser = searchAnalyser
         self.uiStatListener = uiStatListener
         self.uiBrowseListener = uiBrowseListener
-        self.roots = []
+        self.roots: List[Tuple[str, List[str]]] = []
         self.nbFiles = 0
         self.stats = AnalysisStats()
         self.classDiagramBuild = classDiagramBuild
 
-    def run(self, args):
+    def run(self, args: Any) -> None:
         app.run()
         time.sleep(2)
         self.logger = LoggerFactory.createLogger(__name__)
@@ -59,7 +60,6 @@ class Engine:
         self.logger.debug("Setting up analyzers")
         self.logger.info("Start analysis")
         self.logger.debug("Fetching files")
-        # TODO allow multiple src dirs
         for path in args.path:
             files = self.fileFetcher.fetch(path)
             self.nbFiles += len(files)
@@ -74,7 +74,7 @@ class Engine:
         end_time = time.time()
         self.recordStats(round_up(end_time - start_time, 2))
 
-    def recordStats(self, duration):
+    def recordStats(self, duration: float) -> None:
         self.stats.nbFiles = self.nbFiles
         self.stats.nbClasses = len(self.identityAnalyser.getClasses())
         self.stats.nbEnums = len(self.identityAnalyser.getEnums())
@@ -88,7 +88,7 @@ class Engine:
         self.logger.info("Functions found %d", self.stats.nbFunctions)
         self.logger.info("Analysis duration : %s seconds", str(self.stats.timeSpent))
 
-    def sendAnalysisStats(self):
+    def sendAnalysisStats(self) -> None:
         self.logger.debug("Stats sent to UI")
         self.uiStatListener.notifyStats(
             self.stats.nbFiles,
@@ -98,25 +98,25 @@ class Engine:
             self.stats.timeSpent,
         )
 
-    def sendClasseNames(self):
+    def sendClasseNames(self) -> None:
         self.logger.debug("Class name tree sent to UI")
         self.uiBrowseListener.notifyClasseNames(self.identityAnalyser.getClasseTree())
 
-    def sendEnumNames(self):
+    def sendEnumNames(self) -> None:
         self.logger.debug("Enum name tree sent to UI")
         self.uiBrowseListener.notifyEnumNames(self.identityAnalyser.getEnumTree())
 
-    def sendFunctionNames(self):
+    def sendFunctionNames(self) -> None:
         self.logger.debug("Function name tree sent to UI")
         self.uiBrowseListener.notifyFunctionNames(
             self.identityAnalyser.getFunctionTree()
         )
 
-    def sendFileNames(self):
+    def sendFileNames(self) -> None:
         self.logger.debug("File name tree sent to UI")
         self.uiBrowseListener.notifyFileNames(self.identityAnalyser.getFileTree())
 
-    def sendClassData(self, className):
+    def sendClassData(self, className: str) -> None:
         klass = self.identityAnalyser.getClass(className)
         if not klass:
             self.logger.error("Unknow class requested : %s", className)
@@ -129,7 +129,7 @@ class Engine:
             objects[0], objects[1], objects[2], objects[3]
         )
         mermaidDiag = self.classDiagramBuild.build()
-        klassDesc = {}
+        klassDesc: Dict[str, Any] = {}
         klassDesc["name"] = klass.name
         klassDesc["namespace"] = klass.namespace
         klassDesc["file"] = klass.origin
@@ -139,7 +139,7 @@ class Engine:
         self.logger.debug("Class data sent to UI")
         self.uiBrowseListener.notifyClassData(klassDesc, mermaidDiag)
 
-    def sendEnumData(self, enumName):
+    def sendEnumData(self, enumName: str) -> None:
         enum = self.identityAnalyser.getEnum(enumName)
         if not enum:
             self.logger.error("Unknow enum requested : %s", enumName)
@@ -154,12 +154,12 @@ class Engine:
         self.logger.debug("Enum data sent to UI")
         self.uiBrowseListener.notifyEnumData(enumDesc, mermaidDiag)
 
-    def sendFunctionData(self, functionDef):
+    def sendFunctionData(self, functionDef: str) -> None:
         func = self.identityAnalyser.getFunction(functionDef)
         if not func:
             self.logger.error("Unknow function requested : %s", functionDef)
             return
-        functionDesc = {}
+        functionDesc: Dict[str, Any] = {}
         functionDesc["name"] = func.name
         functionDesc["namespace"] = func.namespace
         functionDesc["file"] = func.origin
@@ -172,7 +172,7 @@ class Engine:
         self.logger.debug("Function data sent to UI")
         self.uiBrowseListener.notifyFunctionData(functionDesc)
 
-    def sendFileData(self, fileName):
+    def sendFileData(self, fileName: str) -> None:
         filePath = fileName
         if "::" in fileName or self.identityAnalyser.singleFile:
             filePath = (
@@ -182,7 +182,7 @@ class Engine:
             fileName = fileName.replace(
                 self.identityAnalyser.commonFilePath + "/", ""
             ).replace("/", "::")
-        fileDesc = {}
+        fileDesc: Dict[str, Any] = {}
         fileDesc["name"] = fileName
         fileDesc["path"] = filePath
         fileDesc["objects"] = self.identityAnalyser.getObjectInFile(filePath)
@@ -190,7 +190,7 @@ class Engine:
         self.logger.debug("File data sent to UI")
         self.uiBrowseListener.notifyFileData(fileDesc)
 
-    def sendSearchResult(self, token):
+    def sendSearchResult(self, token: str) -> None:
         searchRes = self.searchAnalyser.searchInAllFiles(
             token, self.identityAnalyser.getFiles()
         )

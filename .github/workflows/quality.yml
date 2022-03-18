@@ -34,7 +34,7 @@ jobs:
       - name: Install Python dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install flake8
+            pip install flake8 mypy
       - name: install node v12
         uses: actions/setup-node@v1
         with:
@@ -43,12 +43,14 @@ jobs:
         run: |
             yarn install
             npm install --save-dev eslint eslint-config-xo babel-eslint
-      - name: Lint python with flake8
+      - name: Lint python with flake8 and mypy
         run: |
             # stop the build if there are Python syntax errors or undefined names
             flake8 ./pycodeanalyzer --count --select=E9,F63,F7,F82 --show-source --statistics
             # exit-zero treats all errors as warnings.
             flake8 ./pycodeanalyzer --count --ignore=E203,W503 --exit-zero --max-complexity=20 --max-line-length=127 --statistics
+            # Mypy
+            mypy --config-file .mypy.ini pycodeanalyzer
       - name: Lint JS with StandardJs
         uses: iCrawl/action-eslint@v1
         with:

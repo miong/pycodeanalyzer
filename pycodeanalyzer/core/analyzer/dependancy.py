@@ -1,11 +1,26 @@
-from pycodeanalyzer.core.abstraction.objects import AbstractClass
+from typing import List, Tuple
+
+from pycodeanalyzer.core.abstraction.objects import (
+    AbstractClass,
+    AbstractEnum,
+    AbstractFunction,
+)
 
 
 class DependancyAnalyser:
-    def analyze(self, klasses, enums, target):
-        linkedClasses = []
-        linkedEnums = []
-        linkedFunctions = []  # TODO : need to process .c / .cc / .cpp files
+    def analyze(
+        self,
+        klasses: List[AbstractClass],
+        enums: List[AbstractEnum],
+        target: AbstractClass,
+    ) -> Tuple[
+        AbstractClass, List[AbstractClass], List[AbstractEnum], List[AbstractFunction]
+    ]:
+        linkedClasses: List[AbstractClass] = []
+        linkedEnums: List[AbstractEnum] = []
+        linkedFunctions: List[
+            AbstractFunction
+        ] = []  # TODO : need to process .c / .cc / .cpp files
         for type in target.getLinkedTypes():
             typeDeclaredNamespace = ""
             typeName = ""
@@ -33,7 +48,14 @@ class DependancyAnalyser:
                 )
         return (target, linkedClasses, linkedEnums, linkedFunctions)
 
-    def findClass(self, namespace, name, klasses, currentNamespace, currentClassName):
+    def findClass(
+        self,
+        namespace: str,
+        name: str,
+        klasses: List[AbstractClass],
+        currentNamespace: str,
+        currentClassName: str,
+    ) -> AbstractClass:
         for klass in klasses:
             if klass.namespace == namespace and klass.name == name:
                 return klass
@@ -59,7 +81,14 @@ class DependancyAnalyser:
                 return klass
         return None
 
-    def findEnum(self, namespace, name, enums, currentNamespace, currentClassName):
+    def findEnum(
+        self,
+        namespace: str,
+        name: str,
+        enums: List[AbstractEnum],
+        currentNamespace: str,
+        currentClassName: str,
+    ) -> AbstractEnum:
         for enum in enums:
             if enum.namespace == namespace and enum.name == name:
                 return enum

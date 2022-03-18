@@ -6,7 +6,7 @@ from pycodeanalyzer.injection import injector
 from pycodeanalyzer.ui import socketlistener  # noqa
 
 
-def main():
+def main() -> None:
     console = injector.get(Console)
     console.init()
     engine = injector.get(Engine)

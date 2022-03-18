@@ -1,5 +1,6 @@
 import os
 import pathlib
+from typing import List
 
 from injector import singleton
 
@@ -9,7 +10,7 @@ from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
 @singleton
 class FileFetcher:
-    def __init__(self):
+    def __init__(self) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
         self.suported_extensions = [
             ".h",
@@ -21,7 +22,7 @@ class FileFetcher:
         ]
         self.encoding = Encoding()
 
-    def isAnalyzed(self, fileabspath):
+    def isAnalyzed(self, fileabspath: str) -> bool:
         p = pathlib.Path(fileabspath)
         extension = p.suffix
         filename = p.stem
@@ -34,8 +35,8 @@ class FileFetcher:
             and not filename.startswith(".")
         )
 
-    def fetch(self, rootDir):
-        list = []
+    def fetch(self, rootDir: str) -> List[str]:
+        list: List[str] = []
         rootabspath = os.path.abspath(rootDir)
         if not os.path.isdir(rootabspath):
             self.logger.error("There is no directory %s", rootDir)

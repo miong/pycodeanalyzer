@@ -1,5 +1,7 @@
 """pycodeanalyzer - Code analyzer to get information to help developers to understand how projects works."""
 
-__version__ = "0.0.1"
-__author__ = "Giovanni Mion <mion.ggb@gmail.com>"
-__all__ = []
+from typing import Any, List
+
+__version__: str = "0.0.1"
+__author__: str = "Giovanni Mion <mion.ggb@gmail.com>"
+__all__: List[Any] = []

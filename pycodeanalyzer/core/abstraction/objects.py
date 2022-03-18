@@ -1,24 +1,29 @@
+from __future__ import annotations
+
+from typing import List, Tuple
+
+
 class AbstractObject:
-    def __init__(self, name, origin):
+    def __init__(self, name: str, origin: str) -> None:
         self.name = name
         self.type = "Object"
         self.origin = origin
 
 
 class AbstractEnum(AbstractObject):
-    def __init__(self, name, namespace, origin, values):
+    def __init__(self, name: str, namespace: str, origin: str, values: List[str]):
         self.name = name
         self.namespace = namespace
         self.type = "Enum"
         self.values = values
         self.origin = origin
 
-    def getFullName(self):
+    def getFullName(self) -> str:
         if len(self.namespace) <= 0:
             return self.name
         return self.namespace + "::" + self.name
 
-    def print(self):
+    def print(self) -> None:
         print("Enum : ", self.name)
         print("\tValues : ")
         for value in self.values:
@@ -26,7 +31,15 @@ class AbstractEnum(AbstractObject):
 
 
 class AbstractFunction(AbstractObject):
-    def __init__(self, name, origin, returnType, parameters, namespace, doxygen):
+    def __init__(
+        self,
+        name: str,
+        origin: str,
+        returnType: str,
+        parameters: List[Tuple[str, str]],
+        namespace: str,
+        doxygen: str,
+    ) -> None:
         self.name = name
         self.namespace = namespace
         self.type = "Function"
@@ -35,7 +48,7 @@ class AbstractFunction(AbstractObject):
         self.parameters = parameters
         self.doxygen = doxygen
 
-    def print(self):
+    def print(self) -> None:
         print("Function : ", self.name)
         print("\tNamespace :", self.namespace)
         print("\tReturn :", self.returnType)
@@ -43,8 +56,8 @@ class AbstractFunction(AbstractObject):
         for param in self.parameters:
             print("\t\t -", param[0], param[1])
 
-    def getFullDef(self):
-        ret = self.returnType + " " + self.namespace + "::" + self.name + "("
+    def getFullDef(self) -> str:
+        ret: str = self.returnType + " " + self.namespace + "::" + self.name + "("
         for param in self.parameters:
             ret += param[0] + " " + param[1] + ", "
         ret = ret[:-2]
@@ -53,26 +66,32 @@ class AbstractFunction(AbstractObject):
 
 
 class AbstractClass(AbstractObject):
-    def __init__(self, name, namespace, origin):
+    def __init__(self, name: str, namespace: str, origin: str) -> None:
         self.name = name
         self.namespace = namespace
         self.type = "Class"
-        self.members = []
-        self.methodes = []
-        self.parents = []
+        self.members: List[Tuple[str, str, str]] = []
+        self.methodes: List[Tuple[str, str, List[Tuple[str, str]], str]] = []
+        self.parents: List[Tuple[str, str, str]] = []
         self.origin = origin
 
-    def addMember(self, type, name, visibility):
+    def addMember(self, type: str, name: str, visibility: str) -> None:
         self.members.append((type, name, visibility))
 
-    def addMethod(self, returnType, name, parameters, visibility):
+    def addMethod(
+        self,
+        returnType: str,
+        name: str,
+        parameters: List[Tuple[str, str]],
+        visibility: str,
+    ) -> None:
         self.methodes.append((returnType, name, parameters, visibility))
 
-    def addParent(self, completetype, name, visibility):
+    def addParent(self, completetype: str, name: str, visibility: str) -> None:
         self.parents.append((completetype, name, visibility))
 
-    def getLinkedTypes(self):
-        types = []
+    def getLinkedTypes(self) -> List[str]:
+        types: List[str] = []
         for parent in self.parents:
             for type in self.getDependanceFromType(parent[1]):
                 if type not in types and self.isPotentialClassName(type):
@@ -109,7 +128,7 @@ class AbstractClass(AbstractObject):
         types = self.removeNonObjectTypes(types)
         return types
 
-    def isPotentialClassName(self, type):
+    def isPotentialClassName(self, type: str) -> bool:
         if not type:
             return False
         if len(type) <= 0:
@@ -118,8 +137,8 @@ class AbstractClass(AbstractObject):
             return False
         return True
 
-    def getDependanceFromType(self, type):
-        deps = []
+    def getDependanceFromType(self, type: str) -> List[str]:
+        deps: List[str] = []
         if "<" in type:
             # TODO Handle nested
             index = type.index("<")
@@ -133,12 +152,12 @@ class AbstractClass(AbstractObject):
         deps.append(self.cleanLanguageArtifacts(type))
         return deps
 
-    def getFullName(self):
+    def getFullName(self) -> str:
         if len(self.namespace) <= 0:
             return self.name
         return self.namespace + "::" + self.name
 
-    def cleanLanguageArtifacts(self, type):
+    def cleanLanguageArtifacts(self, type: str) -> str:
         # remove all languages artefact that are not needed to get the type we depends on
         return (
             type.replace("*", "")
@@ -151,7 +170,7 @@ class AbstractClass(AbstractObject):
             .strip()
         )
 
-    def removeNonObjectTypes(self, typeList):
+    def removeNonObjectTypes(self, typeList: List[str]) -> List[str]:
         NonObjectTypes = [
             "void",
             "bool",
@@ -179,13 +198,13 @@ class AbstractClass(AbstractObject):
         ]
         return cleaned_list
 
-    def isParent(self, klass):
+    def isParent(self, klass: AbstractClass) -> bool:
         for tuple in self.parents:
             if tuple[0] == klass.name:
                 return True
         return False
 
-    def print(self):
+    def print(self) -> None:
         print("Class : ", self.name, " in namespace ", self.namespace)
         print("\tInherits : ")
         for tuple in self.parents:

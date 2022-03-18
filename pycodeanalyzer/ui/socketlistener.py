@@ -1,3 +1,5 @@
+from typing import Any, Dict, List
+
 from injector import inject, singleton
 
 from pycodeanalyzer.injection import injector
@@ -10,85 +12,97 @@ app = injector.get(Application)
 @singleton
 class SocketListner:
     @inject
-    def __init__(self, engineCommands: EngineCommands):
+    def __init__(self, engineCommands: EngineCommands) -> None:
         self.engineCommands = engineCommands
 
-    def fetchStats(self):
+    def fetchStats(self) -> None:
         self.engineCommands.requestAnalysisStats()
 
-    def fetchAnalysedClassNames(self):
+    def fetchAnalysedClassNames(self) -> None:
         self.engineCommands.requestClasseNames()
 
-    def fetchAnalysedEnumNames(self):
+    def fetchAnalysedEnumNames(self) -> None:
         self.engineCommands.requestEnumNames()
 
-    def fetchAnalysedFunctionNames(self):
+    def fetchAnalysedFunctionNames(self) -> None:
         self.engineCommands.requestFunctionNames()
 
-    def fetchAnalysedFileNames(self):
+    def fetchAnalysedFileNames(self) -> None:
         self.engineCommands.requestFileNames()
 
-    def fetchClassData(self, className):
+    def fetchClassData(self, className: str) -> None:
         self.engineCommands.requestClassData(className)
 
-    def fetchEnumData(self, enumName):
+    def fetchEnumData(self, enumName: str) -> None:
         self.engineCommands.requestEnumData(enumName)
 
-    def fetchFunctionData(self, functionDef):
+    def fetchFunctionData(self, functionDef: str) -> None:
         self.engineCommands.requestFunctionData(functionDef)
 
-    def fetchFileData(self, fileName):
+    def fetchFileData(self, fileName: str) -> None:
         self.engineCommands.requestFileData(fileName)
 
-    def searchData(self, token):
+    def searchData(self, token: str) -> None:
         self.engineCommands.requestSearchData(token)
 
 
 @app.socketio.on("fetchStats")
-def fetchStats(json, methods=["GET", "POST"]):
+def fetchStats(json: Dict["str", Any], methods: List[str] = ["GET", "POST"]) -> None:
     injector.get(SocketListner).fetchStats()
 
 
 @app.socketio.on("fetchAnalysedClassNames")
-def fetchAnalysedClassNames(json, methods=["GET", "POST"]):
+def fetchAnalysedClassNames(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
     injector.get(SocketListner).fetchAnalysedClassNames()
 
 
 @app.socketio.on("fetchAnalysedEnumNames")
-def fetchAnalysedEnumNames(json, methods=["GET", "POST"]):
+def fetchAnalysedEnumNames(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
     injector.get(SocketListner).fetchAnalysedEnumNames()
 
 
 @app.socketio.on("fetchAnalysedFunctionNames")
-def fetchAnalysedFunctionNames(json, methods=["GET", "POST"]):
+def fetchAnalysedFunctionNames(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
     injector.get(SocketListner).fetchAnalysedFunctionNames()
 
 
 @app.socketio.on("fetchAnalysedFileNames")
-def fetchAnalysedFileNames(json, methods=["GET", "POST"]):
+def fetchAnalysedFileNames(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
     injector.get(SocketListner).fetchAnalysedFileNames()
 
 
 @app.socketio.on("fetchClassData")
-def fetchClassData(json, methods=["GET", "POST"]):
+def fetchClassData(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
     injector.get(SocketListner).fetchClassData(json["className"])
 
 
 @app.socketio.on("fetchEnumData")
-def fetchEnumData(json, methods=["GET", "POST"]):
+def fetchEnumData(json: Dict["str", Any], methods: List[str] = ["GET", "POST"]) -> None:
     injector.get(SocketListner).fetchEnumData(json["enumName"])
 
 
 @app.socketio.on("fetchFunctionData")
-def fetchFunctionData(json, methods=["GET", "POST"]):
+def fetchFunctionData(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
     injector.get(SocketListner).fetchFunctionData(json["functionDef"])
 
 
 @app.socketio.on("fetchFileData")
-def fetchFileData(json, methods=["GET", "POST"]):
+def fetchFileData(json: Dict["str", Any], methods: List[str] = ["GET", "POST"]) -> None:
     injector.get(SocketListner).fetchFileData(json["fileName"])
 
 
 @app.socketio.on("searchData")
-def searchData(json, methods=["GET", "POST"]):
+def searchData(json: Dict["str", Any], methods: List[str] = ["GET", "POST"]) -> None:
     injector.get(SocketListner).searchData(json["token"])

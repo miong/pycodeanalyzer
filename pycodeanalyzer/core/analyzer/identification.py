@@ -1,35 +1,43 @@
 import os
+from typing import Any, Dict, List, cast
+
+from pycodeanalyzer.core.abstraction.objects import (
+    AbstractClass,
+    AbstractEnum,
+    AbstractFunction,
+    AbstractObject,
+)
 
 
 class IdentityAnalyser:
-    def __init__(self):
-        self.mapping = {}
+    def __init__(self) -> None:
+        self.mapping: Dict[str, List[Any]] = {}
         self.mapping["Classes"] = []
         self.mapping["Enums"] = []
         self.mapping["Functions"] = []
         self.commonFilePath = "/"
         self.singleFile = False
 
-    def analyze(self, objects):
+    def analyze(self, objects: List[AbstractObject]) -> None:
         for object in objects:
             if object.type == "Class":
-                self.mapping["Classes"].append(object)
+                self.mapping["Classes"].append(cast(AbstractClass, object))
             elif object.type == "Enum":
-                self.mapping["Enums"].append(object)
+                self.mapping["Enums"].append(cast(AbstractEnum, object))
             elif object.type == "Function":
-                self.mapping["Functions"].append(object)
+                self.mapping["Functions"].append(cast(AbstractFunction, object))
 
-    def getClasses(self):
+    def getClasses(self) -> List[AbstractClass]:
         return self.mapping["Classes"]
 
-    def getEnums(self):
+    def getEnums(self) -> List[AbstractEnum]:
         return self.mapping["Enums"]
 
-    def getFunctions(self):
+    def getFunctions(self) -> List[AbstractFunction]:
         return self.mapping["Functions"]
 
-    def getClasseTree(self):
-        tree = {}
+    def getClasseTree(self) -> Dict[str, Any]:
+        tree: Dict[str, Any] = {}
         currentTree = None
         for klass in self.getClasses():
             klassName = klass.name.replace("::", "££")
@@ -49,8 +57,8 @@ class IdentityAnalyser:
                     currentTree["__classes__"].append(element.replace("££", "::"))
         return tree
 
-    def getEnumTree(self):
-        tree = {}
+    def getEnumTree(self) -> Dict[str, Any]:
+        tree: Dict[str, Any] = {}
         currentTree = None
         for enum in self.getEnums():
             enumName = enum.name.replace("::", "££")
@@ -70,8 +78,8 @@ class IdentityAnalyser:
                     currentTree["__enums__"].append(element.replace("££", "::"))
         return tree
 
-    def getFunctionTree(self):
-        tree = {}
+    def getFunctionTree(self) -> Dict[str, Any]:
+        tree: Dict[str, Any] = {}
         currentTree = None
         for func in self.getFunctions():
             funcName = func.name.replace("::", "££")
@@ -95,7 +103,7 @@ class IdentityAnalyser:
                     currentTree["__functions__"].append(data)
         return tree
 
-    def getFiles(self):
+    def getFiles(self) -> List[str]:
         files = []
         for item in self.getClasses():
             if item.origin not in files:
@@ -108,9 +116,9 @@ class IdentityAnalyser:
                 files.append(item.origin)
         return files
 
-    def getFileTree(self):
+    def getFileTree(self) -> Dict[str, Any]:
         files = self.getFiles()
-        tree = {}
+        tree: Dict[str, Any] = {}
         self.commonFilePath = os.path.commonpath(files)
         self.singleFile = len(files) == 1
         if self.singleFile:
@@ -133,7 +141,7 @@ class IdentityAnalyser:
                     currentTree["__files__"].append(element)
         return tree
 
-    def getClass(self, classNamespacePath):
+    def getClass(self, classNamespacePath: str) -> AbstractClass:
         for klass in self.getClasses():
             klassPath = klass.name
             if len(klass.namespace) > 0:
@@ -142,7 +150,7 @@ class IdentityAnalyser:
                 return klass
         return None
 
-    def getEnum(self, enumNamespacePath):
+    def getEnum(self, enumNamespacePath: str) -> AbstractEnum:
         for enum in self.getEnums():
             enumPath = enum.name
             if len(enum.namespace) > 0:
@@ -151,27 +159,27 @@ class IdentityAnalyser:
                 return enum
         return None
 
-    def getFunction(self, funcFullDef):
+    def getFunction(self, funcFullDef: str) -> AbstractFunction:
         for func in self.getFunctions():
             if funcFullDef == func.getFullDef():
                 return func
         return None
 
-    def getObjectInFile(self, file):
-        ret = {}
+    def getObjectInFile(self, file: str) -> Dict[str, List[str]]:
+        ret: Dict[str, List[str]] = {}
         if len(self.getClasses()) > 0:
             ret["classes"] = []
-            for item in self.getClasses():
-                if item.origin == file:
-                    ret["classes"].append(item.getFullName())
+            for klass in self.getClasses():
+                if klass.origin == file:
+                    ret["classes"].append(klass.getFullName())
         if len(self.getEnums()) > 0:
             ret["enums"] = []
-            for item in self.getEnums():
-                if item.origin == file:
-                    ret["enums"].append(item.getFullName())
+            for enum in self.getEnums():
+                if enum.origin == file:
+                    ret["enums"].append(enum.getFullName())
         if len(self.getFunctions()) > 0:
             ret["functions"] = []
-            for item in self.getFunctions():
-                if item.origin == file:
-                    ret["functions"].append(item.getFullDef())
+            for func in self.getFunctions():
+                if func.origin == file:
+                    ret["functions"].append(func.getFullDef())
         return ret

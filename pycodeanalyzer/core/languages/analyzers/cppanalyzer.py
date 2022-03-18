@@ -2,6 +2,7 @@ import argparse
 import io
 import os
 import re
+from typing import Any, List
 
 import CppHeaderParser
 from pcpp import Action, OutputDirective, Preprocessor
@@ -10,13 +11,14 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
     AbstractEnum,
     AbstractFunction,
+    AbstractObject,
 )
 from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
 
 class CustumCppPreprocessor(Preprocessor):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.passthru_includes = re.compile(".*")
         self.expand_linemacro = False
@@ -24,33 +26,35 @@ class CustumCppPreprocessor(Preprocessor):
         self.expand_countermacro = False
         self.bypass_ifpassthru = False
 
-    def parseFile(self, path):
-        item = argparse.FileType("rt")(path)
+    def parseFile(self, path: str) -> None:
+        item: Any = argparse.FileType("rt")(path)
         self.parse(item)
 
-    def addDefine(self, d):
+    def addDefine(self, d: str) -> None:
         if "=" not in d:
             d += "=1"
             d = d.replace("=", " ", 1)
         self.define(d)
 
-    def getResult(self):
+    def getResult(self) -> str:
         string = ""
         ss = io.StringIO(string)
         self.write(ss)
         return ss.getvalue()
 
     def on_include_not_found(
-        self, is_malformed, is_system_include, curdir, includepath
-    ):
+        self, is_malformed: Any, is_system_include: Any, curdir: Any, includepath: Any
+    ) -> None:
         raise OutputDirective(Action.IgnoreAndPassThrough)
 
-    def on_comment(self, tok):
+    def on_comment(self, tok: Any) -> Any:
         if tok.value.strip().startswith("/**"):
             return True
         return super().on_comment(tok)
 
-    def on_directive_handle(self, directive, toks, ifpassthru, precedingtoks):
+    def on_directive_handle(
+        self, directive: Any, toks: Any, ifpassthru: Any, precedingtoks: Any
+    ) -> Any:
         if ifpassthru:
             if (
                 directive.value == "if"
@@ -79,12 +83,12 @@ class CustumCppPreprocessor(Preprocessor):
         super().on_directive_handle(directive, toks, ifpassthru, precedingtoks)
         return None  # Pass through where possible
 
-    def on_unknown_macro_in_defined_expr(self, tok):
+    def on_unknown_macro_in_defined_expr(self, tok: Any) -> bool:
         return False
 
 
 class CustomCppHeader(CppHeaderParser.CppHeader):
-    def is_enum_namestack(nameStack):
+    def is_enum_namestack(nameStack: Any) -> bool:
         if not nameStack:
             return False
         if nameStack[0] == "enum" and "*" not in nameStack:
@@ -93,8 +97,8 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
             return "{" in nameStack
         return False
 
-    def is_method_namestack(stack):
-        r = False
+    def is_method_namestack(stack: Any) -> bool:
+        r: bool = False
         if "(" not in stack:
             r = False
         elif stack[0] == "typedef":
@@ -125,7 +129,7 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
 
 
 class CppAnalyzer(Analyzer):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         CppHeaderParser.CppHeaderParser.ignoreSymbols = []
         CppHeaderParser.CppHeaderParser.is_enum_namestack = (
@@ -134,29 +138,31 @@ class CppAnalyzer(Analyzer):
         CppHeaderParser.CppHeaderParser.is_method_namestack = (
             CustomCppHeader.is_method_namestack
         )
-        self.objectPaths = []
-        self.encoding = Encoding()
-        self.forceIgnoredSymbols = []
+        self.objectPaths: List[str] = []
+        self.encoding: Encoding = Encoding()
+        self.forceIgnoredSymbols: List[str] = []
 
-    def analyze(self, rootDir, path):
-        abstractObjects = []
+    def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:
+        abstractObjects: List[AbstractObject] = []
         self.logger.info("Analysing %s", path)
-        abspath = os.path.join(rootDir, path)
+        abspath: str = os.path.join(rootDir, path)
 
-        encoding = self.encoding.getFileEncoding(abspath)
+        encoding: str = self.encoding.getFileEncoding(abspath)
 
         try:
-            preproc = CustumCppPreprocessor()
+            preproc: CustumCppPreprocessor = CustumCppPreprocessor()
             preproc.parseFile(abspath)
-            code = preproc.getResult()
+            code: str = preproc.getResult()
 
-            continueTryParsing = True
+            continueTryParsing: bool = True
             while continueTryParsing:
                 try:
                     for symb in self.forceIgnoredSymbols:
                         code = code.replace(" " + symb + " ", " ")
 
-                    header = CustomCppHeader(code, argType="string", encoding=encoding)
+                    header: CustomCppHeader = CustomCppHeader(
+                        code, argType="string", encoding=encoding
+                    )
                     header.headerFileName = abspath
                     for klass in header.classes.values():
                         self.handleClass(path, klass, abstractObjects)
@@ -203,7 +209,9 @@ class CppAnalyzer(Analyzer):
             self.logger.error("Error analyzing %s : can't decode file", path)
         return abstractObjects
 
-    def handleClass(self, path, klass, abstractObjects):
+    def handleClass(
+        self, path: str, klass: Any, abstractObjects: List[AbstractObject]
+    ) -> None:
         objectPath = (klass["namespace"] + "::" + klass["name"]).strip()
         if objectPath in self.objectPaths:
             self.logger.warning(
@@ -224,7 +232,9 @@ class CppAnalyzer(Analyzer):
         self.objectPaths.append(objectPath)
         abstractObjects.append(abstraction)
 
-    def addMethods(self, abstraction, klass, visibility):
+    def addMethods(
+        self, abstraction: AbstractClass, klass: Any, visibility: str
+    ) -> None:
         for method in klass["methods"][visibility]:
             params = []
             for param in method["parameters"]:
@@ -234,18 +244,22 @@ class CppAnalyzer(Analyzer):
                 rtnType = klass["name"]
             abstraction.addMethod(rtnType, method["name"], params, visibility)
 
-    def addMembers(self, abstraction, klass, visibility):
+    def addMembers(
+        self, abstraction: AbstractClass, klass: Any, visibility: str
+    ) -> None:
         for member in klass["properties"][visibility]:
             abstraction.addMember(member["type"], member["name"], visibility)
 
-    def addParents(self, abstraction, klass):
+    def addParents(self, abstraction: AbstractClass, klass: Any) -> None:
         for declParent in klass["inherits"]:
             declName = declParent["class"]
             if "decl_name" in declParent:
                 declName = declParent["decl_name"]
             abstraction.addParent(declParent["class"], declName, declParent["access"])
 
-    def handleEnum(self, path, enum, abstractObjects):
+    def handleEnum(
+        self, path: str, enum: Any, abstractObjects: List[AbstractObject]
+    ) -> None:
         if "name" not in enum:
             self.logger.warning("Anonymous enum found in %s, dropping it", path)
             return
@@ -266,7 +280,9 @@ class CppAnalyzer(Analyzer):
         abstractObjects.append(abstraction)
         self.objectPaths.append(objectPath)
 
-    def handleFunction(self, path, function, abstractObjects):
+    def handleFunction(
+        self, path: str, function: Any, abstractObjects: List[AbstractObject]
+    ) -> None:
         namespace = self.clearNamespace(function["namespace"])
         params = []
         for param in function["parameters"]:
@@ -279,7 +295,7 @@ class CppAnalyzer(Analyzer):
         )
         abstractObjects.append(abstraction)
 
-    def clearNamespace(self, namespace):
+    def clearNamespace(self, namespace: str) -> str:
         cleared = namespace.strip()
         if cleared[-2:] == "::":
             cleared = cleared[:-2]
@@ -287,7 +303,9 @@ class CppAnalyzer(Analyzer):
             cleared = cleared[2:]
         return cleared
 
-    def extractUnexpectedFromParseError(self, err):
+    def extractUnexpectedFromParseError(
+        self, err: CppHeaderParser.CppHeaderParser.CppParseError
+    ) -> str:
         msg = str(err)
         startDelim = "evaluating"
         endDelim = ":"

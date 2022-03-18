@@ -50,7 +50,8 @@ setup(
             "coverage",
             "black",
             "isort",
-            "flake8"
+            "flake8",
+            "mypy"
         ]
     },
 

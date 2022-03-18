@@ -1,14 +1,30 @@
+from typing import List, Tuple
+
+from pycodeanalyzer.core.abstraction.objects import (
+    AbstractClass,
+    AbstractEnum,
+    AbstractFunction,
+    AbstractObject,
+)
+
+
 class ClassDiagramBuild:
-    def __init__(self):
+    def __init__(self) -> None:
         self.reset()
 
-    def reset(self):
-        self.klasses = []
-        self.enums = []
-        self.relations = []
-        self.parents = []
+    def reset(self) -> None:
+        self.klasses: List[AbstractClass] = []
+        self.enums: List[AbstractEnum] = []
+        self.relations: List[Tuple[str, str]] = []
+        self.parents: List[Tuple[str, str]] = []
 
-    def createClass(self, target, linkedClasses, linkedEnums, linkedFunctions):
+    def createClass(
+        self,
+        target: AbstractClass,
+        linkedClasses: List[AbstractClass],
+        linkedEnums: List[AbstractEnum],
+        linkedFunctions: List[AbstractFunction],
+    ) -> None:
         self.addClass(target)
         for klass in linkedClasses:
             self.addClass(klass)
@@ -20,10 +36,10 @@ class ClassDiagramBuild:
             self.addEnum(enum)
             self.addDependancy(target, klass)
 
-    def createEnum(self, target):
+    def createEnum(self, target: AbstractEnum) -> None:
         self.addEnum(target)
 
-    def build(self):
+    def build(self) -> str:
         res = "classDiagram\n"
         for klass in self.klasses:
             res += "class " + klass.name
@@ -75,27 +91,31 @@ class ClassDiagramBuild:
             res += relation[0] + " ..> " + relation[1] + "\n"
         return res
 
-    def addInheritance(self, target, linkedObject):
+    def addInheritance(
+        self, target: AbstractClass, linkedObject: AbstractObject
+    ) -> None:
         relation = (target.name, linkedObject.name)
         if relation not in self.parents:
             self.parents.append(relation)
 
-    def addDependancy(self, target, linkedObject):
+    def addDependancy(
+        self, target: AbstractObject, linkedObject: AbstractObject
+    ) -> None:
         relation = (target.name, linkedObject.name)
         if relation not in self.relations:
             self.relations.append(relation)
 
-    def addClass(self, abstractClass):
+    def addClass(self, abstractClass: AbstractClass) -> None:
         if abstractClass not in self.klasses:
             self.klasses.append(abstractClass)
 
-    def addEnum(self, abstractEnum):
+    def addEnum(self, abstractEnum: AbstractEnum) -> None:
         if abstractEnum not in self.enums:
             self.enums.append(abstractEnum)
 
-    def getVisibilityMark(self, text):
+    def getVisibilityMark(self, text: str) -> str:
         if text == "private":
-            return "-"
+            return "- "
         if text == "protected":
-            return "#"
-        return "+"
+            return "# "
+        return "+ "
