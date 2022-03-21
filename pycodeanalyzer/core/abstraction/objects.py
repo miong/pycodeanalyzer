@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import List, Tuple
+import re
 
 
 class AbstractObject:
@@ -93,42 +94,33 @@ class AbstractClass(AbstractObject):
     def getLinkedTypes(self) -> List[str]:
         types: List[str] = []
         for parent in self.parents:
-            for type in self.getDependanceFromType(parent[1]):
-                if type not in types and self.isPotentialClassName(type):
+            for type in self.__getDependanceFromType(parent[1]):
+                if type not in types and self.__isPotentialClassName(type):
                     types.append(type)
             if parent[0] != parent[1]:
-                # TODO Handle nested
-                templateTypeList = (
-                    parent[0]
-                    .replace(parent[1], "")
-                    .replace("<", "")
-                    .replace(">", "")
-                    .split(",")
-                )
-                for templateType in templateTypeList:
-                    for type in self.getDependanceFromType(templateType):
-                        if type not in types and self.isPotentialClassName(type):
-                            types.append(type)
+                for type in self.__getDependanceFromType(parent[0]):
+                    if type not in types and self.__isPotentialClassName(type):
+                        types.append(type)
         for method in self.methodes:
-            for type in self.getDependanceFromType(method[0]):
+            for type in self.__getDependanceFromType(method[0]):
                 if (
                     type not in types
                     and type != self.name
-                    and self.isPotentialClassName(type)
+                    and self.__isPotentialClassName(type)
                 ):
                     types.append(type)
             for param in method[2]:
-                for type in self.getDependanceFromType(param[0]):
-                    if type not in types and self.isPotentialClassName(type):
+                for type in self.__getDependanceFromType(param[0]):
+                    if type not in types and self.__isPotentialClassName(type):
                         types.append(type)
         for member in self.members:
-            for type in self.getDependanceFromType(member[0]):
-                if type not in types and self.isPotentialClassName(type):
+            for type in self.__getDependanceFromType(member[0]):
+                if type not in types and self.__isPotentialClassName(type):
                     types.append(type)
-        types = self.removeNonObjectTypes(types)
+        types = self.__removeNonObjectTypes(types)
         return types
 
-    def isPotentialClassName(self, type: str) -> bool:
+    def __isPotentialClassName(self, type: str) -> bool:
         if not type:
             return False
         if len(type) <= 0:
@@ -137,27 +129,48 @@ class AbstractClass(AbstractObject):
             return False
         return True
 
-    def getDependanceFromType(self, type: str) -> List[str]:
+    def __getDependanceFromType(self, type: str) -> List[str]:
         deps: List[str] = []
         if "<" in type:
-            # TODO Handle nested
-            index = type.index("<")
-            templateTypeList = type[index:].replace("<", "").replace(">", "").split(",")
+            templateTypeList = self.__splitTypes(re.search('[^<]+<(.*)>', type).group(1))
             for templateType in templateTypeList:
-                innerTypes = self.getDependanceFromType(templateType)
+                innerTypes = self.__getDependanceFromType(templateType)
                 for dep in innerTypes:
                     if dep not in deps:
-                        deps.append(self.cleanLanguageArtifacts(dep))
-            type = type[:index].replace("<", "")
-        deps.append(self.cleanLanguageArtifacts(type))
+                        deps.append(self.__cleanLanguageArtifacts(dep))
+            type = re.search('([^<]+).*>', type).group(1)
+        deps.append(self.__cleanLanguageArtifacts(type))
         return deps
+
+    def __splitTypes(self, decl):
+        depth = 0;
+        currentType = ""
+        types = []
+        for i in range (0, len(decl)):
+            if decl[i] == '<':
+                depth += 1
+                currentType += decl[i]
+            elif decl[i] == '>':
+                depth -= 1
+                currentType += decl[i]
+            elif decl[i] == ',':
+                if depth == 0:
+                    types.append(currentType)
+                    currentType = ""
+                else:
+                    currentType += decl[i]
+            else:
+                currentType += decl[i]
+        types.append(currentType)
+        return types
+
 
     def getFullName(self) -> str:
         if len(self.namespace) <= 0:
             return self.name
         return self.namespace + "::" + self.name
 
-    def cleanLanguageArtifacts(self, type: str) -> str:
+    def __cleanLanguageArtifacts(self, type: str) -> str:
         # remove all languages artefact that are not needed to get the type we depends on
         return (
             type.replace("*", "")

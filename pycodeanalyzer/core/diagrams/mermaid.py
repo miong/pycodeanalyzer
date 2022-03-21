@@ -53,7 +53,7 @@ class ClassDiagramBuild:
                     self.getVisibilityMark(member[2])
                     + " "
                     + (
-                        member[0].replace("<", "~").replace(">", "~").replace(" ", "")
+                        self.getTypeString(member[0])
                         + " "
                         + member[1]
                         + "\n"
@@ -62,7 +62,7 @@ class ClassDiagramBuild:
             for method in klass.methodes:
                 paramstr = ""
                 for param in method[2]:
-                    paramstr += param[0] + " " + param[1] + ", "
+                    paramstr += self.getTypeString(param[0]) + " " + param[1] + ", "
                 res += (
                     self.getVisibilityMark(method[3])
                     + method[1]
@@ -119,3 +119,13 @@ class ClassDiagramBuild:
         if text == "protected":
             return "# "
         return "+ "
+
+    def getTypeString(self, type):
+        res = type
+        if type.count("<") >=2:
+            #Mermaid does'nt support nested ~ so we do a workaround
+            res = res.replace("<", "&lt;").replace(">", "&gt;")
+        else:
+            res = res.replace("<", "~").replace(">", "~")
+        res = res.replace(" ", "")
+        return res
