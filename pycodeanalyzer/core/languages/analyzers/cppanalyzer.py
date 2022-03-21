@@ -102,7 +102,7 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
         if "(" not in stack:
             r = False
         elif stack[0] == "typedef":
-            r = False  # TODO deal with typedef function prototypes
+            r = False  # deal with typedef function prototypes
         elif "operator" in stack:
             r = True  # allow all operators
         elif "{" in stack and stack.index("{") < stack.index("("):
@@ -118,7 +118,7 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
                 else:
                     r = stack.index("(") > 1
             elif "{" in stack:
-                r = True  # ideally we catch both braces... TODO
+                r = True  # ideally we catch both braces...
         else:
             r = False
         # Test for case of property set to something with parens such as "static const int CONST_A = (1 << 7) - 1;"
