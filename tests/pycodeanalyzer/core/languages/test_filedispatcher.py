@@ -8,11 +8,12 @@ class TestFileDispatcher:
 
     def test_dispatchRoots(self, mocker):
         cppAnalyzerMock = Analyzer()
+        pythonAnalyzerMock = Analyzer()
         uiListenerMock = UiFileDispatcherListener()
         abstractObjectsExpected = ["fake", "items"]
         roots = [("/home/dir", ["toto", "toto2"]), ("/home/dir2", ["toto3", "toto4"])]
         uiListenerMock.notifyAnalysisEnd = mocker.MagicMock()
-        dispatcher = FileDispatcher(cppAnalyzerMock, uiListenerMock)
+        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, uiListenerMock)
         dispatcher.dispatch = mocker.MagicMock(side_effect=[abstractObjectsExpected, []])
         abstractObjects = dispatcher.dispatchRoots(roots)
         dispatcher.dispatch.assert_has_calls([
@@ -28,10 +29,11 @@ class TestFileDispatcher:
         totoClassAsbtraction = object()
         toto2ClassAsbtraction = object()
         cppAnalyzerMock = Analyzer()
+        pythonAnalyzerMock = Analyzer()
         uiListenerMock = UiFileDispatcherListener()
         cppAnalyzerMock.analyze = mocker.MagicMock(side_effect=[[totoClassAsbtraction], [toto2ClassAsbtraction]])
         uiListenerMock.notifyAnalyzing = mocker.MagicMock()
-        dispatcher = FileDispatcher(cppAnalyzerMock, uiListenerMock)
+        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, uiListenerMock)
         abstractObjects = dispatcher.dispatch("/home/dir", ["toto.h", "toto2.hpp"])
         cppAnalyzerMock.analyze.assert_has_calls([
             mocker.call("/home/dir", "toto.h"),

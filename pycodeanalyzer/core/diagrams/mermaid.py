@@ -52,12 +52,7 @@ class ClassDiagramBuild:
                 res += (
                     self.getVisibilityMark(member[2])
                     + " "
-                    + (
-                        self.getTypeString(member[0])
-                        + " "
-                        + member[1]
-                        + "\n"
-                    )
+                    + (self.getTypeString(member[0]) + " " + member[1] + "\n")
                 )
             for method in klass.methodes:
                 paramstr = ""
@@ -120,10 +115,10 @@ class ClassDiagramBuild:
             return "# "
         return "+ "
 
-    def getTypeString(self, type):
+    def getTypeString(self, type: str) -> str:
         res = type
-        if type.count("<") >=2:
-            #Mermaid does'nt support nested ~ so we do a workaround
+        if type.count("<") >= 2:
+            # Mermaid does'nt support nested ~ so we do a workaround
             res = res.replace("<", "&lt;").replace(">", "&gt;")
         else:
             res = res.replace("<", "~").replace(">", "~")

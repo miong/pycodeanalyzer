@@ -1,7 +1,14 @@
 from __future__ import annotations
 
-from typing import List, Tuple
 import re
+from enum import Enum
+from typing import Any, Dict, List, Tuple
+
+
+class AbstractObjectLanguage(Enum):
+    Unknown = 0
+    CPP = 1
+    Python = 2
 
 
 class AbstractObject:
@@ -9,6 +16,7 @@ class AbstractObject:
         self.name = name
         self.type = "Object"
         self.origin = origin
+        self.language: AbstractObjectLanguage = AbstractObjectLanguage.Unknown
 
 
 class AbstractEnum(AbstractObject):
@@ -132,28 +140,30 @@ class AbstractClass(AbstractObject):
     def __getDependanceFromType(self, type: str) -> List[str]:
         deps: List[str] = []
         if "<" in type:
-            templateTypeList = self.__splitTypes(re.search('[^<]+<(.*)>', type).group(1))
+            templateTypeList = self.__splitTypes(
+                re.search("[^<]+<(.*)>", type).group(1)
+            )
             for templateType in templateTypeList:
                 innerTypes = self.__getDependanceFromType(templateType)
                 for dep in innerTypes:
                     if dep not in deps:
                         deps.append(self.__cleanLanguageArtifacts(dep))
-            type = re.search('([^<]+).*>', type).group(1)
+            type = re.search("([^<]+).*>", type).group(1)
         deps.append(self.__cleanLanguageArtifacts(type))
         return deps
 
-    def __splitTypes(self, decl):
-        depth = 0;
+    def __splitTypes(self, decl: Any) -> List[str]:
+        depth = 0
         currentType = ""
-        types = []
-        for i in range (0, len(decl)):
-            if decl[i] == '<':
+        types: List[str] = []
+        for i in range(0, len(decl)):
+            if decl[i] == "<":
                 depth += 1
                 currentType += decl[i]
-            elif decl[i] == '>':
+            elif decl[i] == ">":
                 depth -= 1
                 currentType += decl[i]
-            elif decl[i] == ',':
+            elif decl[i] == ",":
                 if depth == 0:
                     types.append(currentType)
                     currentType = ""
@@ -163,7 +173,6 @@ class AbstractClass(AbstractObject):
                 currentType += decl[i]
         types.append(currentType)
         return types
-
 
     def getFullName(self) -> str:
         if len(self.namespace) <= 0:
@@ -183,39 +192,55 @@ class AbstractClass(AbstractObject):
             .strip()
         )
 
-    def removeNonObjectTypes(self, typeList: List[str]) -> List[str]:
-        NonObjectTypes = [
-            "void",
-            "bool",
-            "char",
-            "unsigned char",
-            "int",
-            "unsigned int",
-            "long",
-            "unsigned long",
-            "long long",
-            "unsigned long long",
-            "float",
-            "double",
-            "int8_t",
-            "int16_t",
-            "int32_t",
-            "int64_t",
-            "uint8_t",
-            "uint16_t",
-            "uint32_t",
-            "uint64_t",
-            "int8",
-            "int16",
-            "int32",
-            "int64",
-            "uint8",
-            "uint16",
-            "uint32",
-            "uint64",
-        ]
+    def __removeNonObjectTypes(self, typeList: List[str]) -> List[str]:
+        NonObjectTypes: Dict[AbstractObjectLanguage, List[str]] = {
+            AbstractObjectLanguage.Unknown: [],
+            AbstractObjectLanguage.CPP: [
+                "void",
+                "bool",
+                "char",
+                "unsigned char",
+                "int",
+                "unsigned int",
+                "long",
+                "unsigned long",
+                "long long",
+                "unsigned long long",
+                "float",
+                "double",
+                "int8_t",
+                "int16_t",
+                "int32_t",
+                "int64_t",
+                "uint8_t",
+                "uint16_t",
+                "uint32_t",
+                "uint64_t",
+                "int8",
+                "int16",
+                "int32",
+                "int64",
+                "uint8",
+                "uint16",
+                "uint32",
+                "uint64",
+            ],
+            AbstractObjectLanguage.Python: [
+                "Any",
+                "None",
+                "List",
+                "Tuple",
+                "Dict",
+                "str",
+                "float",
+                "int",
+                "long",
+            ],
+        }
         cleaned_list = [
-            x for x in typeList if x not in NonObjectTypes and "std::" not in x
+            x
+            for x in typeList
+            if x not in NonObjectTypes[self.language] and "std::" not in x
         ]
         return cleaned_list
 
