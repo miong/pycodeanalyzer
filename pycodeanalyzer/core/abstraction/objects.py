@@ -192,6 +192,14 @@ class AbstractClass(AbstractObject):
             "uint16_t",
             "uint32_t",
             "uint64_t",
+            "int8",
+            "int16",
+            "int32",
+            "int64",
+            "uint8",
+            "uint16",
+            "uint32",
+            "uint64",
         ]
         cleaned_list = [
             x for x in typeList if x not in NonObjectTypes and "std::" not in x
