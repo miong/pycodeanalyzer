@@ -21,11 +21,10 @@ class AbstractObject:
 
 class AbstractEnum(AbstractObject):
     def __init__(self, name: str, namespace: str, origin: str, values: List[str]):
-        self.name = name
+        super().__init__(name, origin)
         self.namespace = namespace
         self.type = "Enum"
         self.values = values
-        self.origin = origin
 
     def getFullName(self) -> str:
         if len(self.namespace) <= 0:
@@ -49,11 +48,10 @@ class AbstractFunction(AbstractObject):
         namespace: str,
         doxygen: str,
     ) -> None:
-        self.name = name
+        super().__init__(name, origin)
         self.namespace = namespace
         self.type = "Function"
         self.returnType = returnType
-        self.origin = origin
         self.parameters = parameters
         self.doxygen = doxygen
 
@@ -76,14 +74,60 @@ class AbstractFunction(AbstractObject):
 
 
 class AbstractClass(AbstractObject):
+
+    NonObjectTypes: Dict[AbstractObjectLanguage, List[str]] = {
+        AbstractObjectLanguage.Unknown: [],
+        AbstractObjectLanguage.CPP: [
+            "void",
+            "bool",
+            "char",
+            "unsigned char",
+            "int",
+            "unsigned int",
+            "long",
+            "unsigned long",
+            "long long",
+            "unsigned long long",
+            "float",
+            "double",
+            "int8_t",
+            "int16_t",
+            "int32_t",
+            "int64_t",
+            "uint8_t",
+            "uint16_t",
+            "uint32_t",
+            "uint64_t",
+            "int8",
+            "int16",
+            "int32",
+            "int64",
+            "uint8",
+            "uint16",
+            "uint32",
+            "uint64",
+        ],
+        AbstractObjectLanguage.Python: [
+            "Any",
+            "None",
+            "List",
+            "Tuple",
+            "Dict",
+            "str",
+            "float",
+            "int",
+            "long",
+            "bool",
+        ],
+    }
+
     def __init__(self, name: str, namespace: str, origin: str) -> None:
-        self.name = name
+        super().__init__(name, origin)
         self.namespace = namespace
         self.type = "Class"
         self.members: List[Tuple[str, str, str]] = []
         self.methodes: List[Tuple[str, str, List[Tuple[str, str]], str]] = []
         self.parents: List[Tuple[str, str, str]] = []
-        self.origin = origin
 
     def addMember(self, type: str, name: str, visibility: str) -> None:
         self.members.append((type, name, visibility))
@@ -194,55 +238,10 @@ class AbstractClass(AbstractObject):
         )
 
     def __removeNonObjectTypes(self, typeList: List[str]) -> List[str]:
-        NonObjectTypes: Dict[AbstractObjectLanguage, List[str]] = {
-            AbstractObjectLanguage.Unknown: [],
-            AbstractObjectLanguage.CPP: [
-                "void",
-                "bool",
-                "char",
-                "unsigned char",
-                "int",
-                "unsigned int",
-                "long",
-                "unsigned long",
-                "long long",
-                "unsigned long long",
-                "float",
-                "double",
-                "int8_t",
-                "int16_t",
-                "int32_t",
-                "int64_t",
-                "uint8_t",
-                "uint16_t",
-                "uint32_t",
-                "uint64_t",
-                "int8",
-                "int16",
-                "int32",
-                "int64",
-                "uint8",
-                "uint16",
-                "uint32",
-                "uint64",
-            ],
-            AbstractObjectLanguage.Python: [
-                "Any",
-                "None",
-                "List",
-                "Tuple",
-                "Dict",
-                "str",
-                "float",
-                "int",
-                "long",
-                "bool",
-            ],
-        }
         cleaned_list = [
             x
             for x in typeList
-            if x not in NonObjectTypes[self.language] and "std::" not in x
+            if x not in AbstractClass.NonObjectTypes[self.language] and "std::" not in x
         ]
         return cleaned_list
 
