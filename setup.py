@@ -52,7 +52,8 @@ setup(
             "black",
             "isort",
             "flake8",
-            "mypy"
+            "mypy",
+            "bumpversion"
         ]
     },
 
