@@ -64,7 +64,7 @@ class ClassDiagramBuild:
                     + "("
                     + paramstr[:-2]
                     + ") "
-                    + method[0]
+                    + self.getTypeString(method[0])
                     + "\n"
                 )
             res += "}\n"
@@ -110,10 +110,10 @@ class ClassDiagramBuild:
 
     def getVisibilityMark(self, text: str) -> str:
         if text == "private":
-            return "- "
+            return "-"
         if text == "protected":
-            return "# "
-        return "+ "
+            return "#"
+        return "+"
 
     def getTypeString(self, type: str) -> str:
         res = type
