@@ -15,6 +15,7 @@ class FileFetcher:
         self.suported_extensions = [
             ".h",
             ".hpp",
+            ".py",
         ]
         self.rejected_encoding = [
             "unknown-8bit",

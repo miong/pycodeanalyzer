@@ -12,6 +12,7 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractEnum,
     AbstractFunction,
     AbstractObject,
+    AbstractObjectLanguage,
 )
 from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.languages.analyzer import Analyzer
@@ -229,6 +230,7 @@ class CppAnalyzer(Analyzer):
         self.addMembers(abstraction, klass, "public")
         self.addMembers(abstraction, klass, "protected")
         self.addMembers(abstraction, klass, "private")
+        abstraction.language = AbstractObjectLanguage.CPP
         self.objectPaths.append(objectPath)
         abstractObjects.append(abstraction)
 
@@ -277,6 +279,7 @@ class CppAnalyzer(Analyzer):
         name = enum["name"] if "name" in enum else "Anon-enum"
         namespace = self.clearNamespace(enum["namespace"])
         abstraction = AbstractEnum(name, namespace, path, values)
+        abstraction.language = AbstractObjectLanguage.CPP
         abstractObjects.append(abstraction)
         self.objectPaths.append(objectPath)
 
@@ -293,6 +296,7 @@ class CppAnalyzer(Analyzer):
         abstraction = AbstractFunction(
             function["name"], path, function["rtnType"], params, namespace, doxygen
         )
+        abstraction.language = AbstractObjectLanguage.CPP
         abstractObjects.append(abstraction)
 
     def clearNamespace(self, namespace: str) -> str:

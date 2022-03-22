@@ -5,6 +5,7 @@ from injector import inject, singleton
 
 from pycodeanalyzer.core.abstraction.objects import AbstractObject
 from pycodeanalyzer.core.languages.analyzers.cppanalyzer import CppAnalyzer
+from pycodeanalyzer.core.languages.analyzers.pythonanalyzer import PythonAnalyzer
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.ui.app import UiFileDispatcherListener
 
@@ -12,9 +13,15 @@ from pycodeanalyzer.ui.app import UiFileDispatcherListener
 @singleton
 class FileDispatcher:
     @inject
-    def __init__(self, cppAnalyzer: CppAnalyzer, uiListener: UiFileDispatcherListener):
+    def __init__(
+        self,
+        cppAnalyzer: CppAnalyzer,
+        pythonAnalyzer: PythonAnalyzer,
+        uiListener: UiFileDispatcherListener,
+    ):
         self.logger = LoggerFactory.createLogger(__name__)
         self.cppAnalyzer = cppAnalyzer
+        self.pythonAnalyzer = pythonAnalyzer
         self.uiListener = uiListener
 
     def dispatchRoots(self, roots: List[Tuple[str, List[str]]]) -> List[AbstractObject]:
@@ -33,4 +40,7 @@ class FileDispatcher:
             if extension == ".h" or extension == ".hpp":
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.cppAnalyzer.analyze(rootDir, file)
+            if extension == ".py":
+                self.uiListener.notifyAnalyzing(file)
+                abstractObjects += self.pythonAnalyzer.analyze(rootDir, file)
         return abstractObjects
