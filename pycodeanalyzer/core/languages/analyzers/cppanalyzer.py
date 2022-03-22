@@ -222,7 +222,7 @@ class CppAnalyzer(Analyzer):
             )
             return
         namespace = self.clearNamespace(klass["namespace"])
-        abstraction = AbstractClass(klass["name"], namespace, path)
+        abstraction = AbstractClass(str(klass["name"]), namespace, path)
         self.addParents(abstraction, klass)
         self.addMethods(abstraction, klass, "public")
         self.addMethods(abstraction, klass, "protected")
@@ -240,24 +240,26 @@ class CppAnalyzer(Analyzer):
         for method in klass["methods"][visibility]:
             params = []
             for param in method["parameters"]:
-                params.append((param["type"], param["name"]))
+                params.append((str(param["type"]), str(param["name"])))
             rtnType = method["rtnType"]
             if method["name"] == klass["name"]:
                 rtnType = klass["name"]
-            abstraction.addMethod(rtnType, method["name"], params, visibility)
+            abstraction.addMethod(str(rtnType), str(method["name"]), params, visibility)
 
     def addMembers(
         self, abstraction: AbstractClass, klass: Any, visibility: str
     ) -> None:
         for member in klass["properties"][visibility]:
-            abstraction.addMember(member["type"], member["name"], visibility)
+            abstraction.addMember(str(member["type"]), str(member["name"]), visibility)
 
     def addParents(self, abstraction: AbstractClass, klass: Any) -> None:
         for declParent in klass["inherits"]:
             declName = declParent["class"]
             if "decl_name" in declParent:
                 declName = declParent["decl_name"]
-            abstraction.addParent(declParent["class"], declName, declParent["access"])
+            abstraction.addParent(
+                str(declParent["class"]), str(declName), str(declParent["access"])
+            )
 
     def handleEnum(
         self, path: str, enum: Any, abstractObjects: List[AbstractObject]
@@ -275,9 +277,9 @@ class CppAnalyzer(Analyzer):
             return
         values = []
         for val in enum["values"]:
-            values.append(val["name"])
-        name = enum["name"] if "name" in enum else "Anon-enum"
-        namespace = self.clearNamespace(enum["namespace"])
+            values.append(str(val["name"]))
+        name = str(enum["name"]) if "name" in enum else "Anon-enum"
+        namespace = self.clearNamespace(str(enum["namespace"]))
         abstraction = AbstractEnum(name, namespace, path, values)
         abstraction.language = AbstractObjectLanguage.CPP
         abstractObjects.append(abstraction)
@@ -286,15 +288,20 @@ class CppAnalyzer(Analyzer):
     def handleFunction(
         self, path: str, function: Any, abstractObjects: List[AbstractObject]
     ) -> None:
-        namespace = self.clearNamespace(function["namespace"])
+        namespace = self.clearNamespace(str(function["namespace"]))
         params = []
         for param in function["parameters"]:
-            params.append((param["type"], param["name"]))
+            params.append((str(param["type"]), str(param["name"])))
         doxygen = "/* No comments in file */"
         if "doxygen" in function:
-            doxygen = function["doxygen"]
+            doxygen = str(function["doxygen"])
         abstraction = AbstractFunction(
-            function["name"], path, function["rtnType"], params, namespace, doxygen
+            str(function["name"]),
+            path,
+            str(function["rtnType"]),
+            params,
+            namespace,
+            doxygen,
         )
         abstraction.language = AbstractObjectLanguage.CPP
         abstractObjects.append(abstraction)
