@@ -7,6 +7,7 @@ from pycodeanalyzer.ui import socketlistener  # noqa
 
 
 def main() -> None:
+    """Main function of pycodeanalyzer"""
     console = injector.get(Console)
     console.init()
     engine = injector.get(Engine)

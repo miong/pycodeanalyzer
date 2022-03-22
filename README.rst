@@ -61,6 +61,8 @@ Requirements
     :alt: - pathlib - equals 1.0.1
 - .. image:: https://img.shields.io/static/v1?label=pcpp&message=equals%201.30&color=blue
     :alt: - pcpp - equals 1.30
+- .. image:: https://img.shields.io/static/v1?label=astroid&message=equals%202.11.0&color=blue
+    :alt: - astroid - equals 2.11.0
 
 Usage
 -----
