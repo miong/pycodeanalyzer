@@ -34,7 +34,7 @@ class ClassDiagramBuild:
                 self.addDependancy(target, klass)
         for enum in linkedEnums:
             self.addEnum(enum)
-            self.addDependancy(target, klass)
+            self.addDependancy(target, enum)
 
     def createEnum(self, target: AbstractEnum) -> None:
         self.addEnum(target)
@@ -72,7 +72,7 @@ class ClassDiagramBuild:
         for enum in self.enums:
             res += "class " + enum.name
             if not enum.origin:
-                res += "\n<<External>> " + klass.name + "\n"
+                res += "\n<<External>> " + enum.name + "\n"
                 continue
             res += " {\n"
             res += "<<Enum>>\n"
