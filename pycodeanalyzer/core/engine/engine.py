@@ -174,7 +174,7 @@ class Engine:
 
     def sendFileData(self, fileName: str) -> None:
         filePath = fileName
-        if "::" in fileName or self.identityAnalyser.singleFile:
+        if "::" in fileName or "/" not in fileName:
             filePath = (
                 self.identityAnalyser.commonFilePath + "/" + fileName.replace("::", "/")
             )
