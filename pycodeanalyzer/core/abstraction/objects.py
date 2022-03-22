@@ -67,9 +67,10 @@ class AbstractFunction(AbstractObject):
 
     def getFullDef(self) -> str:
         ret: str = self.returnType + " " + self.namespace + "::" + self.name + "("
-        for param in self.parameters:
-            ret += param[0] + " " + param[1] + ", "
-        ret = ret[:-2]
+        if len(self.parameters) > 0:
+            for param in self.parameters:
+                ret += param[0] + " " + param[1] + ", "
+            ret = ret[:-2]
         ret += ")"
         return ret
 
@@ -235,6 +236,7 @@ class AbstractClass(AbstractObject):
                 "float",
                 "int",
                 "long",
+                "bool",
             ],
         }
         cleaned_list = [
