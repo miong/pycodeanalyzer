@@ -24,7 +24,7 @@ def runMypy():
     return subprocess.run(["mypy","--config-file",".mypy.ini","pycodeanalyzer"]).returncode == 0
 
 def runQA():
-    res = subprocess.run(["flake8","pycodeanalyzer","--count","--select=E9,F63,F7,F82","--show-source","--statistics"]).returncode == 0
+    res = subprocess.run(["flake8","pycodeanalyzer","--count","--select=E9,F63,F7,F82,F401","--show-source","--statistics"]).returncode == 0
     if res:
         subprocess.run(["flake8","pycodeanalyzer","--count","--ignore=E203,W503","--exit-zero","--max-complexity=20","--max-line-length=127","--statistics"])
     return res
