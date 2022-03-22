@@ -1,6 +1,7 @@
 import time
 from typing import Any, Dict, List, Tuple
 
+import jsonpickle
 from injector import inject, singleton
 
 from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
@@ -73,6 +74,9 @@ class Engine:
             self.logger.info("End analysis")
         end_time = time.time()
         self.recordStats(round_up(end_time - start_time, 2))
+        if args.dumpobj:
+            with open("dumpobj.json", "w") as file:
+                file.write(jsonpickle.encode(abstractObjects))
 
     def recordStats(self, duration: float) -> None:
         self.stats.nbFiles = self.nbFiles

@@ -44,3 +44,4 @@ package.json
 
 # Any temporary data
 temp
+dumpobj.json
