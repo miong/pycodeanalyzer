@@ -17,6 +17,13 @@ class Console:
             dest="loglevel",
         )
         parser.add_argument(
+            "--dumpobj",
+            required=False,
+            help="Serialize objets found, mainly for test purpose",
+            dest="dumpobj",
+            action="store_true",
+        )
+        parser.add_argument(
             "path", nargs="+", help="Path of a root directory to be analysed"
         )
         return parser.parse_args()

@@ -18,7 +18,7 @@ class FileDispatcher:
         cppAnalyzer: CppAnalyzer,
         pythonAnalyzer: PythonAnalyzer,
         uiListener: UiFileDispatcherListener,
-    ):
+    ) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
         self.cppAnalyzer = cppAnalyzer
         self.pythonAnalyzer = pythonAnalyzer

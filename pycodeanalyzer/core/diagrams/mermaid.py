@@ -34,7 +34,7 @@ class ClassDiagramBuild:
                 self.addDependancy(target, klass)
         for enum in linkedEnums:
             self.addEnum(enum)
-            self.addDependancy(target, klass)
+            self.addDependancy(target, enum)
 
     def createEnum(self, target: AbstractEnum) -> None:
         self.addEnum(target)
@@ -64,7 +64,7 @@ class ClassDiagramBuild:
                     + "("
                     + paramstr[:-2]
                     + ") "
-                    + method[0]
+                    + self.getTypeString(method[0])
                     + "\n"
                 )
             res += "}\n"
@@ -72,7 +72,7 @@ class ClassDiagramBuild:
         for enum in self.enums:
             res += "class " + enum.name
             if not enum.origin:
-                res += "\n<<External>> " + klass.name + "\n"
+                res += "\n<<External>> " + enum.name + "\n"
                 continue
             res += " {\n"
             res += "<<Enum>>\n"
@@ -110,10 +110,10 @@ class ClassDiagramBuild:
 
     def getVisibilityMark(self, text: str) -> str:
         if text == "private":
-            return "- "
+            return "-"
         if text == "protected":
-            return "# "
-        return "+ "
+            return "#"
+        return "+"
 
     def getTypeString(self, type: str) -> str:
         res = type

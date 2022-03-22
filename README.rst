@@ -61,12 +61,16 @@ Requirements
     :alt: - pathlib - equals 1.0.1
 - .. image:: https://img.shields.io/static/v1?label=pcpp&message=equals%201.30&color=blue
     :alt: - pcpp - equals 1.30
+- .. image:: https://img.shields.io/static/v1?label=astroid&message=equals%202.11.0&color=blue
+    :alt: - astroid - equals 2.11.0
+- .. image:: https://img.shields.io/static/v1?label=jsonpickle&message=equals%202.1.0&color=blue
+    :alt: - jsonpickle - equals 2.1.0
 
 Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--log LOGLEVEL] path [path ...]
+	usage: pycodeanalyzer [-h] [--log LOGLEVEL] [--dumpobj] path [path ...]
 	
 	positional arguments:
 	  path            Path of a root directory to be analysed
@@ -74,6 +78,7 @@ The following is the help of pycodeanalyzer::
 	optional arguments:
 	  -h, --help      show this help message and exit
 	  --log LOGLEVEL  Log level to be used
+	  --dumpobj       Serialize objets found, mainly for test purpose
 
 To get more information during the run, use --log=DEBUG
 

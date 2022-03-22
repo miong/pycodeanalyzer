@@ -20,7 +20,7 @@ class DependancyAnalyser:
         linkedEnums: List[AbstractEnum] = []
         linkedFunctions: List[
             AbstractFunction
-        ] = []  # TODO : need to process .c / .cc / .cpp files
+        ] = []  # TODO : need to process called function
         for type in target.getLinkedTypes():
             typeDeclaredNamespace = ""
             typeName = ""

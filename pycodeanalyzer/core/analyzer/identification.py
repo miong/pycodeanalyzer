@@ -16,7 +16,6 @@ class IdentityAnalyser:
         self.mapping["Enums"] = []
         self.mapping["Functions"] = []
         self.commonFilePath = "/"
-        self.singleFile = False
 
     def analyze(self, objects: List[AbstractObject]) -> None:
         for object in objects:
@@ -120,8 +119,7 @@ class IdentityAnalyser:
         files = self.getFiles()
         tree: Dict[str, Any] = {}
         self.commonFilePath = os.path.commonpath(files)
-        self.singleFile = len(files) == 1
-        if self.singleFile:
+        if len(files) == 1:
             self.commonFilePath = os.path.abspath(
                 os.path.join(self.commonFilePath, os.pardir)
             )
