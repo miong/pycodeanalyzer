@@ -7,7 +7,7 @@ on:
     workflow_dispatch:
         inputs:
             bump:
-                description: 'Log level'
+                description: 'Part of version to bump'
                 required: true
                 default: 'micro'
                 type: choice
