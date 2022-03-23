@@ -24,7 +24,6 @@ class enumName {
 + value2
 + value3
 }
-link enumName "enum££enum::namespace::enumName"
 """
         assert res == expected
 
@@ -55,7 +54,6 @@ class className {
 + memberType2 memberName2
 -name(Map&lt;str,List&lt;param1Type&gt;&gt; param1Name, enumName param2Name) rtype
 }
-link className "class££class::namespace::className"
 class parentType {
 <<Class>>
 }

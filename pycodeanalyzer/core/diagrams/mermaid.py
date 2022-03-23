@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
@@ -17,6 +17,7 @@ class ClassDiagramBuild:
         self.enums: List[AbstractEnum] = []
         self.relations: List[Tuple[str, str]] = []
         self.parents: List[Tuple[str, str]] = []
+        self.target: Any = None
 
     def createClass(
         self,
@@ -25,6 +26,7 @@ class ClassDiagramBuild:
         linkedEnums: List[AbstractEnum],
         linkedFunctions: List[AbstractFunction],
     ) -> None:
+        self.target = target
         self.addClass(target)
         for klass in linkedClasses:
             self.addClass(klass)
@@ -37,6 +39,7 @@ class ClassDiagramBuild:
             self.addDependancy(target, enum)
 
     def createEnum(self, target: AbstractEnum) -> None:
+        self.target = target
         self.addEnum(target)
 
     def build(self) -> str:
@@ -68,7 +71,8 @@ class ClassDiagramBuild:
                     + "\n"
                 )
             res += "}\n"
-            res += "link " + klass.name + ' "class££' + klass.getFullName() + '"\n'
+            if klass != self.target:
+                res += "link " + klass.name + ' "class££' + klass.getFullName() + '"\n'
         for enum in self.enums:
             res += "class " + enum.name
             if not enum.origin:
@@ -79,7 +83,8 @@ class ClassDiagramBuild:
             for value in enum.values:
                 res += "+ " + value + "\n"
             res += "}\n"
-            res += "link " + enum.name + ' "enum££' + enum.getFullName() + '"\n'
+            if enum != self.target:
+                res += "link " + enum.name + ' "enum££' + enum.getFullName() + '"\n'
         for relation in self.parents:
             res += relation[0] + " --|> " + relation[1] + "\n"
         for relation in self.relations:
