@@ -10,6 +10,7 @@ from astroid.nodes.node_classes import (
     Attribute,
     Const,
     Dict,
+    ImportFrom,
 )
 from astroid.nodes.node_classes import List as typeList
 from astroid.nodes.node_classes import Name, Subscript, Tuple
@@ -28,6 +29,7 @@ from pycodeanalyzer.core.languages.analyzer import Analyzer
 class PythonAnalyzer(Analyzer):
     def __init__(self) -> None:
         super().__init__()
+        self.globalImports: List[str] = []
 
     def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:
         abstractObjects: List[AbstractObject] = []
@@ -40,7 +42,9 @@ class PythonAnalyzer(Analyzer):
         if len(content) <= 0:
             return abstractObjects
 
+        namespace = self.deduceNamespace(path, rootDir)
         tree: Any = astroid.parse(content)
+        self.globalImports = self.getImportsNameSpace(tree.body)
         for item in tree.body:
             if isinstance(item, ClassDef):
                 if (
@@ -48,35 +52,53 @@ class PythonAnalyzer(Analyzer):
                     and isinstance(item.bases[0], Name)
                     and self.isEnumType(item.bases[0].name)
                 ):
-                    self.handleEnum(path, cast(ClassDef, item), abstractObjects)
+                    self.handleEnum(
+                        path, namespace, cast(ClassDef, item), abstractObjects
+                    )
                 else:
-                    self.handleClass(path, cast(ClassDef, item), abstractObjects)
+                    self.handleClass(
+                        path, namespace, cast(ClassDef, item), abstractObjects
+                    )
             if isinstance(item, FunctionDef):
-                self.handleFunction(path, cast(FunctionDef, item), abstractObjects)
+                self.handleFunction(
+                    path, namespace, cast(FunctionDef, item), abstractObjects
+                )
 
         return abstractObjects
 
     def handleEnum(
-        self, path: str, item: ClassDef, abstractObjects: List[AbstractObject]
+        self,
+        path: str,
+        namespace: str,
+        item: ClassDef,
+        abstractObjects: List[AbstractObject],
     ) -> None:
         values: List[str] = []
         for subItem in item.body:
             if isinstance(subItem, Assign):
                 values.append(subItem.targets[0].name)
-        abstraction = AbstractEnum(item.name, "", path, values)
+        abstraction = AbstractEnum(item.name, namespace, path, values)
         abstraction.language = AbstractObjectLanguage.Python
         abstractObjects.append(abstraction)
 
     def handleClass(
-        self, path: str, item: ClassDef, abstractObjects: List[AbstractObject]
+        self,
+        path: str,
+        namespace: str,
+        item: ClassDef,
+        abstractObjects: List[AbstractObject],
     ) -> None:
-        abstraction = AbstractClass(item.name, "", path)
+        abstraction = AbstractClass(item.name, namespace, path)
+        for ns in self.globalImports:
+            abstraction.addUsingNamespace(ns)
         for parents in item.bases:
             parentName = "unamed_function"
             if isinstance(parents, Name):
                 parentName = self.deduceTypeFromTypeName(parents)
             elif isinstance(parents, Attribute):
-                parentName = parents.attrname
+                parentName = (
+                    self.deduceNamespaceFromAttribute(parents) + "::" + parents.attrname
+                )
             abstraction.addParent(parentName, parentName, "public")
         abstraction.language = AbstractObjectLanguage.Python
         for subItem in item.body:
@@ -115,7 +137,11 @@ class PythonAnalyzer(Analyzer):
         )
 
     def handleFunction(
-        self, path: str, item: FunctionDef, abstractObjects: List[AbstractObject]
+        self,
+        path: str,
+        namespace: str,
+        item: FunctionDef,
+        abstractObjects: List[AbstractObject],
     ) -> None:
         funcname = item.name
         if item.name.startswith("_"):
@@ -136,7 +162,9 @@ class PythonAnalyzer(Analyzer):
         doxygen = '"""No comments in file"""'
         if item.doc_node:
             doxygen = '"""' + item.doc_node.value + '"""'
-        abstraction = AbstractFunction(funcname, path, rtype, params, "", doxygen)
+        abstraction = AbstractFunction(
+            funcname, path, rtype, params, namespace, doxygen
+        )
         abstraction.language = AbstractObjectLanguage.Python
         abstractObjects.append(abstraction)
 
@@ -283,6 +311,45 @@ class PythonAnalyzer(Analyzer):
             res = res[:-1]
             return res
         elif isinstance(typeNope, Attribute):
-            return typeNope.attrname
+            ns = self.deduceNamespaceFromAttribute(typeNope)
+            return ns + "::" + typeNope.attrname
         else:
             return typeNope.name
+
+    def deduceNamespaceFromAttribute(
+        self, attrib: Attribute, isRoot: bool = True
+    ) -> str:
+        if isinstance(attrib.expr, Attribute):
+            ns = self.deduceNamespaceFromAttribute(attrib.expr, False)
+            if not isRoot:
+                ns = ns + "::" + attrib.attrname
+            return ns
+        else:
+            return attrib.expr.name
+
+    def deduceNamespace(self, path: str, rootDir: str) -> str:
+        namespace = ""
+        rootabspath = os.path.abspath(rootDir)
+        relPath = rootDir + path.replace(rootabspath, "")
+        fileDirPath = os.path.dirname(relPath)
+        fileName = os.path.basename(relPath).replace(".py", "")
+        dirs = fileDirPath.split(os.sep)
+        dirPath = path.replace(relPath, "")
+        for i in range(0, len(dirs)):
+            dirPath += dirs[i] + os.sep
+            moduleInit = dirPath + "__init__.py"
+            if os.path.exists(moduleInit):
+                namespace += "::" + dirs[i]
+            else:
+                namespace = ""
+        if len(namespace) > 0:
+            namespace = namespace[2:] + "::" + fileName
+        return namespace
+
+    def getImportsNameSpace(self, item: Any) -> List[str]:
+        res = []
+        for subItem in item:
+            if isinstance(subItem, ImportFrom):
+                ns = subItem.modname.replace(".", "::")
+                res.append(ns)
+        return res

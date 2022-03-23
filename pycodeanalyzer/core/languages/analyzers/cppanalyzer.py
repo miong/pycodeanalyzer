@@ -1,6 +1,5 @@
 import argparse
 import io
-import os
 import re
 from typing import Any, List
 
@@ -160,6 +159,7 @@ class CppAnalyzer(Analyzer):
                     for symb in self.forceIgnoredSymbols:
                         code = code.replace(" " + symb + " ", " ")
 
+                    # TODO handle using namespace
                     header: CustomCppHeader = CustomCppHeader(
                         code, argType="string", encoding=encoding
                     )

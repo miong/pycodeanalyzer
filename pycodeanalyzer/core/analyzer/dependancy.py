@@ -31,10 +31,20 @@ class DependancyAnalyser:
             else:
                 typeName = type
             linkedClass = self.findClass(
-                typeDeclaredNamespace, typeName, klasses, target.namespace, target.name
+                typeDeclaredNamespace,
+                typeName,
+                klasses,
+                target.namespace,
+                target.name,
+                target.usingNS,
             )
             linkedEnum = self.findEnum(
-                typeDeclaredNamespace, typeName, enums, target.namespace, target.name
+                typeDeclaredNamespace,
+                typeName,
+                enums,
+                target.namespace,
+                target.name,
+                target.usingNS,
             )
             if linkedEnum:
                 if linkedEnum != target:
@@ -55,6 +65,7 @@ class DependancyAnalyser:
         klasses: List[AbstractClass],
         currentNamespace: str,
         currentClassName: str,
+        usingNS: List[str],
     ) -> AbstractClass:
         for klass in klasses:
             if klass.namespace == namespace and klass.name == name:
@@ -79,6 +90,11 @@ class DependancyAnalyser:
                 and klass.name == name
             ):
                 return klass
+            for ns in usingNS:
+                if klass.namespace == ns and klass.name == name:
+                    return klass
+                if klass.namespace == ns + "::" + namespace and klass.name == name:
+                    return klass
         return None
 
     def findEnum(
@@ -88,6 +104,7 @@ class DependancyAnalyser:
         enums: List[AbstractEnum],
         currentNamespace: str,
         currentClassName: str,
+        usingNS: List[str],
     ) -> AbstractEnum:
         for enum in enums:
             if enum.namespace == namespace and enum.name == name:
@@ -112,4 +129,9 @@ class DependancyAnalyser:
                 and enum.name == name
             ):
                 return enum
+            for ns in usingNS:
+                if enum.namespace == ns and enum.name == name:
+                    return enum
+                if enum.namespace == ns + "::" + namespace and enum.name == name:
+                    return enum
         return None

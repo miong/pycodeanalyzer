@@ -17,6 +17,10 @@ class AbstractObject:
         self.type = "Object"
         self.origin = origin
         self.language: AbstractObjectLanguage = AbstractObjectLanguage.Unknown
+        self.usingNS: List[str] = []
+
+    def addUsingNamespace(self, namespace: str) -> None:
+        self.usingNS.append(namespace)
 
 
 class AbstractEnum(AbstractObject):
