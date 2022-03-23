@@ -31,11 +31,10 @@ class PythonAnalyzer(Analyzer):
 
     def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:
         abstractObjects: List[AbstractObject] = []
-        abspath: str = os.path.join(rootDir, path)
         self.logger.info("Analysing %s", path)
 
         content: str = ""
-        with open(abspath, "r") as srcFile:
+        with open(path, "r") as srcFile:
             content = srcFile.read()
 
         if len(content) <= 0:

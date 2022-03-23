@@ -146,13 +146,12 @@ class CppAnalyzer(Analyzer):
     def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:
         abstractObjects: List[AbstractObject] = []
         self.logger.info("Analysing %s", path)
-        abspath: str = os.path.join(rootDir, path)
 
-        encoding: str = self.encoding.getFileEncoding(abspath)
+        encoding: str = self.encoding.getFileEncoding(path)
 
         try:
             preproc: CustumCppPreprocessor = CustumCppPreprocessor()
-            preproc.parseFile(abspath)
+            preproc.parseFile(path)
             code: str = preproc.getResult()
 
             continueTryParsing: bool = True
@@ -164,7 +163,7 @@ class CppAnalyzer(Analyzer):
                     header: CustomCppHeader = CustomCppHeader(
                         code, argType="string", encoding=encoding
                     )
-                    header.headerFileName = abspath
+                    header.headerFileName = path
                     for klass in header.classes.values():
                         self.handleClass(path, klass, abstractObjects)
                     for enum in header.enums:
