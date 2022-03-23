@@ -24,6 +24,13 @@ class Console:
             action="store_true",
         )
         parser.add_argument(
+            "--no-ui",
+            required=False,
+            help="Discard UI,  mainly for test purpose",
+            dest="no_ui",
+            action="store_true",
+        )
+        parser.add_argument(
             "path", nargs="+", help="Path of a root directory to be analysed"
         )
         return parser.parse_args()
