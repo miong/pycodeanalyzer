@@ -54,7 +54,8 @@ class Engine:
         self.classDiagramBuild = classDiagramBuild
 
     def run(self, args: Any) -> None:
-        app.run()
+        if not args.no_ui:
+            app.run()
         time.sleep(2)
         self.logger = LoggerFactory.createLogger(__name__)
         start_time = time.time()

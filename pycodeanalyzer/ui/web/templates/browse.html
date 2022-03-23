@@ -5,11 +5,11 @@
         <title>PyCodeAnalyzer</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}"/>
         <link rel="stylesheet"
-            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+            href="{{ url_for('static', filename='css/libs/highlight.11.5.0.default.min.css') }}">
+        <script src="{{ url_for('static', filename='js/libs/highlight.11.5.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/libs/jquery.1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/libs/socket.io.4.4.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/libs/mermaid.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/keepalive.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/browse.js') }}"></script>
     </head>

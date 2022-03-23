@@ -1,6 +1,5 @@
 import argparse
 import io
-import os
 import re
 from typing import Any, List
 
@@ -146,13 +145,12 @@ class CppAnalyzer(Analyzer):
     def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:
         abstractObjects: List[AbstractObject] = []
         self.logger.info("Analysing %s", path)
-        abspath: str = os.path.join(rootDir, path)
 
-        encoding: str = self.encoding.getFileEncoding(abspath)
+        encoding: str = self.encoding.getFileEncoding(path)
 
         try:
             preproc: CustumCppPreprocessor = CustumCppPreprocessor()
-            preproc.parseFile(abspath)
+            preproc.parseFile(path)
             code: str = preproc.getResult()
 
             continueTryParsing: bool = True
@@ -161,10 +159,11 @@ class CppAnalyzer(Analyzer):
                     for symb in self.forceIgnoredSymbols:
                         code = code.replace(" " + symb + " ", " ")
 
+                    # TODO handle using namespace
                     header: CustomCppHeader = CustomCppHeader(
                         code, argType="string", encoding=encoding
                     )
-                    header.headerFileName = abspath
+                    header.headerFileName = path
                     for klass in header.classes.values():
                         self.handleClass(path, klass, abstractObjects)
                     for enum in header.enums:
