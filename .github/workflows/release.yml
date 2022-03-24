@@ -42,6 +42,7 @@ jobs:
             git config --global user.name "Release CI[bot]"
             bumpversion --verbose ${{ github.event.inputs.bump }}
             git push --all
+            git push --tags
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
       - name: Publish distribution to Test PyPI
