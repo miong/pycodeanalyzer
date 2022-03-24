@@ -48,3 +48,8 @@ jobs:
             password: ${{ secrets.pypi_password }}
             verbose: true
             print_hash: true
+      - name: Updating version on main branch
+        run: |
+            git checkout main
+            git cherry-pick stable
+            git push --all
