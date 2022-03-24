@@ -41,6 +41,7 @@ setup(
         'python-magic==0.4.25;platform_system=="Linux"',
         "pcpp==1.30",
         "astroid==2.11.0",
+        "simplejson==3.17.6",
         "jsonpickle==2.1.0",
     ],
 

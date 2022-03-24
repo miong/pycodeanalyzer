@@ -48,12 +48,18 @@ class Engine:
         self.searchAnalyser = searchAnalyser
         self.uiStatListener = uiStatListener
         self.uiBrowseListener = uiBrowseListener
+        self.classDiagramBuild = classDiagramBuild
         self.roots: List[Tuple[str, List[str]]] = []
         self.nbFiles = 0
         self.stats = AnalysisStats()
-        self.classDiagramBuild = classDiagramBuild
+
+    def reset(self) -> None:
+        self.roots = []
+        self.nbFiles = 0
+        self.stats = AnalysisStats()
 
     def run(self, args: Any) -> None:
+        self.reset()
         if not args.no_ui:
             app.run()
         time.sleep(2)
@@ -76,6 +82,8 @@ class Engine:
         end_time = time.time()
         self.recordStats(round_up(end_time - start_time, 2))
         if args.dumpobj:
+            jsonpickle.set_preferred_backend("simplejson")
+            jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
             with open("dumpobj.json", "w") as file:
                 file.write(jsonpickle.encode(abstractObjects))
 

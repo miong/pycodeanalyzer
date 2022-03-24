@@ -10,6 +10,8 @@ from pycodeanalyzer.core.abstraction.objects import (
 )
 
 def main():
+    jsonpickle.set_preferred_backend('simplejson')
+    jsonpickle.set_encoder_options('simplejson', sort_keys=True, indent=4)
     with open("dumpobj.json", "r+") as dataFile:
         text = dataFile.read()
         objectList = jsonpickle.decode(text)
