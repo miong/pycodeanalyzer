@@ -84,8 +84,11 @@ class AbstractClass(AbstractObject):
         AbstractObjectLanguage.CPP: [
             "void",
             "bool",
+            "unsigned",
             "char",
             "unsigned char",
+            "short",
+            "unsigned short",
             "int",
             "unsigned int",
             "long",
