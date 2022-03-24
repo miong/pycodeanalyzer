@@ -63,6 +63,8 @@ Requirements
     :alt: - pcpp - equals 1.30
 - .. image:: https://img.shields.io/static/v1?label=astroid&message=equals%202.11.0&color=blue
     :alt: - astroid - equals 2.11.0
+- .. image:: https://img.shields.io/static/v1?label=simplejson&message=equals%203.17.6&color=blue
+    :alt: - simplejson - equals 3.17.6
 - .. image:: https://img.shields.io/static/v1?label=jsonpickle&message=equals%202.1.0&color=blue
     :alt: - jsonpickle - equals 2.1.0
 

@@ -82,6 +82,7 @@ class Engine:
         end_time = time.time()
         self.recordStats(round_up(end_time - start_time, 2))
         if args.dumpobj:
+            jsonpickle.set_preferred_backend("simplejson")
             jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
             with open("dumpobj.json", "w") as file:
                 file.write(jsonpickle.encode(abstractObjects))
