@@ -616,111 +616,119 @@
         "language": {
             "py/id": 2
         },
-        "members": [
-            {
-                "py/tuple": [
-                    "int",
-                    "nbFiles",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "nbClasses",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "nbEnums",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "nbFunctions",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "float",
-                    "timeSpent",
-                    "public"
-                ]
-            }
-        ],
+        "members": [],
         "methodes": [
             {
                 "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [],
-                    "public"
-                ]
-            }
-        ],
-        "name": "AnalysisStats",
-        "namespace": "pycodeanalyzer::core::engine::engine",
-        "origin": "/pycodeanalyzer/core/engine/engine.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing",
-            "injector",
-            "pycodeanalyzer::core::analyzer::dependancy",
-            "pycodeanalyzer::core::analyzer::identification",
-            "pycodeanalyzer::core::analyzer::search",
-            "pycodeanalyzer::core::diagrams::mermaid",
-            "pycodeanalyzer::core::filetree::filefetcher",
-            "pycodeanalyzer::core::languages::filedispatcher",
-            "pycodeanalyzer::core::logging::loggerfactory",
-            "pycodeanalyzer::core::utils::math",
-            "pycodeanalyzer::injection",
-            "pycodeanalyzer::ui::app"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Any",
-                    "logger",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<AbstractObject>",
+                    "Tuple<AbstractClass,List<AbstractClass>,List<AbstractEnum>,List<AbstractFunction>>",
                     "analyze",
                     [
                         {
                             "py/tuple": [
+                                "List<AbstractClass>",
+                                "klasses"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractEnum>",
+                                "enums"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "target"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "AbstractClass",
+                    "findClass",
+                    [
+                        {
+                            "py/tuple": [
                                 "str",
-                                "rootDir"
+                                "namespace"
                             ]
                         },
                         {
                             "py/tuple": [
                                 "str",
-                                "path"
+                                "name"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractClass>",
+                                "klasses"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentNamespace"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentClassName"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<str>",
+                                "usingNS"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "AbstractEnum",
+                    "findEnum",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "namespace"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractEnum>",
+                                "enums"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentNamespace"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentClassName"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<str>",
+                                "usingNS"
                             ]
                         }
                     ],
@@ -728,16 +736,298 @@
                 ]
             }
         ],
-        "name": "Analyzer",
-        "namespace": "pycodeanalyzer::core::languages::analyzer",
-        "origin": "/pycodeanalyzer/core/languages/analyzer.py",
+        "name": "DependancyAnalyser",
+        "namespace": "pycodeanalyzer::core::analyzer::dependancy",
+        "origin": "/pycodeanalyzer/core/analyzer/dependancy.py",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
         "usingNS": [
             "typing",
-            "pycodeanalyzer::core::abstraction::objects",
-            "pycodeanalyzer::core::logging::loggerfactory"
+            "pycodeanalyzer::core::abstraction::objects"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "Dict<str,List<Any>>",
+                    "mapping",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "commonFilePath",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "commonFilePath",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "analyze",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "objects"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractClass>",
+                    "getClasses",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractEnum>",
+                    "getEnums",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractFunction>",
+                    "getFunctions",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,Any>",
+                    "getClasseTree",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,Any>",
+                    "getEnumTree",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,Any>",
+                    "getFunctionTree",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "getFiles",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,Any>",
+                    "getFileTree",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "AbstractClass",
+                    "getClass",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "classNamespacePath"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "AbstractEnum",
+                    "getEnum",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "enumNamespacePath"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "AbstractFunction",
+                    "getFunction",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "funcFullDef"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,List<str>>",
+                    "getObjectInFile",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "file"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "IdentityAnalyser",
+        "namespace": "pycodeanalyzer::core::analyzer::identification",
+        "origin": "/pycodeanalyzer/core/analyzer/identification.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "pycodeanalyzer::core::abstraction::objects"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "List<Tuple<str,str>>",
+                    "results",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Thread>",
+                    "threads",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "List<Tuple<str,str>>",
+                    "searchInAllFiles",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "token"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<str>",
+                                "files"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Tuple<str,str>>",
+                    "seachInFile",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "token"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "filePath"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "seachInFileThreaded",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "token"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "filePath"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "SearchAnalyser",
+        "namespace": "pycodeanalyzer::core::analyzer::search",
+        "origin": "/pycodeanalyzer/core/analyzer/search.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "threading",
+            "typing"
         ]
     },
     {
@@ -748,14 +1038,7 @@
             {
                 "py/tuple": [
                     "Any",
-                    "app",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "socketio",
+                    "args",
                     "public"
                 ]
             }
@@ -763,28 +1046,17 @@
         "methodes": [
             {
                 "py/tuple": [
+                    "Any",
+                    "parseArgs",
+                    [],
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
                     "None",
-                    "Constructor",
-                    [
-                        {
-                            "py/tuple": [
-                                "UiFileDispatcherListener",
-                                "uiFileDispatcherListener"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "UiStatListener",
-                                "uiStatListener"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "UiBrowseListener",
-                                "uiBrowseListener"
-                            ]
-                        }
-                    ],
+                    "init",
+                    [],
                     "public"
                 ]
             },
@@ -792,24 +1064,28 @@
                 "py/tuple": [
                     "None",
                     "run",
-                    [],
+                    [
+                        {
+                            "py/tuple": [
+                                "Engine",
+                                "engine"
+                            ]
+                        }
+                    ],
                     "public"
                 ]
             }
         ],
-        "name": "Application",
-        "namespace": "pycodeanalyzer::ui::app",
-        "origin": "/pycodeanalyzer/ui/app.py",
+        "name": "Console",
+        "namespace": "pycodeanalyzer::core::console::console",
+        "origin": "/pycodeanalyzer/core/console/console.py",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
         "usingNS": [
             "typing",
-            "flask",
-            "flask_classful",
-            "flask_socketio",
-            "flaskwebgui",
-            "injector"
+            "pycodeanalyzer::core::engine::engine",
+            "pycodeanalyzer::core::logging::loggerfactory"
         ]
     },
     {
@@ -1062,7 +1338,7 @@
             {
                 "py/tuple": [
                     "Any",
-                    "args",
+                    "magic",
                     "public"
                 ]
             }
@@ -1070,16 +1346,281 @@
         "methodes": [
             {
                 "py/tuple": [
-                    "Any",
-                    "parseArgs",
+                    "None",
+                    "Constructor",
                     [],
-                    "private"
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "getFileEncoding",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "file"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "Encoding",
+        "namespace": "pycodeanalyzer::core::encoding::encodings",
+        "origin": "/pycodeanalyzer/core/encoding/encodings.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "int",
+                    "nbFiles",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "nbClasses",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "nbEnums",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "nbFunctions",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "float",
+                    "timeSpent",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "AnalysisStats",
+        "namespace": "pycodeanalyzer::core::engine::engine",
+        "origin": "/pycodeanalyzer/core/engine/engine.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "injector",
+            "pycodeanalyzer::core::analyzer::dependancy",
+            "pycodeanalyzer::core::analyzer::identification",
+            "pycodeanalyzer::core::analyzer::search",
+            "pycodeanalyzer::core::diagrams::mermaid",
+            "pycodeanalyzer::core::filetree::filefetcher",
+            "pycodeanalyzer::core::languages::filedispatcher",
+            "pycodeanalyzer::core::logging::loggerfactory",
+            "pycodeanalyzer::core::utils::math",
+            "pycodeanalyzer::injection",
+            "pycodeanalyzer::ui::app"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "FileFetcher",
+                    "fileFetcher",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "FileDispatcher",
+                    "fileDispatcher",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "IdentityAnalyser",
+                    "identityAnalyser",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "DependancyAnalyser",
+                    "dependancyAnalyser",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "SearchAnalyser",
+                    "searchAnalyser",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "UiStatListener",
+                    "uiStatListener",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "UiBrowseListener",
+                    "uiBrowseListener",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "ClassDiagramBuild",
+                    "classDiagramBuild",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Tuple<str,List<str>>>",
+                    "roots",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "nbFiles",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "stats",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Any>",
+                    "roots",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "nbFiles",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "stats",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "logger",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "FileFetcher",
+                                "fileFetcher"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "FileDispatcher",
+                                "fileDispatcher"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "IdentityAnalyser",
+                                "identityAnalyser"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "DependancyAnalyser",
+                                "dependancyAnalyser"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "SearchAnalyser",
+                                "searchAnalyser"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "UiStatListener",
+                                "uiStatListener"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "UiBrowseListener",
+                                "uiBrowseListener"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "ClassDiagramBuild",
+                                "classDiagramBuild"
+                            ]
+                        }
+                    ],
+                    "public"
                 ]
             },
             {
                 "py/tuple": [
                     "None",
-                    "init",
+                    "reset",
                     [],
                     "public"
                 ]
@@ -1091,8 +1632,138 @@
                     [
                         {
                             "py/tuple": [
-                                "Engine",
-                                "engine"
+                                "Any",
+                                "args"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "recordStats",
+                    [
+                        {
+                            "py/tuple": [
+                                "float",
+                                "duration"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendAnalysisStats",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendClasseNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendEnumNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendFunctionNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendFileNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendClassData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "className"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendEnumData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "enumName"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendFunctionData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "functionDef"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendFileData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "fileName"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "sendSearchResult",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "token"
                             ]
                         }
                     ],
@@ -1100,15 +1771,167 @@
                 ]
             }
         ],
-        "name": "Console",
-        "namespace": "pycodeanalyzer::core::console::console",
-        "origin": "/pycodeanalyzer/core/console/console.py",
+        "name": "Engine",
+        "namespace": "pycodeanalyzer::core::engine::engine",
+        "origin": "/pycodeanalyzer/core/engine/engine.py",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
         "usingNS": [
             "typing",
-            "pycodeanalyzer::core::engine::engine",
+            "injector",
+            "pycodeanalyzer::core::analyzer::dependancy",
+            "pycodeanalyzer::core::analyzer::identification",
+            "pycodeanalyzer::core::analyzer::search",
+            "pycodeanalyzer::core::diagrams::mermaid",
+            "pycodeanalyzer::core::filetree::filefetcher",
+            "pycodeanalyzer::core::languages::filedispatcher",
+            "pycodeanalyzer::core::logging::loggerfactory",
+            "pycodeanalyzer::core::utils::math",
+            "pycodeanalyzer::injection",
+            "pycodeanalyzer::ui::app"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "Any",
+                    "logger",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "suported_extensions",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "rejected_encoding",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "encoding",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "isAnalyzed",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "fileabspath"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "fetch",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "rootDir"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "FileFetcher",
+        "namespace": "pycodeanalyzer::core::filetree::filefetcher",
+        "origin": "/pycodeanalyzer/core/filetree/filefetcher.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "injector",
+            "pycodeanalyzer::core::encoding::encodings",
+            "pycodeanalyzer::core::logging::loggerfactory"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "Any",
+                    "logger",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractObject>",
+                    "analyze",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "rootDir"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "Analyzer",
+        "namespace": "pycodeanalyzer::core::languages::analyzer",
+        "origin": "/pycodeanalyzer/core/languages/analyzer.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::logging::loggerfactory"
         ]
     },
@@ -1648,1200 +2471,6 @@
         "language": {
             "py/id": 2
         },
-        "members": [],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "Tuple<AbstractClass,List<AbstractClass>,List<AbstractEnum>,List<AbstractFunction>>",
-                    "analyze",
-                    [
-                        {
-                            "py/tuple": [
-                                "List<AbstractClass>",
-                                "klasses"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "List<AbstractEnum>",
-                                "enums"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "AbstractClass",
-                                "target"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractClass",
-                    "findClass",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "namespace"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "name"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "List<AbstractClass>",
-                                "klasses"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "currentNamespace"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "currentClassName"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "List<str>",
-                                "usingNS"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractEnum",
-                    "findEnum",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "namespace"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "name"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "List<AbstractEnum>",
-                                "enums"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "currentNamespace"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "currentClassName"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "List<str>",
-                                "usingNS"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "DependancyAnalyser",
-        "namespace": "pycodeanalyzer::core::analyzer::dependancy",
-        "origin": "/pycodeanalyzer/core/analyzer/dependancy.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing",
-            "pycodeanalyzer::core::abstraction::objects"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Any",
-                    "magic",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "str",
-                    "getFileEncoding",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "file"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "Encoding",
-        "namespace": "pycodeanalyzer::core::encoding::encodings",
-        "origin": "/pycodeanalyzer/core/encoding/encodings.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "FileFetcher",
-                    "fileFetcher",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "FileDispatcher",
-                    "fileDispatcher",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "IdentityAnalyser",
-                    "identityAnalyser",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "DependancyAnalyser",
-                    "dependancyAnalyser",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "SearchAnalyser",
-                    "searchAnalyser",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "UiStatListener",
-                    "uiStatListener",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "UiBrowseListener",
-                    "uiBrowseListener",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "ClassDiagramBuild",
-                    "classDiagramBuild",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<Tuple<str,List<str>>>",
-                    "roots",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "nbFiles",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "stats",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<Any>",
-                    "roots",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "nbFiles",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "stats",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "logger",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [
-                        {
-                            "py/tuple": [
-                                "FileFetcher",
-                                "fileFetcher"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "FileDispatcher",
-                                "fileDispatcher"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "IdentityAnalyser",
-                                "identityAnalyser"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "DependancyAnalyser",
-                                "dependancyAnalyser"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "SearchAnalyser",
-                                "searchAnalyser"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "UiStatListener",
-                                "uiStatListener"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "UiBrowseListener",
-                                "uiBrowseListener"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "ClassDiagramBuild",
-                                "classDiagramBuild"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "reset",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "run",
-                    [
-                        {
-                            "py/tuple": [
-                                "Any",
-                                "args"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "recordStats",
-                    [
-                        {
-                            "py/tuple": [
-                                "float",
-                                "duration"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendAnalysisStats",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendClasseNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendEnumNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendFunctionNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendFileNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendClassData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "className"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendEnumData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "enumName"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendFunctionData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "functionDef"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendFileData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "fileName"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sendSearchResult",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "token"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "Engine",
-        "namespace": "pycodeanalyzer::core::engine::engine",
-        "origin": "/pycodeanalyzer/core/engine/engine.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing",
-            "injector",
-            "pycodeanalyzer::core::analyzer::dependancy",
-            "pycodeanalyzer::core::analyzer::identification",
-            "pycodeanalyzer::core::analyzer::search",
-            "pycodeanalyzer::core::diagrams::mermaid",
-            "pycodeanalyzer::core::filetree::filefetcher",
-            "pycodeanalyzer::core::languages::filedispatcher",
-            "pycodeanalyzer::core::logging::loggerfactory",
-            "pycodeanalyzer::core::utils::math",
-            "pycodeanalyzer::injection",
-            "pycodeanalyzer::ui::app"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Engine",
-                    "engine",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [
-                        {
-                            "py/tuple": [
-                                "Engine",
-                                "engine"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestAnalysisStats",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestClasseNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestEnumNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestFunctionNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestFileNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestClassData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "className"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestEnumData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "enumName"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestFunctionData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "functionDef"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestFileData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "fileName"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "requestSearchData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "token"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "EngineCommands",
-        "namespace": "pycodeanalyzer::ui::engineinterface",
-        "origin": "/pycodeanalyzer/ui/engineinterface.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "injector",
-            "pycodeanalyzer::core::engine::engine"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Any",
-                    "logger",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "CppAnalyzer",
-                    "cppAnalyzer",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "PythonAnalyzer",
-                    "pythonAnalyzer",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "UiFileDispatcherListener",
-                    "uiListener",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [
-                        {
-                            "py/tuple": [
-                                "CppAnalyzer",
-                                "cppAnalyzer"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "PythonAnalyzer",
-                                "pythonAnalyzer"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "UiFileDispatcherListener",
-                                "uiListener"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<AbstractObject>",
-                    "dispatchRoots",
-                    [
-                        {
-                            "py/tuple": [
-                                "List<Tuple<str,List<str>>>",
-                                "roots"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<AbstractObject>",
-                    "dispatch",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "rootDir"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "List<str>",
-                                "files"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "sortObjects",
-                    [
-                        {
-                            "py/tuple": [
-                                "List<AbstractObject>",
-                                "abstractObjects"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "FileDispatcher",
-        "namespace": "pycodeanalyzer::core::languages::filedispatcher",
-        "origin": "/pycodeanalyzer/core/languages/filedispatcher.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing",
-            "injector",
-            "pycodeanalyzer::core::abstraction::objects",
-            "pycodeanalyzer::core::languages::analyzers::cppanalyzer",
-            "pycodeanalyzer::core::languages::analyzers::pythonanalyzer",
-            "pycodeanalyzer::core::logging::loggerfactory",
-            "pycodeanalyzer::ui::app"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Any",
-                    "logger",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<str>",
-                    "suported_extensions",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<str>",
-                    "rejected_encoding",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "encoding",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "bool",
-                    "isAnalyzed",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "fileabspath"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<str>",
-                    "fetch",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "rootDir"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "FileFetcher",
-        "namespace": "pycodeanalyzer::core::filetree::filefetcher",
-        "origin": "/pycodeanalyzer/core/filetree/filefetcher.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing",
-            "injector",
-            "pycodeanalyzer::core::encoding::encodings",
-            "pycodeanalyzer::core::logging::loggerfactory"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "str",
-                    "loading",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "str",
-                    "home",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "str",
-                    "browse",
-                    [],
-                    "public"
-                ]
-            }
-        ],
-        "name": "FlaskHolder",
-        "namespace": "pycodeanalyzer::ui::app",
-        "origin": "/pycodeanalyzer/ui/app.py",
-        "parents": [
-            {
-                "py/tuple": [
-                    "FlaskView",
-                    "FlaskView",
-                    "public"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing",
-            "flask",
-            "flask_classful",
-            "flask_socketio",
-            "flaskwebgui",
-            "injector"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Dict<str,List<Any>>",
-                    "mapping",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "str",
-                    "commonFilePath",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "commonFilePath",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "Constructor",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "analyze",
-                    [
-                        {
-                            "py/tuple": [
-                                "List<AbstractObject>",
-                                "objects"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<AbstractClass>",
-                    "getClasses",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<AbstractEnum>",
-                    "getEnums",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<AbstractFunction>",
-                    "getFunctions",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Dict<str,Any>",
-                    "getClasseTree",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Dict<str,Any>",
-                    "getEnumTree",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Dict<str,Any>",
-                    "getFunctionTree",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "List<str>",
-                    "getFiles",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Dict<str,Any>",
-                    "getFileTree",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractClass",
-                    "getClass",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "classNamespacePath"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractEnum",
-                    "getEnum",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "enumNamespacePath"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractFunction",
-                    "getFunction",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "funcFullDef"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Dict<str,List<str>>",
-                    "getObjectInFile",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "file"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "IdentityAnalyser",
-        "namespace": "pycodeanalyzer::core::analyzer::identification",
-        "origin": "/pycodeanalyzer/core/analyzer/identification.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing",
-            "pycodeanalyzer::core::abstraction::objects"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "None",
-                    "init",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "setLoggerLevel",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "loglevel"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "logging::Logger",
-                    "createLogger",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "name"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "LoggerFactory",
-        "namespace": "pycodeanalyzer::core::logging::loggerfactory",
-        "origin": "/pycodeanalyzer/core/logging/loggerfactory.py",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": [
-            "typing"
-        ]
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
         "members": [
             {
                 "py/tuple": [
@@ -3259,15 +2888,29 @@
         "members": [
             {
                 "py/tuple": [
-                    "List<Tuple<str,str>>",
-                    "results",
+                    "Any",
+                    "logger",
                     "public"
                 ]
             },
             {
                 "py/tuple": [
-                    "List<Thread>",
-                    "threads",
+                    "CppAnalyzer",
+                    "cppAnalyzer",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "PythonAnalyzer",
+                    "pythonAnalyzer",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "UiFileDispatcherListener",
+                    "uiListener",
                     "public"
                 ]
             }
@@ -3275,13 +2918,55 @@
         "methodes": [
             {
                 "py/tuple": [
-                    "List<Tuple<str,str>>",
-                    "searchInAllFiles",
+                    "None",
+                    "Constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "CppAnalyzer",
+                                "cppAnalyzer"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "PythonAnalyzer",
+                                "pythonAnalyzer"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "UiFileDispatcherListener",
+                                "uiListener"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractObject>",
+                    "dispatchRoots",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<Tuple<str,List<str>>>",
+                                "roots"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractObject>",
+                    "dispatch",
                     [
                         {
                             "py/tuple": [
                                 "str",
-                                "token"
+                                "rootDir"
                             ]
                         },
                         {
@@ -3296,19 +2981,59 @@
             },
             {
                 "py/tuple": [
-                    "List<Tuple<str,str>>",
-                    "seachInFile",
+                    "None",
+                    "sortObjects",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "abstractObjects"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "FileDispatcher",
+        "namespace": "pycodeanalyzer::core::languages::filedispatcher",
+        "origin": "/pycodeanalyzer/core/languages/filedispatcher.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "injector",
+            "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::languages::analyzers::cppanalyzer",
+            "pycodeanalyzer::core::languages::analyzers::pythonanalyzer",
+            "pycodeanalyzer::core::logging::loggerfactory",
+            "pycodeanalyzer::ui::app"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "init",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "setLoggerLevel",
                     [
                         {
                             "py/tuple": [
                                 "str",
-                                "token"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "filePath"
+                                "loglevel"
                             ]
                         }
                     ],
@@ -3317,19 +3042,13 @@
             },
             {
                 "py/tuple": [
-                    "None",
-                    "seachInFileThreaded",
+                    "logging::Logger",
+                    "createLogger",
                     [
                         {
                             "py/tuple": [
                                 "str",
-                                "token"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "str",
-                                "filePath"
+                                "name"
                             ]
                         }
                     ],
@@ -3337,14 +3056,13 @@
                 ]
             }
         ],
-        "name": "SearchAnalyser",
-        "namespace": "pycodeanalyzer::core::analyzer::search",
-        "origin": "/pycodeanalyzer/core/analyzer/search.py",
+        "name": "LoggerFactory",
+        "namespace": "pycodeanalyzer::core::logging::loggerfactory",
+        "origin": "/pycodeanalyzer/core/logging/loggerfactory.py",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
         "usingNS": [
-            "threading",
             "typing"
         ]
     },
@@ -3355,8 +3073,15 @@
         "members": [
             {
                 "py/tuple": [
-                    "EngineCommands",
-                    "engineCommands",
+                    "Any",
+                    "app",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "socketio",
                     "public"
                 ]
             }
@@ -3369,63 +3094,20 @@
                     [
                         {
                             "py/tuple": [
-                                "EngineCommands",
-                                "engineCommands"
+                                "UiFileDispatcherListener",
+                                "uiFileDispatcherListener"
                             ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchStats",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchAnalysedClassNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchAnalysedEnumNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchAnalysedFunctionNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchAnalysedFileNames",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchClassData",
-                    [
+                        },
                         {
                             "py/tuple": [
-                                "str",
-                                "className"
+                                "UiStatListener",
+                                "uiStatListener"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "UiBrowseListener",
+                                "uiBrowseListener"
                             ]
                         }
                     ],
@@ -3435,76 +3117,79 @@
             {
                 "py/tuple": [
                     "None",
-                    "fetchEnumData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "enumName"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchFunctionData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "functionDef"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "fetchFileData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "fileName"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "None",
-                    "searchData",
-                    [
-                        {
-                            "py/tuple": [
-                                "str",
-                                "token"
-                            ]
-                        }
-                    ],
+                    "run",
+                    [],
                     "public"
                 ]
             }
         ],
-        "name": "SocketListner",
-        "namespace": "pycodeanalyzer::ui::socketlistener",
-        "origin": "/pycodeanalyzer/ui/socketlistener.py",
+        "name": "Application",
+        "namespace": "pycodeanalyzer::ui::app",
+        "origin": "/pycodeanalyzer/ui/app.py",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
         "usingNS": [
             "typing",
-            "injector",
-            "pycodeanalyzer::injection",
-            "pycodeanalyzer::ui::app",
-            "pycodeanalyzer::ui::engineinterface"
+            "flask",
+            "flask_classful",
+            "flask_socketio",
+            "flaskwebgui",
+            "injector"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "str",
+                    "loading",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "home",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "browse",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "FlaskHolder",
+        "namespace": "pycodeanalyzer::ui::app",
+        "origin": "/pycodeanalyzer/ui/app.py",
+        "parents": [
+            {
+                "py/tuple": [
+                    "FlaskView",
+                    "FlaskView",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "flask",
+            "flask_classful",
+            "flask_socketio",
+            "flaskwebgui",
+            "injector"
         ]
     },
     {
@@ -3870,6 +3555,321 @@
         "language": {
             "py/id": 2
         },
+        "members": [
+            {
+                "py/tuple": [
+                    "Engine",
+                    "engine",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "Engine",
+                                "engine"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestAnalysisStats",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestClasseNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestEnumNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestFunctionNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestFileNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestClassData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "className"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestEnumData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "enumName"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestFunctionData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "functionDef"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestFileData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "fileName"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestSearchData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "token"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "EngineCommands",
+        "namespace": "pycodeanalyzer::ui::engineinterface",
+        "origin": "/pycodeanalyzer/ui/engineinterface.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "injector",
+            "pycodeanalyzer::core::engine::engine"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "EngineCommands",
+                    "engineCommands",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "EngineCommands",
+                                "engineCommands"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchStats",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchAnalysedClassNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchAnalysedEnumNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchAnalysedFunctionNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchAnalysedFileNames",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchClassData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "className"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchEnumData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "enumName"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchFunctionData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "functionDef"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "fetchFileData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "fileName"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "searchData",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "token"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "SocketListner",
+        "namespace": "pycodeanalyzer::ui::socketlistener",
+        "origin": "/pycodeanalyzer/ui/socketlistener.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "injector",
+            "pycodeanalyzer::injection",
+            "pycodeanalyzer::ui::app",
+            "pycodeanalyzer::ui::engineinterface"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
         "name": "AbstractObjectLanguage",
         "namespace": "pycodeanalyzer::core::abstraction::objects",
         "origin": "/pycodeanalyzer/core/abstraction/objects.py",
@@ -3881,6 +3881,20 @@
             "CPP",
             "Python"
         ]
+    },
+    {
+        "doxygen": "\"\"\"Main function of pycodeanalyzer\"\"\"",
+        "language": {
+            "py/id": 2
+        },
+        "name": "main",
+        "namespace": "pycodeanalyzer::__main__",
+        "origin": "/pycodeanalyzer/__main__.py",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "None",
+        "type": "Function",
+        "usingNS": []
     },
     {
         "doxygen": "\"\"\"No comments in file\"\"\"",
@@ -3899,7 +3913,61 @@
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "Tuple<str,str>",
+        "returnType": "Tuple<str,str,str>",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "\"\"\"No comments in file\"\"\"",
+        "language": {
+            "py/id": 2
+        },
+        "name": "rindex",
+        "namespace": "pycodeanalyzer::core::utils::containers",
+        "origin": "/pycodeanalyzer/core/utils/containers.py",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "List<Any>",
+                    "lst"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "value"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "Any",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "\"\"\"No comments in file\"\"\"",
+        "language": {
+            "py/id": 2
+        },
+        "name": "round_up",
+        "namespace": "pycodeanalyzer::core::utils::math",
+        "origin": "/pycodeanalyzer/core/utils/math.py",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "float",
+                    "n"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "decimals"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "float",
         "type": "Function",
         "usingNS": []
     },
@@ -4143,74 +4211,6 @@
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "None",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "\"\"\"Main function of pycodeanalyzer\"\"\"",
-        "language": {
-            "py/id": 2
-        },
-        "name": "main",
-        "namespace": "pycodeanalyzer::__main__",
-        "origin": "/pycodeanalyzer/__main__.py",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "None",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "\"\"\"No comments in file\"\"\"",
-        "language": {
-            "py/id": 2
-        },
-        "name": "rindex",
-        "namespace": "pycodeanalyzer::core::utils::containers",
-        "origin": "/pycodeanalyzer/core/utils/containers.py",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "List<Any>",
-                    "lst"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "value"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "Any",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "\"\"\"No comments in file\"\"\"",
-        "language": {
-            "py/id": 2
-        },
-        "name": "round_up",
-        "namespace": "pycodeanalyzer::core::utils::math",
-        "origin": "/pycodeanalyzer/core/utils/math.py",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "float",
-                    "n"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "decimals"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "float",
         "type": "Function",
         "usingNS": []
     },

@@ -15,368 +15,6 @@
         "members": [
             {
                 "py/tuple": [
-                    "unsigned char",
-                    "byte",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "size_t",
-                    "word",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "Val",
-        "namespace": "zstringlen",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "unsigned char",
-                    "op",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned char",
-                    "bits",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned short",
-                    "val",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "code",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/inftrees.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "have",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned char *",
-                    "next",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "off_t",
-                    "pos",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "gzFile_s",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "int",
-                    "text",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uLong",
-                    "time",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "xflags",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "os",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Bytef *",
-                    "extra",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uInt",
-                    "extra_len",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uInt",
-                    "extra_max",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Bytef *",
-                    "name",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uInt",
-                    "name_max",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Bytef *",
-                    "comment",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uInt",
-                    "comm_max",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "hcrc",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "done",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "gz_header",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "struct gzFile_s",
-                    "x",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "mode",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "fd",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "char *",
-                    "path",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "size",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "want",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned char *",
-                    "in",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned char *",
-                    "out",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "direct",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "how",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "off_t",
-                    "start",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "eof",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "past",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "level",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "strategy",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "off_t",
-                    "skip",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "seek",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "err",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "char *",
-                    "msg",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "z_stream",
-                    "strm",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "gz_state",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
                     "gzFile",
                     "file",
                     "private"
@@ -879,312 +517,23 @@
         "members": [
             {
                 "py/tuple": [
-                    "gzofstream & ( * ) ( gzofstream &, T1, T2 )",
-                    "func",
-                    "private"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T1",
-                    "val1",
-                    "private"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T2",
-                    "val2",
-                    "private"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "operator<<",
-                    [
-                        {
-                            "py/tuple": [
-                                "gzofstream",
-                                "&"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "const gzomanip2<Ta, Tb >",
-                                "&"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "gzomanip2",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "z_streamp",
-                    "strm",
+                    "unsigned char",
+                    "byte",
                     "public"
                 ]
             },
             {
                 "py/tuple": [
-                    "inflate_mode",
-                    "mode",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "last",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "wrap",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "havedict",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "flags",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "dmax",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned long",
-                    "check",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned long",
-                    "total",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "gz_headerp",
-                    "head",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "wbits",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "wsize",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "whave",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "wnext",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned char FAR *",
-                    "window",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned long",
-                    "hold",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "bits",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "length",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "offset",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "extra",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "code const FAR *",
-                    "lencode",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "code const FAR *",
-                    "distcode",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "lenbits",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "distbits",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "ncode",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "nlen",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "ndist",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "have",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "code FAR *",
-                    "next",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned short",
-                    "lens",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned short",
-                    "work",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "code",
-                    "codes",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "sane",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "back",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned",
-                    "was",
+                    "size_t",
+                    "word",
                     "public"
                 ]
             }
         ],
         "methodes": [],
-        "name": "inflate_state",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/inflate.h",
+        "name": "Val",
+        "namespace": "zstringlen",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
@@ -1561,51 +910,268 @@
         "members": [
             {
                 "py/tuple": [
-                    "uInt",
-                    "tm_sec",
+                    "Val",
+                    "val",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "size_t",
+                    "value",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "zstringlen",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "gzofstream & ( * ) ( gzofstream &, T1, T2 )",
+                    "func",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T1",
+                    "val1",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T2",
+                    "val2",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "gzofstream &",
+                    "operator<<",
+                    [
+                        {
+                            "py/tuple": [
+                                "gzofstream",
+                                "&"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "const gzomanip2<Ta, Tb >",
+                                "&"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "gzomanip2",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "zlib_filefunc64_def",
+                    "zfile_func64",
                     "public"
                 ]
             },
             {
                 "py/tuple": [
-                    "uInt",
-                    "tm_min",
+                    "open_file_func",
+                    "zopen32_file",
                     "public"
                 ]
             },
             {
                 "py/tuple": [
-                    "uInt",
-                    "tm_hour",
+                    "tell_file_func",
+                    "ztell32_file",
                     "public"
                 ]
             },
             {
                 "py/tuple": [
-                    "uInt",
-                    "tm_mday",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uInt",
-                    "tm_mon",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uInt",
-                    "tm_year",
+                    "seek_file_func",
+                    "zseek32_file",
                     "public"
                 ]
             }
         ],
         "methodes": [],
-        "name": "tm_unz",
+        "name": "zlib_filefunc64_32_def",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "open64_file_func",
+                    "zopen64_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "read_file_func",
+                    "zread_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "write_file_func",
+                    "zwrite_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "tell64_file_func",
+                    "ztell64_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "seek64_file_func",
+                    "zseek64_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "close_file_func",
+                    "zclose_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "testerror_file_func",
+                    "zerror_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "voidpf",
+                    "opaque",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "zlib_filefunc64_def",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "open_file_func",
+                    "zopen_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "read_file_func",
+                    "zread_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "write_file_func",
+                    "zwrite_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "tell_file_func",
+                    "ztell_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "seek_file_func",
+                    "zseek_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "close_file_func",
+                    "zclose_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "testerror_file_func",
+                    "zerror_file",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "voidpf",
+                    "opaque",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "zlib_filefunc_def",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
@@ -1660,9 +1226,9 @@
             }
         ],
         "methodes": [],
-        "name": "tm_zip",
+        "name": "tm_unz",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
@@ -2031,6 +1597,699 @@
         "members": [
             {
                 "py/tuple": [
+                    "uInt",
+                    "tm_sec",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "tm_min",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "tm_hour",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "tm_mday",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "tm_mon",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "tm_year",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "tm_zip",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "tm_zip",
+                    "tmz_date",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uLong",
+                    "dosDate",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uLong",
+                    "internal_fa",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uLong",
+                    "external_fa",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "zip_fileinfo",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "struct gzFile_s",
+                    "x",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "mode",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "fd",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "char *",
+                    "path",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "size",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "want",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned char *",
+                    "in",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned char *",
+                    "out",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "direct",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "how",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "off_t",
+                    "start",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "eof",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "past",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "level",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "strategy",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "off_t",
+                    "skip",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "seek",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "err",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "char *",
+                    "msg",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "z_stream",
+                    "strm",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "gz_state",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "z_streamp",
+                    "strm",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "inflate_mode",
+                    "mode",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "last",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "wrap",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "havedict",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "flags",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "dmax",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned long",
+                    "check",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned long",
+                    "total",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "gz_headerp",
+                    "head",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "wbits",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "wsize",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "whave",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "wnext",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned char FAR *",
+                    "window",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned long",
+                    "hold",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "bits",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "length",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "offset",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "extra",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "code const FAR *",
+                    "lencode",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "code const FAR *",
+                    "distcode",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "lenbits",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "distbits",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "ncode",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "nlen",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "ndist",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "have",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "code FAR *",
+                    "next",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned short",
+                    "lens",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned short",
+                    "work",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "code",
+                    "codes",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "sane",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "back",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "was",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "inflate_state",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/inflate.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "unsigned char",
+                    "op",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned char",
+                    "bits",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned short",
+                    "val",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "code",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/inftrees.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "unsigned",
+                    "have",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned char *",
+                    "next",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "off_t",
+                    "pos",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "gzFile_s",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "int",
+                    "text",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uLong",
+                    "time",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "xflags",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "os",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Bytef *",
+                    "extra",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "extra_len",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "extra_max",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Bytef *",
+                    "name",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "name_max",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Bytef *",
+                    "comment",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uInt",
+                    "comm_max",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "hcrc",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "done",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "gz_header",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
                     "Bytef *",
                     "next_in",
                     "public"
@@ -2138,262 +2397,54 @@
         "usingNS": []
     },
     {
+        "doxygen": "/* No comments in file */",
         "language": {
             "py/id": 2
         },
-        "members": [
-            {
-                "py/tuple": [
-                    "tm_zip",
-                    "tmz_date",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uLong",
-                    "dosDate",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uLong",
-                    "internal_fa",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uLong",
-                    "external_fa",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "zip_fileinfo",
+        "name": "blast",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/blast/blast.h",
+        "parameters": [
             {
                 "py/tuple": [
-                    "zlib_filefunc64_def",
-                    "zfile_func64",
-                    "public"
+                    "blast_in",
+                    "infun"
                 ]
             },
             {
                 "py/tuple": [
-                    "open_file_func",
-                    "zopen32_file",
-                    "public"
+                    "void *",
+                    "inhow"
                 ]
             },
             {
                 "py/tuple": [
-                    "tell_file_func",
-                    "ztell32_file",
-                    "public"
+                    "blast_out",
+                    "outfun"
                 ]
             },
             {
                 "py/tuple": [
-                    "seek_file_func",
-                    "zseek32_file",
-                    "public"
+                    "void *",
+                    "outhow"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned *",
+                    "left"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned char * *",
+                    "in"
                 ]
             }
         ],
-        "methodes": [],
-        "name": "zlib_filefunc64_32_def",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "open64_file_func",
-                    "zopen64_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "read_file_func",
-                    "zread_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "write_file_func",
-                    "zwrite_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "tell64_file_func",
-                    "ztell64_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "seek64_file_func",
-                    "zseek64_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "close_file_func",
-                    "zclose_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "testerror_file_func",
-                    "zerror_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "voidpf",
-                    "opaque",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "zlib_filefunc64_def",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "open_file_func",
-                    "zopen_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "read_file_func",
-                    "zread_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "write_file_func",
-                    "zwrite_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "tell_file_func",
-                    "ztell_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "seek_file_func",
-                    "zseek_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "close_file_func",
-                    "zclose_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "testerror_file_func",
-                    "zerror_file",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "voidpf",
-                    "opaque",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "zlib_filefunc_def",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Val",
-                    "val",
-                    "private"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "size_t",
-                    "value",
-                    [],
-                    "public"
-                ]
-            }
-        ],
-        "name": "zstringlen",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int",
+        "type": "Function",
         "usingNS": []
     },
     {
@@ -2403,7 +2454,70 @@
         },
         "name": "OF",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/inftrees.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( z_stream FAR * strm, in_func in, void FAR * in_desc, out_func out, void FAR * out_desc",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "ZEXTERN int ZEXPORT inflateBack9",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( z_stream FAR * strm",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "ZEXTERN int ZEXPORT inflateBack9End",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( z_stream FAR * strm, unsigned char FAR * window, const char * version, int stream_size",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "ZEXTERN int ZEXPORT inflateBack9Init_",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/inftree9.h",
         "parameters": [
             {
                 "py/tuple": [
@@ -2413,7 +2527,7 @@
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZLIB_INTERNAL inflate_table",
+        "returnType": "int inflate_table9",
         "type": "Function",
         "usingNS": []
     },
@@ -2422,19 +2536,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "operator<<",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/inffast.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( z_streamp strm, unsigned start",
-                    ")"
+                    "gzofstream &",
+                    "s"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const gzomanip<T> &",
+                    "m"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "void ZLIB_INTERNAL inflate_fast",
+        "returnType": "gzofstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2443,19 +2563,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "setcompressionlevel",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( const char * pathname, int append",
-                    ")"
+                    "gzofstream &",
+                    "s"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "l"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "zipFile ZEXPORT zipOpen",
+        "returnType": "gzofstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2464,19 +2590,19 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "setcompressionlevel",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( const void * pathname, int append",
-                    ")"
+                    "int",
+                    "l"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "zipFile ZEXPORT zipOpen64",
+        "returnType": "gzomanip<int >",
         "type": "Function",
         "usingNS": []
     },
@@ -2485,19 +2611,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "setcompressionstrategy",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( const char * pathname, int append, zipcharpc * globalcomment, zlib_filefunc_def * pzlib_filefunc_def",
-                    ")"
+                    "gzofstream &",
+                    "s"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "l"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "zipFile ZEXPORT zipOpen2",
+        "returnType": "gzofstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2506,19 +2638,19 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "setcompressionstrategy",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( const void * pathname, int append, zipcharpc * globalcomment, zlib_filefunc64_def * pzlib_filefunc_def",
-                    ")"
+                    "int",
+                    "l"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "zipFile ZEXPORT zipOpen2_64",
+        "returnType": "gzomanip<int >",
         "type": "Function",
         "usingNS": []
     },
@@ -2527,19 +2659,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "operator<",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level",
-                    ")"
+                    "ozstream &",
+                    "zs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const T &",
+                    "x"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip",
+        "returnType": "ozstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2548,19 +2686,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "operator<",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int zip64",
-                    ")"
+                    "ozstream &",
+                    "zs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const char *",
+                    "x"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip64",
+        "returnType": "ozstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2569,19 +2713,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "operator<<",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw",
-                    ")"
+                    "ozstream &",
+                    "zs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const T &",
+                    "x"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip2",
+        "returnType": "ostream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2590,19 +2740,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "operator>",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int zip64",
-                    ")"
+                    "izstream &",
+                    "zs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T &",
+                    "x"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip2_64",
+        "returnType": "izstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2611,19 +2767,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "operator>",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting",
-                    ")"
+                    "izstream &",
+                    "zs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "char *",
+                    "x"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip3",
+        "returnType": "izstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2632,19 +2794,31 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "read",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting, int zip64",
-                    ")"
+                    "izstream &",
+                    "zs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T *",
+                    "x"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Items",
+                    "items"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip3_64",
+        "returnType": "int",
         "type": "Function",
         "usingNS": []
     },
@@ -2653,19 +2827,19 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "read_string",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting, uLong versionMadeBy, uLong flagBase",
-                    ")"
+                    "izstream &",
+                    "zs"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip4",
+        "returnType": "char *",
         "type": "Function",
         "usingNS": []
     },
@@ -2674,19 +2848,31 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "write",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting, uLong versionMadeBy, uLong flagBase, int zip64",
-                    ")"
+                    "ozstream &",
+                    "zs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const T *",
+                    "x"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Items",
+                    "items"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipOpenNewFileInZip4_64",
+        "returnType": "int",
         "type": "Function",
         "usingNS": []
     },
@@ -2695,19 +2881,31 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "gzomanip2",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const void * buf, unsigned len",
-                    ")"
+                    "gzofstream & ( * ) ( gzofstream &, T1, T2 )",
+                    "f"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T1",
+                    "v1"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T2",
+                    "v2"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipWriteInFileInZip",
+        "returnType": "gzomanip2<T1, T2> ::",
         "type": "Function",
         "usingNS": []
     },
@@ -2716,19 +2914,25 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "operator<<",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file",
-                    ")"
+                    "gzofstream &",
+                    "s"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const gzomanip2<T1, T2> &",
+                    "m"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipCloseFileInZip",
+        "returnType": "gzofstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2737,19 +2941,31 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "setcompression",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, uLong uncompressed_size, uLong crc32",
-                    ")"
+                    "gzofstream &",
+                    "gzs"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "l"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "s"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipCloseFileInZipRaw",
+        "returnType": "gzofstream &",
         "type": "Function",
         "usingNS": []
     },
@@ -2758,61 +2974,118 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "setcompression",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, ZPOS64_T uncompressed_size, uLong crc32",
-                    ")"
+                    "int",
+                    "l"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "s"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipCloseFileInZipRaw64",
+        "returnType": "gzomanip2<int, int >",
         "type": "Function",
         "usingNS": []
     },
     {
-        "doxygen": "/* No comments in file */",
+        "doxygen": "/***********************************************************************\n* Return the next byte in the pseudo-random sequence\n*/",
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "decrypt_byte",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( zipFile file, const char * global_comment",
-                    ")"
+                    "unsigned long *",
+                    "pkeys"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const z_crc_t *",
+                    "pcrc_32_tab"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipClose",
+        "returnType": "int",
         "type": "Function",
         "usingNS": []
     },
     {
-        "doxygen": "/* No comments in file */",
+        "doxygen": "/***********************************************************************\n* Initialize the encryption keys and the random header according to\n* the given password.\n*/",
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "init_keys",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( char * pData, int * dataLen, short sHeader",
-                    ")"
+                    "const char *",
+                    "passwd"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned long *",
+                    "pkeys"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const z_crc_t *",
+                    "pcrc_32_tab"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT zipRemoveExtraInfoBlock",
+        "returnType": "void",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/***********************************************************************\n* Update the encryption keys with the next byte of plain text\n*/",
+        "language": {
+            "py/id": 2
+        },
+        "name": "update_keys",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unsigned long *",
+                    "pkeys"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const z_crc_t *",
+                    "pcrc_32_tab"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "c"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int",
         "type": "Function",
         "usingNS": []
     },
@@ -2926,6 +3199,33 @@
         "language": {
             "py/id": 2
         },
+        "name": "fill_zlib_filefunc64_32_def_from_filefunc32",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "zlib_filefunc64_32_def *",
+                    "p_filefunc64_32"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const zlib_filefunc_def *",
+                    "p_filefunc32"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "void",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/iowin32.h",
@@ -3002,6 +3302,51 @@
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "void fill_win32_filefunc64W",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzRepair",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/mztools.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "const char *",
+                    "file"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const char *",
+                    "fileOut"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const char *",
+                    "fileOutTmp"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uLong *",
+                    "nRecovered"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uLong *",
+                    "bytesRecovered"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT",
         "type": "Function",
         "usingNS": []
     },
@@ -3535,19 +3880,202 @@
         "language": {
             "py/id": 2
         },
-        "name": "OF",
+        "name": "unzGetFilePos",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( z_stream FAR * strm, in_func in, void FAR * in_desc, out_func out, void FAR * out_desc",
-                    ")"
+                    "unzFile",
+                    "file"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unz_file_pos *",
+                    "file_pos"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "ZEXTERN int ZEXPORT inflateBack9",
+        "returnType": "int ZEXPORT",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzGetFilePos64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unzFile",
+                    "file"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unz64_file_pos *",
+                    "file_pos"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzGetOffset",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unzFile",
+                    "file"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "uLong ZEXPORT",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzGetOffset64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unzFile",
+                    "file"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "ZPOS64_T ZEXPORT",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzGoToFilePos",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unzFile",
+                    "file"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unz_file_pos *",
+                    "file_pos"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzGoToFilePos64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unzFile",
+                    "file"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const unz64_file_pos *",
+                    "file_pos"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzSetOffset",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unzFile",
+                    "file"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "uLong",
+                    "pos"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "unzSetOffset64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unzFile",
+                    "file"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "ZPOS64_T",
+                    "pos"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT",
         "type": "Function",
         "usingNS": []
     },
@@ -3558,17 +4086,17 @@
         },
         "name": "OF",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( z_stream FAR * strm",
+                    "( const char * pathname, int append",
                     ")"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "ZEXTERN int ZEXPORT inflateBack9End",
+        "returnType": "zipFile ZEXPORT zipOpen",
         "type": "Function",
         "usingNS": []
     },
@@ -3579,17 +4107,17 @@
         },
         "name": "OF",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
         "parameters": [
             {
                 "py/tuple": [
-                    "( z_stream FAR * strm, unsigned char FAR * window, const char * version, int stream_size",
+                    "( const void * pathname, int append",
                     ")"
                 ]
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "ZEXTERN int ZEXPORT inflateBack9Init_",
+        "returnType": "zipFile ZEXPORT zipOpen64",
         "type": "Function",
         "usingNS": []
     },
@@ -3600,7 +4128,611 @@
         },
         "name": "OF",
         "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/inftree9.h",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( const char * pathname, int append, zipcharpc * globalcomment, zlib_filefunc_def * pzlib_filefunc_def",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "zipFile ZEXPORT zipOpen2",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( const void * pathname, int append, zipcharpc * globalcomment, zlib_filefunc64_def * pzlib_filefunc_def",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "zipFile ZEXPORT zipOpen2_64",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int zip64",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip64",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip2",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int zip64",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip2_64",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip3",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting, int zip64",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip3_64",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting, uLong versionMadeBy, uLong flagBase",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip4",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * filename, const zip_fileinfo * zipfi, const void * extrafield_local, uInt size_extrafield_local, const void * extrafield_global, uInt size_extrafield_global, const char * comment, int method, int level, int raw, int windowBits, int memLevel, int strategy, const char * password, uLong crcForCrypting, uLong versionMadeBy, uLong flagBase, int zip64",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipOpenNewFileInZip4_64",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const void * buf, unsigned len",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipWriteInFileInZip",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipCloseFileInZip",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, uLong uncompressed_size, uLong crc32",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipCloseFileInZipRaw",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, ZPOS64_T uncompressed_size, uLong crc32",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipCloseFileInZipRaw64",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( zipFile file, const char * global_comment",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipClose",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( char * pData, int * dataLen, short sHeader",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int ZEXPORT zipRemoveExtraInfoBlock",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "puff",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/puff/puff.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "unsigned char *",
+                    "dest"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned long *",
+                    "destlen"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const unsigned char *",
+                    "source"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "unsigned long *",
+                    "sourcelen"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gzlog_close",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "gzlog *",
+                    "log"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gzlog_compress",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "gzlog *",
+                    "log"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gzlog_open",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "char *",
+                    "path"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "gzlog *",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gzlog_write",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "gzlog *",
+                    "log"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void *",
+                    "data"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "size_t",
+                    "len"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "int",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "free",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "void",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gz_error",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "void",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gz_intmax",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "unsigned",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gzoffset64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "off_t",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gzopen64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "gzFile",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gzseek64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "off_t",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "gztell64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "off_t",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "malloc",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "voidp",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/inffast.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "( z_streamp strm, unsigned start",
+                    ")"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "void ZLIB_INTERNAL inflate_fast",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "OF",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/inftrees.h",
         "parameters": [
             {
                 "py/tuple": [
@@ -3610,7 +4742,7 @@
             }
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int inflate_table9",
+        "returnType": "int ZLIB_INTERNAL inflate_table",
         "type": "Function",
         "usingNS": []
     },
@@ -3647,77 +4779,12 @@
         "language": {
             "py/id": 2
         },
-        "name": "adler32_combine64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "uLong",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
         "name": "adler32_z",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "uLong",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "blast",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/blast/blast.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "blast_in",
-                    "infun"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void *",
-                    "inhow"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "blast_out",
-                    "outfun"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void *",
-                    "outhow"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned *",
-                    "left"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned char * *",
-                    "in"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
         "type": "Function",
         "usingNS": []
     },
@@ -3796,53 +4863,12 @@
         "language": {
             "py/id": 2
         },
-        "name": "crc32_combine64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "uLong",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
         "name": "crc32_z",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "uLong",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/***********************************************************************\n* Return the next byte in the pseudo-random sequence\n*/",
-        "language": {
-            "py/id": 2
-        },
-        "name": "decrypt_byte",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unsigned long *",
-                    "pkeys"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const z_crc_t *",
-                    "pcrc_32_tab"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
         "type": "Function",
         "usingNS": []
     },
@@ -4061,81 +5087,12 @@
         "language": {
             "py/id": 2
         },
-        "name": "fill_zlib_filefunc64_32_def_from_filefunc32",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "zlib_filefunc64_32_def *",
-                    "p_filefunc64_32"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const zlib_filefunc_def *",
-                    "p_filefunc32"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "void",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "free",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "void",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
         "name": "get_crc_table",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "z_crc_t *",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gz_error",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "void",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gz_intmax",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "unsigned",
         "type": "Function",
         "usingNS": []
     },
@@ -4354,102 +5311,6 @@
         "language": {
             "py/id": 2
         },
-        "name": "gzlog_close",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzlog *",
-                    "log"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gzlog_compress",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzlog *",
-                    "log"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gzlog_open",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "char *",
-                    "path"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzlog *",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gzlog_write",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzlog *",
-                    "log"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void *",
-                    "data"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "size_t",
-                    "len"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
         "name": "gzoffset",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4464,70 +5325,9 @@
         "language": {
             "py/id": 2
         },
-        "name": "gzoffset64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "off_t",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gzomanip2",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream & ( * ) ( gzofstream &, T1, T2 )",
-                    "f"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T1",
-                    "v1"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T2",
-                    "v2"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzomanip2<T1, T2> ::",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
         "name": "gzopen",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzFile",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gzopen64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "gzFile",
@@ -4623,20 +5423,6 @@
         "language": {
             "py/id": 2
         },
-        "name": "gzseek64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "off_t",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
         "name": "gzsetparams",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4654,20 +5440,6 @@
         "name": "gztell",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "off_t",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "gztell64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "off_t",
@@ -5011,491 +5783,6 @@
         "usingNS": []
     },
     {
-        "doxygen": "/***********************************************************************\n* Initialize the encryption keys and the random header according to\n* the given password.\n*/",
-        "language": {
-            "py/id": 2
-        },
-        "name": "init_keys",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "const char *",
-                    "passwd"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned long *",
-                    "pkeys"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const z_crc_t *",
-                    "pcrc_32_tab"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "void",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "malloc",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "voidp",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator<",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "ozstream &",
-                    "zs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const T &",
-                    "x"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "ozstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator<",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "ozstream &",
-                    "zs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const char *",
-                    "x"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "ozstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator<<",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "s"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const gzomanip<T> &",
-                    "m"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator<<",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "s"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const gzomanip2<T1, T2> &",
-                    "m"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator<<",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "ozstream &",
-                    "zs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const T &",
-                    "x"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "ostream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator>",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "izstream &",
-                    "zs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T &",
-                    "x"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "izstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator>",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "izstream &",
-                    "zs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "char *",
-                    "x"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "izstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "puff",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/puff/puff.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unsigned char *",
-                    "dest"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned long *",
-                    "destlen"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const unsigned char *",
-                    "source"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unsigned long *",
-                    "sourcelen"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "read",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "izstream &",
-                    "zs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T *",
-                    "x"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Items",
-                    "items"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "read_string",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "izstream &",
-                    "zs"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "char *",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompression",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "gzs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "s"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompression",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "s"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzomanip2<int, int >",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionlevel",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "s"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionlevel",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzomanip<int >",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionstrategy",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "s"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionstrategy",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzomanip<int >",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
         "doxygen": "/* No comments in file */",
         "language": {
             "py/id": 2
@@ -5528,355 +5815,12 @@
         "language": {
             "py/id": 2
         },
-        "name": "unzGetFilePos",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unz_file_pos *",
-                    "file_pos"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzGetFilePos64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unz64_file_pos *",
-                    "file_pos"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzGetOffset",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "uLong ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzGetOffset64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "ZPOS64_T ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzGoToFilePos",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "unz_file_pos *",
-                    "file_pos"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzGoToFilePos64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const unz64_file_pos *",
-                    "file_pos"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzRepair",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/mztools.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "const char *",
-                    "file"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const char *",
-                    "fileOut"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const char *",
-                    "fileOutTmp"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uLong *",
-                    "nRecovered"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uLong *",
-                    "bytesRecovered"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzSetOffset",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "uLong",
-                    "pos"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "unzSetOffset64",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unzFile",
-                    "file"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "ZPOS64_T",
-                    "pos"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int ZEXPORT",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/***********************************************************************\n* Update the encryption keys with the next byte of plain text\n*/",
-        "language": {
-            "py/id": 2
-        },
-        "name": "update_keys",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "unsigned long *",
-                    "pkeys"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const z_crc_t *",
-                    "pcrc_32_tab"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "c"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "write",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "ozstream &",
-                    "zs"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const T *",
-                    "x"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Items",
-                    "items"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "int",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
         "name": "zError",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "char *",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "zcalloc",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "voidpf",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "zcfree",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "void",
         "type": "Function",
         "usingNS": []
     },
@@ -5905,6 +5849,62 @@
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "char *",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "adler32_combine64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "uLong",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "crc32_combine64",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "uLong",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "zcalloc",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "voidpf",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "zcfree",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "void",
         "type": "Function",
         "usingNS": []
     },

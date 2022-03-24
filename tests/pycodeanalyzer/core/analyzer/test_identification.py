@@ -70,34 +70,34 @@ class TestIdentityAnalyser:
         tree = analyzer.getClasseTree()
         print(tree)
         assert tree == {
-            '__classes__': ['code',
-                        'gzFile_s',
-                        'gz_header',
-                        'gz_state',
-                        'gzfilebuf',
-                        'gzfilestream_common',
-                        'gzifstream',
-                        'gzofstream',
-                        'gzomanip',
-                        'gzomanip2',
-                        'inflate_state',
-                        'izstream',
-                        'ozstream',
-                        'tm_unz',
-                        'tm_zip',
-                        'unz64_file_pos',
-                        'unz_file_info',
-                        'unz_file_info64',
-                        'unz_file_pos',
-                        'unz_global_info',
-                        'unz_global_info64',
-                        'z_stream',
-                        'zip_fileinfo',
-                        'zlib_filefunc64_32_def',
-                        'zlib_filefunc64_def',
-                        'zlib_filefunc_def',
-                        'zstringlen'],
-            'zstringlen': {'__classes__': ['Val']},
+            '__classes__': ['gzfilebuf',
+                    'gzfilestream_common',
+                    'gzifstream',
+                    'gzofstream',
+                    'gzomanip',
+                    'izstream',
+                    'ozstream',
+                    'zstringlen',
+                    'gzomanip2',
+                    'zlib_filefunc64_32_def',
+                    'zlib_filefunc64_def',
+                    'zlib_filefunc_def',
+                    'tm_unz',
+                    'unz64_file_pos',
+                    'unz_file_info',
+                    'unz_file_info64',
+                    'unz_file_pos',
+                    'unz_global_info',
+                    'unz_global_info64',
+                    'tm_zip',
+                    'zip_fileinfo',
+                    'gz_state',
+                    'inflate_state',
+                    'code',
+                    'gzFile_s',
+                    'gz_header',
+                    'z_stream'],
+            'zstringlen': {'__classes__': ['Val']}
         }
 
     def test_getEnumTree(self, mocker):
@@ -119,86 +119,88 @@ class TestIdentityAnalyser:
         tree = analyzer.getFunctionTree()
         print(tree)
         assert tree == {
-            'pycodeanalyzer': {'__main__': {'__functions__': [{'fullDef': 'None '
-                                                                          'pycodeanalyzer::__main__::main()',
-                                                               'name': 'main'}]},
-                               'core': {'abstraction': {'objects': {'__functions__': [{'fullDef': 'Tuple<str,str> '
-                                                                                                  'pycodeanalyzer::core::abstraction::objects::compareAbstractObject(AbstractObject '
-                                                                                                  'obj)',
-                                                                                       'name': 'compareAbstractObject'}]}},
-                                        'utils': {'containers': {'__functions__': [{'fullDef': 'Any '
-                                                                                               'pycodeanalyzer::core::utils::containers::rindex(List<Any> '
-                                                                                               'lst, '
-                                                                                               'Any '
-                                                                                               'value)',
-                                                                                    'name': 'rindex'}]},
-                                                  'math': {'__functions__': [{'fullDef': 'float '
-                                                                                         'pycodeanalyzer::core::utils::math::round_up(float '
-                                                                                         'n, '
-                                                                                         'int '
-                                                                                         'decimals)',
-                                                                              'name': 'round_up'}]}}},
-                               'ui': {'socketlistener': {'__functions__': [{'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchAnalysedClassNames(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchAnalysedClassNames'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchAnalysedEnumNames(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchAnalysedEnumNames'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchAnalysedFileNames(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchAnalysedFileNames'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchAnalysedFunctionNames(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchAnalysedFunctionNames'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchClassData(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchClassData'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchEnumData(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchEnumData'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchFileData(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchFileData'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchFunctionData(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchFunctionData'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::fetchStats(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'fetchStats'},
-                                                                           {'fullDef': 'None '
-                                                                                       'pycodeanalyzer::ui::socketlistener::searchData(Dict<str,Any> '
-                                                                                       'json, '
-                                                                                       'List<str> '
-                                                                                       'methods)',
-                                                                            'name': 'searchData'}]}}},
+                'pycodeanalyzer': {'__main__': {'__functions__': [{'fullDef': 'None '
+                                                              'pycodeanalyzer::__main__::main()',
+                                                   'name': 'main'}]},
+                   'core': {'abstraction': {'objects': {'__functions__': [{'fullDef': 'Tuple<str,str,str> '
+                                                                                      'pycodeanalyzer::core::abstraction::objects::compareAbstractObject(AbstractObject '
+                                                                                      'obj)',
+                                                                           'name': 'compareAbstractObject'}]}},
+                            'utils': {'containers': {'__functions__': [{'fullDef': 'Any '
+                                                                                   'pycodeanalyzer::core::utils::containers::rindex(List<Any> '
+                                                                                   'lst, '
+                                                                                   'Any '
+                                                                                   'value)',
+                                                                        'name': 'rindex'}]},
+                                      'math': {'__functions__': [{'fullDef': 'float '
+                                                                             'pycodeanalyzer::core::utils::math::round_up(float '
+                                                                             'n, '
+                                                                             'int '
+                                                                             'decimals)',
+                                                                  'name': 'round_up'}]}}},
+                   'ui': {'socketlistener': {'__functions__': [{'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchAnalysedClassNames(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchAnalysedClassNames'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchAnalysedEnumNames(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchAnalysedEnumNames'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchAnalysedFileNames(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchAnalysedFileNames'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchAnalysedFunctionNames(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchAnalysedFunctionNames'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchClassData(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchClassData'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchEnumData(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchEnumData'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchFileData(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchFileData'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchFunctionData(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchFunctionData'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::fetchStats(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'fetchStats'},
+                                                               {'fullDef': 'None '
+                                                                           'pycodeanalyzer::ui::socketlistener::searchData(Dict<str,Any> '
+                                                                           'json, '
+                                                                           'List<str> '
+                                                                           'methods)',
+                                                                'name': 'searchData'}]}}},
         }
+
+
 
 
     def test_getFileTree(self, mocker):
@@ -242,21 +244,21 @@ class TestIdentityAnalyser:
         print(list)
         assert list == [
             '/pycodeanalyzer/core/abstraction/objects.py',
-            '/pycodeanalyzer/core/engine/engine.py',
-            '/pycodeanalyzer/core/languages/analyzer.py',
-            '/pycodeanalyzer/ui/app.py',
-            '/pycodeanalyzer/core/diagrams/mermaid.py',
-            '/pycodeanalyzer/core/console/console.py',
-            '/pycodeanalyzer/core/languages/analyzers/cppanalyzer.py',
             '/pycodeanalyzer/core/analyzer/dependancy.py',
-            '/pycodeanalyzer/core/encoding/encodings.py',
-            '/pycodeanalyzer/ui/engineinterface.py',
-            '/pycodeanalyzer/core/languages/filedispatcher.py',
-            '/pycodeanalyzer/core/filetree/filefetcher.py',
             '/pycodeanalyzer/core/analyzer/identification.py',
-            '/pycodeanalyzer/core/logging/loggerfactory.py',
-            '/pycodeanalyzer/core/languages/analyzers/pythonanalyzer.py',
             '/pycodeanalyzer/core/analyzer/search.py',
+            '/pycodeanalyzer/core/console/console.py',
+            '/pycodeanalyzer/core/diagrams/mermaid.py',
+            '/pycodeanalyzer/core/encoding/encodings.py',
+            '/pycodeanalyzer/core/engine/engine.py',
+            '/pycodeanalyzer/core/filetree/filefetcher.py',
+            '/pycodeanalyzer/core/languages/analyzer.py',
+            '/pycodeanalyzer/core/languages/analyzers/cppanalyzer.py',
+            '/pycodeanalyzer/core/languages/analyzers/pythonanalyzer.py',
+            '/pycodeanalyzer/core/languages/filedispatcher.py',
+            '/pycodeanalyzer/core/logging/loggerfactory.py',
+            '/pycodeanalyzer/ui/app.py',
+            '/pycodeanalyzer/ui/engineinterface.py',
             '/pycodeanalyzer/ui/socketlistener.py',
             '/pycodeanalyzer/__main__.py',
             '/pycodeanalyzer/core/utils/containers.py',

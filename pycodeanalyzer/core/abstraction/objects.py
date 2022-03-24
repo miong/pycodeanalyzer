@@ -276,5 +276,5 @@ class AbstractClass(AbstractObject):
             print("\t\t * {2} {0} {1}".format(tuple[0], tuple[1], tuple[2]))
 
 
-def compareAbstractObject(obj: AbstractObject) -> Tuple[str, str]:
-    return (obj.type, obj.name)
+def compareAbstractObject(obj: AbstractObject) -> Tuple[str, str, str]:
+    return (obj.type, obj.origin, obj.name)
