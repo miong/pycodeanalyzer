@@ -85,6 +85,11 @@ class DependancyAnalyser:
             ):
                 return klass
             if (
+                klass.namespace == currentNamespace + "::" + currentClassName
+                and klass.name == name
+            ):
+                return klass
+            if (
                 klass.namespace
                 == currentNamespace + "::" + currentClassName + "::" + namespace
                 and klass.name == name
@@ -120,6 +125,11 @@ class DependancyAnalyser:
                 return enum
             if (
                 enum.namespace == currentClassName + "::" + namespace
+                and enum.name == name
+            ):
+                return enum
+            if (
+                enum.namespace == currentNamespace + "::" + currentClassName
                 and enum.name == name
             ):
                 return enum
