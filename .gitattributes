@@ -1,0 +1,3 @@
+pycodeanalyzer/ui/web/static/js/libs/** linguist-vendored
+pycodeanalyzer/ui/web/static/css/libs/** linguist-vendored
+tests/ressources/code/** linguist-vendored
