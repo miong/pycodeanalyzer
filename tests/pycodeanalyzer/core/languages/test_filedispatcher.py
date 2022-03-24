@@ -3,6 +3,7 @@ import pytest
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
 from pycodeanalyzer.ui.app import UiFileDispatcherListener
 from pycodeanalyzer.core.languages.analyzer import Analyzer
+from pycodeanalyzer.core.abstraction.objects import AbstractObject
 
 class TestFileDispatcher:
 
@@ -10,7 +11,7 @@ class TestFileDispatcher:
         cppAnalyzerMock = Analyzer()
         pythonAnalyzerMock = Analyzer()
         uiListenerMock = UiFileDispatcherListener()
-        abstractObjectsExpected = ["fake", "items"]
+        abstractObjectsExpected = [AbstractObject("fake", "/home/dir/toto2"), AbstractObject("items", "/home/dir/toto3")]
         roots = [("/home/dir", ["toto", "toto2"]), ("/home/dir2", ["toto3", "toto4"])]
         uiListenerMock.notifyAnalysisEnd = mocker.MagicMock()
         dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, uiListenerMock)

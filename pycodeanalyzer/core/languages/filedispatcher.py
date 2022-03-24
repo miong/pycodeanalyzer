@@ -3,7 +3,10 @@ from typing import List, Tuple
 
 from injector import inject, singleton
 
-from pycodeanalyzer.core.abstraction.objects import AbstractObject
+from pycodeanalyzer.core.abstraction.objects import (
+    AbstractObject,
+    compareAbstractObject,
+)
 from pycodeanalyzer.core.languages.analyzers.cppanalyzer import CppAnalyzer
 from pycodeanalyzer.core.languages.analyzers.pythonanalyzer import PythonAnalyzer
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
@@ -30,6 +33,7 @@ class FileDispatcher:
         for rootDir, files in roots:
             abstractObjects.extend(self.dispatch(rootDir, files))
         self.logger.debug("end file dispatching")
+        self.sortObjects(abstractObjects)
         self.uiListener.notifyAnalysisEnd()
         return abstractObjects
 
@@ -44,3 +48,6 @@ class FileDispatcher:
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.pythonAnalyzer.analyze(rootDir, file)
         return abstractObjects
+
+    def sortObjects(self, abstractObjects: List[AbstractObject]) -> None:
+        abstractObjects.sort(key=compareAbstractObject)

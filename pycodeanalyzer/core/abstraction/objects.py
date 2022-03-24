@@ -274,3 +274,7 @@ class AbstractClass(AbstractObject):
         print("\tMembers : ")
         for tuple in self.members:
             print("\t\t * {2} {0} {1}".format(tuple[0], tuple[1], tuple[2]))
+
+
+def compareAbstractObject(obj: AbstractObject) -> Tuple[str, str]:
+    return (obj.type, obj.name)
