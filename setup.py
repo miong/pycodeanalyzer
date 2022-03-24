@@ -62,7 +62,9 @@ setup(
     package_dir={'pycodeanalyzer': 'pycodeanalyzer'},
     package_data={'pycodeanalyzer': [
         'ui/web/static/css/*.css',
+        'ui/web/static/css/libs/*.css',
         'ui/web/static/js/*.js',
+        'ui/web/static/js/libs/*.js',
         'ui/web/templates/*.html'
     ]},
 
