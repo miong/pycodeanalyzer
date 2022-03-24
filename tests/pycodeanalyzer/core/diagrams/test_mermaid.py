@@ -52,7 +52,7 @@ class className {
 <<Class>>
 # memberType memberName
 + memberType2 memberName2
--name(Map&lt;str,List&lt;param1Type&gt;&gt; param1Name, enumName param2Name) rtype
+-name(Map&lt;str, List&lt;param1Type&gt;&gt; param1Name, enumName param2Name) rtype
 }
 class parentType {
 <<Class>>
