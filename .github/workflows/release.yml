@@ -52,6 +52,7 @@ jobs:
             print_hash: true
       - name: Updating version on main branch
         run: |
+            git fetch --all
             git checkout main
             git cherry-pick stable
             git push --all
