@@ -127,5 +127,5 @@ class ClassDiagramBuild:
             res = res.replace("<", "&lt;").replace(">", "&gt;")
         else:
             res = res.replace("<", "~").replace(">", "~")
-        res = res.replace(" ", "")
+        res = res.strip()
         return res
