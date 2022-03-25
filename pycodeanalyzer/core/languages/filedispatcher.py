@@ -33,9 +33,8 @@ class FileDispatcher:
         for rootDir, files in roots:
             abstractObjects.extend(self.dispatch(rootDir, files))
         self.logger.debug("end file dispatching")
-        self.sortObjects(abstractObjects)
         self.uiListener.notifyAnalysisEnd()
-        return abstractObjects
+        return self.sortObjects(abstractObjects)
 
     def dispatch(self, rootDir: str, files: List[str]) -> List[AbstractObject]:
         abstractObjects = []
@@ -50,4 +49,4 @@ class FileDispatcher:
         return abstractObjects
 
     def sortObjects(self, abstractObjects: List[AbstractObject]) -> None:
-        abstractObjects.sort(key=compareAbstractObject)
+        return sorted(abstractObjects, key=compareAbstractObject)
