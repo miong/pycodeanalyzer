@@ -29,6 +29,10 @@ def runQA():
         subprocess.run(["flake8","pycodeanalyzer","--count","--ignore=E203,W503","--exit-zero","--max-complexity=20","--max-line-length=127","--statistics"])
     return res
 
+def runUpdateDocs():
+    res = subprocess.run(["sphinx-apidoc","-o","docs/source/code","pycodeanalyzer"]).returncode == 0
+    return res
+
 def runUpdateReadme():
     updateReadme()
 
@@ -46,6 +50,10 @@ def main():
         print("Mypy not passing, fix before commit")
         exit(1)
     print("Mypy passing")
+    if not runUpdateDocs():
+        print("Failed to update the documentation, fix before commit")
+        exit(1)
+    print("Source code documentation updated")
     if not runUT():
         print("Unit test not passing, fix before commit")
         exit(1)
