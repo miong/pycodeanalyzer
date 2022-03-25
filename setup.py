@@ -55,7 +55,8 @@ setup(
             "isort",
             "flake8",
             "mypy",
-            "bumpversion"
+            "bumpversion",
+            "sphinx"
         ]
     },
 
