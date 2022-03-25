@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="773c8d35-5c48-40bc-9f4f-7d3369e4f2f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/README.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.template" beforeDir="false" afterPath="$PROJECT_DIR$/readme.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_cpp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_cpp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_python.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/dumpobjAnon.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/dumpobjAnon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
