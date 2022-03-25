@@ -2981,7 +2981,7 @@
             },
             {
                 "py/tuple": [
-                    "None",
+                    "List<AbstractObject>",
                     "sortObjects",
                     [
                         {

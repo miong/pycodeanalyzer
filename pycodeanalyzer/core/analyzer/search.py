@@ -18,7 +18,12 @@ class SearchAnalyser:
     def seachInFile(self, token: str, filePath: str) -> List[Tuple[str, str]]:
         res: List[Tuple[str, str]] = []
         with open(filePath, "r") as file:
-            enumeration: Dict[int, str] = dict((i, j) for i, j in enumerate(file))
+            text = file.read().splitlines()
+            print(text)
+            enumeration: Dict[int, str] = dict(
+                (i, j + "\n") for i, j in enumerate(text)
+            )
+            print(enumeration)
             for linenb, line in enumeration.items():
                 if re.search(token.lower(), line.lower()):
                     context = ""

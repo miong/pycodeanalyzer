@@ -60,7 +60,7 @@ l18 sdkjdhfsdfskdfhskd toto"""
                              'l15 dlkjdslfjslkdjlsdjfslf\n'
                              'l16 sdfsdfsfsdzzazed\n'
                              'l17 hghjjkuioluirtqzfvb\n'
-                             'l18 sdkjdhfsdfskdfhskd toto'),
+                             'l18 sdkjdhfsdfskdfhskd toto\n'),
                        ]
             assert tokens == expected
 
@@ -85,7 +85,8 @@ Morbi eget est volutpat, suscipit lorem nec, ullamcorper tortor.
 Morbi ut est vel ante accumsan efficitur. Aenean eu semper arcu, non volutpat lorem.
 Nunc eleifend sapien ac hendrerit rhoncus.
 Morbi ultrices lectus at tellus euismod suscipit. Pellentesque aliquam, erat et iaculis hendrerit,
-diam lectus varius ex, sed porttitor risus sem eget ligula."""
+diam lectus varius ex, sed porttitor risus sem eget ligula.
+"""
 
         text3="""Donec euismod condimentum fermentum.
 In aliquet hendrerit bibendum. Mauris eget rhoncus sem.
@@ -94,7 +95,8 @@ Phasellus faucibus lobortis lectus non interdum.
 Nunc facilisis metus ut sapien lobortis, quis auctor diam feugiat.
 Aenean non ipsum a erat ornare ultrices. Duis vitae ante id lorem dignissim rhoncus sit amet in leo.
 Fusce ornare augue vitae eros congue laoreet.
-Proin fermentum dapibus porttitor."""
+Proin fermentum dapibus porttitor.
+"""
 
         text4="""nuNc nisl justo,
 convallis imperdiet maximus quis, pharetra eu sem.
@@ -103,7 +105,8 @@ Curabitur cursus enim eget nisl posuere, ut laoreet felis luctus. Donec eu dui u
 Sed luctus quam rutrum, euismod diam ut, ultrices justo. Pellentesque tempus rutrum lectus ac sollicitudin. Integer placerat est libero.
 Etiam tempus arcu eu semper consectetur. Etiam eget quam efficitur, auctor odio facilisis, viverra risus.
 Vestibulum vel augue molestie, condimentum metus id, eleifend leo.
-NUNC !"""
+NUNC !
+"""
 
         def get_mock_open_for_files(files):
             def my_open_mock(filename, *args, **kwargs):
@@ -148,7 +151,7 @@ NUNC !"""
                  'Nunc eleifend sapien ac hendrerit rhoncus.\n'
                  'Morbi ultrices lectus at tellus euismod suscipit. Pellentesque aliquam, '
                  'erat et iaculis hendrerit,\n'
-                 'diam lectus varius ex, sed porttitor risus sem eget ligula.'),
+                 'diam lectus varius ex, sed porttitor risus sem eget ligula.\n'),
                 ('file3.txt',
                  'In aliquet hendrerit bibendum. Mauris eget rhoncus sem.\n'
                  'Aenean non tristique justo.\n'
@@ -168,7 +171,7 @@ NUNC !"""
                  'Etiam tempus arcu eu semper consectetur. Etiam eget quam efficitur, auctor '
                  'odio facilisis, viverra risus.\n'
                  'Vestibulum vel augue molestie, condimentum metus id, eleifend leo.\n'
-                 'NUNC !'),
+                 'NUNC !\n'),
 
             ]
             assert tokens == expected
