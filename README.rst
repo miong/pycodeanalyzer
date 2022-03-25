@@ -18,6 +18,9 @@ pycodeanalyzer
     :alt: Unit tests
 .. image:: https://github.com/miong/pycodeanalyzer/actions/workflows/quality.yml/badge.svg
     :alt: Code Quality
+.. image:: https://readthedocs.org/projects/pycodeanalyzer/badge/?version=latest
+    :target: https://pycodeanalyzer.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 Code analyzer to get information to help developers to understand how projects works.
 
@@ -72,7 +75,8 @@ Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--log LOGLEVEL] [--dumpobj] [--no-ui] path [path ...]
+	usage: pycodeanalyzer [-h] [--log LOGLEVEL] [--dumpobj] [--no-ui]
+	                      path [path ...]
 	
 	positional arguments:
 	  path            Path of a root directory to be analysed
@@ -84,6 +88,8 @@ The following is the help of pycodeanalyzer::
 	  --no-ui         Discard UI, mainly for test purpose
 
 To get more information during the run, use --log=DEBUG
+
+You can see the official documentation here : http://pycodeanalyzer.readthedocs.io/
 
 Languages
 ---------
