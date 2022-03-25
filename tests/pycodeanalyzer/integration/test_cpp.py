@@ -2,9 +2,14 @@ import pytest
 import subprocess
 import time
 import os
+import platform
 
 from pycodeanalyzer.injection import injector
 from pycodeanalyzer.core.engine.engine import Engine
+
+pythonCmd = 'python'
+if platform.system() == 'Linux' or platform.system() == 'Darwin':
+    pythonCmd = 'python3'
 
 class Object(object):
     pass
@@ -21,7 +26,7 @@ class TestCppIntegration:
         args.loglevel = "DEBUG"
         args.path = ["tests/ressources/code/cpp_zlib"]
         engine.run(args)
-        subprocess.run(["python3", "tools/dumpobjAnon.py"])
+        subprocess.run([pythonCmd, "tools/dumpobjAnon.py"])
         time.sleep(2)
         text = open("./dumpobj.json", "r").read().strip()
         expected = open("./tests/ressources/zlib_dumpobj.json", "r").read().strip()
