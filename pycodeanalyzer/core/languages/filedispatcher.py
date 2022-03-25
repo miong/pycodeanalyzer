@@ -48,5 +48,7 @@ class FileDispatcher:
                 abstractObjects += self.pythonAnalyzer.analyze(rootDir, file)
         return abstractObjects
 
-    def sortObjects(self, abstractObjects: List[AbstractObject]) -> None:
+    def sortObjects(
+        self, abstractObjects: List[AbstractObject]
+    ) -> List[AbstractObject]:
         return sorted(abstractObjects, key=compareAbstractObject)
