@@ -56,7 +56,8 @@ setup(
             "flake8",
             "mypy",
             "bumpversion",
-            "sphinx"
+            "sphinx",
+            "sphinx_rtd_theme"
         ]
     },
 
