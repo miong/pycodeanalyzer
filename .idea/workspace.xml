@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="773c8d35-5c48-40bc-9f4f-7d3369e4f2f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycodeanalyzer/core/languages/filedispatcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycodeanalyzer/core/languages/filedispatcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycodeanalyzer/core/abstraction/objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycodeanalyzer/core/abstraction/objects.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/pycodeanalyzer/core/analyzer/test_identification.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pycodeanalyzer/core/analyzer/test_identification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ressources/pycodeanalyzer_dumpobj.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ressources/pycodeanalyzer_dumpobj.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_cpp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_cpp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pycodeanalyzer/integration/test_python.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/ressources/zlib_dumpobj.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ressources/zlib_dumpobj.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

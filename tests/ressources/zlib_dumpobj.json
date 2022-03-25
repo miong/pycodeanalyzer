@@ -15,488 +15,6 @@
         "members": [
             {
                 "py/tuple": [
-                    "unsigned char",
-                    "byte",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "size_t",
-                    "word",
-                    "public"
-                ]
-            }
-        ],
-        "methodes": [],
-        "name": "Val",
-        "namespace": "zstringlen",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "gzFile",
-                    "m_fp",
-                    "private"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "izstream",
-                    "izstream",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "izstream",
-                    "izstream",
-                    [
-                        {
-                            "py/tuple": [
-                                "FILE *",
-                                "fp"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "izstream",
-                    "izstream",
-                    [
-                        {
-                            "py/tuple": [
-                                "const char *",
-                                "name"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "izstream",
-                    "izstream",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void",
-                    "open",
-                    [
-                        {
-                            "py/tuple": [
-                                "const char *",
-                                "name"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void",
-                    "open",
-                    [
-                        {
-                            "py/tuple": [
-                                "FILE *",
-                                "fp"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "close",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "read",
-                    [
-                        {
-                            "py/tuple": [
-                                "void *",
-                                "buf"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "size_t",
-                                "len"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const char *",
-                    "error",
-                    [
-                        {
-                            "py/tuple": [
-                                "int *",
-                                "errnum"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "gzFile",
-                    "fp",
-                    [],
-                    "public"
-                ]
-            }
-        ],
-        "name": "izstream",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "gzFile",
-                    "m_fp",
-                    "private"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "ostrstream *",
-                    "m_os",
-                    "private"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "ozstream",
-                    "ozstream",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "ozstream",
-                    "ozstream",
-                    [
-                        {
-                            "py/tuple": [
-                                "FILE *",
-                                "fp"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "int",
-                                "level"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "ozstream",
-                    "ozstream",
-                    [
-                        {
-                            "py/tuple": [
-                                "const char *",
-                                "name"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "int",
-                                "level"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "ozstream",
-                    "ozstream",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void",
-                    "open",
-                    [
-                        {
-                            "py/tuple": [
-                                "const char *",
-                                "name"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "int",
-                                "level"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void",
-                    "open",
-                    [
-                        {
-                            "py/tuple": [
-                                "FILE *",
-                                "fp"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "int",
-                                "level"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "close",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "write",
-                    [
-                        {
-                            "py/tuple": [
-                                "const void *",
-                                "buf"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "size_t",
-                                "len"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "flush",
-                    [
-                        {
-                            "py/tuple": [
-                                "int",
-                                "_flush"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const char *",
-                    "error",
-                    [
-                        {
-                            "py/tuple": [
-                                "int *",
-                                "errnum"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "gzFile",
-                    "fp",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "ostream &",
-                    "os",
-                    [],
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "void",
-                    "os_flush",
-                    [],
-                    "public"
-                ]
-            }
-        ],
-        "name": "ozstream",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "Val",
-                    "val",
-                    "private"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "size_t",
-                    "value",
-                    [],
-                    "public"
-                ]
-            }
-        ],
-        "name": "zstringlen",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
-                    "gzofstream & ( * ) ( gzofstream &, T1, T2 )",
-                    "func",
-                    "private"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T1",
-                    "val1",
-                    "private"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "T2",
-                    "val2",
-                    "private"
-                ]
-            }
-        ],
-        "methodes": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "operator<<",
-                    [
-                        {
-                            "py/tuple": [
-                                "gzofstream",
-                                "&"
-                            ]
-                        },
-                        {
-                            "py/tuple": [
-                                "const gzomanip2<Ta, Tb >",
-                                "&"
-                            ]
-                        }
-                    ],
-                    "public"
-                ]
-            }
-        ],
-        "name": "gzomanip2",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
-        "parents": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
-        "type": "Class",
-        "usingNS": []
-    },
-    {
-        "language": {
-            "py/id": 2
-        },
-        "members": [
-            {
-                "py/tuple": [
                     "gzFile",
                     "file",
                     "private"
@@ -987,6 +505,488 @@
         "name": "gzomanip",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "unsigned char",
+                    "byte",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "size_t",
+                    "word",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [],
+        "name": "Val",
+        "namespace": "zstringlen",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "gzFile",
+                    "m_fp",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "izstream",
+                    "izstream",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "izstream",
+                    "izstream",
+                    [
+                        {
+                            "py/tuple": [
+                                "FILE *",
+                                "fp"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "izstream",
+                    "izstream",
+                    [
+                        {
+                            "py/tuple": [
+                                "const char *",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "izstream",
+                    "izstream",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void",
+                    "open",
+                    [
+                        {
+                            "py/tuple": [
+                                "const char *",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void",
+                    "open",
+                    [
+                        {
+                            "py/tuple": [
+                                "FILE *",
+                                "fp"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "close",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "read",
+                    [
+                        {
+                            "py/tuple": [
+                                "void *",
+                                "buf"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "size_t",
+                                "len"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const char *",
+                    "error",
+                    [
+                        {
+                            "py/tuple": [
+                                "int *",
+                                "errnum"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "gzFile",
+                    "fp",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "izstream",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "gzFile",
+                    "m_fp",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "ostrstream *",
+                    "m_os",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "ozstream",
+                    "ozstream",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "ozstream",
+                    "ozstream",
+                    [
+                        {
+                            "py/tuple": [
+                                "FILE *",
+                                "fp"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "int",
+                                "level"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "ozstream",
+                    "ozstream",
+                    [
+                        {
+                            "py/tuple": [
+                                "const char *",
+                                "name"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "int",
+                                "level"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "ozstream",
+                    "ozstream",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void",
+                    "open",
+                    [
+                        {
+                            "py/tuple": [
+                                "const char *",
+                                "name"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "int",
+                                "level"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void",
+                    "open",
+                    [
+                        {
+                            "py/tuple": [
+                                "FILE *",
+                                "fp"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "int",
+                                "level"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "close",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "write",
+                    [
+                        {
+                            "py/tuple": [
+                                "const void *",
+                                "buf"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "size_t",
+                                "len"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "flush",
+                    [
+                        {
+                            "py/tuple": [
+                                "int",
+                                "_flush"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const char *",
+                    "error",
+                    [
+                        {
+                            "py/tuple": [
+                                "int *",
+                                "errnum"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "gzFile",
+                    "fp",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "ostream &",
+                    "os",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void",
+                    "os_flush",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "ozstream",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "Val",
+                    "val",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "size_t",
+                    "value",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "zstringlen",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "gzofstream & ( * ) ( gzofstream &, T1, T2 )",
+                    "func",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T1",
+                    "val1",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T2",
+                    "val2",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "gzofstream &",
+                    "operator<<",
+                    [
+                        {
+                            "py/tuple": [
+                                "gzofstream",
+                                "&"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "const gzomanip2<Ta, Tb >",
+                                "&"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "gzomanip2",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
@@ -2536,6 +2536,129 @@
         "language": {
             "py/id": 2
         },
+        "name": "operator<<",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "gzofstream &",
+                    "s"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "const gzomanip<T> &",
+                    "m"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "gzofstream &",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "setcompressionlevel",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "gzofstream &",
+                    "s"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "l"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "gzofstream &",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "setcompressionlevel",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "int",
+                    "l"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "gzomanip<int >",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "setcompressionstrategy",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "gzofstream &",
+                    "s"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "int",
+                    "l"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "gzofstream &",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
+        "name": "setcompressionstrategy",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "int",
+                    "l"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "gzomanip<int >",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "/* No comments in file */",
+        "language": {
+            "py/id": 2
+        },
         "name": "operator<",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2870,129 +2993,6 @@
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "gzomanip2<int, int >",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "operator<<",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "s"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "const gzomanip<T> &",
-                    "m"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionlevel",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "s"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionlevel",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzomanip<int >",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionstrategy",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "gzofstream &",
-                    "s"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzofstream &",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
-        "doxygen": "/* No comments in file */",
-        "language": {
-            "py/id": 2
-        },
-        "name": "setcompressionstrategy",
-        "namespace": "",
-        "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
-        "parameters": [
-            {
-                "py/tuple": [
-                    "int",
-                    "l"
-                ]
-            }
-        ],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "gzomanip<int >",
         "type": "Function",
         "usingNS": []
     },

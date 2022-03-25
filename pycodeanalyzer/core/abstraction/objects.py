@@ -280,4 +280,4 @@ class AbstractClass(AbstractObject):
 
 
 def compareAbstractObject(obj: AbstractObject) -> Tuple[str, str, str]:
-    return (obj.type, obj.origin, obj.name)
+    return (obj.type, obj.origin.replace("\\", "/"), obj.name)

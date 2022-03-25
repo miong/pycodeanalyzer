@@ -28,6 +28,6 @@ class TestCppIntegration:
         engine.run(args)
         subprocess.run([pythonCmd, "tools/dumpobjAnon.py"])
         time.sleep(2)
-        text = open("./dumpobj.json", "r").read().strip()
-        expected = open("./tests/ressources/zlib_dumpobj.json", "r").read().strip()
+        text = open("./dumpobj.json", "r").read().strip().replace("\r\n", "\n")
+        expected = open("./tests/ressources/zlib_dumpobj.json", "r").read().strip().replace("\r\n", "\n")
         assert text == expected
