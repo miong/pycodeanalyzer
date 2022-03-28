@@ -174,4 +174,4 @@ NUNC !
                  'NUNC !\n'),
 
             ]
-            assert tokens == expected
+            assert tokens.sort() == expected.sort()
