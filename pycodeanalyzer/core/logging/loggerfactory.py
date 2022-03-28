@@ -3,6 +3,7 @@ from typing import Any, cast
 
 
 class LoggerFactory:
+    """Factory for logger."""
 
     level: int = logging.INFO
     defaultLogger: logging.Logger = None  # type : ignore

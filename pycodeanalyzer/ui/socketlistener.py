@@ -1,3 +1,9 @@
+"""Socket listener module.
+
+This module allow to listen to web socket used on Flask site side.
+All received event will create a call to EngineCommands using a SocketListner.
+"""
+
 from typing import Any, Dict, List
 
 from injector import inject, singleton
@@ -11,6 +17,11 @@ app = injector.get(Application)
 
 @singleton
 class SocketListner:
+    """Socket listener class.
+
+    This class is responsible to call engine commands on web socket events
+    """
+
     @inject
     def __init__(self, engineCommands: EngineCommands) -> None:
         self.engineCommands = engineCommands

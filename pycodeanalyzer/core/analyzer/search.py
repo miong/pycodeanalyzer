@@ -4,11 +4,16 @@ from typing import Dict, List, Tuple
 
 
 class SearchAnalyser:
+    """Search analyser
+
+    This class allow to search tokens with context in each parsed source file.
+    """
+
     def searchInAllFiles(self, token: str, files: List[str]) -> List[Tuple[str, str]]:
         self.results: List[Tuple[str, str]] = []
         self.threads: List[Thread] = []
         for file in files:
-            thread = Thread(target=self.seachInFileThreaded, args=(token, file))
+            thread = Thread(target=self.__seachInFileThreaded, args=(token, file))
             self.threads.append(thread)
             thread.start()
         for thread in self.threads:
@@ -33,5 +38,5 @@ class SearchAnalyser:
                     res.append((filePath, context))
         return res
 
-    def seachInFileThreaded(self, token: str, filePath: str) -> None:
+    def __seachInFileThreaded(self, token: str, filePath: str) -> None:
         self.results.extend(self.seachInFile(token, filePath))

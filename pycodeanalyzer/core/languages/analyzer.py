@@ -5,6 +5,8 @@ from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
 
 class Analyzer:
+    """Base class for language analyzer."""
+
     def __init__(self) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
 

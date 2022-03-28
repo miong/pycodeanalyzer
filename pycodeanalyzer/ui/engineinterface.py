@@ -5,6 +5,11 @@ from pycodeanalyzer.core.engine.engine import Engine
 
 @singleton
 class EngineCommands:
+    """Engine commands
+
+    This class represent all the request that could be made to the engine once an analysis have been done.
+    """
+
     @inject
     def __init__(self, engine: Engine) -> None:
         self.engine = engine

@@ -2,14 +2,13 @@ Welcome to pycodeanalyzer's documentation!
 ==========================================
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Contents:
+    :maxdepth: 1
+    :caption: Contents:
 
-   code
+    code
 
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
-* :ref:`search`

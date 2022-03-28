@@ -27,6 +27,11 @@ from pycodeanalyzer.core.languages.analyzer import Analyzer
 
 
 class PythonAnalyzer(Analyzer):
+    """Python Analyzer.
+
+    Handle Python code using astroid
+    """
+
     def __init__(self) -> None:
         super().__init__()
         self.globalImports: List[str] = []

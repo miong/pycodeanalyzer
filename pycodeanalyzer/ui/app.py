@@ -1,3 +1,8 @@
+"""App module.
+
+This module define all the class related to UI.
+"""
+
 import os
 import secrets
 import threading
@@ -11,6 +16,8 @@ from injector import inject, singleton
 
 
 class UiLink:
+    """Base of UI communation using web sockets"""
+
     def __init__(self) -> None:
         self.socketio: SocketIO = None
 

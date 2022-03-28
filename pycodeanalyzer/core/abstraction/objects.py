@@ -1,3 +1,8 @@
+""" Object abstraction.
+
+This modules containes all the abstraction for code object manipulated by pycodeanalyzer
+"""
+
 from __future__ import annotations
 
 import re
@@ -6,12 +11,19 @@ from typing import Any, Dict, List, Tuple
 
 
 class AbstractObjectLanguage(Enum):
+    """Language of the code source
+
+    Enum representing supported languages
+    """
+
     Unknown = 0
     CPP = 1
     Python = 2
 
 
 class AbstractObject:
+    """Base of all abstraction"""
+
     def __init__(self, name: str, origin: str) -> None:
         self.name = name
         self.type = "Object"
@@ -24,6 +36,8 @@ class AbstractObject:
 
 
 class AbstractEnum(AbstractObject):
+    """Enum abstraction"""
+
     def __init__(self, name: str, namespace: str, origin: str, values: List[str]):
         super().__init__(name, origin)
         self.namespace = namespace
@@ -43,6 +57,8 @@ class AbstractEnum(AbstractObject):
 
 
 class AbstractFunction(AbstractObject):
+    """Function abstraction"""
+
     def __init__(
         self,
         name: str,
@@ -78,6 +94,7 @@ class AbstractFunction(AbstractObject):
 
 
 class AbstractClass(AbstractObject):
+    """Class abstraction"""
 
     NonObjectTypes: Dict[AbstractObjectLanguage, List[str]] = {
         AbstractObjectLanguage.Unknown: [],
@@ -280,4 +297,9 @@ class AbstractClass(AbstractObject):
 
 
 def compareAbstractObject(obj: AbstractObject) -> Tuple[str, str, str]:
+    """Comparison operator to sort AbstractObject and subclasses
+
+    This allow to sort by type, origin and name
+    """
+
     return (obj.type, obj.origin.replace("\\", "/"), obj.name)

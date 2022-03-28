@@ -1,6 +1,14 @@
 pycodeanalyzer.core.analyzer package
 ====================================
 
+Module contents
+---------------
+
+.. automodule:: pycodeanalyzer.core.analyzer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -24,14 +32,6 @@ pycodeanalyzer.core.analyzer.search module
 ------------------------------------------
 
 .. automodule:: pycodeanalyzer.core.analyzer.search
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: pycodeanalyzer.core.analyzer
    :members:
    :undoc-members:
    :show-inheritance:

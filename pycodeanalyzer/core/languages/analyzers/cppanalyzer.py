@@ -129,6 +129,11 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
 
 
 class CppAnalyzer(Analyzer):
+    """Analyzer for C/CPP code.
+
+    Handle C/CPP code using PCPP preprocessor and CppHeaderParser.
+    """
+
     def __init__(self) -> None:
         super().__init__()
         CppHeaderParser.CppHeaderParser.ignoreSymbols = []
