@@ -296,10 +296,14 @@ class AbstractClass(AbstractObject):
             print("\t\t * {2} {0} {1}".format(tuple[0], tuple[1], tuple[2]))
 
 
+def platformIndependantPathHash(path: str) -> str:
+    return path.replace("\\", "/").replace("/", "").replace("_", "")
+
+
 def compareAbstractObject(obj: AbstractObject) -> Tuple[str, str, str]:
     """Comparison operator to sort AbstractObject and subclasses
 
     This allow to sort by type, origin and name
     """
 
-    return (obj.type, obj.origin.replace("\\", "/"), obj.name)
+    return (obj.type, platformIndependantPathHash(obj.origin), obj.name)
