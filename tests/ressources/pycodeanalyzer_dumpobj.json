@@ -687,7 +687,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             },
             {
@@ -732,7 +732,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             }
         ],
@@ -1015,7 +1015,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             }
         ],
@@ -1234,7 +1234,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             },
             {
@@ -1255,7 +1255,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             },
             {
@@ -1270,7 +1270,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             },
             {
@@ -1285,7 +1285,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             },
             {
@@ -1300,7 +1300,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             },
             {
@@ -1315,7 +1315,7 @@
                             ]
                         }
                     ],
-                    "public"
+                    "private"
                 ]
             }
         ],
@@ -3897,7 +3897,7 @@
         "usingNS": []
     },
     {
-        "doxygen": "\"\"\"No comments in file\"\"\"",
+        "doxygen": "\"\"\"Comparison operator to sort AbstractObject and subclasses\n\n    This allow to sort by type, origin and name\n    \"\"\"",
         "language": {
             "py/id": 2
         },

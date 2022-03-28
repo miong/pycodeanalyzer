@@ -12,7 +12,14 @@
 #
 import os
 import sys
+from configparser import ConfigParser, ExtendedInterpolation
 import sphinx_rtd_theme
+
+autoapi_type = 'python'
+autoapi_dirs = ['../../pycodeanalyzer']
+autoapi_generate_api_docs = False
+
+import autoapi
 sys.path.insert(0, os.path.abspath('../..'))
 
 
@@ -22,8 +29,14 @@ project = 'pycodeanalyzer'
 copyright = '2022, Giovanni Mion'
 author = 'Giovanni Mion'
 
-# The full version, including alpha/beta/rc tags
-release = 'v0.0.3'
+config = ConfigParser(interpolation=ExtendedInterpolation())
+config.read("../../.bumpversion.cfg")
+
+version = config["bumpversion"]["current_version"]
+# The full version, including alpha/beta/rc tags.
+release = version
+
+todo_include_todos = True
 
 
 # -- General configuration ---------------------------------------------------
@@ -38,7 +51,9 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
-    'sphinx_rtd_theme'
+    'sphinx.ext.intersphinx',
+    'sphinx_rtd_theme',
+    'autoapi.extension',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -61,3 +76,32 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_theme_options = {
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'both',
+    'style_external_links': True,
+    'vcs_pageview_mode': 'blob',
+    'style_nav_header_background': '#2980B9',
+    # Toc options
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': -1,
+    'includehidden': False,
+    'titles_only': False,
+}
+
+intersphinx_mapping = {
+    "Python": ('https://docs.python.org/3.7/', None),
+    "robotpy-cppheaderparser": ('https://cppheaderparser.readthedocs.io/en/stable/',None),
+    "Flask" : ('https://flask.palletsprojects.com/en/latest/', None),
+    "Flask-SocketIO" : ('https://flask-socketio.readthedocs.io/en/latest/', None),
+    "Flask-Classful" : ('https://flask-classful.teracy.org/',None),
+    "simple-websocket" : ('https://simple-websocket.readthedocs.io/en/latest/',None),
+    "injector" : ('https://injector.readthedocs.io/en/latest/',None),
+    "pathlib" : ('https://pathlib.readthedocs.io/en/latest/',None),
+    "astroid" : ('https://pylint.pycqa.org/projects/astroid/en/latest/',None),
+    "simplejson" : ('https://simplejson.readthedocs.io/en/latest/',None),
+    "jsonpickle" : ('https://jsonpickle.readthedocs.io/en/latest/',None),
+}

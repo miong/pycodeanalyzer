@@ -1,3 +1,6 @@
+"""Utility for containers type in Python.
+"""
+
 from typing import Any, List
 
 

@@ -10,6 +10,11 @@ from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
 @singleton
 class FileFetcher:
+    """File fetcher.
+
+    Class allowing to fetch all supported file from a root directory.
+    """
+
     def __init__(self) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
         self.suported_extensions = [

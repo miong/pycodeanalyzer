@@ -1,3 +1,6 @@
+"""Math utility functions.
+"""
+
 import math
 
 

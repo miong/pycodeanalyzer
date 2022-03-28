@@ -57,7 +57,8 @@ setup(
             "mypy",
             "bumpversion",
             "sphinx",
-            "sphinx_rtd_theme"
+            "sphinx_rtd_theme",
+            "sphinx-autoapi",
         ]
     },
 

@@ -2,14 +2,15 @@
 pycodeanalyzer's code documentation
 ===================================
 
-.. toctree::
-    :maxdepth: 1
-    :caption: Contents:
-    :glob:
+This part of the documentation is about the code source of pycodeanalyzer.
 
-    code/*
+.. toctree::
+    :maxdepth: -1
+    :caption: Contents:
+
+    code/modules
 
 Indices and tables
-^^^^^^^^^^^^^^^^^^
+------------------
 
 * :ref:`modindex`

@@ -6,6 +6,12 @@ from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
 
 class Console:
+    """Console interface.
+
+    This class is the interface allowing to run the engine using the command line.
+    It parse arguments, initialize logging facilities and start the engine.
+    """
+
     def _parseArgs(self) -> Any:
         parser = argparse.ArgumentParser()
         parser.prog = "pycodeanalyzer"
@@ -36,9 +42,18 @@ class Console:
         return parser.parse_args()
 
     def init(self) -> None:
+        """Initialize the console.
+
+        This need to be called before run.
+        """
+
         self.args = self._parseArgs()
         LoggerFactory.init()
         LoggerFactory.setLoggerLevel(self.args.loglevel)
 
     def run(self, engine: Engine) -> None:
+        """Start the engine.
+
+        Start the engine with all the parsed arguments.
+        """
         engine.run(self.args)

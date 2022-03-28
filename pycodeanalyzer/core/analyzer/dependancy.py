@@ -8,6 +8,8 @@ from pycodeanalyzer.core.abstraction.objects import (
 
 
 class DependancyAnalyser:
+    """Analyzer for object dependancies"""
+
     def analyze(
         self,
         klasses: List[AbstractClass],
@@ -30,7 +32,7 @@ class DependancyAnalyser:
                 typeName = type[lastSeparatorIndx + 2 :]
             else:
                 typeName = type
-            linkedClass = self.findClass(
+            linkedClass = self.__findClass(
                 typeDeclaredNamespace,
                 typeName,
                 klasses,
@@ -38,7 +40,7 @@ class DependancyAnalyser:
                 target.name,
                 target.usingNS,
             )
-            linkedEnum = self.findEnum(
+            linkedEnum = self.__findEnum(
                 typeDeclaredNamespace,
                 typeName,
                 enums,
@@ -58,7 +60,7 @@ class DependancyAnalyser:
                 )
         return (target, linkedClasses, linkedEnums, linkedFunctions)
 
-    def findClass(
+    def __findClass(
         self,
         namespace: str,
         name: str,
@@ -102,7 +104,7 @@ class DependancyAnalyser:
                     return klass
         return None
 
-    def findEnum(
+    def __findEnum(
         self,
         namespace: str,
         name: str,

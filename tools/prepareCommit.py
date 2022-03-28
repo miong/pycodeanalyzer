@@ -30,7 +30,7 @@ def runQA():
     return res
 
 def runUpdateDocs():
-    res = subprocess.run(["sphinx-apidoc","-o","docs/source/code","pycodeanalyzer"]).returncode == 0
+    res = subprocess.run(["sphinx-apidoc","-o","docs/source/code", "-M","pycodeanalyzer"]).returncode == 0
     return res
 
 def runUpdateReadme():

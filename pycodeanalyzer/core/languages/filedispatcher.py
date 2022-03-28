@@ -15,6 +15,11 @@ from pycodeanalyzer.ui.app import UiFileDispatcherListener
 
 @singleton
 class FileDispatcher:
+    """File dispatcher.
+
+    This class allow to dispatch fetched files to the correct language analyzer.
+    """
+
     @inject
     def __init__(
         self,

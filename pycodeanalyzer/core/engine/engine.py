@@ -19,6 +19,8 @@ app = injector.get(Application)
 
 
 class AnalysisStats:
+    """Data class for analysis stats."""
+
     def __init__(self) -> None:
         self.nbFiles = 0
         self.nbClasses = 0
@@ -29,6 +31,11 @@ class AnalysisStats:
 
 @singleton
 class Engine:
+    """Engine of pycodeanalyzer.
+
+    This class perfom the analysis and then handle commands to show the results.
+    """
+
     @inject
     def __init__(
         self,

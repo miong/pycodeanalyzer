@@ -76,8 +76,7 @@ Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--log LOGLEVEL] [--dumpobj] [--no-ui]
-	                      path [path ...]
+	usage: pycodeanalyzer [-h] [--log LOGLEVEL] [--dumpobj] [--no-ui] path [path ...]
 	
 	positional arguments:
 	  path            Path of a root directory to be analysed

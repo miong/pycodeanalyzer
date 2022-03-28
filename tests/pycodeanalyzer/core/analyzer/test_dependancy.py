@@ -30,31 +30,31 @@ class TestDependancyAnalyser:
             AbstractEnum("enum7", "someNS::secondNS::thirdNS", "file.xx", ["A", "B", "C"]),
         ]
         analyzer = DependancyAnalyser()
-        res = analyzer.findEnum("", "enum", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("", "enum", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == enums[0]
-        res = analyzer.findEnum("namespace", "enum2", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("namespace", "enum2", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == enums[1]
-        res = analyzer.findEnum("", "enum2", enums, "namespace", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("", "enum2", enums, "namespace", "currentClass", ["totoNS", "titiNS"])
         assert res == enums[1]
-        res = analyzer.findEnum("", "enum2", enums, "", "namespace", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("", "enum2", enums, "", "namespace", ["totoNS", "titiNS"])
         assert res == enums[1]
-        res = analyzer.findEnum("", "enum3", enums, "namespace", "class", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("", "enum3", enums, "namespace", "class", ["totoNS", "titiNS"])
         assert res == enums[2]
-        res = analyzer.findEnum("", "enum4", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("", "enum4", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == enums[3]
-        res = analyzer.findEnum("secondNS", "enum5", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("secondNS", "enum5", enums, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == enums[4]
-        res = analyzer.findEnum("secondNS", "enum6", enums, "someNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("secondNS", "enum6", enums, "someNS", "currentClass", ["totoNS", "titiNS"])
         assert res == enums[5]
-        res = analyzer.findEnum("secondNS", "enum6", enums, "", "someNS", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("secondNS", "enum6", enums, "", "someNS", ["totoNS", "titiNS"])
         assert res == enums[5]
-        res = analyzer.findEnum("thirdNS", "enum7", enums, "someNS", "secondNS", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("thirdNS", "enum7", enums, "someNS", "secondNS", ["totoNS", "titiNS"])
         assert res == enums[6]
-        res = analyzer.findEnum("", "enumUnknow", enums, "", "", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("", "enumUnknow", enums, "", "", ["totoNS", "titiNS"])
         assert res == None
-        res = analyzer.findEnum("thirdNS", "enum7", enums, "", "", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("thirdNS", "enum7", enums, "", "", ["totoNS", "titiNS"])
         assert res == None
-        res = analyzer.findEnum("secondNS::thirdNS", "enum7", enums, "", "", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findEnum("secondNS::thirdNS", "enum7", enums, "", "", ["totoNS", "titiNS"])
         assert res == None
 
 
@@ -69,31 +69,31 @@ class TestDependancyAnalyser:
             AbstractClass("class7", "someNS::secondNS::thirdNS", "file.xx"),
         ]
         analyzer = DependancyAnalyser()
-        res = analyzer.findClass("", "class", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("", "class", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == classes[0]
-        res = analyzer.findClass("namespace", "class2", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("namespace", "class2", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == classes[1]
-        res = analyzer.findClass("", "class2", classes, "namespace", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("", "class2", classes, "namespace", "currentClass", ["totoNS", "titiNS"])
         assert res == classes[1]
-        res = analyzer.findClass("", "class2", classes, "", "namespace", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("", "class2", classes, "", "namespace", ["totoNS", "titiNS"])
         assert res == classes[1]
-        res = analyzer.findClass("", "class3", classes, "namespace", "class", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("", "class3", classes, "namespace", "class", ["totoNS", "titiNS"])
         assert res == classes[2]
-        res = analyzer.findClass("", "class4", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("", "class4", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == classes[3]
-        res = analyzer.findClass("secondNS", "class5", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("secondNS", "class5", classes, "currentNS", "currentClass", ["totoNS", "titiNS"])
         assert res == classes[4]
-        res = analyzer.findClass("secondNS", "class6", classes, "someNS", "currentClass", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("secondNS", "class6", classes, "someNS", "currentClass", ["totoNS", "titiNS"])
         assert res == classes[5]
-        res = analyzer.findClass("secondNS", "class6", classes, "", "someNS", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("secondNS", "class6", classes, "", "someNS", ["totoNS", "titiNS"])
         assert res == classes[5]
-        res = analyzer.findClass("thirdNS", "class7", classes, "someNS", "secondNS", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("thirdNS", "class7", classes, "someNS", "secondNS", ["totoNS", "titiNS"])
         assert res == classes[6]
-        res = analyzer.findClass("", "classUnknow", classes, "", "", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("", "classUnknow", classes, "", "", ["totoNS", "titiNS"])
         assert res == None
-        res = analyzer.findClass("thirdNS", "class7", classes, "", "", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("thirdNS", "class7", classes, "", "", ["totoNS", "titiNS"])
         assert res == None
-        res = analyzer.findClass("secondNS::thirdNS", "class7", classes, "", "", ["totoNS", "titiNS"])
+        res = analyzer._DependancyAnalyser__findClass("secondNS::thirdNS", "class7", classes, "", "", ["totoNS", "titiNS"])
         assert res == None
 
     def test_analyze(self, mocker):
@@ -111,18 +111,18 @@ class TestDependancyAnalyser:
                 mapping["Enums"].append(object)
         analyzer = DependancyAnalyser()
 
-        engineObj = analyzer.findClass("pycodeanalyzer::core::engine::engine", "Engine", mapping["Classes"], "", "", [])
-        abstractClassObj = analyzer.findClass("pycodeanalyzer::core::abstraction::objects", "AbstractClass", mapping["Classes"], "", "", [])
-        abstractObjectObj = analyzer.findClass("pycodeanalyzer::core::abstraction::objects", "AbstractObject", mapping["Classes"], "", "", [])
-        abstractObjectLanguageObj = analyzer.findEnum("pycodeanalyzer::core::abstraction::objects", "AbstractObjectLanguage", mapping["Enums"], "", "", [])
-        fileFetcherObj = analyzer.findClass("pycodeanalyzer::core::filetree::filefetcher", "FileFetcher", mapping["Classes"], "", "", [])
-        fileDispatcherObj = analyzer.findClass("pycodeanalyzer::core::languages::filedispatcher", "FileDispatcher", mapping["Classes"], "", "", [])
-        identityAnalyserObj = analyzer.findClass("pycodeanalyzer::core::analyzer::identification", "IdentityAnalyser", mapping["Classes"], "", "", [])
-        dependancyAnalyserObj = analyzer.findClass("pycodeanalyzer::core::analyzer::dependancy", "DependancyAnalyser", mapping["Classes"], "", "", [])
-        searchAnalyserObj = analyzer.findClass("pycodeanalyzer::core::analyzer::search", "SearchAnalyser", mapping["Classes"], "", "", [])
-        uiStatListenerObj = analyzer.findClass("pycodeanalyzer::ui::app", "UiStatListener", mapping["Classes"], "", "", [])
-        uiBrowseListenerObj = analyzer.findClass("pycodeanalyzer::ui::app", "UiBrowseListener", mapping["Classes"], "", "", [])
-        classDiagramBuildObj = analyzer.findClass("pycodeanalyzer::core::diagrams::mermaid", "ClassDiagramBuild", mapping["Classes"], "", "", [])
+        engineObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::engine::engine", "Engine", mapping["Classes"], "", "", [])
+        abstractClassObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::abstraction::objects", "AbstractClass", mapping["Classes"], "", "", [])
+        abstractObjectObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::abstraction::objects", "AbstractObject", mapping["Classes"], "", "", [])
+        abstractObjectLanguageObj = analyzer._DependancyAnalyser__findEnum("pycodeanalyzer::core::abstraction::objects", "AbstractObjectLanguage", mapping["Enums"], "", "", [])
+        fileFetcherObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::filetree::filefetcher", "FileFetcher", mapping["Classes"], "", "", [])
+        fileDispatcherObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::languages::filedispatcher", "FileDispatcher", mapping["Classes"], "", "", [])
+        identityAnalyserObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::analyzer::identification", "IdentityAnalyser", mapping["Classes"], "", "", [])
+        dependancyAnalyserObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::analyzer::dependancy", "DependancyAnalyser", mapping["Classes"], "", "", [])
+        searchAnalyserObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::analyzer::search", "SearchAnalyser", mapping["Classes"], "", "", [])
+        uiStatListenerObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::ui::app", "UiStatListener", mapping["Classes"], "", "", [])
+        uiBrowseListenerObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::ui::app", "UiBrowseListener", mapping["Classes"], "", "", [])
+        classDiagramBuildObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::diagrams::mermaid", "ClassDiagramBuild", mapping["Classes"], "", "", [])
 
         madupClass = AbstractClass("class", "", "file.xx",)
         madupClass.addMember("someNS::type", "name", "public")

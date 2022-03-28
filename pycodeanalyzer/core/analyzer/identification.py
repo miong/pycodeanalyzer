@@ -10,6 +10,11 @@ from pycodeanalyzer.core.abstraction.objects import (
 
 
 class IdentityAnalyser:
+    """Identity analyzer
+
+    This analyzer store all objects and allow to access them or the global trees.
+    """
+
     def __init__(self) -> None:
         self.mapping: Dict[str, List[Any]] = {}
         self.mapping["Classes"] = []
