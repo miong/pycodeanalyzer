@@ -14,12 +14,6 @@ import os
 import sys
 from configparser import ConfigParser, ExtendedInterpolation
 import sphinx_rtd_theme
-
-autoapi_type = 'python'
-autoapi_dirs = ['../../pycodeanalyzer']
-autoapi_generate_api_docs = False
-
-import autoapi
 sys.path.insert(0, os.path.abspath('../..'))
 
 
@@ -53,7 +47,6 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.intersphinx',
     'sphinx_rtd_theme',
-    'autoapi.extension',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
