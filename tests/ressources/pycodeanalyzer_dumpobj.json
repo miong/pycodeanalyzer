@@ -3883,20 +3883,6 @@
         ]
     },
     {
-        "doxygen": "\"\"\"Main function of pycodeanalyzer\"\"\"",
-        "language": {
-            "py/id": 2
-        },
-        "name": "main",
-        "namespace": "pycodeanalyzer::__main__",
-        "origin": "/pycodeanalyzer/__main__.py",
-        "parameters": [],
-        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
-        "returnType": "None",
-        "type": "Function",
-        "usingNS": []
-    },
-    {
         "doxygen": "\"\"\"Comparison operator to sort AbstractObject and subclasses\n\n    This allow to sort by type, origin and name\n    \"\"\"",
         "language": {
             "py/id": 2
@@ -3914,6 +3900,27 @@
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "Tuple<str,str,str>",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "\"\"\"No comments in file\"\"\"",
+        "language": {
+            "py/id": 2
+        },
+        "name": "platformIndependantPathHash",
+        "namespace": "pycodeanalyzer::core::abstraction::objects",
+        "origin": "/pycodeanalyzer/core/abstraction/objects.py",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "str",
+                    "path"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "str",
         "type": "Function",
         "usingNS": []
     },
@@ -3968,6 +3975,20 @@
         ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "float",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "\"\"\"Main function of pycodeanalyzer\"\"\"",
+        "language": {
+            "py/id": 2
+        },
+        "name": "main",
+        "namespace": "pycodeanalyzer::__main__",
+        "origin": "/pycodeanalyzer/__main__.py",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "None",
         "type": "Function",
         "usingNS": []
     },
