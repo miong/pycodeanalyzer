@@ -8,18 +8,19 @@ pythonCmd = 'python'
 if platform.system() == 'Linux' or platform.system() == 'Darwin':
     pythonCmd = 'python3'
 
-def update():
+def update(path, ressouce):
     try:
-        assert subprocess.run(["pycodeanalyzer", "--no-ui", "--dumpobj", "pycodeanalyzer"]).returncode == 0
+        assert subprocess.run(["pycodeanalyzer", "--no-ui", "--dumpobj", path]).returncode == 0
         assert subprocess.run([pythonCmd, "tools/dumpobjAnon.py"]).returncode == 0
     except AssertionError:
-        print("Error wile dumping the source from pycodeanalyzer")
+        print("Error wile dumping the source from", path)
         exit(1)
     time.sleep(2)
-    shutil.move("dumpobj.json", "./tests/ressources/pycodeanalyzer_dumpobj.json")
+    shutil.move("dumpobj.json", ressouce)
 
 def main():
-    update()
+    update("./tests/ressources/code/cpp_zlib","./tests/ressources/zlib_dumpobj.json")
+    update("pycodeanalyzer", "./tests/ressources/pycodeanalyzer_dumpobj.json")
 
 if __name__ == "__main__":
     main()
