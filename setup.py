@@ -58,7 +58,6 @@ setup(
             "bumpversion",
             "sphinx",
             "sphinx_rtd_theme",
-            "sphinx-autoapi",
         ]
     },
 
