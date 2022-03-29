@@ -27,6 +27,7 @@ jobs:
             python-version: 3.7
       - name: Change version to test version
         run: |
+          pip install bumpversion
           git fetch --all
           bumpversion --verbose minor
           sed -i -E -e "s?version=\"(.*)\"?version=\"\1a$(git rev-list --count remotes/origin/stable)\"?g" setup.py
