@@ -28,6 +28,7 @@ jobs:
       - name: Change version to test version
         run: |
           git fetch --all
+          bumpversion --verbose minor
           sed -i -E -e "s?version=\"(.*)\"?version=\"\1a$(git rev-list --count remotes/origin/stable)\"?g" setup.py
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
