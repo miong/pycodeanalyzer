@@ -26,7 +26,7 @@ class TestCppIntegration:
         args.loglevel = "DEBUG"
         args.path = ["tests/ressources/code/cpp_zlib"]
         engine.run(args)
-        subprocess.run([pythonCmd, "tools/dumpobjAnon.py"])
+        assert subprocess.run([pythonCmd, "tools/dumpobjAnon.py"]).returncode == 0
         time.sleep(2)
         text = open("./dumpobj.json", "r").read().strip().replace("\r\n", "\n")
         expected = open("./tests/ressources/zlib_dumpobj.json", "r").read().strip().replace("\r\n", "\n")

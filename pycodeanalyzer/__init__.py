@@ -1,7 +1,7 @@
 """pycodeanalyzer
 
 Code analyzer to get information to help developers to understand how projects works.
-This package documentation will be sheep because it is not made to be used as souce.
+This package documentation will be cheap because it is not made to be used as souce.
 This said, any usage of the code will give me a smile.
 """
 

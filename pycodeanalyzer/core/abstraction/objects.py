@@ -297,7 +297,7 @@ class AbstractClass(AbstractObject):
 
 
 def platformIndependantPathHash(path: str) -> str:
-    return path.replace("\\", "/").replace("/", "").replace("_", "")
+    return path.replace("\\", "/").replace("/", "").replace("_", "").replace(":", "")
 
 
 def compareAbstractObject(obj: AbstractObject) -> Tuple[str, str, str]:

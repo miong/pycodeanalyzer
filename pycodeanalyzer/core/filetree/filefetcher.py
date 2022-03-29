@@ -45,9 +45,9 @@ class FileFetcher:
         list: List[str] = []
         rootabspath = os.path.abspath(rootDir)
         if not os.path.isdir(rootabspath):
-            self.logger.error("There is no directory %s", rootDir)
+            self.logger.error("There is no directory %s", rootabspath)
             return list
-        self.logger.debug("start fetching files from : %s", rootDir)
+        self.logger.debug("start fetching files from : %s", rootabspath)
         for path, subdirs, files in os.walk(rootabspath):
             for file in files:
                 fileabspath = os.path.join(rootabspath, path, file)
