@@ -29,7 +29,9 @@ jobs:
         run: |
           pip install bumpversion
           git fetch --all
-          bumpversion --verbose minor
+          git config --global user.email "testpackage_ci[bot]@users.noreply.github.com"
+          git config --global user.name "TestPackage CI[bot]"
+          bumpversion --verbose micro
           sed -i -E -e "s?version=\"(.*)\"?version=\"\1a$(git rev-list --count remotes/origin/stable)\"?g" setup.py
       - name: Build binary wheel and a source tarball
         run: python setup.py sdist
