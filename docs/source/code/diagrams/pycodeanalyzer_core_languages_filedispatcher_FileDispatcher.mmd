@@ -15,6 +15,8 @@ class CppAnalyzer {
 + List~str~ objectPaths
 + Encoding encoding
 + List~str~ forceIgnoredSymbols
++ Configuration configuation
++ bool configured
 + List~str~ defines
 +Constructor(Configuration config) None
 +analyze(str rootDir, str path) List~AbstractObject~
@@ -26,6 +28,8 @@ class CppAnalyzer {
 +handleFunction(str path, Any function, List~AbstractObject~ abstractObjects) None
 +clearNamespace(str namespace) str
 +extractUnexpectedFromParseError(CppHeaderParser::CppParseError err) str
++defineConfig(Configuration config) None
++handleConfigation() None
 }
 link CppAnalyzer "class££pycodeanalyzer::core::languages::analyzers::cppanalyzer::CppAnalyzer"
 class PythonAnalyzer {

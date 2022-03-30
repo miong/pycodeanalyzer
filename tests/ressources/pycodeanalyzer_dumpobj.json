@@ -1110,6 +1110,27 @@
             },
             {
                 "py/tuple": [
+                    "str",
+                    "get",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "None",
                     "generateTemplate",
                     [
@@ -2099,6 +2120,20 @@
             },
             {
                 "py/tuple": [
+                    "Configuration",
+                    "configuation",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "configured",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "List<str>",
                     "defines",
                     "public"
@@ -2325,6 +2360,29 @@
                             ]
                         }
                     ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "defineConfig",
+                    [
+                        {
+                            "py/tuple": [
+                                "Configuration",
+                                "config"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleConfigation",
+                    [],
                     "public"
                 ]
             }

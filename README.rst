@@ -76,7 +76,7 @@ Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--config CONFIGFILE] [--create-config TEMPLATEFILE] [--log LOGLEVEL] [--exportDiagrams EXPORTPATH] [--dumpobj] [--no-ui] path [path ...]
+	usage: pycodeanalyzer [-h] [--config CONFIGFILE] [--create-config TEMPLATEFILE] [--log LOGLEVEL] [--exportDiagrams EXPORTPATH] [--dumpobj] [--no-ui] [path [path ...]]
 	
 	positional arguments:
 	  path                  Path of a root directory to be analysed
