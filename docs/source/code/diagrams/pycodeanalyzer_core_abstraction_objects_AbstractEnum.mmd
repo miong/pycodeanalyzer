@@ -1,0 +1,22 @@
+classDiagram
+class AbstractEnum {
+<<Class>>
++ str namespace
++ str type
++ List~str~ values
++Constructor(str name, str namespace, str origin, List~str~ values) Any
++getFullName() str
++print() None
+}
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+AbstractEnum --|> AbstractObject

@@ -1,0 +1,24 @@
+classDiagram
+class AbstractFunction {
+<<Class>>
++ str namespace
++ str type
++ str returnType
++ List&lt;Tuple&lt;str,str&gt;&gt; parameters
++ str doxygen
++Constructor(str name, str origin, str returnType, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str namespace, str doxygen) None
++print() None
++getFullDef() str
+}
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+AbstractFunction --|> AbstractObject

@@ -1,0 +1,12 @@
+classDiagram
+class SearchAnalyser {
+<<Class>>
++ List&lt;Tuple&lt;str,str&gt;&gt; results
++ List~Thread~ threads
++searchInAllFiles(str token, List~str~ files) List&lt;Tuple&lt;str,str&gt;&gt;
++seachInFile(str token, str filePath) List&lt;Tuple&lt;str,str&gt;&gt;
+-seachInFileThreaded(str token, str filePath) None
+}
+class Thread
+<<External>> Thread
+SearchAnalyser ..> Thread

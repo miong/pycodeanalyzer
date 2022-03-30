@@ -1,0 +1,75 @@
+classDiagram
+class FileDispatcher {
+<<Class>>
++ Any logger
++ CppAnalyzer cppAnalyzer
++ PythonAnalyzer pythonAnalyzer
++ UiFileDispatcherListener uiListener
++Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, UiFileDispatcherListener uiListener) None
++dispatchRoots(List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots) List~AbstractObject~
++dispatch(str rootDir, List~str~ files) List~AbstractObject~
++sortObjects(List~AbstractObject~ abstractObjects) List~AbstractObject~
+}
+class CppAnalyzer {
+<<Class>>
++ List~str~ objectPaths
++ Encoding encoding
++ List~str~ forceIgnoredSymbols
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
++handleClass(str path, Any klass, List~AbstractObject~ abstractObjects) None
++addMethods(AbstractClass abstraction, Any klass, str visibility) None
++addMembers(AbstractClass abstraction, Any klass, str visibility) None
++addParents(AbstractClass abstraction, Any klass) None
++handleEnum(str path, Any enum, List~AbstractObject~ abstractObjects) None
++handleFunction(str path, Any function, List~AbstractObject~ abstractObjects) None
++clearNamespace(str namespace) str
++extractUnexpectedFromParseError(CppHeaderParser::CppParseError err) str
+}
+link CppAnalyzer "class££pycodeanalyzer::core::languages::analyzers::cppanalyzer::CppAnalyzer"
+class PythonAnalyzer {
+<<Class>>
++ List~str~ globalImports
++ Any globalImports
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
++handleEnum(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None
++handleClass(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None
++isEnumType(str type) bool
++handleFunction(str path, str namespace, FunctionDef item, List~AbstractObject~ abstractObjects) None
++handleMembers(Any func, AbstractClass abstraction) None
++deduceType(FunctionDef func, Assign item) str
++deduceReturnType(Any returnItem) str
++deduceTypeFromTypeName(Name item) str
++deduceTypeFromName(FunctionDef func, Name item) str
++deduceTypeFromTuple(Tuple item) str
++deduceTypeFromList(typeList item) str
++deduceTypeFromDict(Dict item) str
++deduceTypeFromConst(Const item) str
++handleTypeAnnotation(Any typeNope) str
++deduceNamespaceFromAttribute(Attribute attrib, bool isRoot) str
++deduceNamespace(str path, str rootDir) str
++getImportsNameSpace(Any item) List~str~
+}
+link PythonAnalyzer "class££pycodeanalyzer::core::languages::analyzers::pythonanalyzer::PythonAnalyzer"
+class UiFileDispatcherListener {
+<<Class>>
++notifyAnalyzing(str file) None
++notifyAnalysisEnd() None
+}
+link UiFileDispatcherListener "class££pycodeanalyzer::ui::app::UiFileDispatcherListener"
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+FileDispatcher ..> CppAnalyzer
+FileDispatcher ..> PythonAnalyzer
+FileDispatcher ..> UiFileDispatcherListener
+FileDispatcher ..> AbstractObject

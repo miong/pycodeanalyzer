@@ -1,0 +1,22 @@
+classDiagram
+class UiBrowseListener {
+<<Class>>
++notifyClasseNames(Dict~str,Any~ tree) None
++notifyEnumNames(Dict~str,Any~ tree) None
++notifyFunctionNames(Dict~str,Any~ tree) None
++notifyFileNames(Dict~str,Any~ tree) None
++notifyClassData(Dict~str,Any~ klass, str mermaidDiag) None
++notifyEnumData(Dict~str,Any~ enum, str mermaidDiag) None
++notifyFunctionData(Dict~str,Any~ function) None
++notifyFileData(Dict~str,Any~ file) None
++notifySearchResult(List&lt;Tuple&lt;str,str&gt;&gt; searchRes) None
+}
+class UiLink {
+<<Class>>
++ SocketIO socketio
++ SocketIO socketio
++Constructor() None
++setSocketIO(SocketIO socketio) None
+}
+link UiLink "class££pycodeanalyzer::ui::app::UiLink"
+UiBrowseListener --|> UiLink

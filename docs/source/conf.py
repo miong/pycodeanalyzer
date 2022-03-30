@@ -14,7 +14,27 @@ import os
 import sys
 from configparser import ConfigParser, ExtendedInterpolation
 import sphinx_rtd_theme
+import better_apidoc
 sys.path.insert(0, os.path.abspath('../..'))
+
+
+# -- Generate API documentation ------------------------------------------------
+def run_apidoc(app):
+    """Generage API documentation"""
+    better_apidoc.APP = app
+    better_apidoc.main([
+        'better-apidoc',
+        '-t',
+        os.path.join('.', 'source','_templates'),
+        '--force',
+        '-d',
+        '-1',
+        '--module-first',
+        '--separate',
+        '-o',
+        os.path.join('.', 'source', 'code'),
+        os.path.join('..', 'pycodeanalyzer'),
+    ])
 
 
 # -- Project information -----------------------------------------------------
@@ -40,6 +60,7 @@ todo_include_todos = True
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.doctest',
     'sphinx.ext.githubpages',
     'sphinx.ext.viewcode',
@@ -47,6 +68,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.intersphinx',
     'sphinx_rtd_theme',
+    'sphinxcontrib.mermaid',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -98,3 +120,6 @@ intersphinx_mapping = {
     "simplejson" : ('https://simplejson.readthedocs.io/en/latest/',None),
     "jsonpickle" : ('https://jsonpickle.readthedocs.io/en/latest/',None),
 }
+
+def setup(app):
+    app.connect('builder-inited', run_apidoc)

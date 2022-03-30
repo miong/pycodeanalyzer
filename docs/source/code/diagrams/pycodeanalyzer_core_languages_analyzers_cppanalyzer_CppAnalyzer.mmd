@@ -1,0 +1,71 @@
+classDiagram
+class CppAnalyzer {
+<<Class>>
++ List~str~ objectPaths
++ Encoding encoding
++ List~str~ forceIgnoredSymbols
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
++handleClass(str path, Any klass, List~AbstractObject~ abstractObjects) None
++addMethods(AbstractClass abstraction, Any klass, str visibility) None
++addMembers(AbstractClass abstraction, Any klass, str visibility) None
++addParents(AbstractClass abstraction, Any klass) None
++handleEnum(str path, Any enum, List~AbstractObject~ abstractObjects) None
++handleFunction(str path, Any function, List~AbstractObject~ abstractObjects) None
++clearNamespace(str namespace) str
++extractUnexpectedFromParseError(CppHeaderParser::CppParseError err) str
+}
+class Analyzer {
+<<Class>>
++ Any logger
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
+}
+link Analyzer "class££pycodeanalyzer::core::languages::analyzer::Analyzer"
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+class AbstractClass {
+<<Class>>
++ str namespace
++ str type
++ List&lt;Tuple&lt;str,str,str&gt;&gt; members
++ List&lt;Tuple&lt;str,str,List&lt;Tuple&lt;str,str&gt;&gt;,str&gt;&gt; methodes
++ List&lt;Tuple&lt;str,str,str&gt;&gt; parents
++Constructor(str name, str namespace, str origin) None
++addMember(str type, str name, str visibility) None
++addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
++addParent(str completetype, str name, str visibility) None
++getLinkedTypes() List~str~
+-isPotentialClassName(str type) bool
+-getDependanceFromType(str type) List~str~
+-splitTypes(Any decl) List~str~
++getFullName() str
+-cleanLanguageArtifacts(str type) str
+-removeNonObjectTypes(List~str~ typeList) List~str~
++isParent(AbstractClass klass) bool
++print() None
+}
+link AbstractClass "class££pycodeanalyzer::core::abstraction::objects::AbstractClass"
+class CppParseError
+<<External>> CppParseError
+class Encoding {
+<<Class>>
++ Any magic
++Constructor() None
++getFileEncoding(str file) str
+}
+link Encoding "class££pycodeanalyzer::core::encoding::encodings::Encoding"
+CppAnalyzer --|> Analyzer
+CppAnalyzer ..> AbstractObject
+CppAnalyzer ..> AbstractClass
+CppAnalyzer ..> CppParseError
+CppAnalyzer ..> Encoding

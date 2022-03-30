@@ -1,0 +1,11 @@
+classDiagram
+class FileFetcher {
+<<Class>>
++ Any logger
++ List~str~ suported_extensions
++ List~str~ rejected_encoding
++ Any encoding
++Constructor() None
++isAnalyzed(str fileabspath) bool
++fetch(str rootDir) List~str~
+}

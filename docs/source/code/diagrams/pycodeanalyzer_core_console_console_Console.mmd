@@ -1,0 +1,43 @@
+classDiagram
+class Console {
+<<Class>>
++ Any args
+-parseArgs() Any
++init() None
++run(Engine engine) None
+}
+class Engine {
+<<Class>>
++ FileFetcher fileFetcher
++ FileDispatcher fileDispatcher
++ IdentityAnalyser identityAnalyser
++ DependancyAnalyser dependancyAnalyser
++ SearchAnalyser searchAnalyser
++ UiStatListener uiStatListener
++ UiBrowseListener uiBrowseListener
++ ClassDiagramBuild classDiagramBuild
++ List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
++ int nbFiles
++ Any stats
++ List~Any~ roots
++ int nbFiles
++ Any stats
++ Any logger
++Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild) None
++reset() None
++run(Any args) None
++recordStats(float duration) None
++sendAnalysisStats() None
++sendClasseNames() None
++sendEnumNames() None
++sendFunctionNames() None
++sendFileNames() None
++sendClassData(str className) None
++sendEnumData(str enumName) None
++sendFunctionData(str functionDef) None
++sendFileData(str fileName) None
++sendSearchResult(str token) None
++doExport(str exportPath) None
+}
+link Engine "class££pycodeanalyzer::core::engine::engine::Engine"
+Console ..> Engine

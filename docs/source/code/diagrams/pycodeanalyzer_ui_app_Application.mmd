@@ -1,0 +1,35 @@
+classDiagram
+class Application {
+<<Class>>
++ Any app
++ Any socketio
++Constructor(UiFileDispatcherListener uiFileDispatcherListener, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener) None
++run() None
+}
+class UiFileDispatcherListener {
+<<Class>>
++notifyAnalyzing(str file) None
++notifyAnalysisEnd() None
+}
+link UiFileDispatcherListener "class££pycodeanalyzer::ui::app::UiFileDispatcherListener"
+class UiStatListener {
+<<Class>>
++notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, float duration) None
+}
+link UiStatListener "class££pycodeanalyzer::ui::app::UiStatListener"
+class UiBrowseListener {
+<<Class>>
++notifyClasseNames(Dict~str,Any~ tree) None
++notifyEnumNames(Dict~str,Any~ tree) None
++notifyFunctionNames(Dict~str,Any~ tree) None
++notifyFileNames(Dict~str,Any~ tree) None
++notifyClassData(Dict~str,Any~ klass, str mermaidDiag) None
++notifyEnumData(Dict~str,Any~ enum, str mermaidDiag) None
++notifyFunctionData(Dict~str,Any~ function) None
++notifyFileData(Dict~str,Any~ file) None
++notifySearchResult(List&lt;Tuple&lt;str,str&gt;&gt; searchRes) None
+}
+link UiBrowseListener "class££pycodeanalyzer::ui::app::UiBrowseListener"
+Application ..> UiFileDispatcherListener
+Application ..> UiStatListener
+Application ..> UiBrowseListener
