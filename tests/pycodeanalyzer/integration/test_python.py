@@ -25,6 +25,7 @@ class TestPythonIntegration:
         args.no_ui = True
         args.loglevel = "DEBUG"
         args.path = ["pycodeanalyzer"]
+        args.exportPath = None
         engine.run(args)
         assert subprocess.run([pythonCmd, "tools/dumpobjAnon.py"]).returncode == 0
         time.sleep(2)

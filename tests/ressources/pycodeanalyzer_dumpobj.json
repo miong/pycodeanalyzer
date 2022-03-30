@@ -1769,6 +1769,21 @@
                     ],
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "doExport",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "exportPath"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
             }
         ],
         "name": "Engine",

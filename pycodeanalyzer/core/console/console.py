@@ -23,6 +23,13 @@ class Console:
             dest="loglevel",
         )
         parser.add_argument(
+            "--exportDiagrams",
+            default=None,
+            required=False,
+            help="Export all class diagrams to the path specified",
+            dest="exportPath",
+        )
+        parser.add_argument(
             "--dumpobj",
             required=False,
             help="Serialize objets found, mainly for test purpose",
