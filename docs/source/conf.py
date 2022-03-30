@@ -25,15 +25,15 @@ def run_apidoc(app):
     better_apidoc.main([
         'better-apidoc',
         '-t',
-        os.path.join('.', 'source','_templates'),
+        os.path.join(os.path.dirname(__file__),'_templates'),
         '--force',
         '-d',
         '-1',
         '--module-first',
         '--separate',
         '-o',
-        os.path.join('.', 'source', 'code'),
-        os.path.join('..', 'pycodeanalyzer'),
+        os.path.join(os.path.dirname(__file__), 'code'),
+        os.path.join(os.path.dirname(__file__), '..', '..', 'pycodeanalyzer'),
     ])
 
 
