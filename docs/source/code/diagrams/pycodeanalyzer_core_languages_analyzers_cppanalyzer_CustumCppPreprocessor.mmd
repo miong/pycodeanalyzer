@@ -1,0 +1,20 @@
+classDiagram
+class CustumCppPreprocessor {
+<<Class>>
++ Any passthru_includes
++ bool expand_linemacro
++ bool expand_filemacro
++ bool expand_countermacro
++ bool bypass_ifpassthru
++Constructor() None
++parseFile(str path) None
++addDefine(str d) None
++getResult() str
++on_include_not_found(Any is_malformed, Any is_system_include, Any curdir, Any includepath) None
++on_comment(Any tok) Any
++on_directive_handle(Any directive, Any toks, Any ifpassthru, Any precedingtoks) Any
++on_unknown_macro_in_defined_expr(Any tok) bool
+}
+class Preprocessor
+<<External>> Preprocessor
+CustumCppPreprocessor --|> Preprocessor

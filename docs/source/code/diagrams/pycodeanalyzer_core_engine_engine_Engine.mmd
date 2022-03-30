@@ -1,0 +1,156 @@
+classDiagram
+class Engine {
+<<Class>>
++ FileFetcher fileFetcher
++ FileDispatcher fileDispatcher
++ IdentityAnalyser identityAnalyser
++ DependancyAnalyser dependancyAnalyser
++ SearchAnalyser searchAnalyser
++ UiStatListener uiStatListener
++ UiBrowseListener uiBrowseListener
++ ClassDiagramBuild classDiagramBuild
++ Configuration configuration
++ List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
++ int nbFiles
++ Any stats
++ List~Any~ roots
++ int nbFiles
++ Any stats
++ Any logger
++Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, Configuration configuration) None
++reset() None
++run(Any args) None
++recordStats(float duration) None
++sendAnalysisStats() None
++sendClasseNames() None
++sendEnumNames() None
++sendFunctionNames() None
++sendFileNames() None
++sendClassData(str className) None
++sendEnumData(str enumName) None
++sendFunctionData(str functionDef) None
++sendFileData(str fileName) None
++sendSearchResult(str token) None
++doExport(str exportPath) None
+}
+class FileFetcher {
+<<Class>>
++ Any logger
++ List~str~ suported_extensions
++ List~str~ rejected_encoding
++ Any encoding
++Constructor() None
++isAnalyzed(str fileabspath) bool
++fetch(str rootDir) List~str~
+}
+link FileFetcher "class££pycodeanalyzer::core::filetree::filefetcher::FileFetcher"
+class FileDispatcher {
+<<Class>>
++ Any logger
++ CppAnalyzer cppAnalyzer
++ PythonAnalyzer pythonAnalyzer
++ UiFileDispatcherListener uiListener
++Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, UiFileDispatcherListener uiListener) None
++dispatchRoots(List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots) List~AbstractObject~
++dispatch(str rootDir, List~str~ files) List~AbstractObject~
++sortObjects(List~AbstractObject~ abstractObjects) List~AbstractObject~
+}
+link FileDispatcher "class££pycodeanalyzer::core::languages::filedispatcher::FileDispatcher"
+class IdentityAnalyser {
+<<Class>>
++ Dict&lt;str,List&lt;Any&gt;&gt; mapping
++ str commonFilePath
++ Any commonFilePath
++Constructor() None
++analyze(List~AbstractObject~ objects) None
++getClasses() List~AbstractClass~
++getEnums() List~AbstractEnum~
++getFunctions() List~AbstractFunction~
++getClasseTree() Dict~str,Any~
++getEnumTree() Dict~str,Any~
++getFunctionTree() Dict~str,Any~
++getFiles() List~str~
++getFileTree() Dict~str,Any~
++getClass(str classNamespacePath) AbstractClass
++getEnum(str enumNamespacePath) AbstractEnum
++getFunction(str funcFullDef) AbstractFunction
++getObjectInFile(str file) Dict&lt;str,List&lt;str&gt;&gt;
+}
+link IdentityAnalyser "class££pycodeanalyzer::core::analyzer::identification::IdentityAnalyser"
+class DependancyAnalyser {
+<<Class>>
++analyze(List~AbstractClass~ klasses, List~AbstractEnum~ enums, AbstractClass target) Tuple&lt;AbstractClass,List&lt;AbstractClass&gt;,List&lt;AbstractEnum&gt;,List&lt;AbstractFunction&gt;&gt;
+-findClass(str namespace, str name, List~AbstractClass~ klasses, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractClass
+-findEnum(str namespace, str name, List~AbstractEnum~ enums, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractEnum
+}
+link DependancyAnalyser "class££pycodeanalyzer::core::analyzer::dependancy::DependancyAnalyser"
+class SearchAnalyser {
+<<Class>>
++ List&lt;Tuple&lt;str,str&gt;&gt; results
++ List~Thread~ threads
++searchInAllFiles(str token, List~str~ files) List&lt;Tuple&lt;str,str&gt;&gt;
++seachInFile(str token, str filePath) List&lt;Tuple&lt;str,str&gt;&gt;
+-seachInFileThreaded(str token, str filePath) None
+}
+link SearchAnalyser "class££pycodeanalyzer::core::analyzer::search::SearchAnalyser"
+class UiStatListener {
+<<Class>>
++notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, float duration) None
+}
+link UiStatListener "class££pycodeanalyzer::ui::app::UiStatListener"
+class UiBrowseListener {
+<<Class>>
++notifyClasseNames(Dict~str,Any~ tree) None
++notifyEnumNames(Dict~str,Any~ tree) None
++notifyFunctionNames(Dict~str,Any~ tree) None
++notifyFileNames(Dict~str,Any~ tree) None
++notifyClassData(Dict~str,Any~ klass, str mermaidDiag) None
++notifyEnumData(Dict~str,Any~ enum, str mermaidDiag) None
++notifyFunctionData(Dict~str,Any~ function) None
++notifyFileData(Dict~str,Any~ file) None
++notifySearchResult(List&lt;Tuple&lt;str,str&gt;&gt; searchRes) None
+}
+link UiBrowseListener "class££pycodeanalyzer::ui::app::UiBrowseListener"
+class ClassDiagramBuild {
+<<Class>>
++ List~AbstractClass~ klasses
++ List~AbstractEnum~ enums
++ List&lt;Tuple&lt;str,str&gt;&gt; relations
++ List&lt;Tuple&lt;str,str&gt;&gt; parents
++ Any target
++ AbstractClass target
++ AbstractEnum target
++Constructor() None
++reset() None
++createClass(AbstractClass target, List~AbstractClass~ linkedClasses, List~AbstractEnum~ linkedEnums, List~AbstractFunction~ linkedFunctions) None
++createEnum(AbstractEnum target) None
++build() str
+-addInheritance(AbstractClass target, AbstractObject linkedObject) None
+-addDependancy(AbstractObject target, AbstractObject linkedObject) None
+-addClass(AbstractClass abstractClass) None
+-addEnum(AbstractEnum abstractEnum) None
+-getVisibilityMark(str text) str
+-getTypeString(str type) str
+}
+link ClassDiagramBuild "class££pycodeanalyzer::core::diagrams::mermaid::ClassDiagramBuild"
+class Configuration {
+<<Class>>
++ Any logger
++ Any config
++ Dict&lt;str,List&lt;Tuple&lt;str,str&gt;&gt;&gt; definition
++Constructor() None
++load(str path) bool
++defineConfig(str section, str name, str comment) None
++get(str section, str name) str
++generateTemplate(str path) None
+}
+link Configuration "class££pycodeanalyzer::core::configuration::configuration::Configuration"
+Engine ..> FileFetcher
+Engine ..> FileDispatcher
+Engine ..> IdentityAnalyser
+Engine ..> DependancyAnalyser
+Engine ..> SearchAnalyser
+Engine ..> UiStatListener
+Engine ..> UiBrowseListener
+Engine ..> ClassDiagramBuild
+Engine ..> Configuration

@@ -1,0 +1,19 @@
+classDiagram
+class Analyzer {
+<<Class>>
++ Any logger
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
+}
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+Analyzer ..> AbstractObject

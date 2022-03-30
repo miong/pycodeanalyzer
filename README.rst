@@ -76,16 +76,21 @@ Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--log LOGLEVEL] [--dumpobj] [--no-ui] path [path ...]
+	usage: pycodeanalyzer [-h] [--config CONFIGFILE] [--create-config TEMPLATEFILE] [--log LOGLEVEL] [--exportDiagrams EXPORTPATH] [--dumpobj] [--no-ui] [path [path ...]]
 	
 	positional arguments:
-	  path            Path of a root directory to be analysed
+	  path                  Path of a root directory to be analysed
 	
 	optional arguments:
-	  -h, --help      show this help message and exit
-	  --log LOGLEVEL  Log level to be used
-	  --dumpobj       Serialize objets found, mainly for test purpose
-	  --no-ui         Discard UI, mainly for test purpose
+	  -h, --help            show this help message and exit
+	  --config CONFIGFILE   Configuration file to be used
+	  --create-config TEMPLATEFILE
+	                        Create a configuration file template. Should be used alone.
+	  --log LOGLEVEL        Log level to be used
+	  --exportDiagrams EXPORTPATH
+	                        Export all class diagrams to the path specified
+	  --dumpobj             Serialize objets found, mainly for test purpose
+	  --no-ui               Discard UI, mainly for test purpose
 
 To get more information during the run, use --log=DEBUG
 

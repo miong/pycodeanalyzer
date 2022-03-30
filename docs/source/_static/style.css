@@ -1,0 +1,15 @@
+.wy-nav-content {
+    max-width: none;
+}
+
+.mermaid {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+.mermaid svg {
+    width: auto;
+    height: auto;
+    overflow: scroll;
+    max-width: none;
+}

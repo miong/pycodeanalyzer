@@ -25,6 +25,9 @@ class TestCppIntegration:
         args.no_ui = True
         args.loglevel = "DEBUG"
         args.path = ["tests/ressources/code/cpp_zlib"]
+        args.exportPath = None
+        args.configfile = None
+        args.templatefile = None
         engine.run(args)
         assert subprocess.run([pythonCmd, "tools/dumpobjAnon.py"]).returncode == 0
         time.sleep(2)

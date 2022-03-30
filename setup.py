@@ -58,6 +58,8 @@ setup(
             "bumpversion",
             "sphinx",
             "sphinx_rtd_theme",
+            "sphinxcontrib-mermaid",
+            "better-apidoc",
         ]
     },
 

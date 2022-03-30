@@ -1,3 +1,4 @@
+import os
 import time
 from typing import Any, Dict, List, Tuple
 
@@ -7,6 +8,7 @@ from injector import inject, singleton
 from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
 from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
 from pycodeanalyzer.core.analyzer.search import SearchAnalyser
+from pycodeanalyzer.core.configuration.configuration import Configuration
 from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
@@ -47,6 +49,7 @@ class Engine:
         uiStatListener: UiStatListener,
         uiBrowseListener: UiBrowseListener,
         classDiagramBuild: ClassDiagramBuild,
+        configuration: Configuration,
     ) -> None:
         self.fileFetcher = fileFetcher
         self.fileDispatcher = fileDispatcher
@@ -56,6 +59,7 @@ class Engine:
         self.uiStatListener = uiStatListener
         self.uiBrowseListener = uiBrowseListener
         self.classDiagramBuild = classDiagramBuild
+        self.configuration = configuration
         self.roots: List[Tuple[str, List[str]]] = []
         self.nbFiles = 0
         self.stats = AnalysisStats()
@@ -67,6 +71,12 @@ class Engine:
 
     def run(self, args: Any) -> None:
         self.reset()
+        if args.templatefile:
+            self.configuration.generateTemplate(args.templatefile)
+            exit(0)
+        if args.configfile:
+            if not self.configuration.load(args.configfile):
+                exit(1)
         if not args.no_ui:
             app.run()
         time.sleep(2)
@@ -93,6 +103,8 @@ class Engine:
             jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
             with open("dumpobj.json", "w") as file:
                 file.write(jsonpickle.encode(abstractObjects))
+        if args.exportPath:
+            self.doExport(args.exportPath)
 
     def recordStats(self, duration: float) -> None:
         self.stats.nbFiles = self.nbFiles
@@ -215,3 +227,39 @@ class Engine:
             token, self.identityAnalyser.getFiles()
         )
         self.uiBrowseListener.notifySearchResult(searchRes)
+
+    def doExport(self, exportPath: str) -> None:
+        if not os.path.isdir(exportPath):
+            if not os.path.isfile(exportPath):
+                os.makedirs(exportPath)
+            else:
+                self.logger.error(
+                    "Export path %s exist and is not a directory. Abort export.",
+                    exportPath,
+                )
+                return
+        for klass in self.identityAnalyser.getClasses():
+            objects = self.dependancyAnalyser.analyze(
+                self.identityAnalyser.getClasses(),
+                self.identityAnalyser.getEnums(),
+                klass,
+            )
+            self.classDiagramBuild.reset()
+            self.classDiagramBuild.createClass(
+                objects[0], objects[1], objects[2], objects[3]
+            )
+            mermaidDiag = self.classDiagramBuild.build()
+            classFileName = klass.getFullName().replace("::", "_") + ".mmd"
+            exportedFile = os.path.join(exportPath, classFileName)
+            self.logger.info("Exporting %s", klass.getFullName())
+            with open(exportedFile, "w") as diagFile:
+                diagFile.write(mermaidDiag)
+        for enum in self.identityAnalyser.getEnums():
+            self.classDiagramBuild.reset()
+            self.classDiagramBuild.createEnum(enum)
+            mermaidDiag = self.classDiagramBuild.build()
+            classFileName = klass.getFullName().replace("::", "_") + ".mmd"
+            exportedFile = os.path.join(exportPath, classFileName)
+            self.logger.info("Exporting %s", klass.getFullName())
+            with open(exportedFile, "w") as diagFile:
+                diagFile.write(mermaidDiag)

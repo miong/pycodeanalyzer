@@ -1,9 +1,11 @@
 import argparse
 import io
+import json
 import re
 from typing import Any, List
 
 import CppHeaderParser
+from injector import inject
 from pcpp import Action, OutputDirective, Preprocessor
 
 from pycodeanalyzer.core.abstraction.objects import (
@@ -13,6 +15,7 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractObject,
     AbstractObjectLanguage,
 )
+from pycodeanalyzer.core.configuration.configuration import Configuration
 from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.languages.analyzer import Analyzer
 
@@ -134,7 +137,8 @@ class CppAnalyzer(Analyzer):
     Handle C/CPP code using PCPP preprocessor and CppHeaderParser.
     """
 
-    def __init__(self) -> None:
+    @inject
+    def __init__(self, config: Configuration) -> None:
         super().__init__()
         CppHeaderParser.CppHeaderParser.ignoreSymbols = []
         CppHeaderParser.CppHeaderParser.is_enum_namestack = (
@@ -146,15 +150,25 @@ class CppAnalyzer(Analyzer):
         self.objectPaths: List[str] = []
         self.encoding: Encoding = Encoding()
         self.forceIgnoredSymbols: List[str] = []
+        self.configuation = config
+        self.configured = False
+        self.defines: List[str] = []
+        self.defineConfig(config)
 
     def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:
         abstractObjects: List[AbstractObject] = []
         self.logger.info("Analysing %s", path)
 
+        if not self.configured:
+            self.handleConfigation()
+
         encoding: str = self.encoding.getFileEncoding(path)
 
         try:
             preproc: CustumCppPreprocessor = CustumCppPreprocessor()
+            for define in self.defines:
+                self.logger.debug("Define : %s", define)
+                preproc.define(define)
             preproc.parseFile(path)
             code: str = preproc.getResult()
 
@@ -329,3 +343,15 @@ class CppAnalyzer(Analyzer):
         token = msg[msg.index(startDelim) + len(startDelim) :]
         token = token[: token.index(endDelim) - 1].replace("'", "").strip()
         return token
+
+    def defineConfig(self, config: Configuration) -> None:
+        config.defineConfig(
+            "parser.CPP",
+            "defines",
+            'All value to be define when preprosession : List of name[ value]. Example : ["toto 1","titi \'hello\'", "tata"]',
+        )
+
+    def handleConfigation(self) -> None:
+        defines = self.configuation.get("parser.CPP", "defines")
+        if defines:
+            self.defines = json.loads(defines)

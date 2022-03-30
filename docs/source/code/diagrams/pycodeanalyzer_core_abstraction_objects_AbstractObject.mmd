@@ -1,0 +1,19 @@
+classDiagram
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+class AbstractObjectLanguage {
+<<Enum>>
++ Unknown
++ CPP
++ Python
+}
+link AbstractObjectLanguage "enum££pycodeanalyzer::core::abstraction::objects::AbstractObjectLanguage"
+AbstractObject ..> AbstractObjectLanguage

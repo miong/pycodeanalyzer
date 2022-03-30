@@ -1,0 +1,54 @@
+classDiagram
+class DependancyAnalyser {
+<<Class>>
++analyze(List~AbstractClass~ klasses, List~AbstractEnum~ enums, AbstractClass target) Tuple&lt;AbstractClass,List&lt;AbstractClass&gt;,List&lt;AbstractEnum&gt;,List&lt;AbstractFunction&gt;&gt;
+-findClass(str namespace, str name, List~AbstractClass~ klasses, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractClass
+-findEnum(str namespace, str name, List~AbstractEnum~ enums, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractEnum
+}
+class AbstractClass {
+<<Class>>
++ str namespace
++ str type
++ List&lt;Tuple&lt;str,str,str&gt;&gt; members
++ List&lt;Tuple&lt;str,str,List&lt;Tuple&lt;str,str&gt;&gt;,str&gt;&gt; methodes
++ List&lt;Tuple&lt;str,str,str&gt;&gt; parents
++Constructor(str name, str namespace, str origin) None
++addMember(str type, str name, str visibility) None
++addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
++addParent(str completetype, str name, str visibility) None
++getLinkedTypes() List~str~
+-isPotentialClassName(str type) bool
+-getDependanceFromType(str type) List~str~
+-splitTypes(Any decl) List~str~
++getFullName() str
+-cleanLanguageArtifacts(str type) str
+-removeNonObjectTypes(List~str~ typeList) List~str~
++isParent(AbstractClass klass) bool
++print() None
+}
+link AbstractClass "class££pycodeanalyzer::core::abstraction::objects::AbstractClass"
+class AbstractEnum {
+<<Class>>
++ str namespace
++ str type
++ List~str~ values
++Constructor(str name, str namespace, str origin, List~str~ values) Any
++getFullName() str
++print() None
+}
+link AbstractEnum "class££pycodeanalyzer::core::abstraction::objects::AbstractEnum"
+class AbstractFunction {
+<<Class>>
++ str namespace
++ str type
++ str returnType
++ List&lt;Tuple&lt;str,str&gt;&gt; parameters
++ str doxygen
++Constructor(str name, str origin, str returnType, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str namespace, str doxygen) None
++print() None
++getFullDef() str
+}
+link AbstractFunction "class££pycodeanalyzer::core::abstraction::objects::AbstractFunction"
+DependancyAnalyser ..> AbstractClass
+DependancyAnalyser ..> AbstractEnum
+DependancyAnalyser ..> AbstractFunction

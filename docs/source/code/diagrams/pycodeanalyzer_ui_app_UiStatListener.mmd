@@ -1,0 +1,14 @@
+classDiagram
+class UiStatListener {
+<<Class>>
++notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, float duration) None
+}
+class UiLink {
+<<Class>>
++ SocketIO socketio
++ SocketIO socketio
++Constructor() None
++setSocketIO(SocketIO socketio) None
+}
+link UiLink "class££pycodeanalyzer::ui::app::UiLink"
+UiStatListener --|> UiLink

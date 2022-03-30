@@ -1,0 +1,52 @@
+classDiagram
+class EngineCommands {
+<<Class>>
++ Engine engine
++Constructor(Engine engine) None
++requestAnalysisStats() None
++requestClasseNames() None
++requestEnumNames() None
++requestFunctionNames() None
++requestFileNames() None
++requestClassData(str className) None
++requestEnumData(str enumName) None
++requestFunctionData(str functionDef) None
++requestFileData(str fileName) None
++requestSearchData(str token) None
+}
+class Engine {
+<<Class>>
++ FileFetcher fileFetcher
++ FileDispatcher fileDispatcher
++ IdentityAnalyser identityAnalyser
++ DependancyAnalyser dependancyAnalyser
++ SearchAnalyser searchAnalyser
++ UiStatListener uiStatListener
++ UiBrowseListener uiBrowseListener
++ ClassDiagramBuild classDiagramBuild
++ Configuration configuration
++ List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
++ int nbFiles
++ Any stats
++ List~Any~ roots
++ int nbFiles
++ Any stats
++ Any logger
++Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, Configuration configuration) None
++reset() None
++run(Any args) None
++recordStats(float duration) None
++sendAnalysisStats() None
++sendClasseNames() None
++sendEnumNames() None
++sendFunctionNames() None
++sendFileNames() None
++sendClassData(str className) None
++sendEnumData(str enumName) None
++sendFunctionData(str functionDef) None
++sendFileData(str fileName) None
++sendSearchResult(str token) None
++doExport(str exportPath) None
+}
+link Engine "class££pycodeanalyzer::core::engine::engine::Engine"
+EngineCommands ..> Engine

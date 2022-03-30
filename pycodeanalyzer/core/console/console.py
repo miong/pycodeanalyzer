@@ -16,11 +16,32 @@ class Console:
         parser = argparse.ArgumentParser()
         parser.prog = "pycodeanalyzer"
         parser.add_argument(
+            "--config",
+            default=None,
+            required=False,
+            help="Configuration file to be used",
+            dest="configfile",
+        )
+        parser.add_argument(
+            "--create-config",
+            default=None,
+            required=False,
+            help="Create a configuration file template. Should be used alone.",
+            dest="templatefile",
+        )
+        parser.add_argument(
             "--log",
             default="INFO",
             required=False,
             help="Log level to be used",
             dest="loglevel",
+        )
+        parser.add_argument(
+            "--exportDiagrams",
+            default=None,
+            required=False,
+            help="Export all class diagrams to the path specified",
+            dest="exportPath",
         )
         parser.add_argument(
             "--dumpobj",
@@ -37,7 +58,7 @@ class Console:
             action="store_true",
         )
         parser.add_argument(
-            "path", nargs="+", help="Path of a root directory to be analysed"
+            "path", nargs="*", help="Path of a root directory to be analysed"
         )
         return parser.parse_args()
 

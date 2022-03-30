@@ -1,0 +1,89 @@
+classDiagram
+class PythonAnalyzer {
+<<Class>>
++ List~str~ globalImports
++ Any globalImports
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
++handleEnum(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None
++handleClass(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None
++isEnumType(str type) bool
++handleFunction(str path, str namespace, FunctionDef item, List~AbstractObject~ abstractObjects) None
++handleMembers(Any func, AbstractClass abstraction) None
++deduceType(FunctionDef func, Assign item) str
++deduceReturnType(Any returnItem) str
++deduceTypeFromTypeName(Name item) str
++deduceTypeFromName(FunctionDef func, Name item) str
++deduceTypeFromTuple(Tuple item) str
++deduceTypeFromList(typeList item) str
++deduceTypeFromDict(Dict item) str
++deduceTypeFromConst(Const item) str
++handleTypeAnnotation(Any typeNope) str
++deduceNamespaceFromAttribute(Attribute attrib, bool isRoot) str
++deduceNamespace(str path, str rootDir) str
++getImportsNameSpace(Any item) List~str~
+}
+class Analyzer {
+<<Class>>
++ Any logger
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
+}
+link Analyzer "class££pycodeanalyzer::core::languages::analyzer::Analyzer"
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+class ClassDef
+<<External>> ClassDef
+class FunctionDef
+<<External>> FunctionDef
+class AbstractClass {
+<<Class>>
++ str namespace
++ str type
++ List&lt;Tuple&lt;str,str,str&gt;&gt; members
++ List&lt;Tuple&lt;str,str,List&lt;Tuple&lt;str,str&gt;&gt;,str&gt;&gt; methodes
++ List&lt;Tuple&lt;str,str,str&gt;&gt; parents
++Constructor(str name, str namespace, str origin) None
++addMember(str type, str name, str visibility) None
++addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
++addParent(str completetype, str name, str visibility) None
++getLinkedTypes() List~str~
+-isPotentialClassName(str type) bool
+-getDependanceFromType(str type) List~str~
+-splitTypes(Any decl) List~str~
++getFullName() str
+-cleanLanguageArtifacts(str type) str
+-removeNonObjectTypes(List~str~ typeList) List~str~
++isParent(AbstractClass klass) bool
++print() None
+}
+link AbstractClass "class££pycodeanalyzer::core::abstraction::objects::AbstractClass"
+class Assign
+<<External>> Assign
+class Name
+<<External>> Name
+class typeList
+<<External>> typeList
+class Const
+<<External>> Const
+class Attribute
+<<External>> Attribute
+PythonAnalyzer --|> Analyzer
+PythonAnalyzer ..> AbstractObject
+PythonAnalyzer ..> ClassDef
+PythonAnalyzer ..> FunctionDef
+PythonAnalyzer ..> AbstractClass
+PythonAnalyzer ..> Assign
+PythonAnalyzer ..> Name
+PythonAnalyzer ..> typeList
+PythonAnalyzer ..> Const
+PythonAnalyzer ..> Attribute

@@ -1,0 +1,10 @@
+classDiagram
+class LoggerFactory {
+<<Class>>
++init() None
++setLoggerLevel(str loglevel) None
++createLogger(str name) logging::Logger
+}
+class Logger
+<<External>> Logger
+LoggerFactory ..> Logger
