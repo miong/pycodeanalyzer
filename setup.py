@@ -60,6 +60,7 @@ setup(
             "sphinx_rtd_theme",
             "sphinxcontrib-mermaid",
             "better-apidoc",
+            "six",
         ]
     },
 
