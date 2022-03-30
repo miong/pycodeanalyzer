@@ -5,6 +5,7 @@ Welcome to pycodeanalyzer's documentation!
     :maxdepth: 1
     :caption: Contents:
 
+    config
     code
 
 

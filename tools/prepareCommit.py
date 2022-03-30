@@ -30,7 +30,9 @@ def runQA():
     return res
 
 def runUpdateDocs():
-    res = subprocess.run([pythonCmd, "-m", "pycodeanalyzer", "--no-ui", "--exportDiagrams", "docs/source/code/diagrams", "pycodeanalyzer"]).returncode == 0
+    res = subprocess.run([pythonCmd, "-m", "pycodeanalyzer", "--create-config", "docs/source/config/template.ini"]).returncode == 0
+    if res:
+        res = subprocess.run([pythonCmd, "-m", "pycodeanalyzer", "--no-ui", "--exportDiagrams", "docs/source/code/diagrams", "pycodeanalyzer"]).returncode == 0
     if res:
         res = subprocess.run(["make", "html"], cwd="docs").returncode == 0
     return res
