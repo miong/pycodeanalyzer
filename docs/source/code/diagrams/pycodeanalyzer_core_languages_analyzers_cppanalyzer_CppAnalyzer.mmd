@@ -4,7 +4,8 @@ class CppAnalyzer {
 + List~str~ objectPaths
 + Encoding encoding
 + List~str~ forceIgnoredSymbols
-+Constructor() None
++ List~str~ defines
++Constructor(Configuration config) None
 +analyze(str rootDir, str path) List~AbstractObject~
 +handleClass(str path, Any klass, List~AbstractObject~ abstractObjects) None
 +addMethods(AbstractClass abstraction, Any klass, str visibility) None
@@ -22,6 +23,17 @@ class Analyzer {
 +analyze(str rootDir, str path) List~AbstractObject~
 }
 link Analyzer "class££pycodeanalyzer::core::languages::analyzer::Analyzer"
+class Configuration {
+<<Class>>
++ Any logger
++ Any config
++ Dict&lt;str,List&lt;Tuple&lt;str,str&gt;&gt;&gt; definition
++Constructor() None
++load(str path) bool
++defineConfig(str section, str name, str comment) None
++generateTemplate(str path) None
+}
+link Configuration "class££pycodeanalyzer::core::configuration::configuration::Configuration"
 class AbstractObject {
 <<Class>>
 + str name
@@ -65,6 +77,7 @@ class Encoding {
 }
 link Encoding "class££pycodeanalyzer::core::encoding::encodings::Encoding"
 CppAnalyzer --|> Analyzer
+CppAnalyzer ..> Configuration
 CppAnalyzer ..> AbstractObject
 CppAnalyzer ..> AbstractClass
 CppAnalyzer ..> CppParseError

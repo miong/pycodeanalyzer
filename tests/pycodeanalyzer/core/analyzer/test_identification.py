@@ -26,7 +26,7 @@ class TestIdentityAnalyser:
             objectList = jsonpickle.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
-        assert len(analyzer.mapping["Classes"]) == 28
+        assert len(analyzer.mapping["Classes"]) == 29
         assert len(analyzer.mapping["Enums"]) == 1
         assert len(analyzer.mapping["Functions"]) == 15
         for obj in objectList:
@@ -223,6 +223,7 @@ class TestIdentityAnalyser:
                      'analyzer': {'__files__': ['dependancy.py',
                                                 'identification.py',
                                                 'search.py']},
+                     'configuration': {'__files__': ['configuration.py']},
                      'console': {'__files__': ['console.py']},
                      'diagrams': {'__files__': ['mermaid.py']},
                      'encoding': {'__files__': ['encodings.py']},
@@ -253,6 +254,7 @@ class TestIdentityAnalyser:
             '/pycodeanalyzer/core/analyzer/dependancy.py',
             '/pycodeanalyzer/core/analyzer/identification.py',
             '/pycodeanalyzer/core/analyzer/search.py',
+            '/pycodeanalyzer/core/configuration/configuration.py',
             '/pycodeanalyzer/core/console/console.py',
             '/pycodeanalyzer/core/diagrams/mermaid.py',
             '/pycodeanalyzer/core/encoding/encodings.py',

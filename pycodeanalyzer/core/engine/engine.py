@@ -8,6 +8,7 @@ from injector import inject, singleton
 from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
 from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
 from pycodeanalyzer.core.analyzer.search import SearchAnalyser
+from pycodeanalyzer.core.configuration.configuration import Configuration
 from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
@@ -48,6 +49,7 @@ class Engine:
         uiStatListener: UiStatListener,
         uiBrowseListener: UiBrowseListener,
         classDiagramBuild: ClassDiagramBuild,
+        configuration: Configuration,
     ) -> None:
         self.fileFetcher = fileFetcher
         self.fileDispatcher = fileDispatcher
@@ -57,6 +59,7 @@ class Engine:
         self.uiStatListener = uiStatListener
         self.uiBrowseListener = uiBrowseListener
         self.classDiagramBuild = classDiagramBuild
+        self.configuration = configuration
         self.roots: List[Tuple[str, List[str]]] = []
         self.nbFiles = 0
         self.stats = AnalysisStats()
@@ -68,6 +71,12 @@ class Engine:
 
     def run(self, args: Any) -> None:
         self.reset()
+        if args.templatefile:
+            self.configuration.generateTemplate(args.templatefile)
+            exit(0)
+        if args.configfile:
+            if not self.configuration.load(args.configfile):
+                exit(1)
         if not args.no_ui:
             app.run()
         time.sleep(2)

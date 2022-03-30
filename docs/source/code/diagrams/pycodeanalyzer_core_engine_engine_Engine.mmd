@@ -9,6 +9,7 @@ class Engine {
 + UiStatListener uiStatListener
 + UiBrowseListener uiBrowseListener
 + ClassDiagramBuild classDiagramBuild
++ Configuration configuration
 + List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
 + int nbFiles
 + Any stats
@@ -16,7 +17,7 @@ class Engine {
 + int nbFiles
 + Any stats
 + Any logger
-+Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild) None
++Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, Configuration configuration) None
 +reset() None
 +run(Any args) None
 +recordStats(float duration) None
@@ -132,6 +133,17 @@ class ClassDiagramBuild {
 -getTypeString(str type) str
 }
 link ClassDiagramBuild "class££pycodeanalyzer::core::diagrams::mermaid::ClassDiagramBuild"
+class Configuration {
+<<Class>>
++ Any logger
++ Any config
++ Dict&lt;str,List&lt;Tuple&lt;str,str&gt;&gt;&gt; definition
++Constructor() None
++load(str path) bool
++defineConfig(str section, str name, str comment) None
++generateTemplate(str path) None
+}
+link Configuration "class££pycodeanalyzer::core::configuration::configuration::Configuration"
 Engine ..> FileFetcher
 Engine ..> FileDispatcher
 Engine ..> IdentityAnalyser
@@ -140,3 +152,4 @@ Engine ..> SearchAnalyser
 Engine ..> UiStatListener
 Engine ..> UiBrowseListener
 Engine ..> ClassDiagramBuild
+Engine ..> Configuration

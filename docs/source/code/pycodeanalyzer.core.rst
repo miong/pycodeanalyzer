@@ -15,6 +15,7 @@ pycodeanalyzer.core
 
        pycodeanalyzer.core.abstraction
        pycodeanalyzer.core.analyzer
+       pycodeanalyzer.core.configuration
        pycodeanalyzer.core.console
        pycodeanalyzer.core.diagrams
        pycodeanalyzer.core.encoding

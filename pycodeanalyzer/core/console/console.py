@@ -16,6 +16,20 @@ class Console:
         parser = argparse.ArgumentParser()
         parser.prog = "pycodeanalyzer"
         parser.add_argument(
+            "--config",
+            default=None,
+            required=False,
+            help="Configuration file to be used",
+            dest="configfile",
+        )
+        parser.add_argument(
+            "--create-config",
+            default=None,
+            required=False,
+            help="Create a configuration file template. Should be used alone.",
+            dest="templatefile",
+        )
+        parser.add_argument(
             "--log",
             default="INFO",
             required=False,

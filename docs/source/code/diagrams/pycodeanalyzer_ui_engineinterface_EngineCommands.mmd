@@ -24,6 +24,7 @@ class Engine {
 + UiStatListener uiStatListener
 + UiBrowseListener uiBrowseListener
 + ClassDiagramBuild classDiagramBuild
++ Configuration configuration
 + List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
 + int nbFiles
 + Any stats
@@ -31,7 +32,7 @@ class Engine {
 + int nbFiles
 + Any stats
 + Any logger
-+Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild) None
++Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, Configuration configuration) None
 +reset() None
 +run(Any args) None
 +recordStats(float duration) None

@@ -1038,6 +1038,112 @@
             {
                 "py/tuple": [
                     "Any",
+                    "logger",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "config",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,List<Tuple<str,str>>>",
+                    "definition",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "load",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "defineConfig",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "comment"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "generateTemplate",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "Configuration",
+        "namespace": "pycodeanalyzer::core::configuration::configuration",
+        "origin": "/pycodeanalyzer/core/configuration/configuration.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "injector",
+            "pycodeanalyzer::core::logging::loggerfactory"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "Any",
                     "args",
                     "public"
                 ]
@@ -1439,6 +1545,7 @@
             "pycodeanalyzer::core::analyzer::dependancy",
             "pycodeanalyzer::core::analyzer::identification",
             "pycodeanalyzer::core::analyzer::search",
+            "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::diagrams::mermaid",
             "pycodeanalyzer::core::filetree::filefetcher",
             "pycodeanalyzer::core::languages::filedispatcher",
@@ -1506,6 +1613,13 @@
                 "py/tuple": [
                     "ClassDiagramBuild",
                     "classDiagramBuild",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Configuration",
+                    "configuration",
                     "public"
                 ]
             },
@@ -1611,6 +1725,12 @@
                             "py/tuple": [
                                 "ClassDiagramBuild",
                                 "classDiagramBuild"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "Configuration",
+                                "configuration"
                             ]
                         }
                     ],
@@ -1798,6 +1918,7 @@
             "pycodeanalyzer::core::analyzer::dependancy",
             "pycodeanalyzer::core::analyzer::identification",
             "pycodeanalyzer::core::analyzer::search",
+            "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::diagrams::mermaid",
             "pycodeanalyzer::core::filetree::filefetcher",
             "pycodeanalyzer::core::languages::filedispatcher",
@@ -1975,6 +2096,13 @@
                     "forceIgnoredSymbols",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "defines",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -1982,7 +2110,14 @@
                 "py/tuple": [
                     "None",
                     "Constructor",
-                    [],
+                    [
+                        {
+                            "py/tuple": [
+                                "Configuration",
+                                "config"
+                            ]
+                        }
+                    ],
                     "public"
                 ]
             },
@@ -2210,8 +2345,10 @@
         "type": "Class",
         "usingNS": [
             "typing",
+            "injector",
             "pcpp",
             "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
             "pycodeanalyzer::core::languages::analyzer"
         ]
@@ -2269,8 +2406,10 @@
         "type": "Class",
         "usingNS": [
             "typing",
+            "injector",
             "pcpp",
             "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
             "pycodeanalyzer::core::languages::analyzer"
         ]
@@ -2476,8 +2615,10 @@
         "type": "Class",
         "usingNS": [
             "typing",
+            "injector",
             "pcpp",
             "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
             "pycodeanalyzer::core::languages::analyzer"
         ]

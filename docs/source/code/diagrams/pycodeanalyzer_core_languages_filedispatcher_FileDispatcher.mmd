@@ -15,7 +15,8 @@ class CppAnalyzer {
 + List~str~ objectPaths
 + Encoding encoding
 + List~str~ forceIgnoredSymbols
-+Constructor() None
++ List~str~ defines
++Constructor(Configuration config) None
 +analyze(str rootDir, str path) List~AbstractObject~
 +handleClass(str path, Any klass, List~AbstractObject~ abstractObjects) None
 +addMethods(AbstractClass abstraction, Any klass, str visibility) None
