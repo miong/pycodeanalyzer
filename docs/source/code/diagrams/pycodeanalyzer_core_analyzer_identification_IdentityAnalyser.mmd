@@ -3,7 +3,6 @@ class IdentityAnalyser {
 <<Class>>
 + Dict&lt;str,List&lt;Any&gt;&gt; mapping
 + str commonFilePath
-+ Any commonFilePath
 +Constructor() None
 +analyze(List~AbstractObject~ objects) None
 +getClasses() List~AbstractClass~
@@ -39,6 +38,7 @@ class AbstractClass {
 + List&lt;Tuple&lt;str,str,str&gt;&gt; parents
 +Constructor(str name, str namespace, str origin) None
 +addMember(str type, str name, str visibility) None
++hasMember(str name) bool
 +addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
 +addParent(str completetype, str name, str visibility) None
 +getLinkedTypes() List~str~

@@ -10,7 +10,7 @@ if platform.system() == 'Linux' or platform.system() == 'Darwin':
 
 def update(path, ressouce):
     try:
-        assert subprocess.run(["pycodeanalyzer", "--no-ui", "--dumpobj", path]).returncode == 0
+        assert subprocess.run([pythonCmd, "-m", "pycodeanalyzer", "--no-ui", "--dumpobj", path]).returncode == 0
         assert subprocess.run([pythonCmd, "tools/dumpobjAnon.py"]).returncode == 0
     except AssertionError:
         print("Error wile dumping the source from", path)

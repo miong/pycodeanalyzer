@@ -13,9 +13,6 @@ class Engine {
 + List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
 + int nbFiles
 + Any stats
-+ List~Any~ roots
-+ int nbFiles
-+ Any stats
 + Any logger
 +Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, Configuration configuration) None
 +reset() None
@@ -39,9 +36,14 @@ class FileFetcher {
 + List~str~ suported_extensions
 + List~str~ rejected_encoding
 + Any encoding
-+Constructor() None
++ bool configured
++ Configuration configuration
++ List~str~ ignoredPatterns
++Constructor(Configuration configuration) None
 +isAnalyzed(str fileabspath) bool
 +fetch(str rootDir) List~str~
++defineConfig() None
++handleConfigation() None
 }
 link FileFetcher "class££pycodeanalyzer::core::filetree::filefetcher::FileFetcher"
 class FileDispatcher {
@@ -60,7 +62,6 @@ class IdentityAnalyser {
 <<Class>>
 + Dict&lt;str,List&lt;Any&gt;&gt; mapping
 + str commonFilePath
-+ Any commonFilePath
 +Constructor() None
 +analyze(List~AbstractObject~ objects) None
 +getClasses() List~AbstractClass~
@@ -117,9 +118,7 @@ class ClassDiagramBuild {
 + List~AbstractEnum~ enums
 + List&lt;Tuple&lt;str,str&gt;&gt; relations
 + List&lt;Tuple&lt;str,str&gt;&gt; parents
-+ Any target
-+ AbstractClass target
-+ AbstractEnum target
++ AbstractObject target
 +Constructor() None
 +reset() None
 +createClass(AbstractClass target, List~AbstractClass~ linkedClasses, List~AbstractEnum~ linkedEnums, List~AbstractFunction~ linkedFunctions) None
@@ -142,6 +141,10 @@ class Configuration {
 +load(str path) bool
 +defineConfig(str section, str name, str comment) None
 +get(str section, str name) str
++getInt(str section, str name) int
++getFloat(str section, str name) float
++getBool(str section, str name) bool
++getList(str section, str name) List~Any~
 +generateTemplate(str path) None
 }
 link Configuration "class££pycodeanalyzer::core::configuration::configuration::Configuration"

@@ -4,7 +4,7 @@ class CppAnalyzer {
 + List~str~ objectPaths
 + Encoding encoding
 + List~str~ forceIgnoredSymbols
-+ Configuration configuation
++ Configuration configuration
 + bool configured
 + List~str~ defines
 +Constructor(Configuration config) None
@@ -17,7 +17,7 @@ class CppAnalyzer {
 +handleFunction(str path, Any function, List~AbstractObject~ abstractObjects) None
 +clearNamespace(str namespace) str
 +extractUnexpectedFromParseError(CppHeaderParser::CppParseError err) str
-+defineConfig(Configuration config) None
++defineConfig() None
 +handleConfigation() None
 }
 class Analyzer {
@@ -36,6 +36,10 @@ class Configuration {
 +load(str path) bool
 +defineConfig(str section, str name, str comment) None
 +get(str section, str name) str
++getInt(str section, str name) int
++getFloat(str section, str name) float
++getBool(str section, str name) bool
++getList(str section, str name) List~Any~
 +generateTemplate(str path) None
 }
 link Configuration "class££pycodeanalyzer::core::configuration::configuration::Configuration"
@@ -59,6 +63,7 @@ class AbstractClass {
 + List&lt;Tuple&lt;str,str,str&gt;&gt; parents
 +Constructor(str name, str namespace, str origin) None
 +addMember(str type, str name, str visibility) None
++hasMember(str name) bool
 +addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
 +addParent(str completetype, str name, str visibility) None
 +getLinkedTypes() List~str~

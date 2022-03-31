@@ -5,9 +5,7 @@ class ClassDiagramBuild {
 + List~AbstractEnum~ enums
 + List&lt;Tuple&lt;str,str&gt;&gt; relations
 + List&lt;Tuple&lt;str,str&gt;&gt; parents
-+ Any target
-+ AbstractClass target
-+ AbstractEnum target
++ AbstractObject target
 +Constructor() None
 +reset() None
 +createClass(AbstractClass target, List~AbstractClass~ linkedClasses, List~AbstractEnum~ linkedEnums, List~AbstractFunction~ linkedFunctions) None
@@ -29,6 +27,7 @@ class AbstractClass {
 + List&lt;Tuple&lt;str,str,str&gt;&gt; parents
 +Constructor(str name, str namespace, str origin) None
 +addMember(str type, str name, str visibility) None
++hasMember(str name) bool
 +addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
 +addParent(str completetype, str name, str visibility) None
 +getLinkedTypes() List~str~

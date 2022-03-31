@@ -3,7 +3,7 @@
 This module allow to create mermaid.js class diagram from abstractions.
 """
 
-from typing import Any, List, Tuple
+from typing import List, Tuple
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
@@ -24,7 +24,7 @@ class ClassDiagramBuild:
         self.enums: List[AbstractEnum] = []
         self.relations: List[Tuple[str, str]] = []
         self.parents: List[Tuple[str, str]] = []
-        self.target: Any = None
+        self.target: AbstractObject = None
 
     def createClass(
         self,

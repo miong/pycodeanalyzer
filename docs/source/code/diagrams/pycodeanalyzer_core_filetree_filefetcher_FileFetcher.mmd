@@ -5,7 +5,29 @@ class FileFetcher {
 + List~str~ suported_extensions
 + List~str~ rejected_encoding
 + Any encoding
-+Constructor() None
++ bool configured
++ Configuration configuration
++ List~str~ ignoredPatterns
++Constructor(Configuration configuration) None
 +isAnalyzed(str fileabspath) bool
 +fetch(str rootDir) List~str~
++defineConfig() None
++handleConfigation() None
 }
+class Configuration {
+<<Class>>
++ Any logger
++ Any config
++ Dict&lt;str,List&lt;Tuple&lt;str,str&gt;&gt;&gt; definition
++Constructor() None
++load(str path) bool
++defineConfig(str section, str name, str comment) None
++get(str section, str name) str
++getInt(str section, str name) int
++getFloat(str section, str name) float
++getBool(str section, str name) bool
++getList(str section, str name) List~Any~
++generateTemplate(str path) None
+}
+link Configuration "class££pycodeanalyzer::core::configuration::configuration::Configuration"
+FileFetcher ..> Configuration

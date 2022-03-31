@@ -1,6 +1,5 @@
 import argparse
 import io
-import json
 import re
 from typing import Any, List
 
@@ -150,10 +149,10 @@ class CppAnalyzer(Analyzer):
         self.objectPaths: List[str] = []
         self.encoding: Encoding = Encoding()
         self.forceIgnoredSymbols: List[str] = []
-        self.configuation = config
+        self.configuration = config
         self.configured = False
         self.defines: List[str] = []
-        self.defineConfig(config)
+        self.defineConfig()
 
     def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:
         abstractObjects: List[AbstractObject] = []
@@ -344,14 +343,13 @@ class CppAnalyzer(Analyzer):
         token = token[: token.index(endDelim) - 1].replace("'", "").strip()
         return token
 
-    def defineConfig(self, config: Configuration) -> None:
-        config.defineConfig(
-            "parser.CPP",
+    def defineConfig(self) -> None:
+        self.configuration.defineConfig(
+            "Parser.CPP",
             "defines",
             'All value to be define when preprosession : List of name[ value]. Example : ["toto 1","titi \'hello\'", "tata"]',
         )
 
     def handleConfigation(self) -> None:
-        defines = self.configuation.get("parser.CPP", "defines")
-        if defines:
-            self.defines = json.loads(defines)
+        defines_val = self.configuration.getList("Parser.CPP", "defines")
+        self.defines = defines_val if defines_val else []

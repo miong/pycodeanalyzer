@@ -106,6 +106,21 @@
             },
             {
                 "py/tuple": [
+                    "bool",
+                    "hasMember",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "None",
                     "addMethod",
                     [
@@ -765,13 +780,6 @@
                     "commonFilePath",
                     "public"
                 ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "commonFilePath",
-                    "public"
-                ]
             }
         ],
         "methodes": [
@@ -1131,6 +1139,90 @@
             },
             {
                 "py/tuple": [
+                    "int",
+                    "getInt",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "float",
+                    "getFloat",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "getBool",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Any>",
+                    "getList",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "None",
                     "generateTemplate",
                     [
@@ -1250,21 +1342,7 @@
             },
             {
                 "py/tuple": [
-                    "Any",
-                    "target",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractClass",
-                    "target",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractEnum",
+                    "AbstractObject",
                     "target",
                     "public"
                 ]
@@ -1667,27 +1745,6 @@
             },
             {
                 "py/tuple": [
-                    "List<Any>",
-                    "roots",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "nbFiles",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "stats",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
                     "Any",
                     "logger",
                     "public"
@@ -1981,6 +2038,27 @@
                     "encoding",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "configured",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Configuration",
+                    "configuration",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "ignoredPatterns",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -1988,7 +2066,14 @@
                 "py/tuple": [
                     "None",
                     "Constructor",
-                    [],
+                    [
+                        {
+                            "py/tuple": [
+                                "Configuration",
+                                "configuration"
+                            ]
+                        }
+                    ],
                     "public"
                 ]
             },
@@ -2021,6 +2106,22 @@
                     ],
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "defineConfig",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleConfigation",
+                    [],
+                    "public"
+                ]
             }
         ],
         "name": "FileFetcher",
@@ -2032,6 +2133,7 @@
         "usingNS": [
             "typing",
             "injector",
+            "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
             "pycodeanalyzer::core::logging::loggerfactory"
         ]
@@ -2121,7 +2223,7 @@
             {
                 "py/tuple": [
                     "Configuration",
-                    "configuation",
+                    "configuration",
                     "public"
                 ]
             },
@@ -2367,14 +2469,7 @@
                 "py/tuple": [
                     "None",
                     "defineConfig",
-                    [
-                        {
-                            "py/tuple": [
-                                "Configuration",
-                                "config"
-                            ]
-                        }
-                    ],
+                    [],
                     "public"
                 ]
             },
@@ -2689,13 +2784,6 @@
             {
                 "py/tuple": [
                     "List<str>",
-                    "globalImports",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
                     "globalImports",
                     "public"
                 ]
@@ -3641,13 +3729,6 @@
             "py/id": 2
         },
         "members": [
-            {
-                "py/tuple": [
-                    "SocketIO",
-                    "socketio",
-                    "public"
-                ]
-            },
             {
                 "py/tuple": [
                     "SocketIO",
