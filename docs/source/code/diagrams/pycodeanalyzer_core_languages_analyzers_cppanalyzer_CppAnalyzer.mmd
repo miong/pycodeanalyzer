@@ -7,7 +7,6 @@ class CppAnalyzer {
 + Configuration configuration
 + bool configured
 + List~str~ defines
-+ Any defines
 +Constructor(Configuration config) None
 +analyze(str rootDir, str path) List~AbstractObject~
 +handleClass(str path, Any klass, List~AbstractObject~ abstractObjects) None
@@ -64,6 +63,7 @@ class AbstractClass {
 + List&lt;Tuple&lt;str,str,str&gt;&gt; parents
 +Constructor(str name, str namespace, str origin) None
 +addMember(str type, str name, str visibility) None
++hasMember(str name) bool
 +addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
 +addParent(str completetype, str name, str visibility) None
 +getLinkedTypes() List~str~

@@ -2,7 +2,6 @@ classDiagram
 class PythonAnalyzer {
 <<Class>>
 + List~str~ globalImports
-+ Any globalImports
 +Constructor() None
 +analyze(str rootDir, str path) List~AbstractObject~
 +handleEnum(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None
@@ -54,6 +53,7 @@ class AbstractClass {
 + List&lt;Tuple&lt;str,str,str&gt;&gt; parents
 +Constructor(str name, str namespace, str origin) None
 +addMember(str type, str name, str visibility) None
++hasMember(str name) bool
 +addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
 +addParent(str completetype, str name, str visibility) None
 +getLinkedTypes() List~str~

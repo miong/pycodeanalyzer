@@ -106,6 +106,21 @@
             },
             {
                 "py/tuple": [
+                    "bool",
+                    "hasMember",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "None",
                     "addMethod",
                     [

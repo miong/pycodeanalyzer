@@ -156,6 +156,12 @@ class AbstractClass(AbstractObject):
     def addMember(self, type: str, name: str, visibility: str) -> None:
         self.members.append((type, name, visibility))
 
+    def hasMember(self, name: str) -> bool:
+        for item in self.members:
+            if item[1] == name:
+                return True
+        return False
+
     def addMethod(
         self,
         returnType: str,

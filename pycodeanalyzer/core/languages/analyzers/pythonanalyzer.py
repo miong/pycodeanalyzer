@@ -188,9 +188,10 @@ class PythonAnalyzer(Analyzer):
                             if name.startswith("_"):
                                 name = re.sub("^[ _]*", "", name)
                                 visibility = "private"
-                            abstraction.addMember(
-                                self.deduceType(func, item), name, visibility
-                            )
+                            if not abstraction.hasMember(name):
+                                abstraction.addMember(
+                                    self.deduceType(func, item), name, visibility
+                                )
             if isinstance(item, AnnAssign):
                 if isinstance(item.target, AssignAttr):
                     attr = cast(AssignAttr, item.target)
@@ -221,7 +222,7 @@ class PythonAnalyzer(Analyzer):
             return self.deduceTypeFromTuple(item.value)
         if isinstance(item.value, Dict):
             return self.deduceTypeFromDict(item.value)
-        # TODO handle function call returns if possible
+        # TODO handle function call returns and IfExp if possible
         return "Any"
 
     def deduceReturnType(self, returnItem: Any) -> str:

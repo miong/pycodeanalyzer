@@ -18,7 +18,6 @@ class CppAnalyzer {
 + Configuration configuration
 + bool configured
 + List~str~ defines
-+ Any defines
 +Constructor(Configuration config) None
 +analyze(str rootDir, str path) List~AbstractObject~
 +handleClass(str path, Any klass, List~AbstractObject~ abstractObjects) None
@@ -36,7 +35,6 @@ link CppAnalyzer "class££pycodeanalyzer::core::languages::analyzers::cppanalyz
 class PythonAnalyzer {
 <<Class>>
 + List~str~ globalImports
-+ Any globalImports
 +Constructor() None
 +analyze(str rootDir, str path) List~AbstractObject~
 +handleEnum(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None

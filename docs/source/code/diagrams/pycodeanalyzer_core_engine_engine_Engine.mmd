@@ -13,9 +13,6 @@ class Engine {
 + List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
 + int nbFiles
 + Any stats
-+ List~Any~ roots
-+ int nbFiles
-+ Any stats
 + Any logger
 +Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, Configuration configuration) None
 +reset() None
@@ -42,7 +39,6 @@ class FileFetcher {
 + bool configured
 + Configuration configuration
 + List~str~ ignoredPatterns
-+ Any ignoredPatterns
 +Constructor(Configuration configuration) None
 +isAnalyzed(str fileabspath) bool
 +fetch(str rootDir) List~str~
@@ -66,7 +62,6 @@ class IdentityAnalyser {
 <<Class>>
 + Dict&lt;str,List&lt;Any&gt;&gt; mapping
 + str commonFilePath
-+ Any commonFilePath
 +Constructor() None
 +analyze(List~AbstractObject~ objects) None
 +getClasses() List~AbstractClass~
@@ -124,8 +119,6 @@ class ClassDiagramBuild {
 + List&lt;Tuple&lt;str,str&gt;&gt; relations
 + List&lt;Tuple&lt;str,str&gt;&gt; parents
 + Any target
-+ AbstractClass target
-+ AbstractEnum target
 +Constructor() None
 +reset() None
 +createClass(AbstractClass target, List~AbstractClass~ linkedClasses, List~AbstractEnum~ linkedEnums, List~AbstractFunction~ linkedFunctions) None
