@@ -780,13 +780,6 @@
                     "commonFilePath",
                     "public"
                 ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "commonFilePath",
-                    "public"
-                ]
             }
         ],
         "methodes": [
@@ -1349,21 +1342,7 @@
             },
             {
                 "py/tuple": [
-                    "Any",
-                    "target",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractClass",
-                    "target",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "AbstractEnum",
+                    "AbstractObject",
                     "target",
                     "public"
                 ]
@@ -1766,27 +1745,6 @@
             },
             {
                 "py/tuple": [
-                    "List<Any>",
-                    "roots",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "int",
-                    "nbFiles",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "stats",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
                     "Any",
                     "logger",
                     "public"
@@ -2101,13 +2059,6 @@
                     "ignoredPatterns",
                     "public"
                 ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
-                    "ignoredPatterns",
-                    "public"
-                ]
             }
         ],
         "methodes": [
@@ -2286,13 +2237,6 @@
             {
                 "py/tuple": [
                     "List<str>",
-                    "defines",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
                     "defines",
                     "public"
                 ]
@@ -2840,13 +2784,6 @@
             {
                 "py/tuple": [
                     "List<str>",
-                    "globalImports",
-                    "public"
-                ]
-            },
-            {
-                "py/tuple": [
-                    "Any",
                     "globalImports",
                     "public"
                 ]
@@ -3792,13 +3729,6 @@
             "py/id": 2
         },
         "members": [
-            {
-                "py/tuple": [
-                    "SocketIO",
-                    "socketio",
-                    "public"
-                ]
-            },
             {
                 "py/tuple": [
                     "SocketIO",
