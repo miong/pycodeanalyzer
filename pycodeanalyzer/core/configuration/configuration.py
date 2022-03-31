@@ -59,5 +59,6 @@ class Configuration:
             for section in self.definition.keys():
                 configFile.write("[" + section + "]\n")
                 for config in self.definition[section]:
-                    configFile.write("# " + config[1] + "\n")
+                    for line in config[1].splitlines():
+                        configFile.write("# " + line + "\n")
                     configFile.write("# " + config[0] + "= \n")
