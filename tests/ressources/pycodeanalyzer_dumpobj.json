@@ -1981,6 +1981,27 @@
                     "encoding",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "configured",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Configuration",
+                    "configuration",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "ignoredPatterns",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -1988,7 +2009,14 @@
                 "py/tuple": [
                     "None",
                     "Constructor",
-                    [],
+                    [
+                        {
+                            "py/tuple": [
+                                "Configuration",
+                                "configuration"
+                            ]
+                        }
+                    ],
                     "public"
                 ]
             },
@@ -2021,6 +2049,22 @@
                     ],
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "defineConfig",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleConfigation",
+                    [],
+                    "public"
+                ]
             }
         ],
         "name": "FileFetcher",
@@ -2032,6 +2076,7 @@
         "usingNS": [
             "typing",
             "injector",
+            "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
             "pycodeanalyzer::core::logging::loggerfactory"
         ]
@@ -2121,7 +2166,7 @@
             {
                 "py/tuple": [
                     "Configuration",
-                    "configuation",
+                    "configuration",
                     "public"
                 ]
             },
@@ -2367,14 +2412,7 @@
                 "py/tuple": [
                     "None",
                     "defineConfig",
-                    [
-                        {
-                            "py/tuple": [
-                                "Configuration",
-                                "config"
-                            ]
-                        }
-                    ],
+                    [],
                     "public"
                 ]
             },

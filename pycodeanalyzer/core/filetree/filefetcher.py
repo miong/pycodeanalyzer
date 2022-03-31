@@ -1,9 +1,11 @@
+import json
 import os
 import pathlib
 from typing import List
 
-from injector import singleton
+from injector import inject, singleton
 
+from pycodeanalyzer.core.configuration.configuration import Configuration
 from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
@@ -15,7 +17,8 @@ class FileFetcher:
     Class allowing to fetch all supported file from a root directory.
     """
 
-    def __init__(self) -> None:
+    @inject
+    def __init__(self, configuration: Configuration) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
         self.suported_extensions = [
             ".h",
@@ -27,6 +30,10 @@ class FileFetcher:
             "binary",
         ]
         self.encoding = Encoding()
+        self.configured = False
+        self.configuration = configuration
+        self.ignoredPatterns: List[str] = []
+        self.defineConfig()
 
     def isAnalyzed(self, fileabspath: str) -> bool:
         p = pathlib.Path(fileabspath)
@@ -35,13 +42,24 @@ class FileFetcher:
 
         encoding = self.encoding.getFileEncoding(fileabspath)
 
+        ignored = False
+        for pattern in self.ignoredPatterns:
+            ignored = p.match(pattern)
+            if ignored:
+                self.logger.info("Ignore file due to excludes config : %s", fileabspath)
+                break
+
         return (
             encoding not in self.rejected_encoding
             and extension in self.suported_extensions
             and not filename.startswith(".")
+            and not ignored
         )
 
     def fetch(self, rootDir: str) -> List[str]:
+        if not self.configured:
+            self.handleConfigation()
+            self.configured = True
         list: List[str] = []
         rootabspath = os.path.abspath(rootDir)
         if not os.path.isdir(rootabspath):
@@ -57,3 +75,17 @@ class FileFetcher:
                     list.append(filepath)
         self.logger.debug("end fetching files")
         return list
+
+    def defineConfig(self) -> None:
+        self.configuration.defineConfig(
+            "Analysis.Files",
+            "excludes",
+            "List of Glob expression (python) to exclude file. Used on file paths :"
+            ' Example : ["**/not_parsed.h","/toto/titi/file.h", "**/*toto[1-9]*.not"]',
+        )
+
+    def handleConfigation(self) -> None:
+        ignoredPatterns = self.configuration.get("Analysis.Files", "excludes")
+        print(ignoredPatterns)
+        if ignoredPatterns:
+            self.ignoredPatterns = json.loads(ignoredPatterns)

@@ -39,9 +39,14 @@ class FileFetcher {
 + List~str~ suported_extensions
 + List~str~ rejected_encoding
 + Any encoding
-+Constructor() None
++ bool configured
++ Configuration configuration
++ List~str~ ignoredPatterns
++Constructor(Configuration configuration) None
 +isAnalyzed(str fileabspath) bool
 +fetch(str rootDir) List~str~
++defineConfig() None
++handleConfigation() None
 }
 link FileFetcher "class££pycodeanalyzer::core::filetree::filefetcher::FileFetcher"
 class FileDispatcher {
