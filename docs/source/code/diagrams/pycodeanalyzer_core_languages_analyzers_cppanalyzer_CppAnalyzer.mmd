@@ -7,6 +7,7 @@ class CppAnalyzer {
 + Configuration configuration
 + bool configured
 + List~str~ defines
++ Any defines
 +Constructor(Configuration config) None
 +analyze(str rootDir, str path) List~AbstractObject~
 +handleClass(str path, Any klass, List~AbstractObject~ abstractObjects) None
@@ -36,6 +37,10 @@ class Configuration {
 +load(str path) bool
 +defineConfig(str section, str name, str comment) None
 +get(str section, str name) str
++getInt(str section, str name) int
++getFloat(str section, str name) float
++getBool(str section, str name) bool
++getList(str section, str name) List~Any~
 +generateTemplate(str path) None
 }
 link Configuration "class££pycodeanalyzer::core::configuration::configuration::Configuration"

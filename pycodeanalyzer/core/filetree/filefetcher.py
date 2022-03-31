@@ -1,4 +1,3 @@
-import json
 import os
 import pathlib
 from typing import List
@@ -85,7 +84,5 @@ class FileFetcher:
         )
 
     def handleConfigation(self) -> None:
-        ignoredPatterns = self.configuration.get("Analysis.Files", "excludes")
-        print(ignoredPatterns)
-        if ignoredPatterns:
-            self.ignoredPatterns = json.loads(ignoredPatterns)
+        ignoredPatterns_val = self.configuration.getList("Analysis.Files", "excludes")
+        self.ignoredPatterns = ignoredPatterns_val if ignoredPatterns_val else []

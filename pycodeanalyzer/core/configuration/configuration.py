@@ -1,6 +1,7 @@
 import configparser
+import json
 import os
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Tuple, cast
 
 from injector import singleton
 
@@ -48,6 +49,41 @@ class Configuration:
 
         try:
             return self.config.get(section, name)
+        except configparser.Error:
+            return None
+
+    def getInt(self, section: str, name: str) -> int:
+        """Get value from configuation"""
+
+        try:
+            return self.config.getint(section, name)
+        except configparser.Error:
+            return None
+
+    def getFloat(self, section: str, name: str) -> float:
+        """Get value from configuation"""
+
+        try:
+            return self.config.getfloat(section, name)
+        except configparser.Error:
+            return None
+
+    def getBool(self, section: str, name: str) -> bool:
+        """Get value from configuation"""
+
+        try:
+            return self.config.getboolean(section, name)
+        except configparser.Error:
+            return None
+
+    def getList(self, section: str, name: str) -> List[Any]:
+        """Get value from configuation"""
+
+        try:
+            list_val = json.loads(self.config.get(section, name))
+            if not isinstance(list_val, list):
+                return None
+            return cast(List[Any], list_val)
         except configparser.Error:
             return None
 

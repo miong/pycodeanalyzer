@@ -1131,6 +1131,90 @@
             },
             {
                 "py/tuple": [
+                    "int",
+                    "getInt",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "float",
+                    "getFloat",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "getBool",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Any>",
+                    "getList",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "section"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "None",
                     "generateTemplate",
                     [
@@ -2002,6 +2086,13 @@
                     "ignoredPatterns",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "ignoredPatterns",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -2180,6 +2271,13 @@
             {
                 "py/tuple": [
                     "List<str>",
+                    "defines",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
                     "defines",
                     "public"
                 ]

@@ -1,6 +1,5 @@
 import argparse
 import io
-import json
 import re
 from typing import Any, List
 
@@ -352,6 +351,5 @@ class CppAnalyzer(Analyzer):
         )
 
     def handleConfigation(self) -> None:
-        defines = self.configuration.get("Parser.CPP", "defines")
-        if defines:
-            self.defines = json.loads(defines)
+        defines_val = self.configuration.getList("Parser.CPP", "defines")
+        self.defines = defines_val if defines_val else []
