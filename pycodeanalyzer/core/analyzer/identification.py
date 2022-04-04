@@ -1,5 +1,5 @@
 import os
-from typing import Any, Dict, List, cast
+from typing import Any, Dict, List, Optional, cast
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
@@ -144,7 +144,7 @@ class IdentityAnalyser:
                     currentTree["__files__"].append(element)
         return tree
 
-    def getClass(self, classNamespacePath: str) -> AbstractClass:
+    def getClass(self, classNamespacePath: str) -> Optional[AbstractClass]:
         for klass in self.getClasses():
             klassPath = klass.name
             if len(klass.namespace) > 0:
@@ -153,7 +153,7 @@ class IdentityAnalyser:
                 return klass
         return None
 
-    def getEnum(self, enumNamespacePath: str) -> AbstractEnum:
+    def getEnum(self, enumNamespacePath: str) -> Optional[AbstractEnum]:
         for enum in self.getEnums():
             enumPath = enum.name
             if len(enum.namespace) > 0:
@@ -162,7 +162,7 @@ class IdentityAnalyser:
                 return enum
         return None
 
-    def getFunction(self, funcFullDef: str) -> AbstractFunction:
+    def getFunction(self, funcFullDef: str) -> Optional[AbstractFunction]:
         for func in self.getFunctions():
             if funcFullDef == func.getFullDef():
                 return func

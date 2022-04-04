@@ -1,7 +1,7 @@
 import argparse
 import io
 import re
-from typing import Any, List
+from typing import Any, List, Optional
 
 import CppHeaderParser
 from injector import inject
@@ -333,7 +333,7 @@ class CppAnalyzer(Analyzer):
 
     def extractUnexpectedFromParseError(
         self, err: CppHeaderParser.CppHeaderParser.CppParseError
-    ) -> str:
+    ) -> Optional[str]:
         msg = str(err)
         startDelim = "evaluating"
         endDelim = ":"

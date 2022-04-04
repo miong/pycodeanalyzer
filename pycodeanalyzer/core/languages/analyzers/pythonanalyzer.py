@@ -222,6 +222,8 @@ class PythonAnalyzer(Analyzer):
             return self.deduceTypeFromTuple(item.value)
         if isinstance(item.value, Dict):
             return self.deduceTypeFromDict(item.value)
+        if isinstance(item.value, Subscript):
+            return self.handleTypeAnnotation(item.value)
         # TODO handle function call returns and IfExp if possible
         return "Any"
 
@@ -309,6 +311,8 @@ class PythonAnalyzer(Analyzer):
         if isinstance(typeNope, Subscript):
             outter = typeNope.value.name
             inner = self.handleTypeAnnotation(typeNope.slice)
+            if outter == "Optional":
+                return inner
             return outter + "<" + inner + ">"
         elif isinstance(typeNope, Tuple):
             res = ""
