@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
@@ -68,7 +68,7 @@ class DependancyAnalyser:
         currentNamespace: str,
         currentClassName: str,
         usingNS: List[str],
-    ) -> AbstractClass:
+    ) -> Optional[AbstractClass]:
         for klass in klasses:
             if klass.namespace == namespace and klass.name == name:
                 return klass
@@ -112,7 +112,7 @@ class DependancyAnalyser:
         currentNamespace: str,
         currentClassName: str,
         usingNS: List[str],
-    ) -> AbstractEnum:
+    ) -> Optional[AbstractEnum]:
         for enum in enums:
             if enum.namespace == namespace and enum.name == name:
                 return enum

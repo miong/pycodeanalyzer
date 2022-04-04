@@ -1,7 +1,7 @@
 import configparser
 import json
 import os
-from typing import Any, Dict, List, Tuple, cast
+from typing import Any, Dict, List, Optional, Tuple, cast
 
 from injector import singleton
 
@@ -44,7 +44,7 @@ class Configuration:
             self.definition[section] = []
         self.definition[section].append((name, comment))
 
-    def get(self, section: str, name: str) -> str:
+    def get(self, section: str, name: str) -> Optional[str]:
         """Get value from configuation"""
 
         try:
@@ -52,7 +52,7 @@ class Configuration:
         except configparser.Error:
             return None
 
-    def getInt(self, section: str, name: str) -> int:
+    def getInt(self, section: str, name: str) -> Optional[int]:
         """Get value from configuation"""
 
         try:
@@ -60,7 +60,7 @@ class Configuration:
         except configparser.Error:
             return None
 
-    def getFloat(self, section: str, name: str) -> float:
+    def getFloat(self, section: str, name: str) -> Optional[float]:
         """Get value from configuation"""
 
         try:
@@ -68,7 +68,7 @@ class Configuration:
         except configparser.Error:
             return None
 
-    def getBool(self, section: str, name: str) -> bool:
+    def getBool(self, section: str, name: str) -> Optional[bool]:
         """Get value from configuation"""
 
         try:
@@ -76,7 +76,7 @@ class Configuration:
         except configparser.Error:
             return None
 
-    def getList(self, section: str, name: str) -> List[Any]:
+    def getList(self, section: str, name: str) -> Optional[List[Any]]:
         """Get value from configuation"""
 
         try:
