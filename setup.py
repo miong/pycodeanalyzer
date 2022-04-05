@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="pycodeanalyzer",
-    version="0.0.3",
+    version="0.0.4",
     url="https://github.com/miong/pycodeanalyzer",
     license='MIT',
     long_description_content_type="text/x-rst",
