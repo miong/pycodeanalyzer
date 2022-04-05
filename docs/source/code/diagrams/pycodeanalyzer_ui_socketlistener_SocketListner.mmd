@@ -1,8 +1,33 @@
 classDiagram
-class AbstractObjectLanguage {
-<<Enum>>
-+ Unknown
-+ CPP
-+ Python
-+ Java
+class SocketListner {
+<<Class>>
++ EngineCommands engineCommands
++Constructor(EngineCommands engineCommands) None
++fetchStats() None
++fetchAnalysedClassNames() None
++fetchAnalysedEnumNames() None
++fetchAnalysedFunctionNames() None
++fetchAnalysedFileNames() None
++fetchClassData(str className) None
++fetchEnumData(str enumName) None
++fetchFunctionData(str functionDef) None
++fetchFileData(str fileName) None
++searchData(str token) None
 }
+class EngineCommands {
+<<Class>>
++ Engine engine
++Constructor(Engine engine) None
++requestAnalysisStats() None
++requestClasseNames() None
++requestEnumNames() None
++requestFunctionNames() None
++requestFileNames() None
++requestClassData(str className) None
++requestEnumData(str enumName) None
++requestFunctionData(str functionDef) None
++requestFileData(str fileName) None
++requestSearchData(str token) None
+}
+link EngineCommands "class££pycodeanalyzer::ui::engineinterface::EngineCommands"
+SocketListner ..> EngineCommands

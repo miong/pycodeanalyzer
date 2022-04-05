@@ -269,8 +269,8 @@ class Engine:
             self.classDiagramBuild.reset()
             self.classDiagramBuild.createEnum(enum)
             mermaidDiag = self.classDiagramBuild.build()
-            classFileName = klass.getFullName().replace("::", "_") + ".mmd"
-            exportedFile = os.path.join(exportPath, classFileName)
-            self.logger.info("Exporting %s", klass.getFullName())
+            enumFileName = enum.getFullName().replace("::", "_") + ".mmd"
+            exportedFile = os.path.join(exportPath, enumFileName)
+            self.logger.info("Exporting %s", enum.getFullName())
             with open(exportedFile, "w") as diagFile:
                 diagFile.write(mermaidDiag)
