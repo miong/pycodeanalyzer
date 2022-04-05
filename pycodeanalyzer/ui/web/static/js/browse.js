@@ -156,7 +156,8 @@ function updateEnumView(enumData, diag) {
 	itemName.innerHTML = enumData.name;
 	console.log(diag);
 	itemDiag.innerHTML = diag;
-	let namespace = enumData;
+	// eslint-disable-next-line prefer-destructuring
+	let namespace = enumData.namespace;
 	if (namespace.length === 0) {
 		namespace = 'None';
 	}
@@ -180,7 +181,8 @@ function updateFunctionView(functionData) {
 
 	itemName.innerHTML = functionData.name;
 	itemDiag.innerHTML = '';
-	let {namespace} = functionData;
+	// eslint-disable-next-line prefer-destructuring
+	let namespace = functionData.namespace;
 	if (namespace.length === 0) {
 		namespace = 'None';
 	}
