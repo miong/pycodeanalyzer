@@ -60,6 +60,26 @@ class DependancyAnalyser:
                 )
         return (target, linkedClasses, linkedEnums, linkedFunctions)
 
+    def getParent(
+        self, klasses: List[AbstractClass], target: AbstractClass, parentName: str
+    ) -> Optional[AbstractClass]:
+        typeDeclaredNamespace = ""
+        typeName = ""
+        if "::" in parentName:
+            lastSeparatorIndx = parentName.rindex("::")
+            typeDeclaredNamespace = parentName[:lastSeparatorIndx]
+            typeName = parentName[lastSeparatorIndx + 2 :]
+        else:
+            typeName = parentName
+        return self.__findClass(
+            typeDeclaredNamespace,
+            typeName,
+            klasses,
+            target.namespace,
+            target.name,
+            target.usingNS,
+        )
+
     def __findClass(
         self,
         namespace: str,

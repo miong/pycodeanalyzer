@@ -167,7 +167,18 @@ class Engine:
         klassDesc["file"] = klass.origin
         klassDesc["parents"] = []
         for parent in klass.parents:
-            klassDesc["parents"].append(parent[0])
+            parentKlass = self.dependancyAnalyser.getParent(
+                self.identityAnalyser.getClasses(), klass, parent[0]
+            )
+            if parentKlass:
+                if parentKlass.namespace:
+                    klassDesc["parents"].append(
+                        parentKlass.namespace + "::" + parentKlass.name
+                    )
+                else:
+                    klassDesc["parents"].append(parentKlass.name)
+            else:
+                klassDesc["parents"].append("$_EXTERNAL_$" + parent[0])
         self.logger.debug("Class data sent to UI")
         self.uiBrowseListener.notifyClassData(klassDesc, mermaidDiag)
 

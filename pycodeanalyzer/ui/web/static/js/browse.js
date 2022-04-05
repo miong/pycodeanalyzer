@@ -121,7 +121,11 @@ function updateClassView(klass, diag) {
 	if (klass.parents.length > 0) {
 		desc += '<b>Inherits from : </b><br><ul class="inherits-link">';
 		for (const parent of klass.parents) {
-			desc += '<li class="inherits-link"><a href="#" onclick="requestClassData(\'' + parent + '\');return false;">' + parent + '</a></li>';
+			if (parent.startsWith('$_EXTERNAL_$')) {
+				desc += '<li class="inherits-link">' + parent.replace('$_EXTERNAL_$', '') + '</li>';
+			} else {
+				desc += '<li class="inherits-link"><a href="#" onclick="requestClassData(\'' + parent + '\');return false;">' + parent + '</a></li>';
+			}
 		}
 
 		desc += '</ul><br>';
