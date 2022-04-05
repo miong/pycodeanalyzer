@@ -33,10 +33,10 @@ The following languages are supported:
 
 #. C/C++
 #. Python, if annotation are used
+#. Java
 
 The following languages should be supported:
 
-#. Java
 #. Kotlin
 
 How does it works ?
