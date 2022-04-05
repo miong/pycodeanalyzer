@@ -663,6 +663,33 @@
             {
                 "py/tuple": [
                     "AbstractClass",
+                    "getParent",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractClass>",
+                                "klasses"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "target"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "parentName"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "AbstractClass",
                     "findClass",
                     [
                         {

@@ -82,6 +82,7 @@ link IdentityAnalyser "class££pycodeanalyzer::core::analyzer::identification::
 class DependancyAnalyser {
 <<Class>>
 +analyze(List~AbstractClass~ klasses, List~AbstractEnum~ enums, AbstractClass target) Tuple&lt;AbstractClass,List&lt;AbstractClass&gt;,List&lt;AbstractEnum&gt;,List&lt;AbstractFunction&gt;&gt;
++getParent(List~AbstractClass~ klasses, AbstractClass target, str parentName) AbstractClass
 -findClass(str namespace, str name, List~AbstractClass~ klasses, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractClass
 -findEnum(str namespace, str name, List~AbstractEnum~ enums, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractEnum
 }

@@ -167,7 +167,18 @@ class Engine:
         klassDesc["file"] = klass.origin
         klassDesc["parents"] = []
         for parent in klass.parents:
-            klassDesc["parents"].append(parent[0])
+            parentKlass = self.dependancyAnalyser.getParent(
+                self.identityAnalyser.getClasses(), klass, parent[0]
+            )
+            if parentKlass:
+                if parentKlass.namespace:
+                    klassDesc["parents"].append(
+                        parentKlass.namespace + "::" + parentKlass.name
+                    )
+                else:
+                    klassDesc["parents"].append(parentKlass.name)
+            else:
+                klassDesc["parents"].append("$_EXTERNAL_$" + parent[0])
         self.logger.debug("Class data sent to UI")
         self.uiBrowseListener.notifyClassData(klassDesc, mermaidDiag)
 
@@ -258,8 +269,8 @@ class Engine:
             self.classDiagramBuild.reset()
             self.classDiagramBuild.createEnum(enum)
             mermaidDiag = self.classDiagramBuild.build()
-            classFileName = klass.getFullName().replace("::", "_") + ".mmd"
-            exportedFile = os.path.join(exportPath, classFileName)
-            self.logger.info("Exporting %s", klass.getFullName())
+            enumFileName = enum.getFullName().replace("::", "_") + ".mmd"
+            exportedFile = os.path.join(exportPath, enumFileName)
+            self.logger.info("Exporting %s", enum.getFullName())
             with open(exportedFile, "w") as diagFile:
                 diagFile.write(mermaidDiag)
