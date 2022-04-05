@@ -3726,6 +3726,104 @@
         "members": [
             {
                 "py/tuple": [
+                    "T",
+                    "value",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "GenericClass",
+                    "GenericClass",
+                    [
+                        {
+                            "py/tuple": [
+                                "T",
+                                "val"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void",
+                    "genericMethod",
+                    [
+                        {
+                            "py/tuple": [
+                                "K",
+                                "otherType"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "void",
+                    "set",
+                    [
+                        {
+                            "py/tuple": [
+                                "T",
+                                "t"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "T",
+                    "get",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "GenericClass",
+        "namespace": "com::jcraft::jzlib",
+        "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Generics.java",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [],
+        "name": "GenericClassIntImpl",
+        "namespace": "com::jcraft::jzlib",
+        "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Generics.java",
+        "parents": [
+            {
+                "py/tuple": [
+                    "GenericClass",
+                    "GenericClass",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
                     "int",
                     "MANY",
                     "private"
