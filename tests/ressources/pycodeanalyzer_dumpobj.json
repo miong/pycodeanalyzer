@@ -2156,7 +2156,14 @@
                 "py/tuple": [
                     "None",
                     "Constructor",
-                    [],
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
                     "public"
                 ]
             },

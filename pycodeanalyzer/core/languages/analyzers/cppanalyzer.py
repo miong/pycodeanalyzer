@@ -138,7 +138,7 @@ class CppAnalyzer(Analyzer):
 
     @inject
     def __init__(self, config: Configuration) -> None:
-        super().__init__()
+        super().__init__(__name__)
         CppHeaderParser.CppHeaderParser.ignoreSymbols = []
         CppHeaderParser.CppHeaderParser.is_enum_namestack = (
             CustomCppHeader.is_enum_namestack
