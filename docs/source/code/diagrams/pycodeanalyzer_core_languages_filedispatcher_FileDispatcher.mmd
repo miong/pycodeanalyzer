@@ -4,8 +4,9 @@ class FileDispatcher {
 + Any logger
 + CppAnalyzer cppAnalyzer
 + PythonAnalyzer pythonAnalyzer
++ JavaAnalyzer javaAnalyzer
 + UiFileDispatcherListener uiListener
-+Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, UiFileDispatcherListener uiListener) None
++Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, JavaAnalyzer javaAnalyzer, UiFileDispatcherListener uiListener) None
 +dispatchRoots(List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots) List~AbstractObject~
 +dispatch(str rootDir, List~str~ files) List~AbstractObject~
 +sortObjects(List~AbstractObject~ abstractObjects) List~AbstractObject~
@@ -56,6 +57,18 @@ class PythonAnalyzer {
 +getImportsNameSpace(Any item) List~str~
 }
 link PythonAnalyzer "class££pycodeanalyzer::core::languages::analyzers::pythonanalyzer::PythonAnalyzer"
+class JavaAnalyzer {
+<<Class>>
++ List~str~ globalImports
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
++handleClass(List~AbstractObject~ abstractObjects, str path, str currentNS, Union~javalang::ClassDeclaration,javalang::InterfaceDeclaration~ klass) None
++handleEnum(List~AbstractObject~ abstractObjects, str path, str currentNS, javalang::EnumDeclaration enum) None
++handleParent(Any item, AbstractClass klass) None
++deduceVisibility(Any item) str
++deduceType(Any item) str
+}
+link JavaAnalyzer "class££pycodeanalyzer::core::languages::analyzers::javaanalyzer::JavaAnalyzer"
 class UiFileDispatcherListener {
 <<Class>>
 +notifyAnalyzing(str file) None
@@ -75,5 +88,6 @@ class AbstractObject {
 link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
 FileDispatcher ..> CppAnalyzer
 FileDispatcher ..> PythonAnalyzer
+FileDispatcher ..> JavaAnalyzer
 FileDispatcher ..> UiFileDispatcherListener
 FileDispatcher ..> AbstractObject

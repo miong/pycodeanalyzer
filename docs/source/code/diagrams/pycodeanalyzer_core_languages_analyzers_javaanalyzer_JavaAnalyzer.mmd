@@ -1,0 +1,68 @@
+classDiagram
+class JavaAnalyzer {
+<<Class>>
++ List~str~ globalImports
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
++handleClass(List~AbstractObject~ abstractObjects, str path, str currentNS, Union~javalang::ClassDeclaration,javalang::InterfaceDeclaration~ klass) None
++handleEnum(List~AbstractObject~ abstractObjects, str path, str currentNS, javalang::EnumDeclaration enum) None
++handleParent(Any item, AbstractClass klass) None
++deduceVisibility(Any item) str
++deduceType(Any item) str
+}
+class Analyzer {
+<<Class>>
++ Any logger
++Constructor(str name) None
++analyze(str rootDir, str path) List~AbstractObject~
+}
+link Analyzer "class££pycodeanalyzer::core::languages::analyzer::Analyzer"
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+class ClassDeclaration
+<<External>> ClassDeclaration
+class InterfaceDeclaration
+<<External>> InterfaceDeclaration
+class Union
+<<External>> Union
+class EnumDeclaration
+<<External>> EnumDeclaration
+class AbstractClass {
+<<Class>>
++ str namespace
++ str type
++ List&lt;Tuple&lt;str,str,str&gt;&gt; members
++ List&lt;Tuple&lt;str,str,List&lt;Tuple&lt;str,str&gt;&gt;,str&gt;&gt; methodes
++ List&lt;Tuple&lt;str,str,str&gt;&gt; parents
++Constructor(str name, str namespace, str origin) None
++addMember(str type, str name, str visibility) None
++hasMember(str name) bool
++addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
++addParent(str completetype, str name, str visibility) None
++getLinkedTypes() List~str~
+-isPotentialClassName(str type) bool
+-getDependanceFromType(str type) List~str~
+-splitTypes(Any decl) List~str~
++getFullName() str
+-cleanLanguageArtifacts(str type) str
+-removeNonObjectTypes(List~str~ typeList) List~str~
++isParent(AbstractClass klass) bool
++print() None
+}
+link AbstractClass "class££pycodeanalyzer::core::abstraction::objects::AbstractClass"
+JavaAnalyzer --|> Analyzer
+JavaAnalyzer ..> AbstractObject
+JavaAnalyzer ..> ClassDeclaration
+JavaAnalyzer ..> InterfaceDeclaration
+JavaAnalyzer ..> Union
+JavaAnalyzer ..> EnumDeclaration
+JavaAnalyzer ..> AbstractClass

@@ -14,6 +14,7 @@ pycodeanalyzer.core.languages.analyzers
        :maxdepth: 1
 
        pycodeanalyzer.core.languages.analyzers.cppanalyzer
+       pycodeanalyzer.core.languages.analyzers.javaanalyzer
        pycodeanalyzer.core.languages.analyzers.pythonanalyzer
 
 

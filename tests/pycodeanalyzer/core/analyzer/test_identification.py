@@ -26,7 +26,7 @@ class TestIdentityAnalyser:
             objectList = jsonpickle.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
-        assert len(analyzer.mapping["Classes"]) == 29
+        assert len(analyzer.mapping["Classes"]) == 30
         assert len(analyzer.mapping["Enums"]) == 1
         assert len(analyzer.mapping["Functions"]) == 15
         for obj in objectList:
@@ -63,7 +63,7 @@ class TestIdentityAnalyser:
 
     def test_getClasseTree(self, mocker):
         objectList = []
-        with open(getRessource("zlib_dumpobj.json"),"r") as dataFile:
+        with open(getRessource("cpp_zlib_dumpobj.json"),"r") as dataFile:
             objectList = jsonpickle.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
@@ -232,6 +232,7 @@ class TestIdentityAnalyser:
                      'languages': {'__files__': ['analyzer.py',
                                                  'filedispatcher.py'],
                                    'analyzers': {'__files__': ['cppanalyzer.py',
+                                                               'javaanalyzer.py',
                                                                'pythonanalyzer.py']}},
                      'logging': {'__files__': ['loggerfactory.py']},
                      'utils': {'__files__': ['containers.py',
@@ -262,6 +263,7 @@ class TestIdentityAnalyser:
             '/pycodeanalyzer/core/filetree/filefetcher.py',
             '/pycodeanalyzer/core/languages/analyzer.py',
             '/pycodeanalyzer/core/languages/analyzers/cppanalyzer.py',
+            '/pycodeanalyzer/core/languages/analyzers/javaanalyzer.py',
             '/pycodeanalyzer/core/languages/analyzers/pythonanalyzer.py',
             '/pycodeanalyzer/core/languages/filedispatcher.py',
             '/pycodeanalyzer/core/logging/loggerfactory.py',
