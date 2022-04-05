@@ -1,1 +1,4 @@
-**/libs/*
+.eslintrc.js
+**/libs/**
+**/htmlcov/**
+**/docs/build/**
