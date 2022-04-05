@@ -35,6 +35,8 @@ see https://pip.pypa.io/en/stable/installation/ for more detail on pip
 
 see https://test.pypi.org/search/?q=pycodeanalyzer to see the last release candidate
 
+        pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple -U pycodeanalyzer
+
 Macos
 ^^^^^
 
