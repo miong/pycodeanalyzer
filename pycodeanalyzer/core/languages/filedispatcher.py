@@ -8,6 +8,7 @@ from pycodeanalyzer.core.abstraction.objects import (
     compareAbstractObject,
 )
 from pycodeanalyzer.core.languages.analyzers.cppanalyzer import CppAnalyzer
+from pycodeanalyzer.core.languages.analyzers.javaanalyzer import JavaAnalyzer
 from pycodeanalyzer.core.languages.analyzers.pythonanalyzer import PythonAnalyzer
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.ui.app import UiFileDispatcherListener
@@ -25,11 +26,13 @@ class FileDispatcher:
         self,
         cppAnalyzer: CppAnalyzer,
         pythonAnalyzer: PythonAnalyzer,
+        javaAnalyzer: JavaAnalyzer,
         uiListener: UiFileDispatcherListener,
     ) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
         self.cppAnalyzer = cppAnalyzer
         self.pythonAnalyzer = pythonAnalyzer
+        self.javaAnalyzer = javaAnalyzer
         self.uiListener = uiListener
 
     def dispatchRoots(self, roots: List[Tuple[str, List[str]]]) -> List[AbstractObject]:
@@ -51,6 +54,9 @@ class FileDispatcher:
             if extension == ".py":
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.pythonAnalyzer.analyze(rootDir, file)
+            if extension == ".java":
+                self.uiListener.notifyAnalyzing(file)
+                abstractObjects += self.javaAnalyzer.analyze(rootDir, file)
         return abstractObjects
 
     def sortObjects(

@@ -30,7 +30,8 @@ def verify(path, data):
         exit(1)
 
 def main():
-    verify("./tests/ressources/code/cpp_zlib","./tests/ressources/zlib_dumpobj.json")
+    verify("./tests/ressources/code/cpp_zlib","./tests/ressources/cpp_zlib_dumpobj.json")
+    verify("./tests/ressources/code/java_zlib","./tests/ressources/java_zlib_dumpobj.json")
     verify("pycodeanalyzer", "./tests/ressources/pycodeanalyzer_dumpobj.json")
     exit(0)
 

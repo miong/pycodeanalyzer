@@ -33,7 +33,7 @@ class PythonAnalyzer(Analyzer):
     """
 
     def __init__(self) -> None:
-        super().__init__()
+        super().__init__(__name__)
         self.globalImports: List[str] = []
 
     def analyze(self, rootDir: str, path: str) -> List[AbstractObject]:

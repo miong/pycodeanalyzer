@@ -19,6 +19,7 @@ class AbstractObjectLanguage(Enum):
     Unknown = 0
     CPP = 1
     Python = 2
+    Java = 3
 
 
 class AbstractObject:
@@ -143,6 +144,26 @@ class AbstractClass(AbstractObject):
             "long",
             "bool",
         ],
+        AbstractObjectLanguage.Java: [
+            "void",
+            "byte",
+            "int",
+            "short",
+            "long",
+            "float",
+            "double",
+            "boolean",
+            "char",
+            "String",
+            "Object",
+            "Integer",
+            "Short",
+            "Long",
+            "Float",
+            "Double",
+            "Boolean" "Byte" "Char",
+            "Void",
+        ],
     }
 
     def __init__(self, name: str, namespace: str, origin: str) -> None:
@@ -264,6 +285,8 @@ class AbstractClass(AbstractObject):
             .replace("...", "")
             .replace("enum", "")
             .replace("struct", "")
+            .replace("[", "")
+            .replace("]", "")
             .strip()
         )
 

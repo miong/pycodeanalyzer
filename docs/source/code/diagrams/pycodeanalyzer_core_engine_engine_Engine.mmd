@@ -51,8 +51,9 @@ class FileDispatcher {
 + Any logger
 + CppAnalyzer cppAnalyzer
 + PythonAnalyzer pythonAnalyzer
++ JavaAnalyzer javaAnalyzer
 + UiFileDispatcherListener uiListener
-+Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, UiFileDispatcherListener uiListener) None
++Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, JavaAnalyzer javaAnalyzer, UiFileDispatcherListener uiListener) None
 +dispatchRoots(List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots) List~AbstractObject~
 +dispatch(str rootDir, List~str~ files) List~AbstractObject~
 +sortObjects(List~AbstractObject~ abstractObjects) List~AbstractObject~

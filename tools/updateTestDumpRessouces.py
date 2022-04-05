@@ -19,7 +19,8 @@ def update(path, ressouce):
     shutil.move("dumpobj.json", ressouce)
 
 def main():
-    update("./tests/ressources/code/cpp_zlib","./tests/ressources/zlib_dumpobj.json")
+    update("./tests/ressources/code/cpp_zlib","./tests/ressources/cpp_zlib_dumpobj.json")
+    update("./tests/ressources/code/java_zlib","./tests/ressources/java_zlib_dumpobj.json")
     update("pycodeanalyzer", "./tests/ressources/pycodeanalyzer_dumpobj.json")
 
 if __name__ == "__main__":

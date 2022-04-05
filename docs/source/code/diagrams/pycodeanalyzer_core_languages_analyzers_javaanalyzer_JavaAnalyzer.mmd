@@ -1,26 +1,14 @@
 classDiagram
-class PythonAnalyzer {
+class JavaAnalyzer {
 <<Class>>
 + List~str~ globalImports
 +Constructor() None
 +analyze(str rootDir, str path) List~AbstractObject~
-+handleEnum(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None
-+handleClass(str path, str namespace, ClassDef item, List~AbstractObject~ abstractObjects) None
-+isEnumType(str type) bool
-+handleFunction(str path, str namespace, FunctionDef item, List~AbstractObject~ abstractObjects) None
-+handleMembers(Any func, AbstractClass abstraction) None
-+deduceType(FunctionDef func, Assign item) str
-+deduceReturnType(Any returnItem) str
-+deduceTypeFromTypeName(Name item) str
-+deduceTypeFromName(FunctionDef func, Name item) str
-+deduceTypeFromTuple(Tuple item) str
-+deduceTypeFromList(typeList item) str
-+deduceTypeFromDict(Dict item) str
-+deduceTypeFromConst(Const item) str
-+handleTypeAnnotation(Any typeNope) str
-+deduceNamespaceFromAttribute(Attribute attrib, bool isRoot) str
-+deduceNamespace(str path, str rootDir) str
-+getImportsNameSpace(Any item) List~str~
++handleClass(List~AbstractObject~ abstractObjects, str path, str currentNS, Union~javalang::ClassDeclaration,javalang::InterfaceDeclaration~ klass) None
++handleEnum(List~AbstractObject~ abstractObjects, str path, str currentNS, javalang::EnumDeclaration enum) None
++handleParent(Any item, AbstractClass klass) None
++deduceVisibility(Any item) str
++deduceType(Any item) str
 }
 class Analyzer {
 <<Class>>
@@ -40,10 +28,14 @@ class AbstractObject {
 +addUsingNamespace(str namespace) None
 }
 link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
-class ClassDef
-<<External>> ClassDef
-class FunctionDef
-<<External>> FunctionDef
+class ClassDeclaration
+<<External>> ClassDeclaration
+class InterfaceDeclaration
+<<External>> InterfaceDeclaration
+class Union
+<<External>> Union
+class EnumDeclaration
+<<External>> EnumDeclaration
 class AbstractClass {
 <<Class>>
 + str namespace
@@ -67,23 +59,10 @@ class AbstractClass {
 +print() None
 }
 link AbstractClass "class££pycodeanalyzer::core::abstraction::objects::AbstractClass"
-class Assign
-<<External>> Assign
-class Name
-<<External>> Name
-class typeList
-<<External>> typeList
-class Const
-<<External>> Const
-class Attribute
-<<External>> Attribute
-PythonAnalyzer --|> Analyzer
-PythonAnalyzer ..> AbstractObject
-PythonAnalyzer ..> ClassDef
-PythonAnalyzer ..> FunctionDef
-PythonAnalyzer ..> AbstractClass
-PythonAnalyzer ..> Assign
-PythonAnalyzer ..> Name
-PythonAnalyzer ..> typeList
-PythonAnalyzer ..> Const
-PythonAnalyzer ..> Attribute
+JavaAnalyzer --|> Analyzer
+JavaAnalyzer ..> AbstractObject
+JavaAnalyzer ..> ClassDeclaration
+JavaAnalyzer ..> InterfaceDeclaration
+JavaAnalyzer ..> Union
+JavaAnalyzer ..> EnumDeclaration
+JavaAnalyzer ..> AbstractClass

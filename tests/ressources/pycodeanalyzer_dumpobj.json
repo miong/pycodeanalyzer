@@ -2156,7 +2156,14 @@
                 "py/tuple": [
                     "None",
                     "Constructor",
-                    [],
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
                     "public"
                 ]
             },
@@ -2822,6 +2829,187 @@
             {
                 "py/tuple": [
                     "None",
+                    "handleClass",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "abstractObjects"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentNS"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "Union<javalang::ClassDeclaration,javalang::InterfaceDeclaration>",
+                                "klass"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleEnum",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "abstractObjects"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentNS"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "javalang::EnumDeclaration",
+                                "enum"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleParent",
+                    [
+                        {
+                            "py/tuple": [
+                                "Any",
+                                "item"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "klass"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "deduceVisibility",
+                    [
+                        {
+                            "py/tuple": [
+                                "Any",
+                                "item"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "deduceType",
+                    [
+                        {
+                            "py/tuple": [
+                                "Any",
+                                "item"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "JavaAnalyzer",
+        "namespace": "pycodeanalyzer::core::languages::analyzers::javaanalyzer",
+        "origin": "/pycodeanalyzer/core/languages/analyzers/javaanalyzer.py",
+        "parents": [
+            {
+                "py/tuple": [
+                    "Analyzer",
+                    "Analyzer",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::languages::analyzer"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "globalImports",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractObject>",
+                    "analyze",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "rootDir"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
                     "handleEnum",
                     [
                         {
@@ -3211,6 +3399,13 @@
             },
             {
                 "py/tuple": [
+                    "JavaAnalyzer",
+                    "javaAnalyzer",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "UiFileDispatcherListener",
                     "uiListener",
                     "public"
@@ -3233,6 +3428,12 @@
                             "py/tuple": [
                                 "PythonAnalyzer",
                                 "pythonAnalyzer"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "JavaAnalyzer",
+                                "javaAnalyzer"
                             ]
                         },
                         {
@@ -3308,6 +3509,7 @@
             "injector",
             "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::languages::analyzers::cppanalyzer",
+            "pycodeanalyzer::core::languages::analyzers::javaanalyzer",
             "pycodeanalyzer::core::languages::analyzers::pythonanalyzer",
             "pycodeanalyzer::core::logging::loggerfactory",
             "pycodeanalyzer::ui::app"
@@ -4174,7 +4376,8 @@
         "values": [
             "Unknown",
             "CPP",
-            "Python"
+            "Python",
+            "Java"
         ]
     },
     {

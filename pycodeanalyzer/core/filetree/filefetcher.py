@@ -23,6 +23,7 @@ class FileFetcher:
             ".h",
             ".hpp",
             ".py",
+            ".java",
         ]
         self.rejected_encoding = [
             "unknown-8bit",
