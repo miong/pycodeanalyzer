@@ -22,7 +22,11 @@ class JavaAnalyzer(Analyzer):
         content: str = ""
         with open(path, "r") as srcFile:
             content = srcFile.read()
-        tree = javalang.parse.parse(content)
+        try:
+            tree = javalang.parse.parse(content)
+        except javalang.parser.JavaParserBaseException:
+            self.logger.error("Can't parse %s", path)
+            return abstractObjects
 
         # Handle imports
         self.globalImports = []
@@ -66,7 +70,6 @@ class JavaAnalyzer(Analyzer):
                 for item in klass.implements:
                     self.handleParent(item, abstraction)
         for item in klass.body:
-            # TODO handle generics
             if isinstance(item, javalang.tree.ClassDeclaration):
                 self.handleClass(
                     abstractObjects, path, currentNS + "::" + klass.name, item
