@@ -29,7 +29,6 @@ class PieCharBuild:
         res = "pie title " + title + "\n"
         for label, value in self.categories.items():
             res += '"' + label + '" : ' + str(value) + "\n"
-        print(res)
         return res
 
 
