@@ -29,7 +29,7 @@ Installation
 
 pycodeanlyzer is available on PyPI::
 
-        pip install pycodeanalyzer
+        pip install -U pycodeanalyzer
 
 see https://pip.pypa.io/en/stable/installation/ for more detail on pip
 
@@ -68,6 +68,7 @@ pycodeanalyser supports the following languages:
 
 - C/C++ (using headers)
 - Python3 (using annotation)
+- Java
 
 Licence
 -------
