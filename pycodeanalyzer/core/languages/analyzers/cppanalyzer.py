@@ -229,7 +229,6 @@ class CppAnalyzer(Analyzer):
                         or unexpectedToken in self.forceIgnoredSymbols
                     ):
                         continueTryParsing = False
-                        print(err)
                         self.logger.error(err)
                         self.logger.error("Error analyzing %s", path)
                     elif (
