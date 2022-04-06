@@ -9,7 +9,7 @@ from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
 from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
 from pycodeanalyzer.core.analyzer.search import SearchAnalyser
 from pycodeanalyzer.core.configuration.configuration import Configuration
-from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild
+from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild, PieCharBuild
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
@@ -29,6 +29,7 @@ class AnalysisStats:
         self.nbEnums = 0
         self.nbFunctions = 0
         self.timeSpent = 0.0
+        self.languageDispatch: Dict[str, int] = {}
 
 
 @singleton
@@ -49,6 +50,7 @@ class Engine:
         uiStatListener: UiStatListener,
         uiBrowseListener: UiBrowseListener,
         classDiagramBuild: ClassDiagramBuild,
+        pieCharBuild: PieCharBuild,
         configuration: Configuration,
     ) -> None:
         self.fileFetcher = fileFetcher
@@ -58,6 +60,7 @@ class Engine:
         self.searchAnalyser = searchAnalyser
         self.uiStatListener = uiStatListener
         self.uiBrowseListener = uiBrowseListener
+        self.pieCharBuild = pieCharBuild
         self.classDiagramBuild = classDiagramBuild
         self.configuration = configuration
         self.roots: List[Tuple[str, List[str]]] = []
@@ -68,6 +71,7 @@ class Engine:
         self.roots = []
         self.nbFiles = 0
         self.stats = AnalysisStats()
+        self.fileFetcher.reset()
 
     def run(self, args: Any) -> None:
         self.reset()
@@ -112,21 +116,28 @@ class Engine:
         self.stats.nbEnums = len(self.identityAnalyser.getEnums())
         self.stats.nbFunctions = len(self.identityAnalyser.getFunctions())
         self.stats.timeSpent = duration
+        self.stats.languageDispatch = self.fileFetcher.languagesCount
 
         self.logger.info("Stats :")
         self.logger.info("Files found %d", self.stats.nbFiles)
         self.logger.info("Classes found %d", self.stats.nbClasses)
         self.logger.info("Enums found %d", self.stats.nbEnums)
         self.logger.info("Functions found %d", self.stats.nbFunctions)
+        self.logger.info("languages : %s", str(self.stats.languageDispatch))
         self.logger.info("Analysis duration : %s seconds", str(self.stats.timeSpent))
 
     def sendAnalysisStats(self) -> None:
+        self.pieCharBuild.reset()
+        for label, value in self.stats.languageDispatch.items():
+            self.pieCharBuild.addValue(label, value)
+        languagePie = self.pieCharBuild.build("Languages")
         self.logger.debug("Stats sent to UI")
         self.uiStatListener.notifyStats(
             self.stats.nbFiles,
             self.stats.nbClasses,
             self.stats.nbEnums,
             self.stats.nbFunctions,
+            languagePie,
             self.stats.timeSpent,
         )
 

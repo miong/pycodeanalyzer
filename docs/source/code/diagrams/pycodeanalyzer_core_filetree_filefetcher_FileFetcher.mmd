@@ -8,7 +8,9 @@ class FileFetcher {
 + bool configured
 + Configuration configuration
 + List~str~ ignoredPatterns
++ Dict~str,int~ languagesCount
 +Constructor(Configuration configuration) None
++reset() None
 +isAnalyzed(str fileabspath) bool
 +fetch(str rootDir) List~str~
 +defineConfig() None

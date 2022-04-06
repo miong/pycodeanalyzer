@@ -10,6 +10,7 @@ from pycodeanalyzer.core.abstraction.objects import (
 from pycodeanalyzer.core.languages.analyzers.cppanalyzer import CppAnalyzer
 from pycodeanalyzer.core.languages.analyzers.javaanalyzer import JavaAnalyzer
 from pycodeanalyzer.core.languages.analyzers.pythonanalyzer import PythonAnalyzer
+from pycodeanalyzer.core.languages.extensions import languageExtensions
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.ui.app import UiFileDispatcherListener
 
@@ -48,13 +49,16 @@ class FileDispatcher:
         abstractObjects = []
         for file in files:
             extension = pathlib.Path(file).suffix
-            if extension == ".h" or extension == ".hpp":
+            language = None
+            if extension in languageExtensions.keys():
+                language = languageExtensions[extension]
+            if language == "CPP":
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.cppAnalyzer.analyze(rootDir, file)
-            if extension == ".py":
+            if language == "PYTHON":
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.pythonAnalyzer.analyze(rootDir, file)
-            if extension == ".java":
+            if language == "JAVA":
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.javaAnalyzer.analyze(rootDir, file)
         return abstractObjects

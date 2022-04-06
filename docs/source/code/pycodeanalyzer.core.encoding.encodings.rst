@@ -40,6 +40,10 @@ pycodeanalyzer.core.encoding.encodings
         .. mermaid:: diagrams/pycodeanalyzer_core_encoding_encodings_Encoding.mmd
             :alt: Encoding class diagram is not available :/
 
+        Encoding class diagram
+
+
+
     Reference
     ---------
 

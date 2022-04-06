@@ -7,7 +7,7 @@ pycodeanalyzer.core.languages.filedispatcher
 .. currentmodule:: pycodeanalyzer.core.languages.filedispatcher
 
 .. automodule:: pycodeanalyzer.core.languages.filedispatcher
-    :members: FileDispatcher
+    :members: FileDispatcher, languageExtensions
     :undoc-members:
     :show-inheritance:
     :member-order: bysource
@@ -39,6 +39,10 @@ pycodeanalyzer.core.languages.filedispatcher
 
         .. mermaid:: diagrams/pycodeanalyzer_core_languages_filedispatcher_FileDispatcher.mmd
             :alt: FileDispatcher class diagram is not available :/
+
+        FileDispatcher class diagram
+
+
 
     Reference
     ---------

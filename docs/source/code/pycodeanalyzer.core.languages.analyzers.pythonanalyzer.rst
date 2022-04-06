@@ -40,6 +40,10 @@ pycodeanalyzer.core.languages.analyzers.pythonanalyzer
         .. mermaid:: diagrams/pycodeanalyzer_core_languages_analyzers_pythonanalyzer_PythonAnalyzer.mmd
             :alt: PythonAnalyzer class diagram is not available :/
 
+        PythonAnalyzer class diagram
+
+
+
     Reference
     ---------
 

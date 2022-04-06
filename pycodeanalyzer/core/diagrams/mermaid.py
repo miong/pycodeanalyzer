@@ -3,7 +3,7 @@
 This module allow to create mermaid.js class diagram from abstractions.
 """
 
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
@@ -11,6 +11,26 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractFunction,
     AbstractObject,
 )
+
+
+class PieCharBuild:
+    """Mermaid.js pie char builder"""
+
+    def __init__(self) -> None:
+        self.reset()
+
+    def reset(self) -> None:
+        self.categories: Dict[str, int] = {}
+
+    def addValue(self, label: str, value: int) -> None:
+        self.categories[label] = value
+
+    def build(self, title: str) -> str:
+        res = "pie title " + title + "\n"
+        for label, value in self.categories.items():
+            res += '"' + label + '" : ' + str(value) + "\n"
+        print(res)
+        return res
 
 
 class ClassDiagramBuild:

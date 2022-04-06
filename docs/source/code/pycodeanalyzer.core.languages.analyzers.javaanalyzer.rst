@@ -40,6 +40,10 @@ pycodeanalyzer.core.languages.analyzers.javaanalyzer
         .. mermaid:: diagrams/pycodeanalyzer_core_languages_analyzers_javaanalyzer_JavaAnalyzer.mmd
             :alt: JavaAnalyzer class diagram is not available :/
 
+        JavaAnalyzer class diagram
+
+
+
     Reference
     ---------
 

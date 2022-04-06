@@ -1,11 +1,12 @@
 import os
 import pathlib
-from typing import List
+from typing import Dict, List
 
 from injector import inject, singleton
 
 from pycodeanalyzer.core.configuration.configuration import Configuration
 from pycodeanalyzer.core.encoding.encodings import Encoding
+from pycodeanalyzer.core.languages.extensions import languageExtensions
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
 
@@ -19,12 +20,7 @@ class FileFetcher:
     @inject
     def __init__(self, configuration: Configuration) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
-        self.suported_extensions = [
-            ".h",
-            ".hpp",
-            ".py",
-            ".java",
-        ]
+        self.suported_extensions: List[str] = list(languageExtensions.keys())
         self.rejected_encoding = [
             "unknown-8bit",
             "binary",
@@ -33,7 +29,11 @@ class FileFetcher:
         self.configured = False
         self.configuration = configuration
         self.ignoredPatterns: List[str] = []
+        self.languagesCount: Dict[str, int] = {}
         self.defineConfig()
+
+    def reset(self) -> None:
+        self.languagesCount = {}
 
     def isAnalyzed(self, fileabspath: str) -> bool:
         p = pathlib.Path(fileabspath)
@@ -48,13 +48,22 @@ class FileFetcher:
             if ignored:
                 self.logger.info("Ignore file due to excludes config : %s", fileabspath)
                 break
-
-        return (
+        isAnalyzedValue = (
             encoding not in self.rejected_encoding
             and extension in self.suported_extensions
             and not filename.startswith(".")
             and not ignored
         )
+        if isAnalyzedValue:
+            language = None
+            if extension in languageExtensions.keys():
+                language = languageExtensions[extension]
+            if language:
+                if language in self.languagesCount.keys():
+                    self.languagesCount[language] = self.languagesCount[language] + 1
+                else:
+                    self.languagesCount[language] = 1
+        return isAnalyzedValue
 
     def fetch(self, rootDir: str) -> List[str]:
         if not self.configured:

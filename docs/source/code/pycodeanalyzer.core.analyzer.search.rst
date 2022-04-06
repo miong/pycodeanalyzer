@@ -40,6 +40,10 @@ pycodeanalyzer.core.analyzer.search
         .. mermaid:: diagrams/pycodeanalyzer_core_analyzer_search_SearchAnalyser.mmd
             :alt: SearchAnalyser class diagram is not available :/
 
+        SearchAnalyser class diagram
+
+
+
     Reference
     ---------
 

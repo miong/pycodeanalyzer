@@ -40,7 +40,7 @@ The following languages should be supported:
 #. Kotlin
 
 How does it works ?
------------------
+-------------------
 
 Pycodeanalyzer works by :
 

@@ -40,6 +40,10 @@ pycodeanalyzer.core.console.console
         .. mermaid:: diagrams/pycodeanalyzer_core_console_console_Console.mmd
             :alt: Console class diagram is not available :/
 
+        Console class diagram
+
+
+
     Reference
     ---------
 

@@ -44,31 +44,55 @@ pycodeanalyzer.ui.app
 
         .. mermaid:: diagrams/pycodeanalyzer_ui_app_Application.mmd
             :alt: Application class diagram is not available :/
+
+        Application class diagram
+
+
     FlaskHolder
     ^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_ui_app_FlaskHolder.mmd
             :alt: FlaskHolder class diagram is not available :/
+
+        FlaskHolder class diagram
+
+
     UiBrowseListener
     ^^^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_ui_app_UiBrowseListener.mmd
             :alt: UiBrowseListener class diagram is not available :/
+
+        UiBrowseListener class diagram
+
+
     UiFileDispatcherListener
     ^^^^^^^^^^^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_ui_app_UiFileDispatcherListener.mmd
             :alt: UiFileDispatcherListener class diagram is not available :/
+
+        UiFileDispatcherListener class diagram
+
+
     UiLink
     ^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_ui_app_UiLink.mmd
             :alt: UiLink class diagram is not available :/
+
+        UiLink class diagram
+
+
     UiStatListener
     ^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_ui_app_UiStatListener.mmd
             :alt: UiStatListener class diagram is not available :/
+
+        UiStatListener class diagram
+
+
 
     Reference
     ---------

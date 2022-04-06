@@ -40,6 +40,10 @@ pycodeanalyzer.core.logging.loggerfactory
         .. mermaid:: diagrams/pycodeanalyzer_core_logging_loggerfactory_LoggerFactory.mmd
             :alt: LoggerFactory class diagram is not available :/
 
+        LoggerFactory class diagram
+
+
+
     Reference
     ---------
 

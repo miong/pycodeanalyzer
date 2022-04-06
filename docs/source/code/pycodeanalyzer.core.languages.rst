@@ -14,7 +14,10 @@ pycodeanalyzer.core.languages
        :maxdepth: 1
 
        pycodeanalyzer.core.languages.analyzer
+       pycodeanalyzer.core.languages.extensions
        pycodeanalyzer.core.languages.filedispatcher
+
+
     Subpackages:
 
     .. toctree::

@@ -41,16 +41,28 @@ pycodeanalyzer.core.languages.analyzers.cppanalyzer
 
         .. mermaid:: diagrams/pycodeanalyzer_core_languages_analyzers_cppanalyzer_CppAnalyzer.mmd
             :alt: CppAnalyzer class diagram is not available :/
+
+        CppAnalyzer class diagram
+
+
     CustomCppHeader
     ^^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_core_languages_analyzers_cppanalyzer_CustomCppHeader.mmd
             :alt: CustomCppHeader class diagram is not available :/
+
+        CustomCppHeader class diagram
+
+
     CustumCppPreprocessor
     ^^^^^^^^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_core_languages_analyzers_cppanalyzer_CustumCppPreprocessor.mmd
             :alt: CustumCppPreprocessor class diagram is not available :/
+
+        CustumCppPreprocessor class diagram
+
+
 
     Reference
     ---------

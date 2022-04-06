@@ -40,11 +40,19 @@ pycodeanalyzer.core.engine.engine
 
         .. mermaid:: diagrams/pycodeanalyzer_core_engine_engine_AnalysisStats.mmd
             :alt: AnalysisStats class diagram is not available :/
+
+        AnalysisStats class diagram
+
+
     Engine
     ^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_core_engine_engine_Engine.mmd
             :alt: Engine class diagram is not available :/
+
+        Engine class diagram
+
+
 
     Reference
     ---------

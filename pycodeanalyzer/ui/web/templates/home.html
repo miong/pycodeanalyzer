@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}"/>
         <script src="{{ url_for('static', filename='js/libs/jquery.1.12.4.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/libs/socket.io.4.4.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/libs/mermaid.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/keepalive.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
     </head>
@@ -19,6 +20,11 @@
                 Enums found : <span id="nbEnums">0</span><br>
                 Functions found : <span id="nbFunctions">0</span><br>
                 Time spent for analysis : <span id="duration">0</span> seconds<br>
+            </div>
+            <br><br>
+            <div id="LanguagePieDiag" class="mermaid pie">
+                pie title Languages
+                    "Unknonw" : 1
             </div>
             <br><br>
             <button onclick="location.href = './browse/classes';">Browse</button>

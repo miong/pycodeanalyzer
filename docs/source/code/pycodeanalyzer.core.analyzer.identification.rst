@@ -40,6 +40,10 @@ pycodeanalyzer.core.analyzer.identification
         .. mermaid:: diagrams/pycodeanalyzer_core_analyzer_identification_IdentityAnalyser.mmd
             :alt: IdentityAnalyser class diagram is not available :/
 
+        IdentityAnalyser class diagram
+
+
+
     Reference
     ---------
 

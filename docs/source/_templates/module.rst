@@ -80,6 +80,12 @@
         .. mermaid:: diagrams/{{ fullname | replace(".", "_") }}_{{ item }}.mmd
             :alt: {{ item }} class diagram is not available :/
 
+        {{ item }} class diagram
+
+{% if False -%}
+
+{%- endif %}
+
     {%- endfor %}
 
     Reference

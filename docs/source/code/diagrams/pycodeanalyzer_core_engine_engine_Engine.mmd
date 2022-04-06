@@ -8,13 +8,14 @@ class Engine {
 + SearchAnalyser searchAnalyser
 + UiStatListener uiStatListener
 + UiBrowseListener uiBrowseListener
++ PieCharBuild pieCharBuild
 + ClassDiagramBuild classDiagramBuild
 + Configuration configuration
 + List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
 + int nbFiles
 + Any stats
 + Any logger
-+Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, Configuration configuration) None
++Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, PieCharBuild pieCharBuild, Configuration configuration) None
 +reset() None
 +run(Any args) None
 +recordStats(float duration) None
@@ -39,7 +40,9 @@ class FileFetcher {
 + bool configured
 + Configuration configuration
 + List~str~ ignoredPatterns
++ Dict~str,int~ languagesCount
 +Constructor(Configuration configuration) None
++reset() None
 +isAnalyzed(str fileabspath) bool
 +fetch(str rootDir) List~str~
 +defineConfig() None
@@ -98,7 +101,7 @@ class SearchAnalyser {
 link SearchAnalyser "class££pycodeanalyzer::core::analyzer::search::SearchAnalyser"
 class UiStatListener {
 <<Class>>
-+notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, float duration) None
++notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, str languagePie, float duration) None
 }
 link UiStatListener "class££pycodeanalyzer::ui::app::UiStatListener"
 class UiBrowseListener {
@@ -134,6 +137,15 @@ class ClassDiagramBuild {
 -getTypeString(str type) str
 }
 link ClassDiagramBuild "class££pycodeanalyzer::core::diagrams::mermaid::ClassDiagramBuild"
+class PieCharBuild {
+<<Class>>
++ Dict~str,int~ categories
++Constructor() None
++reset() None
++addValue(str label, int value) None
++build(str title) str
+}
+link PieCharBuild "class££pycodeanalyzer::core::diagrams::mermaid::PieCharBuild"
 class Configuration {
 <<Class>>
 + Any logger
@@ -158,4 +170,5 @@ Engine ..> SearchAnalyser
 Engine ..> UiStatListener
 Engine ..> UiBrowseListener
 Engine ..> ClassDiagramBuild
+Engine ..> PieCharBuild
 Engine ..> Configuration
