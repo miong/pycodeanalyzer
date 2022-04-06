@@ -2162,6 +2162,7 @@
             "injector",
             "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
+            "pycodeanalyzer::core::languages::extensions",
             "pycodeanalyzer::core::logging::loggerfactory"
         ]
     },
@@ -3538,6 +3539,7 @@
             "pycodeanalyzer::core::languages::analyzers::cppanalyzer",
             "pycodeanalyzer::core::languages::analyzers::javaanalyzer",
             "pycodeanalyzer::core::languages::analyzers::pythonanalyzer",
+            "pycodeanalyzer::core::languages::extensions",
             "pycodeanalyzer::core::logging::loggerfactory",
             "pycodeanalyzer::ui::app"
         ]

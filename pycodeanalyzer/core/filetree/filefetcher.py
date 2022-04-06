@@ -6,6 +6,7 @@ from injector import inject, singleton
 
 from pycodeanalyzer.core.configuration.configuration import Configuration
 from pycodeanalyzer.core.encoding.encodings import Encoding
+from pycodeanalyzer.core.languages.extensions import languageExtensions
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 
 
@@ -19,12 +20,7 @@ class FileFetcher:
     @inject
     def __init__(self, configuration: Configuration) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
-        self.suported_extensions = [
-            ".h",
-            ".hpp",
-            ".py",
-            ".java",
-        ]
+        self.suported_extensions: List[str] = list(languageExtensions.keys())
         self.rejected_encoding = [
             "unknown-8bit",
             "binary",

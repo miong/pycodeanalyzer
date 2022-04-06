@@ -7,7 +7,7 @@ pycodeanalyzer.core.filetree.filefetcher
 .. currentmodule:: pycodeanalyzer.core.filetree.filefetcher
 
 .. automodule:: pycodeanalyzer.core.filetree.filefetcher
-    :members: FileFetcher
+    :members: FileFetcher, languageExtensions
     :undoc-members:
     :show-inheritance:
     :member-order: bysource
@@ -39,6 +39,10 @@ pycodeanalyzer.core.filetree.filefetcher
 
         .. mermaid:: diagrams/pycodeanalyzer_core_filetree_filefetcher_FileFetcher.mmd
             :alt: FileFetcher class diagram is not available :/
+
+        FileFetcher class diagram
+
+
 
     Reference
     ---------
