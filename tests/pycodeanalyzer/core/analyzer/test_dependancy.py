@@ -123,6 +123,7 @@ class TestDependancyAnalyser:
         uiStatListenerObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::ui::app", "UiStatListener", mapping["Classes"], "", "", [])
         uiBrowseListenerObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::ui::app", "UiBrowseListener", mapping["Classes"], "", "", [])
         classDiagramBuildObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::diagrams::mermaid", "ClassDiagramBuild", mapping["Classes"], "", "", [])
+        pieCharBuildObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::diagrams::mermaid", "PieCharBuild", mapping["Classes"], "", "", [])
         configurationObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::configuration::configuration", "Configuration", mapping["Classes"], "", "", [])
 
         madupClass = AbstractClass("class", "", "file.xx",)
@@ -147,6 +148,7 @@ class TestDependancyAnalyser:
             uiStatListenerObj,
             uiBrowseListenerObj,
             classDiagramBuildObj,
+            pieCharBuildObj,
             configurationObj,
         ]
         assert enums == []

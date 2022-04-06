@@ -44,6 +44,7 @@ class UiStatListener(UiLink):
         nbClasses: int,
         nbEnums: int,
         nbFunctions: int,
+        languagePie: str,
         duration: float,
     ) -> None:
         if self.socketio:
@@ -54,6 +55,7 @@ class UiStatListener(UiLink):
                     "nbClasses": nbClasses,
                     "nbEnums": nbEnums,
                     "nbFunctions": nbFunctions,
+                    "languagePie": languagePie,
                     "duration": duration,
                 },
             )

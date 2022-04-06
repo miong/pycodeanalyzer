@@ -1569,6 +1569,84 @@
         "members": [
             {
                 "py/tuple": [
+                    "Dict<str,int>",
+                    "categories",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "reset",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "addValue",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "label"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "int",
+                                "value"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "build",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "title"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "PieCharBuild",
+        "namespace": "pycodeanalyzer::core::diagrams::mermaid",
+        "origin": "/pycodeanalyzer/core/diagrams/mermaid.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "pycodeanalyzer::core::abstraction::objects"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
                     "Any",
                     "magic",
                     "public"
@@ -1645,6 +1723,13 @@
                 "py/tuple": [
                     "float",
                     "timeSpent",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,int>",
+                    "languageDispatch",
                     "public"
                 ]
             }
@@ -1732,6 +1817,13 @@
                 "py/tuple": [
                     "UiBrowseListener",
                     "uiBrowseListener",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "PieCharBuild",
+                    "pieCharBuild",
                     "public"
                 ]
             },
@@ -1830,6 +1922,12 @@
                             "py/tuple": [
                                 "ClassDiagramBuild",
                                 "classDiagramBuild"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "PieCharBuild",
+                                "pieCharBuild"
                             ]
                         },
                         {
@@ -2086,6 +2184,13 @@
                     "ignoredPatterns",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "Dict<str,int>",
+                    "languagesCount",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -2101,6 +2206,14 @@
                             ]
                         }
                     ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "reset",
+                    [],
                     "public"
                 ]
             },
@@ -4041,6 +4154,12 @@
                             "py/tuple": [
                                 "int",
                                 "nbFunctions"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "languagePie"
                             ]
                         },
                         {

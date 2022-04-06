@@ -26,7 +26,7 @@ class TestIdentityAnalyser:
             objectList = jsonpickle.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
-        assert len(analyzer.mapping["Classes"]) == 30
+        assert len(analyzer.mapping["Classes"]) == 31
         assert len(analyzer.mapping["Enums"]) == 1
         assert len(analyzer.mapping["Functions"]) == 15
         for obj in objectList:

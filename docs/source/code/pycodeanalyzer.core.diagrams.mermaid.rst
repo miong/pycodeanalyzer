@@ -7,7 +7,7 @@ pycodeanalyzer.core.diagrams.mermaid
 .. currentmodule:: pycodeanalyzer.core.diagrams.mermaid
 
 .. automodule:: pycodeanalyzer.core.diagrams.mermaid
-    :members: ClassDiagramBuild
+    :members: ClassDiagramBuild, PieCharBuild
     :undoc-members:
     :show-inheritance:
     :member-order: bysource
@@ -21,6 +21,7 @@ pycodeanalyzer.core.diagrams.mermaid
         :nosignatures:
 
         ClassDiagramBuild
+        PieCharBuild
 
 
 
@@ -41,6 +42,15 @@ pycodeanalyzer.core.diagrams.mermaid
             :alt: ClassDiagramBuild class diagram is not available :/
 
         ClassDiagramBuild class diagram
+
+
+    PieCharBuild
+    ^^^^^^^^^^^^
+
+        .. mermaid:: diagrams/pycodeanalyzer_core_diagrams_mermaid_PieCharBuild.mmd
+            :alt: PieCharBuild class diagram is not available :/
+
+        PieCharBuild class diagram
 
 
 
