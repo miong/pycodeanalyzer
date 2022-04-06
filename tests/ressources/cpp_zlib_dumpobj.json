@@ -2148,6 +2148,44 @@
         "members": [
             {
                 "py/tuple": [
+                    "std::function<void ( )>",
+                    "mCallback",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "void",
+                    "setCallback",
+                    [
+                        {
+                            "py/tuple": [
+                                "std::function<void ( )>",
+                                "callback"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "StrangeMember",
+        "namespace": "",
+        "origin": "/tests/ressources/code/cpp_zlib/src/strangeMember.h",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
                     "unsigned",
                     "have",
                     "public"

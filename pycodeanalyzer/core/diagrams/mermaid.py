@@ -29,7 +29,6 @@ class PieCharBuild:
         res = "pie title " + title + "\n"
         for label, value in self.categories.items():
             res += '"' + label + '" : ' + str(value) + "\n"
-        print(res)
         return res
 
 
@@ -154,5 +153,6 @@ class ClassDiagramBuild:
             res = res.replace("<", "&lt;").replace(">", "&gt;")
         else:
             res = res.replace("<", "~").replace(">", "~")
+        res = res.replace("(", "&#40").replace(")", "&#41")
         res = res.strip()
         return res

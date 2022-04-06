@@ -167,6 +167,9 @@ class Engine:
         objects = self.dependancyAnalyser.analyze(
             self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass
         )
+        usedBy = self.dependancyAnalyser.getUsedBy(
+            self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass
+        )
         self.classDiagramBuild.reset()
         self.classDiagramBuild.createClass(
             objects[0], objects[1], objects[2], objects[3]
@@ -177,6 +180,7 @@ class Engine:
         klassDesc["namespace"] = klass.namespace
         klassDesc["file"] = klass.origin
         klassDesc["parents"] = []
+        klassDesc["usedBy"] = usedBy
         for parent in klass.parents:
             parentKlass = self.dependancyAnalyser.getParent(
                 self.identityAnalyser.getClasses(), klass, parent[0]
@@ -201,10 +205,14 @@ class Engine:
         self.classDiagramBuild.reset()
         self.classDiagramBuild.createEnum(enum)
         mermaidDiag = self.classDiagramBuild.build()
-        enumDesc = {}
+        usedBy = self.dependancyAnalyser.getUsedBy(
+            self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), enum
+        )
+        enumDesc: Dict[str, Any] = {}
         enumDesc["name"] = enum.name
         enumDesc["namespace"] = enum.namespace
         enumDesc["file"] = enum.origin
+        enumDesc["usedBy"] = usedBy
         self.logger.debug("Enum data sent to UI")
         self.uiBrowseListener.notifyEnumData(enumDesc, mermaidDiag)
 
@@ -219,6 +227,10 @@ class Engine:
         functionDesc["file"] = func.origin
         functionDesc["rtype"] = func.returnType
         params = {}
+        usedBy = self.dependancyAnalyser.getUsedBy(
+            self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), func
+        )
+        functionDesc["usedBy"] = usedBy
         for param in func.parameters:
             params[param[1]] = param[0]
         functionDesc["params"] = params

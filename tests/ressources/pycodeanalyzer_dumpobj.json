@@ -689,6 +689,33 @@
             },
             {
                 "py/tuple": [
+                    "Dict<str,List<str>>",
+                    "getUsedBy",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractClass>",
+                                "klasses"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractEnum>",
+                                "enums"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "AbstractObject",
+                                "target"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "AbstractClass",
                     "findClass",
                     [
@@ -2651,7 +2678,8 @@
             "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
-            "pycodeanalyzer::core::languages::analyzer"
+            "pycodeanalyzer::core::languages::analyzer",
+            "pycodeanalyzer::core::utils::containers"
         ]
     },
     {
@@ -2664,6 +2692,21 @@
                 "py/tuple": [
                     "bool",
                     "is_enum_namestack",
+                    [
+                        {
+                            "py/tuple": [
+                                "Any",
+                                "nameStack"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "bool",
+                    "is_property_namestack",
                     [
                         {
                             "py/tuple": [
@@ -2712,7 +2755,8 @@
             "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
-            "pycodeanalyzer::core::languages::analyzer"
+            "pycodeanalyzer::core::languages::analyzer",
+            "pycodeanalyzer::core::utils::containers"
         ]
     },
     {
@@ -2921,7 +2965,8 @@
             "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::configuration::configuration",
             "pycodeanalyzer::core::encoding::encodings",
-            "pycodeanalyzer::core::languages::analyzer"
+            "pycodeanalyzer::core::languages::analyzer",
+            "pycodeanalyzer::core::utils::containers"
         ]
     },
     {

@@ -86,6 +86,7 @@ class DependancyAnalyser {
 <<Class>>
 +analyze(List~AbstractClass~ klasses, List~AbstractEnum~ enums, AbstractClass target) Tuple&lt;AbstractClass,List&lt;AbstractClass&gt;,List&lt;AbstractEnum&gt;,List&lt;AbstractFunction&gt;&gt;
 +getParent(List~AbstractClass~ klasses, AbstractClass target, str parentName) AbstractClass
++getUsedBy(List~AbstractClass~ klasses, List~AbstractEnum~ enums, AbstractObject target) Dict&lt;str,List&lt;str&gt;&gt;
 -findClass(str namespace, str name, List~AbstractClass~ klasses, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractClass
 -findEnum(str namespace, str name, List~AbstractEnum~ enums, str currentNamespace, str currentClassName, List~str~ usingNS) AbstractEnum
 }

@@ -17,6 +17,7 @@ from pycodeanalyzer.core.abstraction.objects import (
 from pycodeanalyzer.core.configuration.configuration import Configuration
 from pycodeanalyzer.core.encoding.encodings import Encoding
 from pycodeanalyzer.core.languages.analyzer import Analyzer
+from pycodeanalyzer.core.utils.containers import rindex
 
 
 class CustumCppPreprocessor(Preprocessor):
@@ -99,6 +100,32 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
             return "{" in nameStack
         return False
 
+    def is_property_namestack(nameStack: Any) -> bool:
+        r = False
+        if "(" not in nameStack and ")" not in nameStack:
+            r = True
+        elif (
+            "(" in nameStack
+            and "=" in nameStack
+            and nameStack.index("=") < nameStack.index("(")
+        ):
+            r = True
+        elif (
+            "(" in nameStack
+            and ")" in nameStack
+            and "<" in nameStack
+            and ">" in nameStack
+            and nameStack.index("<") < nameStack.index("(")
+            and rindex(nameStack, ")") < rindex(nameStack, ">")
+        ):
+            r = True
+        # See if we are a function pointer
+        if not r and CppHeaderParser.CppHeaderParser.is_function_pointer_stack(
+            nameStack
+        ):
+            r = True
+        return r
+
     def is_method_namestack(stack: Any) -> bool:
         r: bool = False
         if "(" not in stack:
@@ -118,7 +145,10 @@ class CustomCppHeader(CppHeaderParser.CppHeader):
                 if CppHeaderParser.CppHeaderParser.is_function_pointer_stack(stack):
                     r = False
                 else:
-                    r = stack.index("(") > 1
+                    if ">" in stack and rindex(stack, ">") > rindex(stack, ")"):
+                        r = False
+                    else:
+                        r = stack.index("(") > 1
             elif "{" in stack:
                 r = True  # ideally we catch both braces...
         else:
@@ -145,6 +175,9 @@ class CppAnalyzer(Analyzer):
         )
         CppHeaderParser.CppHeaderParser.is_method_namestack = (
             CustomCppHeader.is_method_namestack
+        )
+        CppHeaderParser.CppHeaderParser.is_property_namestack = (
+            CustomCppHeader.is_property_namestack
         )
         self.objectPaths: List[str] = []
         self.encoding: Encoding = Encoding()
@@ -196,7 +229,6 @@ class CppAnalyzer(Analyzer):
                         or unexpectedToken in self.forceIgnoredSymbols
                     ):
                         continueTryParsing = False
-                        print(err)
                         self.logger.error(err)
                         self.logger.error("Error analyzing %s", path)
                     elif (
@@ -240,6 +272,7 @@ class CppAnalyzer(Analyzer):
             return
         namespace = self.clearNamespace(klass["namespace"])
         abstraction = AbstractClass(str(klass["name"]), namespace, path)
+
         self.addParents(abstraction, klass)
         self.addMethods(abstraction, klass, "public")
         self.addMethods(abstraction, klass, "protected")

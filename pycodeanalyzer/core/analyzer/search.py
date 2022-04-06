@@ -24,11 +24,9 @@ class SearchAnalyser:
         res: List[Tuple[str, str]] = []
         with open(filePath, "r") as file:
             text = file.read().splitlines()
-            print(text)
             enumeration: Dict[int, str] = dict(
                 (i, j + "\n") for i, j in enumerate(text)
             )
-            print(enumeration)
             for linenb, line in enumeration.items():
                 if re.search(token.lower(), line.lower()):
                     context = ""
