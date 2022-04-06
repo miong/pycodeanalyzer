@@ -131,6 +131,7 @@ class AbstractClass(AbstractObject):
             "uint16",
             "uint32",
             "uint64",
+            "size_t",
         ],
         AbstractObjectLanguage.Python: [
             "Any",

@@ -95,6 +95,7 @@ class TestIdentityAnalyser:
                 'gz_state',
                 'inflate_state',
                 'code',
+                'StrangeMember',
                 'gzFile_s',
                 'gz_header',
                 'z_stream'
