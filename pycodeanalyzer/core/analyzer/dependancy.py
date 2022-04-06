@@ -1,9 +1,10 @@
-from typing import List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
     AbstractEnum,
     AbstractFunction,
+    AbstractObject,
 )
 
 
@@ -79,6 +80,29 @@ class DependancyAnalyser:
             target.name,
             target.usingNS,
         )
+
+    def getUsedBy(
+        self,
+        klasses: List[AbstractClass],
+        enums: List[AbstractEnum],
+        target: AbstractObject,
+    ) -> Dict[str, List[str]]:
+        res: Dict[str, List[str]] = {
+            "Classes": [],
+            "Enums": [],
+            "Functions": [],
+        }
+        for obj in klasses:
+            useless, linkedClasses, linkedEnums, linkedFunctions = self.analyze(
+                klasses, enums, obj
+            )
+            if isinstance(target, AbstractClass) and target in linkedClasses:
+                res["Classes"].append(obj.getFullName())
+            elif isinstance(target, AbstractEnum) and target in linkedEnums:
+                res["Classes"].append(obj.getFullName())
+            elif isinstance(target, AbstractFunction) and target in linkedFunctions:
+                res["Classes"].append(obj.getFullName())
+        return res
 
     def __findClass(
         self,

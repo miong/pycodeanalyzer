@@ -689,6 +689,33 @@
             },
             {
                 "py/tuple": [
+                    "Dict<str,List<str>>",
+                    "getUsedBy",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractClass>",
+                                "klasses"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractEnum>",
+                                "enums"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "AbstractObject",
+                                "target"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "AbstractClass",
                     "findClass",
                     [

@@ -104,6 +104,7 @@ function updateClassView(klass, diag) {
 	const itemName = document.getElementById('ItemName');
 	const itemDiag = document.getElementById('ItemDiag');
 	const itemDesc = document.getElementById('ItemDesc');
+	const itemUsedBy = document.getElementById('ItemUsedBy');
 
 	itemName.innerHTML = klass.name;
 	console.log(diag);
@@ -137,6 +138,19 @@ function updateClassView(klass, diag) {
 		itemDiag.innerHTML = code;
 	};
 
+	let usedByList = '<h3>Used by</h3>';
+	usedByList += '<h4>Classes</h4><ul class="inherits-link">';
+	if (klass.usedBy.Classes.length > 0) {
+		for (const userItem of klass.usedBy.Classes) {
+			usedByList += '<li class="inherits-link"><a href="#" onclick="requestClassData(\'' + userItem + '\');return false;">' + userItem + '</a></li>';
+		}
+	} else {
+		usedByList += '<li class="inherits-link">None</li>';
+	}
+
+	usedByList += '</ul>';
+	itemUsedBy.innerHTML = usedByList;
+
 	mermaid.render('preparedScheme', diag, insert);
 	const svg = document.getElementById('preparedScheme');
 	const links = svg.getElementsByTagName('a');
@@ -152,6 +166,7 @@ function updateEnumView(enumData, diag) {
 	const itemName = document.getElementById('ItemName');
 	const itemDiag = document.getElementById('ItemDiag');
 	const itemDesc = document.getElementById('ItemDesc');
+	const itemUsedBy = document.getElementById('ItemUsedBy');
 
 	itemName.innerHTML = enumData.name;
 	console.log(diag);
@@ -170,6 +185,19 @@ function updateEnumView(enumData, diag) {
 	const insert = function (code) {
 		itemDiag.innerHTML = code;
 	};
+
+	let usedByList = '<h3>Used by</h3>';
+	usedByList += '<h4>Classes</h4><ul class="inherits-link">';
+	if (enumData.usedBy.Classes.length > 0) {
+		for (const userItem of enumData.usedBy.Classes) {
+			usedByList += '<li class="inherits-link"><a href="#" onclick="requestClassData(\'' + userItem + '\');return false;">' + userItem + '</a></li>';
+		}
+	} else {
+		usedByList += '<li class="inherits-link">None</li>';
+	}
+
+	usedByList += '</ul>';
+	itemUsedBy.innerHTML = usedByList;
 
 	mermaid.render('preparedScheme', diag, insert);
 }
