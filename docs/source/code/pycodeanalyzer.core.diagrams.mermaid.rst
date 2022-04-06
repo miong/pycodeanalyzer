@@ -40,6 +40,10 @@ pycodeanalyzer.core.diagrams.mermaid
         .. mermaid:: diagrams/pycodeanalyzer_core_diagrams_mermaid_ClassDiagramBuild.mmd
             :alt: ClassDiagramBuild class diagram is not available :/
 
+        ClassDiagramBuild class diagram
+
+
+
     Reference
     ---------
 

@@ -14,6 +14,8 @@ pycodeanalyzer
        :maxdepth: 1
 
        pycodeanalyzer.injection
+
+
     Subpackages:
 
     .. toctree::

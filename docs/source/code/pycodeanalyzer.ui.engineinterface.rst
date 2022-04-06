@@ -40,6 +40,10 @@ pycodeanalyzer.ui.engineinterface
         .. mermaid:: diagrams/pycodeanalyzer_ui_engineinterface_EngineCommands.mmd
             :alt: EngineCommands class diagram is not available :/
 
+        EngineCommands class diagram
+
+
+
     Reference
     ---------
 

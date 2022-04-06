@@ -51,26 +51,46 @@ pycodeanalyzer.core.abstraction.objects
 
         .. mermaid:: diagrams/pycodeanalyzer_core_abstraction_objects_AbstractClass.mmd
             :alt: AbstractClass class diagram is not available :/
+
+        AbstractClass class diagram
+
+
     AbstractEnum
     ^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_core_abstraction_objects_AbstractEnum.mmd
             :alt: AbstractEnum class diagram is not available :/
+
+        AbstractEnum class diagram
+
+
     AbstractFunction
     ^^^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_core_abstraction_objects_AbstractFunction.mmd
             :alt: AbstractFunction class diagram is not available :/
+
+        AbstractFunction class diagram
+
+
     AbstractObject
     ^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_core_abstraction_objects_AbstractObject.mmd
             :alt: AbstractObject class diagram is not available :/
+
+        AbstractObject class diagram
+
+
     AbstractObjectLanguage
     ^^^^^^^^^^^^^^^^^^^^^^
 
         .. mermaid:: diagrams/pycodeanalyzer_core_abstraction_objects_AbstractObjectLanguage.mmd
             :alt: AbstractObjectLanguage class diagram is not available :/
+
+        AbstractObjectLanguage class diagram
+
+
 
     Reference
     ---------

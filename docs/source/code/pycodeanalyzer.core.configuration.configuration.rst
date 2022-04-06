@@ -40,6 +40,10 @@ pycodeanalyzer.core.configuration.configuration
         .. mermaid:: diagrams/pycodeanalyzer_core_configuration_configuration_Configuration.mmd
             :alt: Configuration class diagram is not available :/
 
+        Configuration class diagram
+
+
+
     Reference
     ---------
 

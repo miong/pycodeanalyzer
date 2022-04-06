@@ -40,6 +40,10 @@ pycodeanalyzer.core.analyzer.dependancy
         .. mermaid:: diagrams/pycodeanalyzer_core_analyzer_dependancy_DependancyAnalyser.mmd
             :alt: DependancyAnalyser class diagram is not available :/
 
+        DependancyAnalyser class diagram
+
+
+
     Reference
     ---------
 

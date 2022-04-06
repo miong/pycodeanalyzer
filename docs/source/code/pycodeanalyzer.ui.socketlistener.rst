@@ -56,6 +56,10 @@ pycodeanalyzer.ui.socketlistener
         .. mermaid:: diagrams/pycodeanalyzer_ui_socketlistener_SocketListner.mmd
             :alt: SocketListner class diagram is not available :/
 
+        SocketListner class diagram
+
+
+
     Reference
     ---------
 
