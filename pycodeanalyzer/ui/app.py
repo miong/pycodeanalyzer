@@ -136,11 +136,13 @@ class Application:
         FlaskHolder.register(self.app, route_base="/")
 
     def run(self) -> None:
-        threading.Thread(
-            target=lambda: FlaskUI(
-                self.app, socketio=self.socketio, start_server="flask-socketio"
-            ).run()
-        ).start()
+        self.ui = FlaskUI(
+            self.app, socketio=self.socketio, start_server="flask-socketio"
+        )
+        threading.Thread(target=lambda: self.ui.run()).start()
+
+    def quit(self) -> None:
+        self.ui.idle_interval = 0
 
 
 class FlaskHolder(FlaskView):

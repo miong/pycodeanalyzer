@@ -228,7 +228,9 @@ function updateFunctionView(functionData) {
 	const itemDesc = document.getElementById('ItemDesc');
 	const loaderDiv = document.getElementById('LoaderDiv');
 	const contentDiv = document.getElementById('ContentDiv');
+	const itemUsedBy = document.getElementById('ItemUsedBy');
 
+	itemUsedBy.innerHTML = '';
 	itemName.innerHTML = functionData.name;
 	itemDiag.innerHTML = '';
 	// eslint-disable-next-line prefer-destructuring
@@ -266,9 +268,12 @@ function updateFileView(fileData) {
 	const itemDesc = document.getElementById('ItemDesc');
 	const loaderDiv = document.getElementById('LoaderDiv');
 	const contentDiv = document.getElementById('ContentDiv');
+	const itemUsedBy = document.getElementById('ItemUsedBy');
+
 	// eslint-disable-next-line prefer-destructuring
 	const path = fileData.path;
 
+	itemUsedBy.innerHTML = '';
 	itemName.innerHTML = fileData.name;
 	itemDiag.innerHTML = '';
 
@@ -389,9 +394,12 @@ function performSearch() {
 function showSearchResult(res) {
 	const loaderDiv = document.getElementById('LoaderDiv');
 	const contentDiv = document.getElementById('ContentDiv');
+	const itemUsedBy = document.getElementById('ItemUsedBy');
+	const itemDiag = document.getElementById('ItemDiag');
+
 	hideVisibility(loaderDiv);
 	showVisibility(contentDiv);
-	const itemDiag = document.getElementById('ItemDiag');
+	itemUsedBy.innerHTML = '';
 	let presentation = 'Found ' + res.length + ' results.<h2>Results :</h2><div class="left">';
 	for (const item of res) {
 		const path = item[0];
