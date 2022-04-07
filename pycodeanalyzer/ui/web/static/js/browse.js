@@ -6,6 +6,14 @@ let classTree;
 const itemNamespacePath = [];
 let currentItemKey = '__classes__';
 
+function hideVisibility(element) {
+	element.style.display = 'none';
+}
+
+function showVisibility(element) {
+	element.style.display = 'block';
+}
+
 function updateClassList(treeRoot, isAbsoluteRoot) {
 	currentItemKey = '__classes__';
 	updateItemList(treeRoot, isAbsoluteRoot, currentItemKey);
@@ -105,6 +113,8 @@ function updateClassView(klass, diag) {
 	const itemDiag = document.getElementById('ItemDiag');
 	const itemDesc = document.getElementById('ItemDesc');
 	const itemUsedBy = document.getElementById('ItemUsedBy');
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
 
 	itemName.innerHTML = klass.name;
 	console.log(diag);
@@ -151,6 +161,8 @@ function updateClassView(klass, diag) {
 	usedByList += '</ul>';
 	itemUsedBy.innerHTML = usedByList;
 
+	hideVisibility(loaderDiv);
+	showVisibility(contentDiv);
 	mermaid.render('preparedScheme', diag, insert);
 	const svg = document.getElementById('preparedScheme');
 	const links = svg.getElementsByTagName('a');
@@ -167,6 +179,8 @@ function updateEnumView(enumData, diag) {
 	const itemDiag = document.getElementById('ItemDiag');
 	const itemDesc = document.getElementById('ItemDesc');
 	const itemUsedBy = document.getElementById('ItemUsedBy');
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
 
 	itemName.innerHTML = enumData.name;
 	console.log(diag);
@@ -199,6 +213,8 @@ function updateEnumView(enumData, diag) {
 	usedByList += '</ul>';
 	itemUsedBy.innerHTML = usedByList;
 
+	hideVisibility(loaderDiv);
+	showVisibility(contentDiv);
 	mermaid.render('preparedScheme', diag, insert);
 }
 
@@ -206,6 +222,8 @@ function updateFunctionView(functionData) {
 	const itemName = document.getElementById('ItemName');
 	const itemDiag = document.getElementById('ItemDiag');
 	const itemDesc = document.getElementById('ItemDesc');
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
 
 	itemName.innerHTML = functionData.name;
 	itemDiag.innerHTML = '';
@@ -233,6 +251,8 @@ function updateFunctionView(functionData) {
            + '<h2>Definition</h2>'
            + '<div class="left"><pre><code>' + defLine + '</code></pre></div>';
 	itemDesc.innerHTML = desc;
+	hideVisibility(loaderDiv);
+	showVisibility(contentDiv);
 	hljs.highlightAll();
 }
 
@@ -240,7 +260,10 @@ function updateFileView(fileData) {
 	const itemName = document.getElementById('ItemName');
 	const itemDiag = document.getElementById('ItemDiag');
 	const itemDesc = document.getElementById('ItemDesc');
-	const {path} = fileData;
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
+	// eslint-disable-next-line prefer-destructuring
+	const path = fileData.path;
 
 	itemName.innerHTML = fileData.name;
 	itemDiag.innerHTML = '';
@@ -280,10 +303,16 @@ function updateFileView(fileData) {
            + '<h2>Content</h2><br>'
            + '<div class="left"><pre><code>' + fileData.content + '</code></pre></div>';
 	itemDesc.innerHTML = desc;
+	hideVisibility(loaderDiv);
+	showVisibility(contentDiv);
 	hljs.highlightAll();
 }
 
 function requestClassData(klass) {
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
+	hideVisibility(contentDiv);
+	showVisibility(loaderDiv);
 	console.log('requestClassData : ' + klass);
 	socket.emit('fetchClassData', {
 		data: 'request fetchClassData',
@@ -292,6 +321,10 @@ function requestClassData(klass) {
 }
 
 function requestEnumData(enumData) {
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
+	hideVisibility(contentDiv);
+	showVisibility(loaderDiv);
 	console.log('requestEnumData : ' + enumData);
 	socket.emit('fetchEnumData', {
 		data: 'request fetchEnumData',
@@ -301,6 +334,10 @@ function requestEnumData(enumData) {
 
 // eslint-disable-next-line no-unused-vars
 function requestFunctionData(functionData) {
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
+	hideVisibility(contentDiv);
+	showVisibility(loaderDiv);
 	console.log('requestFunctionData : ' + functionData);
 	socket.emit('fetchFunctionData', {
 		data: 'request fetchFunctionData',
@@ -310,6 +347,10 @@ function requestFunctionData(functionData) {
 
 // eslint-disable-next-line no-unused-vars
 function requestFileData(fileData) {
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
+	hideVisibility(contentDiv);
+	showVisibility(loaderDiv);
 	console.log('requestFileData : ' + fileData);
 	socket.emit('fetchFileData', {
 		data: 'request fetchFileData',
@@ -329,6 +370,10 @@ function setupSearch() {
 
 // eslint-disable-next-line no-unused-vars
 function performSearch() {
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
+	hideVisibility(contentDiv);
+	showVisibility(loaderDiv);
 	const itemSearch = document.getElementById('code-search-text');
 	const token = itemSearch.value;
 	socket.emit('searchData', {
@@ -338,6 +383,10 @@ function performSearch() {
 }
 
 function showSearchResult(res) {
+	const loaderDiv = document.getElementById('LoaderDiv');
+	const contentDiv = document.getElementById('ContentDiv');
+	hideVisibility(loaderDiv);
+	showVisibility(contentDiv);
 	const itemDiag = document.getElementById('ItemDiag');
 	let presentation = 'Found ' + res.length + ' results.<h2>Results :</h2><div class="left">';
 	for (const item of res) {
