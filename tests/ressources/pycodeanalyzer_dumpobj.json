@@ -4252,6 +4252,13 @@
                     "engine",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "logger",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -4394,7 +4401,8 @@
         "type": "Class",
         "usingNS": [
             "injector",
-            "pycodeanalyzer::core::engine::engine"
+            "pycodeanalyzer::core::engine::engine",
+            "pycodeanalyzer::core::logging::loggerfactory"
         ]
     },
     {
