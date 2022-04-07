@@ -236,6 +236,8 @@ class AbstractClass(AbstractObject):
 
     def __getDependanceFromType(self, type: str) -> List[str]:
         deps: List[str] = []
+        if type.startswith("<anon-"):
+            return deps
         if "<" in type:
             templateTypeList = self.__splitTypes(
                 re.search("[^<]+<(.*)>", type).group(1)
