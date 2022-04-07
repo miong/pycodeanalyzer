@@ -5,8 +5,9 @@ class FileDispatcher {
 + CppAnalyzer cppAnalyzer
 + PythonAnalyzer pythonAnalyzer
 + JavaAnalyzer javaAnalyzer
++ KotlinAnalyzer kotlinAnalyzer
 + UiFileDispatcherListener uiListener
-+Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, JavaAnalyzer javaAnalyzer, UiFileDispatcherListener uiListener) None
++Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, JavaAnalyzer javaAnalyzer, KotlinAnalyzer kotlinAnalyzer, UiFileDispatcherListener uiListener) None
 +dispatchRoots(List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots) List~AbstractObject~
 +dispatch(str rootDir, List~str~ files) List~AbstractObject~
 +sortObjects(List~AbstractObject~ abstractObjects) List~AbstractObject~
@@ -69,6 +70,12 @@ class JavaAnalyzer {
 +deduceType(Any item) str
 }
 link JavaAnalyzer "class££pycodeanalyzer::core::languages::analyzers::javaanalyzer::JavaAnalyzer"
+class KotlinAnalyzer {
+<<Class>>
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
+}
+link KotlinAnalyzer "class££pycodeanalyzer::core::languages::analyzers::kotlinanalyzer::KotlinAnalyzer"
 class UiFileDispatcherListener {
 <<Class>>
 +notifyAnalyzing(str file) None
@@ -89,5 +96,6 @@ link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::Abstra
 FileDispatcher ..> CppAnalyzer
 FileDispatcher ..> PythonAnalyzer
 FileDispatcher ..> JavaAnalyzer
+FileDispatcher ..> KotlinAnalyzer
 FileDispatcher ..> UiFileDispatcherListener
 FileDispatcher ..> AbstractObject

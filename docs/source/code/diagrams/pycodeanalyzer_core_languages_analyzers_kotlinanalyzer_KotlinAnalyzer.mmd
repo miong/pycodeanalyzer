@@ -1,0 +1,26 @@
+classDiagram
+class KotlinAnalyzer {
+<<Class>>
++Constructor() None
++analyze(str rootDir, str path) List~AbstractObject~
+}
+class Analyzer {
+<<Class>>
++ Any logger
++Constructor(str name) None
++analyze(str rootDir, str path) List~AbstractObject~
+}
+link Analyzer "class££pycodeanalyzer::core::languages::analyzer::Analyzer"
+class AbstractObject {
+<<Class>>
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List~str~ usingNS
++Constructor(str name, str origin) None
++addUsingNamespace(str namespace) None
+}
+link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+KotlinAnalyzer --|> Analyzer
+KotlinAnalyzer ..> AbstractObject

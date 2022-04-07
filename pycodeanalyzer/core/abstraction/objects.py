@@ -20,6 +20,7 @@ class AbstractObjectLanguage(Enum):
     CPP = 1
     Python = 2
     Java = 3
+    Kotlin = 4
 
 
 class AbstractObject:
@@ -165,6 +166,7 @@ class AbstractClass(AbstractObject):
             "Boolean" "Byte" "Char",
             "Void",
         ],
+        AbstractObjectLanguage.Kotlin: [],
     }
 
     def __init__(self, name: str, namespace: str, origin: str) -> None:
