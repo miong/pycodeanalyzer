@@ -150,7 +150,9 @@ function updateClassView(klass, diag) {
 
 	let usedByList = '<h3>Used by</h3>';
 	usedByList += '<h4>Classes</h4><ul class="inherits-link">';
-	if (klass.usedBy.Classes.length > 0) {
+	if (Object.keys(klass.usedBy).length === 0) {
+		usedByList += '<li class="inherits-link">Not activated</li>';
+	} else if (klass.usedBy.Classes.length > 0) {
 		for (const userItem of klass.usedBy.Classes) {
 			usedByList += '<li class="inherits-link"><a href="#" onclick="requestClassData(\'' + userItem + '\');return false;">' + userItem + '</a></li>';
 		}
@@ -202,7 +204,9 @@ function updateEnumView(enumData, diag) {
 
 	let usedByList = '<h3>Used by</h3>';
 	usedByList += '<h4>Classes</h4><ul class="inherits-link">';
-	if (enumData.usedBy.Classes.length > 0) {
+	if (Object.keys(enumData.usedBy).length === 0) {
+		usedByList += '<li class="inherits-link">Not activated</li>';
+	} else if (enumData.usedBy.Classes.length > 0) {
 		for (const userItem of enumData.usedBy.Classes) {
 			usedByList += '<li class="inherits-link"><a href="#" onclick="requestClassData(\'' + userItem + '\');return false;">' + userItem + '</a></li>';
 		}
@@ -400,9 +404,20 @@ function showSearchResult(res) {
 	hljs.highlightAll();
 }
 
+// eslint-disable-next-line no-unused-vars
+function toggleUsedBy() {
+	const checkBox = document.getElementById('usedByCB');
+	socket.emit('changeUsedByUse', {
+		activated: checkBox.checked,
+	});
+}
+
 socket.on('connect', () => {
 	const pathItems = window.location.pathname.split('/');
 	const key = pathItems[pathItems.length - 1];
+	socket.emit('requestUsedByUse', {
+		data: 'request usedBy activation',
+	});
 	console.log('fetch  : ' + key);
 	if (key === 'classes') {
 		currentItemKey = '__classes__';
@@ -486,6 +501,12 @@ socket.on('searchResult', msg => {
 	console.log('searchResult received');
 	const {res} = msg;
 	showSearchResult(res);
+});
+
+socket.on('usedByUseChange', msg => {
+	console.log('usedByUseChange received');
+	const checkBox = document.getElementById('usedByCB');
+	checkBox.checked = msg.activated;
 });
 
 // eslint-disable-next-line no-unused-vars

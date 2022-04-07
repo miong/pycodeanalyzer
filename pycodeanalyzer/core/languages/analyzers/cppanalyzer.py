@@ -211,6 +211,7 @@ class CppAnalyzer(Analyzer):
                         code = code.replace(" " + symb + " ", " ")
 
                     # TODO handle using namespace
+                    # TODO handle typedef
                     header: CustomCppHeader = CustomCppHeader(
                         code, argType="string", encoding=encoding
                     )

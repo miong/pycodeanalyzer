@@ -13,6 +13,7 @@ class Engine {
 + Configuration configuration
 + List&lt;Tuple&lt;str,List&lt;str&gt;&gt;&gt; roots
 + int nbFiles
++ bool useByActivated
 + Any stats
 + Any logger
 +Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, PieCharBuild pieCharBuild, Configuration configuration) None
@@ -30,6 +31,8 @@ class Engine {
 +sendFileData(str fileName) None
 +sendSearchResult(str token) None
 +doExport(str exportPath) None
++setUsedByActivation(bool activated) None
++requestUsedByUse() None
 }
 class FileFetcher {
 <<Class>>
@@ -116,6 +119,7 @@ class UiBrowseListener {
 +notifyFunctionData(Dict~str,Any~ function) None
 +notifyFileData(Dict~str,Any~ file) None
 +notifySearchResult(List&lt;Tuple&lt;str,str&gt;&gt; searchRes) None
++notifyUsedByUse(bool activated) None
 }
 link UiBrowseListener "class££pycodeanalyzer::ui::app::UiBrowseListener"
 class ClassDiagramBuild {

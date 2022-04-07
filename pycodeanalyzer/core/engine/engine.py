@@ -65,6 +65,7 @@ class Engine:
         self.configuration = configuration
         self.roots: List[Tuple[str, List[str]]] = []
         self.nbFiles = 0
+        self.useByActivated = True
         self.stats = AnalysisStats()
 
     def reset(self) -> None:
@@ -167,9 +168,14 @@ class Engine:
         objects = self.dependancyAnalyser.analyze(
             self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass
         )
-        usedBy = self.dependancyAnalyser.getUsedBy(
-            self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), klass
-        )
+        if self.useByActivated:
+            usedBy = self.dependancyAnalyser.getUsedBy(
+                self.identityAnalyser.getClasses(),
+                self.identityAnalyser.getEnums(),
+                klass,
+            )
+        else:
+            usedBy = {}
         self.classDiagramBuild.reset()
         self.classDiagramBuild.createClass(
             objects[0], objects[1], objects[2], objects[3]
@@ -205,9 +211,14 @@ class Engine:
         self.classDiagramBuild.reset()
         self.classDiagramBuild.createEnum(enum)
         mermaidDiag = self.classDiagramBuild.build()
-        usedBy = self.dependancyAnalyser.getUsedBy(
-            self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), enum
-        )
+        if self.useByActivated:
+            usedBy = self.dependancyAnalyser.getUsedBy(
+                self.identityAnalyser.getClasses(),
+                self.identityAnalyser.getEnums(),
+                enum,
+            )
+        else:
+            usedBy = {}
         enumDesc: Dict[str, Any] = {}
         enumDesc["name"] = enum.name
         enumDesc["namespace"] = enum.namespace
@@ -227,9 +238,14 @@ class Engine:
         functionDesc["file"] = func.origin
         functionDesc["rtype"] = func.returnType
         params = {}
-        usedBy = self.dependancyAnalyser.getUsedBy(
-            self.identityAnalyser.getClasses(), self.identityAnalyser.getEnums(), func
-        )
+        if self.useByActivated:
+            usedBy = self.dependancyAnalyser.getUsedBy(
+                self.identityAnalyser.getClasses(),
+                self.identityAnalyser.getEnums(),
+                func,
+            )
+        else:
+            usedBy = {}
         functionDesc["usedBy"] = usedBy
         for param in func.parameters:
             params[param[1]] = param[0]
@@ -297,3 +313,9 @@ class Engine:
             self.logger.info("Exporting %s", enum.getFullName())
             with open(exportedFile, "w") as diagFile:
                 diagFile.write(mermaidDiag)
+
+    def setUsedByActivation(self, activated: bool) -> None:
+        self.useByActivated = activated
+
+    def requestUsedByUse(self) -> None:
+        self.uiBrowseListener.notifyUsedByUse(self.useByActivated)
