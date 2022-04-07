@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Tuple
 import jsonpickle
 from injector import inject, singleton
 
+from pycodeanalyzer.core.abstraction.objects import AbstractObject
 from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
 from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
 from pycodeanalyzer.core.analyzer.search import SearchAnalyser
@@ -90,12 +91,14 @@ class Engine:
         self.logger.debug("Setting up analyzers")
         self.logger.info("Start analysis")
         self.logger.debug("Fetching files")
+        abstractObjects: List[AbstractObject] = []
         for path in args.path:
             files = self.fileFetcher.fetch(path)
             self.nbFiles += len(files)
             self.roots.append((path, files))
         if self.nbFiles == 0:
-            self.logger.debug("No files to analyze, quitting.")
+            self.logger.info("No files to analyze, quitting.")
+            app.quit()
         else:
             self.logger.debug("Analysing fetched files")
             abstractObjects = self.fileDispatcher.dispatchRoots(self.roots)

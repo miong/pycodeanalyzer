@@ -1780,6 +1780,7 @@
         "usingNS": [
             "typing",
             "injector",
+            "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::analyzer::dependancy",
             "pycodeanalyzer::core::analyzer::identification",
             "pycodeanalyzer::core::analyzer::search",
@@ -2175,6 +2176,7 @@
         "usingNS": [
             "typing",
             "injector",
+            "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::analyzer::dependancy",
             "pycodeanalyzer::core::analyzer::identification",
             "pycodeanalyzer::core::analyzer::search",
@@ -3805,6 +3807,13 @@
                     "socketio",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "Any",
+                    "ui",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -3839,6 +3848,14 @@
                 "py/tuple": [
                     "None",
                     "run",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "quit",
                     [],
                     "public"
                 ]

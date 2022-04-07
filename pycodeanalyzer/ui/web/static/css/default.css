@@ -8,6 +8,16 @@
   animation: spin 2s linear infinite;
 }
 
+.death {
+    width: 30%;
+    height: 30%;
+}
+
+.death svg {
+    width: 100%;
+    height: 100%;
+}
+
 .center {
   margin: auto;
   text-align: center;
