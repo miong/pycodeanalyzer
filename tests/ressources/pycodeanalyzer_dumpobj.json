@@ -1884,6 +1884,13 @@
             },
             {
                 "py/tuple": [
+                    "bool",
+                    "useByActivated",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "Any",
                     "stats",
                     "public"
@@ -2132,6 +2139,29 @@
                             ]
                         }
                     ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "setUsedByActivation",
+                    [
+                        {
+                            "py/tuple": [
+                                "bool",
+                                "activated"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestUsedByUse",
+                    [],
                     "public"
                 ]
             }
@@ -4035,6 +4065,21 @@
                     ],
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "notifyUsedByUse",
+                    [
+                        {
+                            "py/tuple": [
+                                "bool",
+                                "activated"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
             }
         ],
         "name": "UiBrowseListener",
@@ -4391,6 +4436,29 @@
                     ],
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "setUsedByActivation",
+                    [
+                        {
+                            "py/tuple": [
+                                "bool",
+                                "activated"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestUsedByUse",
+                    [],
+                    "public"
+                ]
             }
         ],
         "name": "EngineCommands",
@@ -4548,6 +4616,29 @@
                     ],
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "changeUsedByUse",
+                    [
+                        {
+                            "py/tuple": [
+                                "bool",
+                                "activated"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "requestUsedByUse",
+                    [],
+                    "public"
+                ]
             }
         ],
         "name": "SocketListner",
@@ -4686,6 +4777,33 @@
         "namespace": "pycodeanalyzer::__main__",
         "origin": "/pycodeanalyzer/__main__.py",
         "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "None",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "\"\"\"No comments in file\"\"\"",
+        "language": {
+            "py/id": 2
+        },
+        "name": "changeUsedByUse",
+        "namespace": "pycodeanalyzer::ui::socketlistener",
+        "origin": "/pycodeanalyzer/ui/socketlistener.py",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "Dict<str,Any>",
+                    "json"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "methods"
+                ]
+            }
+        ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
         "returnType": "None",
         "type": "Function",
@@ -4913,6 +5031,33 @@
             "py/id": 2
         },
         "name": "fetchStats",
+        "namespace": "pycodeanalyzer::ui::socketlistener",
+        "origin": "/pycodeanalyzer/ui/socketlistener.py",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "Dict<str,Any>",
+                    "json"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "methods"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "None",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "\"\"\"No comments in file\"\"\"",
+        "language": {
+            "py/id": 2
+        },
+        "name": "requestUsedByUse",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
         "parameters": [

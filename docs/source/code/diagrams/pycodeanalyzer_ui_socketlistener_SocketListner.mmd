@@ -13,6 +13,8 @@ class SocketListner {
 +fetchFunctionData(str functionDef) None
 +fetchFileData(str fileName) None
 +searchData(str token) None
++changeUsedByUse(bool activated) None
++requestUsedByUse() None
 }
 class EngineCommands {
 <<Class>>
@@ -29,6 +31,8 @@ class EngineCommands {
 +requestFunctionData(str functionDef) None
 +requestFileData(str fileName) None
 +requestSearchData(str token) None
++setUsedByActivation(bool activated) None
++requestUsedByUse() None
 }
 link EngineCommands "class££pycodeanalyzer::ui::engineinterface::EngineCommands"
 SocketListner ..> EngineCommands

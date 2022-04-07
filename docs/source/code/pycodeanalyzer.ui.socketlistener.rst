@@ -7,7 +7,7 @@ pycodeanalyzer.ui.socketlistener
 .. currentmodule:: pycodeanalyzer.ui.socketlistener
 
 .. automodule:: pycodeanalyzer.ui.socketlistener
-    :members: SocketListner, fetchAnalysedClassNames, fetchAnalysedEnumNames, fetchAnalysedFileNames, fetchAnalysedFunctionNames, fetchClassData, fetchEnumData, fetchFileData, fetchFunctionData, fetchStats, searchData
+    :members: SocketListner, changeUsedByUse, fetchAnalysedClassNames, fetchAnalysedEnumNames, fetchAnalysedFileNames, fetchAnalysedFunctionNames, fetchClassData, fetchEnumData, fetchFileData, fetchFunctionData, fetchStats, requestUsedByUse, searchData
     :undoc-members:
     :show-inheritance:
     :member-order: bysource
@@ -27,6 +27,7 @@ pycodeanalyzer.ui.socketlistener
     .. autosummary::
         :nosignatures:
 
+        changeUsedByUse
         fetchAnalysedClassNames
         fetchAnalysedEnumNames
         fetchAnalysedFileNames
@@ -36,6 +37,7 @@ pycodeanalyzer.ui.socketlistener
         fetchFileData
         fetchFunctionData
         fetchStats
+        requestUsedByUse
         searchData
 
 

@@ -65,3 +65,13 @@ class EngineCommands:
         self.logger.info("Received search request for %s", token)
         self.engine.sendSearchResult(token)
         self.logger.info("Anwser sent to UI")
+
+    def setUsedByActivation(self, activated: bool) -> None:
+        self.logger.info("Received use by activation %s", activated)
+        self.engine.setUsedByActivation(activated)
+        self.logger.info("Request traited")
+
+    def requestUsedByUse(self) -> None:
+        self.logger.info("Received use by request")
+        self.engine.requestUsedByUse()
+        self.logger.info("Anwser sent to UI")

@@ -28,7 +28,7 @@ class TestIdentityAnalyser:
         analyzer.analyze(objectList)
         assert len(analyzer.mapping["Classes"]) == 31
         assert len(analyzer.mapping["Enums"]) == 1
-        assert len(analyzer.mapping["Functions"]) == 15
+        assert len(analyzer.mapping["Functions"]) == 17
         for obj in objectList:
             if obj.type == "Class":
                 assert obj in analyzer.mapping["Classes"]
@@ -146,6 +146,12 @@ class TestIdentityAnalyser:
                                                                                          'decimals)',
                                                                               'name': 'round_up'}]}}},
                                'ui': {'socketlistener': {'__functions__': [{'fullDef': 'None '
+                                                                                       'pycodeanalyzer::ui::socketlistener::changeUsedByUse(Dict<str,Any> '
+                                                                                       'json, '
+                                                                                       'List<str> '
+                                                                                       'methods)',
+                                                                            'name': 'changeUsedByUse'},
+                                                                           {'fullDef': 'None '
                                                                                        'pycodeanalyzer::ui::socketlistener::fetchAnalysedClassNames(Dict<str,Any> '
                                                                                        'json, '
                                                                                        'List<str> '
@@ -200,14 +206,18 @@ class TestIdentityAnalyser:
                                                                                        'methods)',
                                                                             'name': 'fetchStats'},
                                                                            {'fullDef': 'None '
+                                                                                       'pycodeanalyzer::ui::socketlistener::requestUsedByUse(Dict<str,Any> '
+                                                                                       'json, '
+                                                                                       'List<str> '
+                                                                                       'methods)',
+                                                                            'name': 'requestUsedByUse'},
+                                                                           {'fullDef': 'None '
                                                                                        'pycodeanalyzer::ui::socketlistener::searchData(Dict<str,Any> '
                                                                                        'json, '
                                                                                        'List<str> '
                                                                                        'methods)',
                                                                             'name': 'searchData'}]}}},
         }
-
-
 
 
     def test_getFileTree(self, mocker):

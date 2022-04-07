@@ -19,8 +19,23 @@
   text-align: left;
 }
 
+.right {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
 .hided {
     display: none;
+}
+
+.left-item {
+    float: left;
+}
+.right-item {
+    float: right;
+    margin-right: 15px;
+    border-left: 1px solid #bbb;
 }
 
 div {
@@ -88,7 +103,6 @@ ul.vertical {
 }
 
 li.horizontal-navbar {
-    float: left;
     height: 100%;
     border-right: 1px solid #bbb;
 }

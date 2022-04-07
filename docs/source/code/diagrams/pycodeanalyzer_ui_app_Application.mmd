@@ -28,6 +28,7 @@ class UiBrowseListener {
 +notifyFunctionData(Dict~str,Any~ function) None
 +notifyFileData(Dict~str,Any~ file) None
 +notifySearchResult(List&lt;Tuple&lt;str,str&gt;&gt; searchRes) None
++notifyUsedByUse(bool activated) None
 }
 link UiBrowseListener "class££pycodeanalyzer::ui::app::UiBrowseListener"
 Application ..> UiFileDispatcherListener

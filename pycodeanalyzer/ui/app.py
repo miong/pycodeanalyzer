@@ -103,6 +103,10 @@ class UiBrowseListener(UiLink):
         if self.socketio:
             self.socketio.emit("searchResult", {"res": searchRes})
 
+    def notifyUsedByUse(self, activated: bool) -> None:
+        if self.socketio:
+            self.socketio.emit("usedByUseChange", {"activated": activated})
+
 
 @singleton
 class Application:

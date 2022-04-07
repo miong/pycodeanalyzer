@@ -56,6 +56,12 @@ class SocketListner:
     def searchData(self, token: str) -> None:
         self.engineCommands.requestSearchData(token)
 
+    def changeUsedByUse(self, activated: bool) -> None:
+        self.engineCommands.setUsedByActivation(activated)
+
+    def requestUsedByUse(self) -> None:
+        self.engineCommands.requestUsedByUse()
+
 
 @app.socketio.on("fetchStats")
 def fetchStats(json: Dict["str", Any], methods: List[str] = ["GET", "POST"]) -> None:
@@ -117,3 +123,17 @@ def fetchFileData(json: Dict["str", Any], methods: List[str] = ["GET", "POST"]) 
 @app.socketio.on("searchData")
 def searchData(json: Dict["str", Any], methods: List[str] = ["GET", "POST"]) -> None:
     injector.get(SocketListner).searchData(json["token"])
+
+
+@app.socketio.on("changeUsedByUse")
+def changeUsedByUse(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
+    injector.get(SocketListner).changeUsedByUse(json["activated"])
+
+
+@app.socketio.on("requestUsedByUse")
+def requestUsedByUse(
+    json: Dict["str", Any], methods: List[str] = ["GET", "POST"]
+) -> None:
+    injector.get(SocketListner).requestUsedByUse()
