@@ -15,6 +15,7 @@ pycodeanalyzer.core.languages.analyzers
 
        pycodeanalyzer.core.languages.analyzers.cppanalyzer
        pycodeanalyzer.core.languages.analyzers.javaanalyzer
+       pycodeanalyzer.core.languages.analyzers.kotlinanalyzer
        pycodeanalyzer.core.languages.analyzers.pythonanalyzer
 
 

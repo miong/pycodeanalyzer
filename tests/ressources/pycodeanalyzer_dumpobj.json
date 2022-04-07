@@ -3186,6 +3186,62 @@
         "language": {
             "py/id": 2
         },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractObject>",
+                    "analyze",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "rootDir"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "KotlinAnalyzer",
+        "namespace": "pycodeanalyzer::core::languages::analyzers::kotlinanalyzer",
+        "origin": "/pycodeanalyzer/core/languages/analyzers/kotlinanalyzer.py",
+        "parents": [
+            {
+                "py/tuple": [
+                    "Analyzer",
+                    "Analyzer",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::languages::analyzer"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
         "members": [
             {
                 "py/tuple": [
@@ -3624,6 +3680,13 @@
             },
             {
                 "py/tuple": [
+                    "KotlinAnalyzer",
+                    "kotlinAnalyzer",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "UiFileDispatcherListener",
                     "uiListener",
                     "public"
@@ -3652,6 +3715,12 @@
                             "py/tuple": [
                                 "JavaAnalyzer",
                                 "javaAnalyzer"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "KotlinAnalyzer",
+                                "kotlinAnalyzer"
                             ]
                         },
                         {
@@ -3728,6 +3797,7 @@
             "pycodeanalyzer::core::abstraction::objects",
             "pycodeanalyzer::core::languages::analyzers::cppanalyzer",
             "pycodeanalyzer::core::languages::analyzers::javaanalyzer",
+            "pycodeanalyzer::core::languages::analyzers::kotlinanalyzer",
             "pycodeanalyzer::core::languages::analyzers::pythonanalyzer",
             "pycodeanalyzer::core::languages::extensions",
             "pycodeanalyzer::core::logging::loggerfactory",
@@ -4686,7 +4756,8 @@
             "Unknown",
             "CPP",
             "Python",
-            "Java"
+            "Java",
+            "Kotlin"
         ]
     },
     {

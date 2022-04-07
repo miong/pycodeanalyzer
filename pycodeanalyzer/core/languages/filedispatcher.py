@@ -9,6 +9,7 @@ from pycodeanalyzer.core.abstraction.objects import (
 )
 from pycodeanalyzer.core.languages.analyzers.cppanalyzer import CppAnalyzer
 from pycodeanalyzer.core.languages.analyzers.javaanalyzer import JavaAnalyzer
+from pycodeanalyzer.core.languages.analyzers.kotlinanalyzer import KotlinAnalyzer
 from pycodeanalyzer.core.languages.analyzers.pythonanalyzer import PythonAnalyzer
 from pycodeanalyzer.core.languages.extensions import languageExtensions
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
@@ -28,12 +29,14 @@ class FileDispatcher:
         cppAnalyzer: CppAnalyzer,
         pythonAnalyzer: PythonAnalyzer,
         javaAnalyzer: JavaAnalyzer,
+        kotlinAnalyzer: KotlinAnalyzer,
         uiListener: UiFileDispatcherListener,
     ) -> None:
         self.logger = LoggerFactory.createLogger(__name__)
         self.cppAnalyzer = cppAnalyzer
         self.pythonAnalyzer = pythonAnalyzer
         self.javaAnalyzer = javaAnalyzer
+        self.kotlinAnalyzer = kotlinAnalyzer
         self.uiListener = uiListener
 
     def dispatchRoots(self, roots: List[Tuple[str, List[str]]]) -> List[AbstractObject]:
@@ -61,6 +64,9 @@ class FileDispatcher:
             if language == "JAVA":
                 self.uiListener.notifyAnalyzing(file)
                 abstractObjects += self.javaAnalyzer.analyze(rootDir, file)
+            if language == "KOTLIN":
+                self.uiListener.notifyAnalyzing(file)
+                abstractObjects += self.kotlinAnalyzer.analyze(rootDir, file)
         return abstractObjects
 
     def sortObjects(

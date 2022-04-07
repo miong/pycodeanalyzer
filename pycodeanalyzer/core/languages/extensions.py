@@ -8,4 +8,5 @@ languageExtensions = {
     ".hpp": "CPP",
     ".py": "PYTHON",
     ".java": "JAVA",
+    ".kt": "KOTLIN",
 }

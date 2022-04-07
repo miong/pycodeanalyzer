@@ -123,6 +123,8 @@ class IdentityAnalyser:
     def getFileTree(self) -> Dict[str, Any]:
         files = self.getFiles()
         tree: Dict[str, Any] = {}
+        if len(files) == 0:
+            return tree
         self.commonFilePath = os.path.commonpath(files)
         if len(files) == 1:
             self.commonFilePath = os.path.abspath(

@@ -11,11 +11,12 @@ class TestFileDispatcher:
         cppAnalyzerMock = Analyzer("cppAnalyzerMock")
         pythonAnalyzerMock = Analyzer("pythonAnalyzerMock")
         javaAnalyzerMock = Analyzer("javaAnalyzerMock")
+        kotlinAnalyzerMock = Analyzer("kotlinAnalyzerMock")
         uiListenerMock = UiFileDispatcherListener()
         abstractObjectsExpected = [AbstractObject("fake", "/home/dir/toto2"), AbstractObject("items", "/home/dir/toto3")]
         roots = [("/home/dir", ["toto", "toto2"]), ("/home/dir2", ["toto3", "toto4"])]
         uiListenerMock.notifyAnalysisEnd = mocker.MagicMock()
-        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, uiListenerMock)
+        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, kotlinAnalyzerMock, uiListenerMock)
         dispatcher.dispatch = mocker.MagicMock(side_effect=[abstractObjectsExpected, []])
         abstractObjects = dispatcher.dispatchRoots(roots)
         dispatcher.dispatch.assert_has_calls([
@@ -33,10 +34,11 @@ class TestFileDispatcher:
         cppAnalyzerMock = Analyzer("cppAnalyzerMock")
         pythonAnalyzerMock = Analyzer("pythonAnalyzerMock")
         javaAnalyzerMock = Analyzer("javaAnalyzerMock")
+        kotlinAnalyzerMock = Analyzer("kotlinAnalyzerMock")
         uiListenerMock = UiFileDispatcherListener()
         cppAnalyzerMock.analyze = mocker.MagicMock(side_effect=[[totoClassAsbtraction], [toto2ClassAsbtraction]])
         uiListenerMock.notifyAnalyzing = mocker.MagicMock()
-        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, uiListenerMock)
+        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, kotlinAnalyzerMock, uiListenerMock)
         abstractObjects = dispatcher.dispatch("/home/dir", ["toto.h", "toto2.hpp"])
         cppAnalyzerMock.analyze.assert_has_calls([
             mocker.call("/home/dir", "toto.h"),
@@ -58,10 +60,11 @@ class TestFileDispatcher:
         cppAnalyzerMock = Analyzer("cppAnalyzerMock")
         pythonAnalyzerMock = Analyzer("pythonAnalyzerMock")
         javaAnalyzerMock = Analyzer("javaAnalyzerMock")
+        kotlinAnalyzerMock = Analyzer("kotlinAnalyzerMock")
         uiListenerMock = UiFileDispatcherListener()
         pythonAnalyzerMock.analyze = mocker.MagicMock(side_effect=[[totoClassAsbtraction], [toto2ClassAsbtraction]])
         uiListenerMock.notifyAnalyzing = mocker.MagicMock()
-        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, uiListenerMock)
+        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, kotlinAnalyzerMock, uiListenerMock)
         abstractObjects = dispatcher.dispatch("/home/dir", ["toto.py", "toto2.py"])
         pythonAnalyzerMock.analyze.assert_has_calls([
             mocker.call("/home/dir", "toto.py"),
@@ -83,10 +86,11 @@ class TestFileDispatcher:
         cppAnalyzerMock = Analyzer("cppAnalyzerMock")
         pythonAnalyzerMock = Analyzer("pythonAnalyzerMock")
         javaAnalyzerMock = Analyzer("javaAnalyzerMock")
+        kotlinAnalyzerMock = Analyzer("kotlinAnalyzerMock")
         uiListenerMock = UiFileDispatcherListener()
         javaAnalyzerMock.analyze = mocker.MagicMock(side_effect=[[totoClassAsbtraction], [toto2ClassAsbtraction]])
         uiListenerMock.notifyAnalyzing = mocker.MagicMock()
-        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, uiListenerMock)
+        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, kotlinAnalyzerMock, uiListenerMock)
         abstractObjects = dispatcher.dispatch("/home/dir", ["toto.java", "toto2.java"])
         javaAnalyzerMock.analyze.assert_has_calls([
             mocker.call("/home/dir", "toto.java"),
@@ -96,6 +100,32 @@ class TestFileDispatcher:
         uiListenerMock.notifyAnalyzing.assert_has_calls([
             mocker.call("toto.java"),
             mocker.call("toto2.java"),
+        ])
+        assert uiListenerMock.notifyAnalyzing.call_count == 2
+        assert len(abstractObjects) == 2
+        assert abstractObjects[0] == totoClassAsbtraction
+        assert abstractObjects[1] == toto2ClassAsbtraction
+
+    def test_dispatchKotlin(self, mocker):
+        totoClassAsbtraction = object()
+        toto2ClassAsbtraction = object()
+        cppAnalyzerMock = Analyzer("cppAnalyzerMock")
+        pythonAnalyzerMock = Analyzer("pythonAnalyzerMock")
+        javaAnalyzerMock = Analyzer("javaAnalyzerMock")
+        kotlinAnalyzerMock = Analyzer("kotlinAnalyzerMock")
+        uiListenerMock = UiFileDispatcherListener()
+        kotlinAnalyzerMock.analyze = mocker.MagicMock(side_effect=[[totoClassAsbtraction], [toto2ClassAsbtraction]])
+        uiListenerMock.notifyAnalyzing = mocker.MagicMock()
+        dispatcher = FileDispatcher(cppAnalyzerMock, pythonAnalyzerMock, javaAnalyzerMock, kotlinAnalyzerMock, uiListenerMock)
+        abstractObjects = dispatcher.dispatch("/home/dir", ["toto.kt", "toto2.kt"])
+        kotlinAnalyzerMock.analyze.assert_has_calls([
+            mocker.call("/home/dir", "toto.kt"),
+            mocker.call("/home/dir", "toto2.kt"),
+        ])
+        assert kotlinAnalyzerMock.analyze.call_count == 2
+        uiListenerMock.notifyAnalyzing.assert_has_calls([
+            mocker.call("toto.kt"),
+            mocker.call("toto2.kt"),
         ])
         assert uiListenerMock.notifyAnalyzing.call_count == 2
         assert len(abstractObjects) == 2
