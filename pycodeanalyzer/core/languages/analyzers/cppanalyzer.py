@@ -212,6 +212,7 @@ class CppAnalyzer(Analyzer):
 
                     # TODO handle using namespace
                     # TODO handle typedef
+                    # TODO handle templates (?)
                     header: CustomCppHeader = CustomCppHeader(
                         code, argType="string", encoding=encoding
                     )

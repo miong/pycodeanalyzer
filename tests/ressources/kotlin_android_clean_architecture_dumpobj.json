@@ -1,0 +1,1050 @@
+[
+    {
+        "language": {
+            "py/reduce": [
+                {
+                    "py/type": "pycodeanalyzer.core.abstraction.objects.AbstractObjectLanguage"
+                },
+                {
+                    "py/tuple": [
+                        4
+                    ]
+                }
+            ]
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "varFloat",
+                    "value",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val Double",
+                    "value2",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val Float",
+                    "value3",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val Float",
+                    "value4",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val Float",
+                    "value5",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val Float",
+                    "value6",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val Long",
+                    "value7",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val Int",
+                    "value8",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "SecondaryConst",
+                    "constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "Float",
+                                "value"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "SecondaryConst",
+                    "constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "Int",
+                                "value"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "SecondaryConst",
+        "namespace": "addons",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/classes.kt",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "valBufferooDataStoreFactory",
+                    "factory",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "valBufferooMapper",
+                    "bufferooMapper",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "BufferooDataRepository",
+                    "constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "BufferooDataStoreFactory",
+                                "factory"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "BufferooMapper",
+                                "bufferooMapper"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "clearBufferoos",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "saveBufferoos",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<Bufferoo>",
+                                "bufferoos"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "saveBufferooEntities",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<BufferooEntity>",
+                                "bufferoos"
+                            ]
+                        }
+                    ],
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Single<List<Bufferoo>>",
+                    "getBufferoos",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooDataRepository",
+        "namespace": "org::buffer::android::boilerplate::data",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/BufferooDataRepository.kt",
+        "parents": [
+            {
+                "py/tuple": [
+                    "BufferooRepository",
+                    "BufferooRepository",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "io::reactivex",
+            "io::reactivex",
+            "org::buffer::android::boilerplate::data::mapper",
+            "org::buffer::android::boilerplate::data::model",
+            "org::buffer::android::boilerplate::data::source",
+            "org::buffer::android::boilerplate::data::source",
+            "org::buffer::android::boilerplate::domain::model",
+            "org::buffer::android::boilerplate::domain::repository",
+            "javax::inject"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "val LinkedBlockingQueue<Runnable>",
+                    "workQueue",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val ThreadPoolExecutor",
+                    "threadPoolExecutor",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "val ThreadFactory",
+                    "threadFactory",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "static val Int",
+                    "INITIAL_POOL_SIZE",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "static val Int",
+                    "MAX_POOL_SIZE",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "static val Int",
+                    "KEEP_ALIVE_TIME",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "static val TimeUnit",
+                    "KEEP_ALIVE_TIME_UNIT",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "JobExecutor",
+                    "constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Unit",
+                    "execute",
+                    [
+                        {
+                            "py/tuple": [
+                                "Runnable?",
+                                "runnable"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "JobExecutor",
+        "namespace": "org::buffer::android::boilerplate::data::executor",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/executor/JobExecutor.kt",
+        "parents": [
+            {
+                "py/tuple": [
+                    "ThreadExecutor",
+                    "ThreadExecutor",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "org::buffer::android::boilerplate::domain::executor",
+            "java::util::concurrent",
+            "java::util::concurrent",
+            "java::util::concurrent",
+            "java::util::concurrent",
+            "javax::inject"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "var Int",
+                    "counter",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "static val String",
+                    "THREAD_NAME",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "Thread",
+                    "newThread",
+                    [
+                        {
+                            "py/tuple": [
+                                "Runnable",
+                                "runnable"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "JobThreadFactory",
+        "namespace": "org::buffer::android::boilerplate::data::executor::JobExecutor",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/executor/JobExecutor.kt",
+        "parents": [
+            {
+                "py/tuple": [
+                    "ThreadFactory",
+                    "ThreadFactory",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "org::buffer::android::boilerplate::domain::executor",
+            "java::util::concurrent",
+            "java::util::concurrent",
+            "java::util::concurrent",
+            "java::util::concurrent",
+            "javax::inject"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "BufferooMapper",
+                    "constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Bufferoo",
+                    "mapFromEntity",
+                    [
+                        {
+                            "py/tuple": [
+                                "BufferooEntity",
+                                "type"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "BufferooEntity",
+                    "mapToEntity",
+                    [
+                        {
+                            "py/tuple": [
+                                "Bufferoo",
+                                "type"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooMapper",
+        "namespace": "org::buffer::android::boilerplate::data::mapper",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/mapper/BufferooMapper.kt",
+        "parents": [
+            {
+                "py/tuple": [
+                    "Mapper<BufferooEntity, Bufferoo>",
+                    "Mapper",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "org::buffer::android::boilerplate::data::model",
+            "org::buffer::android::boilerplate::domain::model",
+            "javax::inject"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "D",
+                    "mapFromEntity",
+                    [
+                        {
+                            "py/tuple": [
+                                "E",
+                                "type"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "E",
+                    "mapToEntity",
+                    [
+                        {
+                            "py/tuple": [
+                                "D",
+                                "type"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "Mapper",
+        "namespace": "org::buffer::android::boilerplate::data::mapper",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/mapper/Mapper.kt",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "valString",
+                    "name",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "valString",
+                    "title",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "valString",
+                    "avatar",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "BufferooEntity",
+                    "constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "String",
+                                "name"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "String",
+                                "title"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "String",
+                                "avatar"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooEntity",
+        "namespace": "org::buffer::android::boilerplate::data::model",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/model/BufferooEntity.kt",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": []
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "Completable",
+                    "clearBufferoos",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "saveBufferoos",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<BufferooEntity>",
+                                "bufferoos"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Single<List<BufferooEntity>>",
+                    "getBufferoos",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Boolean",
+                    "isCached",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Unit",
+                    "setLastCacheTime",
+                    [
+                        {
+                            "py/tuple": [
+                                "Long",
+                                "lastCache"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Boolean",
+                    "isExpired",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooCache",
+        "namespace": "org::buffer::android::boilerplate::data::repository",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/repository/BufferooCache.kt",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "io::reactivex",
+            "io::reactivex",
+            "org::buffer::android::boilerplate::data::model"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "Completable",
+                    "clearBufferoos",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "saveBufferoos",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<BufferooEntity>",
+                                "bufferoos"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Single<List<BufferooEntity>>",
+                    "getBufferoos",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooDataStore",
+        "namespace": "org::buffer::android::boilerplate::data::repository",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/repository/BufferooDataStore.kt",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "io::reactivex",
+            "io::reactivex",
+            "org::buffer::android::boilerplate::data::model"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "Single<List<BufferooEntity>>",
+                    "getBufferoos",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooRemote",
+        "namespace": "org::buffer::android::boilerplate::data::repository",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/repository/BufferooRemote.kt",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "io::reactivex",
+            "org::buffer::android::boilerplate::data::model"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "valBufferooCache",
+                    "bufferooCache",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "BufferooCacheDataStore",
+                    "constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "BufferooCache",
+                                "bufferooCache"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "clearBufferoos",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "saveBufferoos",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<BufferooEntity>",
+                                "bufferoos"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Single<List<BufferooEntity>>",
+                    "getBufferoos",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooCacheDataStore",
+        "namespace": "org::buffer::android::boilerplate::data::source",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/source/BufferooCacheDataStore.kt",
+        "parents": [
+            {
+                "py/tuple": [
+                    "BufferooDataStore",
+                    "BufferooDataStore",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "io::reactivex",
+            "io::reactivex",
+            "org::buffer::android::boilerplate::data::model",
+            "org::buffer::android::boilerplate::data::repository",
+            "org::buffer::android::boilerplate::data::repository",
+            "javax::inject"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "valBufferooCache",
+                    "bufferooCache",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "valBufferooCacheDataStore",
+                    "bufferooCacheDataStore",
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "valBufferooRemoteDataStore",
+                    "bufferooRemoteDataStore",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "BufferooDataStoreFactory",
+                    "constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "BufferooCache",
+                                "bufferooCache"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "BufferooCacheDataStore",
+                                "bufferooCacheDataStore"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "BufferooRemoteDataStore",
+                                "bufferooRemoteDataStore"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "BufferooDataStore",
+                    "retrieveDataStore",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "BufferooDataStore",
+                    "retrieveCacheDataStore",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "BufferooDataStore",
+                    "retrieveRemoteDataStore",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooDataStoreFactory",
+        "namespace": "org::buffer::android::boilerplate::data::source",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/source/BufferooDataStoreFactory.kt",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "org::buffer::android::boilerplate::data::repository",
+            "org::buffer::android::boilerplate::data::repository",
+            "javax::inject"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "members": [
+            {
+                "py/tuple": [
+                    "valBufferooRemote",
+                    "bufferooRemote",
+                    "private"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "BufferooRemoteDataStore",
+                    "constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "BufferooRemote",
+                                "bufferooRemote"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "clearBufferoos",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Completable",
+                    "saveBufferoos",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<BufferooEntity>",
+                                "bufferoos"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "Single<List<BufferooEntity>>",
+                    "getBufferoos",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "BufferooRemoteDataStore",
+        "namespace": "org::buffer::android::boilerplate::data::source",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/source/BufferooRemoteDataStore.kt",
+        "parents": [
+            {
+                "py/tuple": [
+                    "BufferooDataStore",
+                    "BufferooDataStore",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "io::reactivex",
+            "io::reactivex",
+            "org::buffer::android::boilerplate::data::model",
+            "org::buffer::android::boilerplate::data::repository",
+            "org::buffer::android::boilerplate::data::repository",
+            "javax::inject"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "name": "Color",
+        "namespace": "addons",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/enums.kt",
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractEnum",
+        "type": "Enum",
+        "usingNS": [],
+        "values": [
+            "RED",
+            "GREEN",
+            "BLUE"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "name": "Direction",
+        "namespace": "addons",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/enums.kt",
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractEnum",
+        "type": "Enum",
+        "usingNS": [],
+        "values": [
+            "NORTH",
+            "SOUTH",
+            "WEST",
+            "EAST"
+        ]
+    },
+    {
+        "doxygen": "",
+        "language": {
+            "py/id": 2
+        },
+        "name": "getZero",
+        "namespace": "addons",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
+        "parameters": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "Int",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "",
+        "language": {
+            "py/id": 2
+        },
+        "name": "inc",
+        "namespace": "addons",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "Int",
+                    "number"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "Int",
+        "type": "Function",
+        "usingNS": []
+    }
+]
