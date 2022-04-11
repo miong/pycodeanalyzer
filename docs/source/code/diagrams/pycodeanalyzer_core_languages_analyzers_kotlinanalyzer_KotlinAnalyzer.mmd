@@ -1,8 +1,19 @@
 classDiagram
 class KotlinAnalyzer {
 <<Class>>
++ List~str~ globalImports
 +Constructor() None
 +analyze(str rootDir, str path) List~AbstractObject~
++handleClass(List~AbstractObject~ abstractObjects, str path, str currentNS, Union~kopyt::ClassDeclaration,kopyt::InterfaceDeclaration~ klass) None
++handleParent(AbstractClass abstraction, kopyt::DelegationSpecifiers item) None
++handleConstuctor(AbstractClass abstraction, Union~kopyt::PrimaryConstructor,kopyt::SecondaryConstructor~ item, bool isPrimary) None
++handleProperty(AbstractClass abstraction, kopyt::PropertyDeclaration item, bool isStatic) None
++handleMethod(AbstractClass abstraction, kopyt::FunctionDeclaration item, bool isStatic) None
++handleEnum(List~AbstractObject~ abstractObjects, str path, str currentNS, kopyt::EnumDeclaration enum) None
++handleFunction(List~AbstractObject~ abstractObjects, str path, str currentNS, kopyt::FunctionDeclaration function) None
++deduceVisibility(Any item) str
++deduceTypeFromExpression(str expression) str
++deduceType(str type) str
 }
 class Analyzer {
 <<Class>>
@@ -22,5 +33,56 @@ class AbstractObject {
 +addUsingNamespace(str namespace) None
 }
 link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+class ClassDeclaration
+<<External>> ClassDeclaration
+class InterfaceDeclaration
+<<External>> InterfaceDeclaration
+class Union
+<<External>> Union
+class AbstractClass {
+<<Class>>
++ str namespace
++ str type
++ List&lt;Tuple&lt;str,str,str&gt;&gt; members
++ List&lt;Tuple&lt;str,str,List&lt;Tuple&lt;str,str&gt;&gt;,str&gt;&gt; methodes
++ List&lt;Tuple&lt;str,str,str&gt;&gt; parents
++Constructor(str name, str namespace, str origin) None
++addMember(str type, str name, str visibility) None
++hasMember(str name) bool
++addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
++addParent(str completetype, str name, str visibility) None
++getLinkedTypes() List~str~
+-isPotentialClassName(str type) bool
+-getDependanceFromType(str type) List~str~
+-splitTypes(Any decl) List~str~
++getFullName() str
+-cleanLanguageArtifacts(str type) str
+-removeNonObjectTypes(List~str~ typeList) List~str~
++isParent(AbstractClass klass) bool
++print() None
+}
+link AbstractClass "class££pycodeanalyzer::core::abstraction::objects::AbstractClass"
+class DelegationSpecifiers
+<<External>> DelegationSpecifiers
+class PrimaryConor
+<<External>> PrimaryConor
+class SecondaryConor
+<<External>> SecondaryConor
+class PropertyDeclaration
+<<External>> PropertyDeclaration
+class FunctionDeclaration
+<<External>> FunctionDeclaration
+class EnumDeclaration
+<<External>> EnumDeclaration
 KotlinAnalyzer --|> Analyzer
 KotlinAnalyzer ..> AbstractObject
+KotlinAnalyzer ..> ClassDeclaration
+KotlinAnalyzer ..> InterfaceDeclaration
+KotlinAnalyzer ..> Union
+KotlinAnalyzer ..> AbstractClass
+KotlinAnalyzer ..> DelegationSpecifiers
+KotlinAnalyzer ..> PrimaryConor
+KotlinAnalyzer ..> SecondaryConor
+KotlinAnalyzer ..> PropertyDeclaration
+KotlinAnalyzer ..> FunctionDeclaration
+KotlinAnalyzer ..> EnumDeclaration

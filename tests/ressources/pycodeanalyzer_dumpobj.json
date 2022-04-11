@@ -3186,7 +3186,15 @@
         "language": {
             "py/id": 2
         },
-        "members": [],
+        "members": [
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "globalImports",
+                    "public"
+                ]
+            }
+        ],
         "methodes": [
             {
                 "py/tuple": [
@@ -3211,6 +3219,252 @@
                             "py/tuple": [
                                 "str",
                                 "path"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleClass",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "abstractObjects"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentNS"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "Union<kopyt::ClassDeclaration,kopyt::InterfaceDeclaration>",
+                                "klass"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleParent",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "abstraction"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "kopyt::DelegationSpecifiers",
+                                "item"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleConstuctor",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "abstraction"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "Union<kopyt::PrimaryConstructor,kopyt::SecondaryConstructor>",
+                                "item"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "bool",
+                                "isPrimary"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleProperty",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "abstraction"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "kopyt::PropertyDeclaration",
+                                "item"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "bool",
+                                "isStatic"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleMethod",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "abstraction"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "kopyt::FunctionDeclaration",
+                                "item"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "bool",
+                                "isStatic"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleEnum",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "abstractObjects"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentNS"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "kopyt::EnumDeclaration",
+                                "enum"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleFunction",
+                    [
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "abstractObjects"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "currentNS"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "kopyt::FunctionDeclaration",
+                                "function"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "deduceVisibility",
+                    [
+                        {
+                            "py/tuple": [
+                                "Any",
+                                "item"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "deduceTypeFromExpression",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "expression"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "deduceType",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "type"
                             ]
                         }
                     ],

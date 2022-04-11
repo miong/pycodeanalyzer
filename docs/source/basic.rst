@@ -34,9 +34,6 @@ The following languages are supported:
 #. C/C++
 #. Python, if annotation are used
 #. Java
-
-The following languages should be supported:
-
 #. Kotlin
 
 How does it works ?

@@ -110,6 +110,7 @@ pycodeanalyser supports the following languages:
 - C/C++ (using headers)
 - Python3 (using annotation)
 - Java
+- Kotlin
 
 Licence
 -------

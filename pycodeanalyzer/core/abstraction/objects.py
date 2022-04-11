@@ -163,10 +163,27 @@ class AbstractClass(AbstractObject):
             "Long",
             "Float",
             "Double",
-            "Boolean" "Byte" "Char",
+            "Boolean",
+            "Byte",
+            "Char",
             "Void",
         ],
-        AbstractObjectLanguage.Kotlin: [],
+        AbstractObjectLanguage.Kotlin: [
+            "KotlinAuto",
+            "Unit",
+            "Byte",
+            "Short",
+            "Int",
+            "Long",
+            "Float",
+            "Double",
+            "Boolean",
+            "Char",
+            "String",
+            "Array",
+            "Object",
+            "Void",
+        ],
     }
 
     def __init__(self, name: str, namespace: str, origin: str) -> None:
@@ -292,6 +309,10 @@ class AbstractClass(AbstractObject):
             .replace("struct", "")
             .replace("[", "")
             .replace("]", "")
+            .replace("val", "")
+            .replace("var", "")
+            .replace("?", "")
+            .replace("!!", "")
             .strip()
         )
 

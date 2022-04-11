@@ -72,8 +72,19 @@ class JavaAnalyzer {
 link JavaAnalyzer "class££pycodeanalyzer::core::languages::analyzers::javaanalyzer::JavaAnalyzer"
 class KotlinAnalyzer {
 <<Class>>
++ List~str~ globalImports
 +Constructor() None
 +analyze(str rootDir, str path) List~AbstractObject~
++handleClass(List~AbstractObject~ abstractObjects, str path, str currentNS, Union~kopyt::ClassDeclaration,kopyt::InterfaceDeclaration~ klass) None
++handleParent(AbstractClass abstraction, kopyt::DelegationSpecifiers item) None
++handleConstuctor(AbstractClass abstraction, Union~kopyt::PrimaryConstructor,kopyt::SecondaryConstructor~ item, bool isPrimary) None
++handleProperty(AbstractClass abstraction, kopyt::PropertyDeclaration item, bool isStatic) None
++handleMethod(AbstractClass abstraction, kopyt::FunctionDeclaration item, bool isStatic) None
++handleEnum(List~AbstractObject~ abstractObjects, str path, str currentNS, kopyt::EnumDeclaration enum) None
++handleFunction(List~AbstractObject~ abstractObjects, str path, str currentNS, kopyt::FunctionDeclaration function) None
++deduceVisibility(Any item) str
++deduceTypeFromExpression(str expression) str
++deduceType(str type) str
 }
 link KotlinAnalyzer "class££pycodeanalyzer::core::languages::analyzers::kotlinanalyzer::KotlinAnalyzer"
 class UiFileDispatcherListener {
