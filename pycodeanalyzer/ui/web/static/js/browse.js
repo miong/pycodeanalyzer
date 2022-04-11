@@ -241,7 +241,7 @@ function updateFunctionView(functionData) {
 
 	let defLine = functionData.rtype + ' ' + functionData.name + '(';
 
-	if (functionData.params.length > 0) {
+	if (Object.keys(functionData.params).length > 0) {
 		for (const key of Object.keys(functionData.params).values()) {
 			defLine += functionData.params[key] + ' ' + key + ', ';
 		}
