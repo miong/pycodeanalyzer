@@ -129,6 +129,7 @@ class Application:
         self.app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
         self.app.use_reloader = True
         self.socketio = SocketIO(self.app, logger=False, engineio_logger=False)
+        self.ui: FlaskUI = None
         uiFileDispatcherListener.setSocketIO(self.socketio)
         uiStatListener.setSocketIO(self.socketio)
         uiStatListener.setSocketIO(self.socketio)
@@ -142,7 +143,8 @@ class Application:
         threading.Thread(target=lambda: self.ui.run()).start()
 
     def quit(self) -> None:
-        self.ui.idle_interval = 0
+        if self.ui:
+            self.ui.idle_interval = 0
 
 
 class FlaskHolder(FlaskView):
