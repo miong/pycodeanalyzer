@@ -29,7 +29,7 @@ class AbstractObject:
     def __init__(self, name: str, origin: str) -> None:
         self.name = name
         self.type = "Object"
-        self.origin = origin
+        self.origin: str = None if not origin else origin.replace("\\", "/")
         self.language: AbstractObjectLanguage = AbstractObjectLanguage.Unknown
         self.usingNS: List[str] = []
         self.linkedGenericTypes: List[str] = None

@@ -16,7 +16,7 @@ def main():
         text = dataFile.read()
         objectList = jsonpickle.decode(text)
         for object in objectList:
-            object.origin = object.origin.replace(os.getcwd(), "").replace("\\", "/")
+            object.origin = object.origin.replace(os.getcwd().replace("\\", "/"), "").replace("\\", "/")
         dataFile.seek(0)
         text = jsonpickle.encode(objectList)
         dataFile.write(text)
