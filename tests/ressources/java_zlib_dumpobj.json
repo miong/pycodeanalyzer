@@ -12,6 +12,7 @@
                 }
             ]
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -157,6 +158,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -345,6 +347,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -426,6 +429,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -516,6 +520,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2124,6 +2129,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2658,6 +2664,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2964,6 +2971,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -3010,6 +3018,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -3363,6 +3372,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -3526,6 +3536,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -3723,6 +3734,10 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [
+            "T",
+            "K"
+        ],
         "members": [
             {
                 "py/tuple": [
@@ -3799,6 +3814,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [],
         "name": "GenericClassIntImpl",
@@ -3821,6 +3837,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -4268,6 +4285,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -4689,6 +4707,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -5111,6 +5130,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -5730,6 +5750,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -5776,6 +5797,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -6184,6 +6206,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -6535,6 +6558,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -6830,6 +6854,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -7004,6 +7029,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -7294,6 +7320,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -7523,6 +7550,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -7788,6 +7816,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -8749,6 +8778,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -8795,6 +8825,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": null,
         "name": "WrapperType",
         "namespace": "com::jcraft::jzlib::JZlib",
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/JZlib.java",

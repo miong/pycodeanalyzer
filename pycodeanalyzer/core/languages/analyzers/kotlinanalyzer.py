@@ -70,7 +70,9 @@ class KotlinAnalyzer(Analyzer):
         self.handleParent(abstraction, klass.supertypes)
         if klass.constructor:
             self.handleConstuctor(abstraction, klass.constructor, True)
-        # TODO Generics class and function ?
+        if klass.generics:
+            for genType in klass.generics:
+                abstraction.addGenericType(str(genType).strip())
         if klass.body:
             for item in klass.body.members:
                 if isinstance(item, kopyt.node.ClassDeclaration):
@@ -200,6 +202,9 @@ class KotlinAnalyzer(Analyzer):
             paramName = str(param.name)
             params.append((paramType, paramName))
         abstraction.addMethod(rtype, item.name, params, visibility)
+        if item.generics:
+            for genType in item.generics:
+                abstraction.addGenericType(str(genType).strip())
 
     def handleEnum(
         self,
@@ -239,6 +244,9 @@ class KotlinAnalyzer(Analyzer):
             currentNS,
             doxygen,
         )
+        if function.generics:
+            for genType in function.generics:
+                abstraction.addGenericType(str(genType).strip())
         abstraction.language = AbstractObjectLanguage.Kotlin
         abstractObjects.append(abstraction)
 

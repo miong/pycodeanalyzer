@@ -305,7 +305,7 @@ class Engine:
             classFileName = klass.getFullName().replace("::", "_") + ".mmd"
             exportedFile = os.path.join(exportPath, classFileName)
             self.logger.info("Exporting %s", klass.getFullName())
-            with open(exportedFile, "w") as diagFile:
+            with open(exportedFile, "w", encoding="utf-8") as diagFile:
                 diagFile.write(mermaidDiag)
         for enum in self.identityAnalyser.getEnums():
             self.classDiagramBuild.reset()
@@ -314,7 +314,7 @@ class Engine:
             enumFileName = enum.getFullName().replace("::", "_") + ".mmd"
             exportedFile = os.path.join(exportPath, enumFileName)
             self.logger.info("Exporting %s", enum.getFullName())
-            with open(exportedFile, "w") as diagFile:
+            with open(exportedFile, "w", encoding="utf-8") as diagFile:
                 diagFile.write(mermaidDiag)
 
     def setUsedByActivation(self, activated: bool) -> None:

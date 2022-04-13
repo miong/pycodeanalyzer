@@ -63,6 +63,9 @@ class JavaAnalyzer(Analyzer):
         abstraction = AbstractClass(klass.name, currentNS, path)
         for ns in self.globalImports:
             abstraction.addUsingNamespace(ns)
+        if klass.type_parameters:
+            for genType in klass.type_parameters:
+                abstraction.addGenericType(str(genType.name).strip())
         if klass.extends:
             self.handleParent(klass.extends, abstraction)
         if isinstance(klass, javalang.tree.ClassDeclaration):
@@ -97,6 +100,9 @@ class JavaAnalyzer(Analyzer):
                     paramType = self.deduceType(param.type)
                     params.append((paramType, paramName))
                 abstraction.addMethod(rtype, item.name, params, visibility)
+                if item.type_parameters:
+                    for genType in item.type_parameters:
+                        abstraction.addGenericType(str(genType.name).strip())
             elif isinstance(item, javalang.tree.ConstructorDeclaration):
                 visibility = self.deduceVisibility(item)
                 params = []

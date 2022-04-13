@@ -3,7 +3,7 @@ class Application {
 <<Class>>
 + Any app
 + Any socketio
-+ Any ui
++ FlaskUI ui
 +Constructor(UiFileDispatcherListener uiFileDispatcherListener, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener) None
 +run() None
 +quit() None
@@ -33,6 +33,9 @@ class UiBrowseListener {
 +notifyUsedByUse(bool activated) None
 }
 link UiBrowseListener "class££pycodeanalyzer::ui::app::UiBrowseListener"
+class FlaskUI
+<<External>> FlaskUI
 Application ..> UiFileDispatcherListener
 Application ..> UiStatListener
 Application ..> UiBrowseListener
+Application ..> FlaskUI

@@ -12,6 +12,7 @@
                 }
             ]
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -114,6 +115,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -229,6 +231,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -332,6 +335,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -392,6 +396,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -457,6 +462,10 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [
+            "E",
+            "D"
+        ],
         "members": [],
         "methodes": [
             {
@@ -502,6 +511,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -566,6 +576,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -647,6 +658,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -697,6 +709,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -723,6 +736,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -807,6 +821,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -899,6 +914,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -983,6 +999,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": null,
         "name": "Color",
         "namespace": "addons",
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/enums.kt",
@@ -999,6 +1016,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": null,
         "name": "Direction",
         "namespace": "addons",
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/enums.kt",
@@ -1017,6 +1035,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "getZero",
         "namespace": "addons",
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
@@ -1031,6 +1050,31 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [
+            "K"
+        ],
+        "name": "identity",
+        "namespace": "addons",
+        "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
+        "parameters": [
+            {
+                "py/tuple": [
+                    "K",
+                    "item"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
+        "returnType": "K",
+        "type": "Function",
+        "usingNS": []
+    },
+    {
+        "doxygen": "",
+        "language": {
+            "py/id": 2
+        },
+        "linkedGenericTypes": [],
         "name": "inc",
         "namespace": "addons",
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
