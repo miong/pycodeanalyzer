@@ -15,6 +15,7 @@ def getRessource(res):
     here = os.path.dirname(os.path.realpath(__file__))
     resDir = os.path.abspath(os.path.join(here, os.pardir, os.pardir, os.pardir, "ressources"))
     res = os.path.abspath(os.path.join(resDir, res))
+    print(res)
     return res
 
 class TestDependancyAnalyser:

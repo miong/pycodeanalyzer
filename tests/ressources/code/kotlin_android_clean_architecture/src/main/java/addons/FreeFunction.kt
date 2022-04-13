@@ -7,3 +7,7 @@ fun getZero() : Int {
 fun inc(number: Int) : Int {
     return inc + 1
 }
+
+fun <K> identity(item : K) : K {
+    return item
+}

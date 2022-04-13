@@ -73,7 +73,13 @@ class ClassDiagramBuild:
         for klass in self.klasses:
             res += "class " + klass.name
             if not klass.origin:
-                res += "\n<<External>> " + klass.name + "\n"
+                if (
+                    self.target.linkedGenericTypes
+                    and klass.name in self.target.linkedGenericTypes
+                ):
+                    res += "\n<<Generic>> " + klass.name + "\n"
+                else:
+                    res += "\n<<External>> " + klass.name + "\n"
                 continue
             res += " {\n"
             res += "<<Class>>\n"

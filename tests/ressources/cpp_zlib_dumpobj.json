@@ -12,6 +12,7 @@
                 }
             ]
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -41,6 +42,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -192,6 +194,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -405,6 +408,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -436,6 +440,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -494,6 +499,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -709,6 +715,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -848,6 +855,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -886,6 +894,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -924,6 +933,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -996,6 +1006,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1039,6 +1050,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1110,6 +1122,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1181,6 +1194,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1238,6 +1252,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1267,6 +1282,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1387,6 +1403,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1507,6 +1524,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1536,6 +1554,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1565,6 +1584,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1594,6 +1614,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1651,6 +1672,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1694,6 +1716,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1849,6 +1872,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2109,6 +2133,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2145,6 +2170,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2183,6 +2209,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2219,6 +2246,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2325,6 +2353,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2439,6 +2468,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "blast",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/blast/blast.h",
@@ -2490,6 +2520,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
@@ -2511,6 +2542,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
@@ -2532,6 +2564,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/infback9.h",
@@ -2553,6 +2586,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/infback9/inftree9.h",
@@ -2574,6 +2608,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "operator<",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2601,6 +2636,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "operator<",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2628,6 +2664,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "operator<<",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2655,6 +2692,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "operator>",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2682,6 +2720,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "operator>",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2709,6 +2748,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "read",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2742,6 +2782,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "read_string",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2763,6 +2804,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "write",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream2/zstream.h",
@@ -2796,6 +2838,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzomanip2",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
@@ -2829,6 +2872,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "operator<<",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
@@ -2856,6 +2900,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "setcompression",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
@@ -2889,6 +2934,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "setcompression",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream3/zfstream.h",
@@ -2916,6 +2962,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "operator<<",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
@@ -2943,6 +2990,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "setcompressionlevel",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
@@ -2970,6 +3018,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "setcompressionlevel",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
@@ -2991,6 +3040,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "setcompressionstrategy",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
@@ -3018,6 +3068,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "setcompressionstrategy",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/iostream/zfstream.h",
@@ -3039,6 +3090,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "decrypt_byte",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
@@ -3066,6 +3118,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "init_keys",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
@@ -3099,6 +3152,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "update_keys",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/crypt.h",
@@ -3132,6 +3186,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
@@ -3153,6 +3208,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
@@ -3174,6 +3230,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
@@ -3195,6 +3252,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
@@ -3216,6 +3274,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
@@ -3237,6 +3296,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fill_zlib_filefunc64_32_def_from_filefunc32",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/ioapi.h",
@@ -3264,6 +3324,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/iowin32.h",
@@ -3285,6 +3346,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/iowin32.h",
@@ -3306,6 +3368,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/iowin32.h",
@@ -3327,6 +3390,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/iowin32.h",
@@ -3348,6 +3412,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzRepair",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/mztools.h",
@@ -3393,6 +3458,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3414,6 +3480,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3435,6 +3502,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3456,6 +3524,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3477,6 +3546,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3498,6 +3568,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3519,6 +3590,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3540,6 +3612,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3561,6 +3634,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3582,6 +3656,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3603,6 +3678,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3624,6 +3700,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3645,6 +3722,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3666,6 +3744,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3687,6 +3766,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3708,6 +3788,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3729,6 +3810,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3750,6 +3832,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3771,6 +3854,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3792,6 +3876,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3813,6 +3898,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3834,6 +3920,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3855,6 +3942,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3876,6 +3964,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3897,6 +3986,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3918,6 +4008,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzGetFilePos",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3945,6 +4036,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzGetFilePos64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3972,6 +4064,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzGetOffset",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -3993,6 +4086,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzGetOffset64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -4014,6 +4108,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzGoToFilePos",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -4041,6 +4136,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzGoToFilePos64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -4068,6 +4164,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzSetOffset",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -4095,6 +4192,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "unzSetOffset64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/unzip.h",
@@ -4122,6 +4220,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4143,6 +4242,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4164,6 +4264,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4185,6 +4286,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4206,6 +4308,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4227,6 +4330,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4248,6 +4352,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4269,6 +4374,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4290,6 +4396,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4311,6 +4418,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4332,6 +4440,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4353,6 +4462,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4374,6 +4484,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4395,6 +4506,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4416,6 +4528,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4437,6 +4550,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4458,6 +4572,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4479,6 +4594,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/minizip/zip.h",
@@ -4500,6 +4616,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "puff",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/contrib/puff/puff.h",
@@ -4539,6 +4656,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzlog_close",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
@@ -4560,6 +4678,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzlog_compress",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
@@ -4581,6 +4700,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzlog_open",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
@@ -4602,6 +4722,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzlog_write",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/examples/gzlog.h",
@@ -4635,6 +4756,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "free",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4649,6 +4771,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gz_error",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4663,6 +4786,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gz_intmax",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4677,6 +4801,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzoffset64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4691,6 +4816,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzopen64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4705,6 +4831,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzseek64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4719,6 +4846,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gztell64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4733,6 +4861,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "malloc",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/gzguts.h",
@@ -4747,6 +4876,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/inffast.h",
@@ -4768,6 +4898,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "OF",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/inftrees.h",
@@ -4789,6 +4920,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "adler32",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4803,6 +4935,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "adler32_combine",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4817,6 +4950,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "adler32_z",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4831,6 +4965,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "compress",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4845,6 +4980,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "compress2",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4859,6 +4995,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "compressBound",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4873,6 +5010,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "crc32",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4887,6 +5025,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "crc32_combine",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4901,6 +5040,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "crc32_z",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4915,6 +5055,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflate",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4929,6 +5070,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateBound",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4943,6 +5085,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateCopy",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4957,6 +5100,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateEnd",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4971,6 +5115,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateGetDictionary",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4985,6 +5130,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateInit2_",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -4999,6 +5145,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateInit_",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5013,6 +5160,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateParams",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5027,6 +5175,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflatePending",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5041,6 +5190,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflatePrime",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5055,6 +5205,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateReset",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5069,6 +5220,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateResetKeep",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5083,6 +5235,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateSetDictionary",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5097,6 +5250,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateSetHeader",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5111,6 +5265,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "deflateTune",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5125,6 +5280,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "get_crc_table",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5139,6 +5295,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzbuffer",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5153,6 +5310,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzclearerr",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5167,6 +5325,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzclose",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5181,6 +5340,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzclose_r",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5195,6 +5355,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzclose_w",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5209,6 +5370,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzdirect",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5223,6 +5385,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzdopen",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5237,6 +5400,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzeof",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5251,6 +5415,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzerror",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5265,6 +5430,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzflush",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5279,6 +5445,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzfread",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5293,6 +5460,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzfwrite",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5307,6 +5475,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzgetc",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5321,6 +5490,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzgetc_",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5335,6 +5505,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzgets",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5349,6 +5520,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzoffset",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5363,6 +5535,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzopen",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5377,6 +5550,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzprintf",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5391,6 +5565,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzputc",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5405,6 +5580,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzputs",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5419,6 +5595,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzread",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5433,6 +5610,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzrewind",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5447,6 +5625,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzseek",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5461,6 +5640,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzsetparams",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5475,6 +5655,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gztell",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5489,6 +5670,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzungetc",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5503,6 +5685,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzvprintf",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5517,6 +5700,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "gzwrite",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5531,6 +5715,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflate",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5545,6 +5730,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateBack",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5559,6 +5745,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateBackEnd",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5573,6 +5760,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateBackInit_",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5587,6 +5775,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateCodesUsed",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5601,6 +5790,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateCopy",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5615,6 +5805,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateEnd",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5629,6 +5820,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateGetDictionary",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5643,6 +5835,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateGetHeader",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5657,6 +5850,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateInit2_",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5671,6 +5865,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateInit_",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5685,6 +5880,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateMark",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5699,6 +5895,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflatePrime",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5713,6 +5910,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateReset",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5727,6 +5925,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateReset2",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5741,6 +5940,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateResetKeep",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5755,6 +5955,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateSetDictionary",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5769,6 +5970,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateSync",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5783,6 +5985,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateSyncPoint",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5797,6 +6000,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateUndermine",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5811,6 +6015,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "inflateValidate",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5825,6 +6030,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "uncompress",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5839,6 +6045,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "uncompress2",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5853,6 +6060,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zError",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5867,6 +6075,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zlibCompileFlags",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5881,6 +6090,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zlibVersion",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zlib.h",
@@ -5895,6 +6105,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "adler32_combine64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
@@ -5909,6 +6120,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "crc32_combine64",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
@@ -5923,6 +6135,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zcalloc",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
@@ -5937,6 +6150,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zcfree",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
@@ -5951,6 +6165,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zmemcmp",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
@@ -5965,6 +6180,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zmemcpy",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",
@@ -5979,6 +6195,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "zmemzero",
         "namespace": "",
         "origin": "/tests/ressources/code/cpp_zlib/src/zutil.h",

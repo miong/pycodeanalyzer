@@ -12,6 +12,7 @@
                 }
             ]
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -47,6 +48,13 @@
                     "parents",
                     "public"
                 ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "linkedGenericTypes",
+                    "public"
+                ]
             }
         ],
         "methodes": [
@@ -71,6 +79,21 @@
                             "py/tuple": [
                                 "str",
                                 "origin"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "addGenericType",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "genType"
                             ]
                         }
                     ],
@@ -318,6 +341,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -416,6 +440,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -449,6 +474,13 @@
                 "py/tuple": [
                     "str",
                     "doxygen",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "linkedGenericTypes",
                     "public"
                 ]
             }
@@ -502,6 +534,21 @@
             {
                 "py/tuple": [
                     "None",
+                    "addGenericType",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "genType"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
                     "print",
                     [],
                     "public"
@@ -540,6 +587,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -573,6 +621,13 @@
                 "py/tuple": [
                     "List<str>",
                     "usingNS",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<str>",
+                    "linkedGenericTypes",
                     "public"
                 ]
             }
@@ -631,6 +686,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -820,6 +876,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1000,6 +1057,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1096,6 +1154,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1307,6 +1366,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1365,6 +1425,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1593,6 +1654,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1671,6 +1733,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1717,6 +1780,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -1798,6 +1862,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2194,6 +2259,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2342,6 +2408,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2405,6 +2472,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -2718,6 +2786,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -2795,6 +2864,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -3005,6 +3075,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -3186,6 +3257,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -3496,6 +3568,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -3903,6 +3976,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -4062,6 +4136,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -4117,6 +4192,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -4134,7 +4210,7 @@
             },
             {
                 "py/tuple": [
-                    "Any",
+                    "FlaskUI",
                     "ui",
                     "public"
                 ]
@@ -4204,6 +4280,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -4258,6 +4335,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -4450,6 +4528,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -4503,6 +4582,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -4556,6 +4636,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [],
         "methodes": [
             {
@@ -4631,6 +4712,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -4818,6 +4900,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "members": [
             {
                 "py/tuple": [
@@ -5000,6 +5083,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": null,
         "name": "AbstractObjectLanguage",
         "namespace": "pycodeanalyzer::core::abstraction::objects",
         "origin": "/pycodeanalyzer/core/abstraction/objects.py",
@@ -5019,6 +5103,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "compareAbstractObject",
         "namespace": "pycodeanalyzer::core::abstraction::objects",
         "origin": "/pycodeanalyzer/core/abstraction/objects.py",
@@ -5040,6 +5125,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "platformIndependantPathHash",
         "namespace": "pycodeanalyzer::core::abstraction::objects",
         "origin": "/pycodeanalyzer/core/abstraction/objects.py",
@@ -5061,6 +5147,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "rindex",
         "namespace": "pycodeanalyzer::core::utils::containers",
         "origin": "/pycodeanalyzer/core/utils/containers.py",
@@ -5088,6 +5175,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "round_up",
         "namespace": "pycodeanalyzer::core::utils::math",
         "origin": "/pycodeanalyzer/core/utils/math.py",
@@ -5115,6 +5203,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "main",
         "namespace": "pycodeanalyzer::__main__",
         "origin": "/pycodeanalyzer/__main__.py",
@@ -5129,6 +5218,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "changeUsedByUse",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5156,6 +5246,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchAnalysedClassNames",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5183,6 +5274,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchAnalysedEnumNames",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5210,6 +5302,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchAnalysedFileNames",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5237,6 +5330,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchAnalysedFunctionNames",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5264,6 +5358,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchClassData",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5291,6 +5386,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchEnumData",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5318,6 +5414,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchFileData",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5345,6 +5442,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchFunctionData",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5372,6 +5470,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "fetchStats",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5399,6 +5498,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "requestUsedByUse",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",
@@ -5426,6 +5526,7 @@
         "language": {
             "py/id": 2
         },
+        "linkedGenericTypes": [],
         "name": "searchData",
         "namespace": "pycodeanalyzer::ui::socketlistener",
         "origin": "/pycodeanalyzer/ui/socketlistener.py",

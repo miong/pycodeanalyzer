@@ -32,6 +32,7 @@ class AbstractObject:
         self.origin = origin
         self.language: AbstractObjectLanguage = AbstractObjectLanguage.Unknown
         self.usingNS: List[str] = []
+        self.linkedGenericTypes: List[str] = None
 
     def addUsingNamespace(self, namespace: str) -> None:
         self.usingNS.append(namespace)
@@ -76,6 +77,10 @@ class AbstractFunction(AbstractObject):
         self.returnType = returnType
         self.parameters = parameters
         self.doxygen = doxygen
+        self.linkedGenericTypes: List[str] = []
+
+    def addGenericType(self, genType: str) -> None:
+        self.linkedGenericTypes.append(genType)
 
     def print(self) -> None:
         print("Function : ", self.name)
@@ -193,6 +198,10 @@ class AbstractClass(AbstractObject):
         self.members: List[Tuple[str, str, str]] = []
         self.methodes: List[Tuple[str, str, List[Tuple[str, str]], str]] = []
         self.parents: List[Tuple[str, str, str]] = []
+        self.linkedGenericTypes: List[str] = []
+
+    def addGenericType(self, genType: str) -> None:
+        self.linkedGenericTypes.append(genType)
 
     def addMember(self, type: str, name: str, visibility: str) -> None:
         self.members.append((type, name, visibility))
@@ -239,6 +248,10 @@ class AbstractClass(AbstractObject):
                         types.append(type)
         for member in self.members:
             for type in self.__getDependanceFromType(member[0]):
+                if type not in types and self.__isPotentialClassName(type):
+                    types.append(type)
+        for genType in self.linkedGenericTypes:
+            for type in self.__getDependanceFromType(genType):
                 if type not in types and self.__isPotentialClassName(type):
                     types.append(type)
         types = self.__removeNonObjectTypes(types)
