@@ -1,0 +1,92 @@
+@startuml
+class CppAnalyzer <<Class>>
+{
++ List<str> objectPaths
++ Encoding encoding
++ List<str> forceIgnoredSymbols
++ Configuration configuration
++ bool configured
++ List<str> defines
++None Constructor(Configuration config)
++List<AbstractObject> analyze(str rootDir, str path)
++None handleClass(str path, Any klass, List<AbstractObject> abstractObjects)
++None addMethods(AbstractClass abstraction, Any klass, str visibility)
++None addMembers(AbstractClass abstraction, Any klass, str visibility)
++None addParents(AbstractClass abstraction, Any klass)
++None handleEnum(str path, Any enum, List<AbstractObject> abstractObjects)
++None handleFunction(str path, Any function, List<AbstractObject> abstractObjects)
++str clearNamespace(str namespace)
++str extractUnexpectedFromParseError(CppHeaderParser::CppParseError err)
++None defineConfig()
++None handleConfigation()
+}
+class Analyzer <<Class>>
+{
++ Any logger
++None Constructor(str name)
++List<AbstractObject> analyze(str rootDir, str path)
+}
+class Configuration <<Class>>
+{
++ Any logger
++ Any config
++ Dict<str,List<Tuple<str,str>>> definition
++None Constructor()
++bool load(str path)
++None defineConfig(str section, str name, str comment)
++str get(str section, str name)
++int getInt(str section, str name)
++float getFloat(str section, str name)
++bool getBool(str section, str name)
++List<Any> getList(str section, str name)
++None generateTemplate(str path)
+}
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+class AbstractClass <<Class>>
+{
++ str namespace
++ str type
++ List<Tuple<str,str,str>> members
++ List<Tuple<str,str,List<Tuple<str,str>>,str>> methodes
++ List<Tuple<str,str,str>> parents
++ List<str> linkedGenericTypes
++None Constructor(str name, str namespace, str origin)
++None addGenericType(str genType)
++None addMember(str type, str name, str visibility)
++bool hasMember(str name)
++None addMethod(str returnType, str name, List<Tuple<str,str>> parameters, str visibility)
++None addParent(str completetype, str name, str visibility)
++List<str> getLinkedTypes()
+-bool isPotentialClassName(str type)
+-List<str> getDependanceFromType(str type)
+-List<str> splitTypes(Any decl)
++str getFullName()
+-str cleanLanguageArtifacts(str type)
+-List<str> removeNonObjectTypes(List<str> typeList)
++bool isParent(AbstractClass klass)
++None print()
+}
+class CppParseError <<External>>
+class Encoding <<Class>>
+{
++ Any magic
++None Constructor()
++str getFileEncoding(str file)
+}
+CppAnalyzer --|> Analyzer
+CppAnalyzer ..|> Configuration
+CppAnalyzer ..|> AbstractObject
+CppAnalyzer ..|> AbstractClass
+CppAnalyzer ..|> CppParseError
+CppAnalyzer ..|> Encoding
+@enduml

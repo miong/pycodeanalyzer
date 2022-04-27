@@ -6,7 +6,11 @@ Welcome to pycodeanalyzer's documentation!
     :caption: Contents:
 
     basic
+    install
+    usage
     config
+    examples
+    license
     code
 
 

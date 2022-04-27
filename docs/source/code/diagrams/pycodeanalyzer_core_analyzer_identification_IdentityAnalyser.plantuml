@@ -1,0 +1,82 @@
+@startuml
+class IdentityAnalyser <<Class>>
+{
++ Dict<str,List<Any>> mapping
++ str commonFilePath
++None Constructor()
++None analyze(List<AbstractObject> objects)
++List<AbstractClass> getClasses()
++List<AbstractEnum> getEnums()
++List<AbstractFunction> getFunctions()
++Dict<str,Any> getClasseTree()
++Dict<str,Any> getEnumTree()
++Dict<str,Any> getFunctionTree()
++List<str> getFiles()
++Dict<str,Any> getFileTree()
++AbstractClass getClass(str classNamespacePath)
++AbstractEnum getEnum(str enumNamespacePath)
++AbstractFunction getFunction(str funcFullDef)
++Dict<str,List<str>> getObjectInFile(str file)
+}
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+class AbstractClass <<Class>>
+{
++ str namespace
++ str type
++ List<Tuple<str,str,str>> members
++ List<Tuple<str,str,List<Tuple<str,str>>,str>> methodes
++ List<Tuple<str,str,str>> parents
++ List<str> linkedGenericTypes
++None Constructor(str name, str namespace, str origin)
++None addGenericType(str genType)
++None addMember(str type, str name, str visibility)
++bool hasMember(str name)
++None addMethod(str returnType, str name, List<Tuple<str,str>> parameters, str visibility)
++None addParent(str completetype, str name, str visibility)
++List<str> getLinkedTypes()
+-bool isPotentialClassName(str type)
+-List<str> getDependanceFromType(str type)
+-List<str> splitTypes(Any decl)
++str getFullName()
+-str cleanLanguageArtifacts(str type)
+-List<str> removeNonObjectTypes(List<str> typeList)
++bool isParent(AbstractClass klass)
++None print()
+}
+class AbstractEnum <<Class>>
+{
++ str namespace
++ str type
++ List<str> values
++None Constructor(str name, str namespace, str origin, List<str> values)
++str getFullName()
++None print()
+}
+class AbstractFunction <<Class>>
+{
++ str namespace
++ str type
++ str returnType
++ List<Tuple<str,str>> parameters
++ str doxygen
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin, str returnType, List<Tuple<str,str>> parameters, str namespace, str doxygen)
++None addGenericType(str genType)
++None print()
++str getFullDef()
+}
+IdentityAnalyser ..|> AbstractObject
+IdentityAnalyser ..|> AbstractClass
+IdentityAnalyser ..|> AbstractEnum
+IdentityAnalyser ..|> AbstractFunction
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class Encoding <<Class>>
+{
++ Any magic
++None Constructor()
++str getFileEncoding(str file)
+}
+@enduml

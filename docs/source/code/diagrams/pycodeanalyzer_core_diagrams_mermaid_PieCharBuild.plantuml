@@ -1,0 +1,10 @@
+@startuml
+class PieCharBuild <<Class>>
+{
++ Dict<str,int> categories
++None Constructor()
++None reset()
++None addValue(str label, int value)
++str build(str title)
+}
+@enduml

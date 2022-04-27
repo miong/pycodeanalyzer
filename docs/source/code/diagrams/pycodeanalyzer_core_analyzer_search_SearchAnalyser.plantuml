@@ -1,0 +1,12 @@
+@startuml
+class SearchAnalyser <<Class>>
+{
++ List<Tuple<str,str>> results
++ List<Thread> threads
++List<Tuple<str,str>> searchInAllFiles(str token, List<str> files)
++List<Tuple<str,str>> seachInFile(str token, str filePath)
+-None seachInFileThreaded(str token, str filePath)
+}
+class Thread <<External>>
+SearchAnalyser ..|> Thread
+@enduml

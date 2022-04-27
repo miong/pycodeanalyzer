@@ -1,0 +1,38 @@
+@startuml
+class SocketListner <<Class>>
+{
++ EngineCommands engineCommands
++None Constructor(EngineCommands engineCommands)
++None fetchStats()
++None fetchAnalysedClassNames()
++None fetchAnalysedEnumNames()
++None fetchAnalysedFunctionNames()
++None fetchAnalysedFileNames()
++None fetchClassData(str className)
++None fetchEnumData(str enumName)
++None fetchFunctionData(str functionDef)
++None fetchFileData(str fileName)
++None searchData(str token)
++None changeUsedByUse(bool activated)
++None requestUsedByUse()
+}
+class EngineCommands <<Class>>
+{
++ Engine engine
++ Any logger
++None Constructor(Engine engine)
++None requestAnalysisStats()
++None requestClasseNames()
++None requestEnumNames()
++None requestFunctionNames()
++None requestFileNames()
++None requestClassData(str className)
++None requestEnumData(str enumName)
++None requestFunctionData(str functionDef)
++None requestFileData(str fileName)
++None requestSearchData(str token)
++None setUsedByActivation(bool activated)
++None requestUsedByUse()
+}
+SocketListner ..|> EngineCommands
+@enduml

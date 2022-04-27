@@ -1,0 +1,38 @@
+@startuml
+class Application <<Class>>
+{
++ Any app
++ Any socketio
++ FlaskUI ui
++None Constructor(UiFileDispatcherListener uiFileDispatcherListener, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener)
++None run()
++None quit()
+}
+class UiFileDispatcherListener <<Class>>
+{
++None notifyAnalyzing(str file)
++None notifyAnalysisEnd()
+}
+class UiStatListener <<Class>>
+{
++None notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, str languagePie, float duration)
+}
+class UiBrowseListener <<Class>>
+{
++None notifyClasseNames(Dict<str,Any> tree)
++None notifyEnumNames(Dict<str,Any> tree)
++None notifyFunctionNames(Dict<str,Any> tree)
++None notifyFileNames(Dict<str,Any> tree)
++None notifyClassData(Dict<str,Any> klass, str mermaidDiag)
++None notifyEnumData(Dict<str,Any> enum, str mermaidDiag)
++None notifyFunctionData(Dict<str,Any> function)
++None notifyFileData(Dict<str,Any> file)
++None notifySearchResult(List<Tuple<str,str>> searchRes)
++None notifyUsedByUse(bool activated)
+}
+class FlaskUI <<External>>
+Application ..|> UiFileDispatcherListener
+Application ..|> UiStatListener
+Application ..|> UiBrowseListener
+Application ..|> FlaskUI
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+class FlaskHolder <<Class>>
+{
++str loading()
++str home()
++str browse()
+}
+class FlaskView <<External>>
+FlaskHolder --|> FlaskView
+@enduml

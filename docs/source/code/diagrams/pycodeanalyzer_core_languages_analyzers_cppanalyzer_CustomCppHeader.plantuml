@@ -1,0 +1,10 @@
+@startuml
+class CustomCppHeader <<Class>>
+{
++bool is_enum_namestack(Any nameStack)
++bool is_property_namestack(Any nameStack)
++bool is_method_namestack(Any stack)
+}
+class CppHeader <<External>>
+CustomCppHeader ..|> CppHeader
+@enduml

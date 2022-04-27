@@ -1,0 +1,35 @@
+@startuml
+class FileFetcher <<Class>>
+{
++ Any logger
++ List<str> suported_extensions
++ List<str> rejected_encoding
++ Any encoding
++ bool configured
++ Configuration configuration
++ List<str> ignoredPatterns
++ Dict<str,int> languagesCount
++None Constructor(Configuration configuration)
++None reset()
++bool isAnalyzed(str fileabspath)
++List<str> fetch(str rootDir)
++None defineConfig()
++None handleConfigation()
+}
+class Configuration <<Class>>
+{
++ Any logger
++ Any config
++ Dict<str,List<Tuple<str,str>>> definition
++None Constructor()
++bool load(str path)
++None defineConfig(str section, str name, str comment)
++str get(str section, str name)
++int getInt(str section, str name)
++float getFloat(str section, str name)
++bool getBool(str section, str name)
++List<Any> getList(str section, str name)
++None generateTemplate(str path)
+}
+FileFetcher ..|> Configuration
+@enduml

@@ -9,3 +9,6 @@ The following is a template containing all optional configurations.
 
 .. include:: config/template.ini
    :literal:
+
+
+This template can be generated using the create-config option of pycodeanlyzer.

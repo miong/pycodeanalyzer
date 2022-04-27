@@ -41,7 +41,9 @@ class AbstractObject:
 class AbstractEnum(AbstractObject):
     """Enum abstraction"""
 
-    def __init__(self, name: str, namespace: str, origin: str, values: List[str]):
+    def __init__(
+        self, name: str, namespace: str, origin: str, values: List[str]
+    ) -> None:
         super().__init__(name, origin)
         self.namespace = namespace
         self.type = "Enum"

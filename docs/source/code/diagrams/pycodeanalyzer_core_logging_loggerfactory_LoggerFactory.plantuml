@@ -1,0 +1,10 @@
+@startuml
+class LoggerFactory <<Class>>
+{
++None init()
++None setLoggerLevel(str loglevel)
++logging::Logger createLogger(str name)
+}
+class Logger <<External>>
+LoggerFactory ..|> Logger
+@enduml

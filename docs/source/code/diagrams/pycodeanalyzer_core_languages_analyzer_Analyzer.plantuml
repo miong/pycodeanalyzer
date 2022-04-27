@@ -1,0 +1,20 @@
+@startuml
+class Analyzer <<Class>>
+{
++ Any logger
++None Constructor(str name)
++List<AbstractObject> analyze(str rootDir, str path)
+}
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+Analyzer ..|> AbstractObject
+@enduml

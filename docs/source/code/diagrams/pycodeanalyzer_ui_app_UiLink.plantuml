@@ -1,0 +1,10 @@
+@startuml
+class UiLink <<Class>>
+{
++ SocketIO socketio
++None Constructor()
++None setSocketIO(SocketIO socketio)
+}
+class SocketIO <<External>>
+UiLink ..|> SocketIO
+@enduml

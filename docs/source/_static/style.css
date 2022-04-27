@@ -13,3 +13,16 @@
     overflow: scroll;
     max-width: none;
 }
+
+
+.plantuml {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+.plantuml img {
+    width: auto;
+    height: auto;
+    overflow: scroll;
+    max-width: none;
+}

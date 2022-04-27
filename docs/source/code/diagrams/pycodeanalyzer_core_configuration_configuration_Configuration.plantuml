@@ -1,0 +1,17 @@
+@startuml
+class Configuration <<Class>>
+{
++ Any logger
++ Any config
++ Dict<str,List<Tuple<str,str>>> definition
++None Constructor()
++bool load(str path)
++None defineConfig(str section, str name, str comment)
++str get(str section, str name)
++int getInt(str section, str name)
++float getFloat(str section, str name)
++bool getBool(str section, str name)
++List<Any> getList(str section, str name)
++None generateTemplate(str path)
+}
+@enduml
