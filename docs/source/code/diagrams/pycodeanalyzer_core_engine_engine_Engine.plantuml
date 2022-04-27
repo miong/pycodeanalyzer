@@ -1,0 +1,171 @@
+@startuml
+class Engine <<Class>>
+{
++ FileFetcher fileFetcher
++ FileDispatcher fileDispatcher
++ IdentityAnalyser identityAnalyser
++ DependancyAnalyser dependancyAnalyser
++ SearchAnalyser searchAnalyser
++ UiStatListener uiStatListener
++ UiBrowseListener uiBrowseListener
++ PieCharBuild pieCharBuild
++ ClassDiagramBuild classDiagramBuild
++ Configuration configuration
++ List<Tuple<str,List<str>>> roots
++ int nbFiles
++ bool useByActivated
++ Any stats
++ Any logger
++None Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, PieCharBuild pieCharBuild, Configuration configuration)
++None reset()
++None run(Any args)
++None recordStats(float duration)
++None sendAnalysisStats()
++None sendClasseNames()
++None sendEnumNames()
++None sendFunctionNames()
++None sendFileNames()
++None sendClassData(str className)
++None sendEnumData(str enumName)
++None sendFunctionData(str functionDef)
++None sendFileData(str fileName)
++None sendSearchResult(str token)
++None doExport(str exportPath, str exportFormat)
++None setUsedByActivation(bool activated)
++None requestUsedByUse()
+}
+class FileFetcher <<Class>>
+{
++ Any logger
++ List<str> suported_extensions
++ List<str> rejected_encoding
++ Any encoding
++ bool configured
++ Configuration configuration
++ List<str> ignoredPatterns
++ Dict<str,int> languagesCount
++None Constructor(Configuration configuration)
++None reset()
++bool isAnalyzed(str fileabspath)
++List<str> fetch(str rootDir)
++None defineConfig()
++None handleConfigation()
+}
+class FileDispatcher <<Class>>
+{
++ Any logger
++ CppAnalyzer cppAnalyzer
++ PythonAnalyzer pythonAnalyzer
++ JavaAnalyzer javaAnalyzer
++ KotlinAnalyzer kotlinAnalyzer
++ UiFileDispatcherListener uiListener
++None Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, JavaAnalyzer javaAnalyzer, KotlinAnalyzer kotlinAnalyzer, UiFileDispatcherListener uiListener)
++List<AbstractObject> dispatchRoots(List<Tuple<str,List<str>>> roots)
++List<AbstractObject> dispatch(str rootDir, List<str> files)
++List<AbstractObject> sortObjects(List<AbstractObject> abstractObjects)
+}
+class IdentityAnalyser <<Class>>
+{
++ Dict<str,List<Any>> mapping
++ str commonFilePath
++None Constructor()
++None analyze(List<AbstractObject> objects)
++List<AbstractClass> getClasses()
++List<AbstractEnum> getEnums()
++List<AbstractFunction> getFunctions()
++Dict<str,Any> getClasseTree()
++Dict<str,Any> getEnumTree()
++Dict<str,Any> getFunctionTree()
++List<str> getFiles()
++Dict<str,Any> getFileTree()
++AbstractClass getClass(str classNamespacePath)
++AbstractEnum getEnum(str enumNamespacePath)
++AbstractFunction getFunction(str funcFullDef)
++Dict<str,List<str>> getObjectInFile(str file)
+}
+class DependancyAnalyser <<Class>>
+{
++Tuple<AbstractClass,List<AbstractClass>,List<AbstractEnum>,List<AbstractFunction>> analyze(List<AbstractClass> klasses, List<AbstractEnum> enums, AbstractClass target)
++AbstractClass getParent(List<AbstractClass> klasses, AbstractClass target, str parentName)
++Dict<str,List<str>> getUsedBy(List<AbstractClass> klasses, List<AbstractEnum> enums, AbstractObject target)
+-AbstractClass findClass(str namespace, str name, List<AbstractClass> klasses, str currentNamespace, str currentClassName, List<str> usingNS)
+-AbstractEnum findEnum(str namespace, str name, List<AbstractEnum> enums, str currentNamespace, str currentClassName, List<str> usingNS)
+}
+class SearchAnalyser <<Class>>
+{
++ List<Tuple<str,str>> results
++ List<Thread> threads
++List<Tuple<str,str>> searchInAllFiles(str token, List<str> files)
++List<Tuple<str,str>> seachInFile(str token, str filePath)
+-None seachInFileThreaded(str token, str filePath)
+}
+class UiStatListener <<Class>>
+{
++None notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, str languagePie, float duration)
+}
+class UiBrowseListener <<Class>>
+{
++None notifyClasseNames(Dict<str,Any> tree)
++None notifyEnumNames(Dict<str,Any> tree)
++None notifyFunctionNames(Dict<str,Any> tree)
++None notifyFileNames(Dict<str,Any> tree)
++None notifyClassData(Dict<str,Any> klass, str mermaidDiag)
++None notifyEnumData(Dict<str,Any> enum, str mermaidDiag)
++None notifyFunctionData(Dict<str,Any> function)
++None notifyFileData(Dict<str,Any> file)
++None notifySearchResult(List<Tuple<str,str>> searchRes)
++None notifyUsedByUse(bool activated)
+}
+class ClassDiagramBuild <<Class>>
+{
++ List<AbstractClass> klasses
++ List<AbstractEnum> enums
++ List<Tuple<str,str>> relations
++ List<Tuple<str,str>> parents
++ AbstractObject target
++None Constructor()
++None reset()
++None createClass(AbstractClass target, List<AbstractClass> linkedClasses, List<AbstractEnum> linkedEnums, List<AbstractFunction> linkedFunctions)
++None createEnum(AbstractEnum target)
++str build()
+-None addInheritance(AbstractClass target, AbstractObject linkedObject)
+-None addDependancy(AbstractObject target, AbstractObject linkedObject)
+-None addClass(AbstractClass abstractClass)
+-None addEnum(AbstractEnum abstractEnum)
+-str getVisibilityMark(str text)
+-str getTypeString(str type)
+}
+class PieCharBuild <<Class>>
+{
++ Dict<str,int> categories
++None Constructor()
++None reset()
++None addValue(str label, int value)
++str build(str title)
+}
+class Configuration <<Class>>
+{
++ Any logger
++ Any config
++ Dict<str,List<Tuple<str,str>>> definition
++None Constructor()
++bool load(str path)
++None defineConfig(str section, str name, str comment)
++str get(str section, str name)
++int getInt(str section, str name)
++float getFloat(str section, str name)
++bool getBool(str section, str name)
++List<Any> getList(str section, str name)
++None generateTemplate(str path)
+}
+Engine ..|> FileFetcher
+Engine ..|> FileDispatcher
+Engine ..|> IdentityAnalyser
+Engine ..|> DependancyAnalyser
+Engine ..|> SearchAnalyser
+Engine ..|> UiStatListener
+Engine ..|> UiBrowseListener
+Engine ..|> ClassDiagramBuild
+Engine ..|> PieCharBuild
+Engine ..|> Configuration
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+class Console <<Class>>
+{
++ Any args
+-Any parseArgs()
++None init()
++None run(Engine engine)
+}
+class Engine <<Class>>
+{
++ FileFetcher fileFetcher
++ FileDispatcher fileDispatcher
++ IdentityAnalyser identityAnalyser
++ DependancyAnalyser dependancyAnalyser
++ SearchAnalyser searchAnalyser
++ UiStatListener uiStatListener
++ UiBrowseListener uiBrowseListener
++ PieCharBuild pieCharBuild
++ ClassDiagramBuild classDiagramBuild
++ Configuration configuration
++ List<Tuple<str,List<str>>> roots
++ int nbFiles
++ bool useByActivated
++ Any stats
++ Any logger
++None Constructor(FileFetcher fileFetcher, FileDispatcher fileDispatcher, IdentityAnalyser identityAnalyser, DependancyAnalyser dependancyAnalyser, SearchAnalyser searchAnalyser, UiStatListener uiStatListener, UiBrowseListener uiBrowseListener, ClassDiagramBuild classDiagramBuild, PieCharBuild pieCharBuild, Configuration configuration)
++None reset()
++None run(Any args)
++None recordStats(float duration)
++None sendAnalysisStats()
++None sendClasseNames()
++None sendEnumNames()
++None sendFunctionNames()
++None sendFileNames()
++None sendClassData(str className)
++None sendEnumData(str enumName)
++None sendFunctionData(str functionDef)
++None sendFileData(str fileName)
++None sendSearchResult(str token)
++None doExport(str exportPath, str exportFormat)
++None setUsedByActivation(bool activated)
++None requestUsedByUse()
+}
+Console ..|> Engine
+@enduml

@@ -1,0 +1,108 @@
+@startuml
+class FileDispatcher <<Class>>
+{
++ Any logger
++ CppAnalyzer cppAnalyzer
++ PythonAnalyzer pythonAnalyzer
++ JavaAnalyzer javaAnalyzer
++ KotlinAnalyzer kotlinAnalyzer
++ UiFileDispatcherListener uiListener
++None Constructor(CppAnalyzer cppAnalyzer, PythonAnalyzer pythonAnalyzer, JavaAnalyzer javaAnalyzer, KotlinAnalyzer kotlinAnalyzer, UiFileDispatcherListener uiListener)
++List<AbstractObject> dispatchRoots(List<Tuple<str,List<str>>> roots)
++List<AbstractObject> dispatch(str rootDir, List<str> files)
++List<AbstractObject> sortObjects(List<AbstractObject> abstractObjects)
+}
+class CppAnalyzer <<Class>>
+{
++ List<str> objectPaths
++ Encoding encoding
++ List<str> forceIgnoredSymbols
++ Configuration configuration
++ bool configured
++ List<str> defines
++None Constructor(Configuration config)
++List<AbstractObject> analyze(str rootDir, str path)
++None handleClass(str path, Any klass, List<AbstractObject> abstractObjects)
++None addMethods(AbstractClass abstraction, Any klass, str visibility)
++None addMembers(AbstractClass abstraction, Any klass, str visibility)
++None addParents(AbstractClass abstraction, Any klass)
++None handleEnum(str path, Any enum, List<AbstractObject> abstractObjects)
++None handleFunction(str path, Any function, List<AbstractObject> abstractObjects)
++str clearNamespace(str namespace)
++str extractUnexpectedFromParseError(CppHeaderParser::CppParseError err)
++None defineConfig()
++None handleConfigation()
+}
+class PythonAnalyzer <<Class>>
+{
++ List<str> globalImports
++None Constructor()
++List<AbstractObject> analyze(str rootDir, str path)
++None handleEnum(str path, str namespace, ClassDef item, List<AbstractObject> abstractObjects)
++None handleClass(str path, str namespace, ClassDef item, List<AbstractObject> abstractObjects)
++bool isEnumType(str type)
++None handleFunction(str path, str namespace, FunctionDef item, List<AbstractObject> abstractObjects)
++None handleMembers(Any func, AbstractClass abstraction)
++str deduceType(FunctionDef func, Assign item)
++str deduceReturnType(Any returnItem)
++str deduceTypeFromTypeName(Name item)
++str deduceTypeFromName(FunctionDef func, Name item)
++str deduceTypeFromTuple(Tuple item)
++str deduceTypeFromList(typeList item)
++str deduceTypeFromDict(Dict item)
++str deduceTypeFromConst(Const item)
++str handleTypeAnnotation(Any typeNope)
++str deduceNamespaceFromAttribute(Attribute attrib, bool isRoot)
++str deduceNamespace(str path, str rootDir)
++List<str> getImportsNameSpace(Any item)
+}
+class JavaAnalyzer <<Class>>
+{
++ List<str> globalImports
++None Constructor()
++List<AbstractObject> analyze(str rootDir, str path)
++None handleClass(List<AbstractObject> abstractObjects, str path, str currentNS, Union<javalang::ClassDeclaration,javalang::InterfaceDeclaration> klass)
++None handleEnum(List<AbstractObject> abstractObjects, str path, str currentNS, javalang::EnumDeclaration enum)
++None handleParent(Any item, AbstractClass klass)
++str deduceVisibility(Any item)
++str deduceType(Any item)
+}
+class KotlinAnalyzer <<Class>>
+{
++ List<str> globalImports
++None Constructor()
++List<AbstractObject> analyze(str rootDir, str path)
++None handleClass(List<AbstractObject> abstractObjects, str path, str currentNS, Union<kopyt::ClassDeclaration,kopyt::InterfaceDeclaration> klass)
++None handleParent(AbstractClass abstraction, kopyt::DelegationSpecifiers item)
++None handleConstuctor(AbstractClass abstraction, Union<kopyt::PrimaryConstructor,kopyt::SecondaryConstructor> item, bool isPrimary)
++None handleProperty(AbstractClass abstraction, kopyt::PropertyDeclaration item, bool isStatic)
++None handleMethod(AbstractClass abstraction, kopyt::FunctionDeclaration item, bool isStatic)
++None handleEnum(List<AbstractObject> abstractObjects, str path, str currentNS, kopyt::EnumDeclaration enum)
++None handleFunction(List<AbstractObject> abstractObjects, str path, str currentNS, kopyt::FunctionDeclaration function)
++str deduceVisibility(Any item)
++str deduceTypeFromExpression(str expression)
++str deduceType(str type)
+}
+class UiFileDispatcherListener <<Class>>
+{
++None notifyAnalyzing(str file)
++None notifyAnalysisEnd()
+}
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+FileDispatcher ..|> CppAnalyzer
+FileDispatcher ..|> PythonAnalyzer
+FileDispatcher ..|> JavaAnalyzer
+FileDispatcher ..|> KotlinAnalyzer
+FileDispatcher ..|> UiFileDispatcherListener
+FileDispatcher ..|> AbstractObject
+@enduml

@@ -1,0 +1,83 @@
+@startuml
+class PythonAnalyzer <<Class>>
+{
++ List<str> globalImports
++None Constructor()
++List<AbstractObject> analyze(str rootDir, str path)
++None handleEnum(str path, str namespace, ClassDef item, List<AbstractObject> abstractObjects)
++None handleClass(str path, str namespace, ClassDef item, List<AbstractObject> abstractObjects)
++bool isEnumType(str type)
++None handleFunction(str path, str namespace, FunctionDef item, List<AbstractObject> abstractObjects)
++None handleMembers(Any func, AbstractClass abstraction)
++str deduceType(FunctionDef func, Assign item)
++str deduceReturnType(Any returnItem)
++str deduceTypeFromTypeName(Name item)
++str deduceTypeFromName(FunctionDef func, Name item)
++str deduceTypeFromTuple(Tuple item)
++str deduceTypeFromList(typeList item)
++str deduceTypeFromDict(Dict item)
++str deduceTypeFromConst(Const item)
++str handleTypeAnnotation(Any typeNope)
++str deduceNamespaceFromAttribute(Attribute attrib, bool isRoot)
++str deduceNamespace(str path, str rootDir)
++List<str> getImportsNameSpace(Any item)
+}
+class Analyzer <<Class>>
+{
++ Any logger
++None Constructor(str name)
++List<AbstractObject> analyze(str rootDir, str path)
+}
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+class ClassDef <<External>>
+class FunctionDef <<External>>
+class AbstractClass <<Class>>
+{
++ str namespace
++ str type
++ List<Tuple<str,str,str>> members
++ List<Tuple<str,str,List<Tuple<str,str>>,str>> methodes
++ List<Tuple<str,str,str>> parents
++ List<str> linkedGenericTypes
++None Constructor(str name, str namespace, str origin)
++None addGenericType(str genType)
++None addMember(str type, str name, str visibility)
++bool hasMember(str name)
++None addMethod(str returnType, str name, List<Tuple<str,str>> parameters, str visibility)
++None addParent(str completetype, str name, str visibility)
++List<str> getLinkedTypes()
+-bool isPotentialClassName(str type)
+-List<str> getDependanceFromType(str type)
+-List<str> splitTypes(Any decl)
++str getFullName()
+-str cleanLanguageArtifacts(str type)
+-List<str> removeNonObjectTypes(List<str> typeList)
++bool isParent(AbstractClass klass)
++None print()
+}
+class Assign <<External>>
+class Name <<External>>
+class typeList <<External>>
+class Const <<External>>
+class Attribute <<External>>
+PythonAnalyzer --|> Analyzer
+PythonAnalyzer ..|> AbstractObject
+PythonAnalyzer ..|> ClassDef
+PythonAnalyzer ..|> FunctionDef
+PythonAnalyzer ..|> AbstractClass
+PythonAnalyzer ..|> Assign
+PythonAnalyzer ..|> Name
+PythonAnalyzer ..|> typeList
+PythonAnalyzer ..|> Const
+PythonAnalyzer ..|> Attribute
+@enduml

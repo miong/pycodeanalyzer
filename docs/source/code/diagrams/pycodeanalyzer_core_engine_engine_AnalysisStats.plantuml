@@ -1,0 +1,12 @@
+@startuml
+class AnalysisStats <<Class>>
+{
++ int nbFiles
++ int nbClasses
++ int nbEnums
++ int nbFunctions
++ float timeSpent
++ Dict<str,int> languageDispatch
++None Constructor()
+}
+@enduml

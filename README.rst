@@ -99,7 +99,7 @@ The following is the help of pycodeanalyzer::
 	  --exportDiagrams EXPORTPATH
 	                        Export all class diagrams to the path specified
 	  --exportFormat {mermaid,plantuml}
-	                        Export all class diagrams to the path specified
+	                        Format to be used for exported class diagrams
 	  --dumpobj             Serialize objets found, mainly for test purpose
 	  --no-ui               Discard UI, mainly for test purpose
 
@@ -117,7 +117,7 @@ pycodeanalyser supports the following languages:
 - Java
 - Kotlin
 
-Licence
+License
 -------
 
 This project is under the MIT license::

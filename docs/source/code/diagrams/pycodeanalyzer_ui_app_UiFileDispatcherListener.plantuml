@@ -1,0 +1,14 @@
+@startuml
+class UiFileDispatcherListener <<Class>>
+{
++None notifyAnalyzing(str file)
++None notifyAnalysisEnd()
+}
+class UiLink <<Class>>
+{
++ SocketIO socketio
++None Constructor()
++None setSocketIO(SocketIO socketio)
+}
+UiFileDispatcherListener --|> UiLink
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+class UiBrowseListener <<Class>>
+{
++None notifyClasseNames(Dict<str,Any> tree)
++None notifyEnumNames(Dict<str,Any> tree)
++None notifyFunctionNames(Dict<str,Any> tree)
++None notifyFileNames(Dict<str,Any> tree)
++None notifyClassData(Dict<str,Any> klass, str mermaidDiag)
++None notifyEnumData(Dict<str,Any> enum, str mermaidDiag)
++None notifyFunctionData(Dict<str,Any> function)
++None notifyFileData(Dict<str,Any> file)
++None notifySearchResult(List<Tuple<str,str>> searchRes)
++None notifyUsedByUse(bool activated)
+}
+class UiLink <<Class>>
+{
++ SocketIO socketio
++None Constructor()
++None setSocketIO(SocketIO socketio)
+}
+UiBrowseListener --|> UiLink
+@enduml

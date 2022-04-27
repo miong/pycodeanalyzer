@@ -49,7 +49,7 @@ class Console:
             default="mermaid",
             required=False,
             choices=["mermaid", "plantuml"],
-            help="Export all class diagrams to the path specified",
+            help="Format to be used for exported class diagrams",
             dest="exportFormat",
         )
         parser.add_argument(

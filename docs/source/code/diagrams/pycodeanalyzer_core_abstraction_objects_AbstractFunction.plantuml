@@ -1,0 +1,27 @@
+@startuml
+class AbstractFunction <<Class>>
+{
++ str namespace
++ str type
++ str returnType
++ List<Tuple<str,str>> parameters
++ str doxygen
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin, str returnType, List<Tuple<str,str>> parameters, str namespace, str doxygen)
++None addGenericType(str genType)
++None print()
++str getFullDef()
+}
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+AbstractFunction --|> AbstractObject
+@enduml

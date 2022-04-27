@@ -1,0 +1,20 @@
+@startuml
+class CustumCppPreprocessor <<Class>>
+{
++ Any passthru_includes
++ bool expand_linemacro
++ bool expand_filemacro
++ bool expand_countermacro
++ bool bypass_ifpassthru
++None Constructor()
++None parseFile(str path)
++None addDefine(str d)
++str getResult()
++None on_include_not_found(Any is_malformed, Any is_system_include, Any curdir, Any includepath)
++Any on_comment(Any tok)
++Any on_directive_handle(Any directive, Any toks, Any ifpassthru, Any precedingtoks)
++bool on_unknown_macro_in_defined_expr(Any tok)
+}
+class Preprocessor <<External>>
+CustumCppPreprocessor --|> Preprocessor
+@enduml

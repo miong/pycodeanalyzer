@@ -1,0 +1,22 @@
+@startuml
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+enum AbstractObjectLanguage <<Enum>>
+{
+Unknown
+CPP
+Python
+Java
+Kotlin
+}
+AbstractObject ..|> AbstractObjectLanguage
+@enduml

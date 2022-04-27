@@ -1,0 +1,10 @@
+@startuml
+enum AbstractObjectLanguage <<Enum>>
+{
+Unknown
+CPP
+Python
+Java
+Kotlin
+}
+@enduml

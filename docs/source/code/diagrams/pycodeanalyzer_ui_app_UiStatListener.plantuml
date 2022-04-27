@@ -1,0 +1,13 @@
+@startuml
+class UiStatListener <<Class>>
+{
++None notifyStats(int nbFiles, int nbClasses, int nbEnums, int nbFunctions, str languagePie, float duration)
+}
+class UiLink <<Class>>
+{
++ SocketIO socketio
++None Constructor()
++None setSocketIO(SocketIO socketio)
+}
+UiStatListener --|> UiLink
+@enduml

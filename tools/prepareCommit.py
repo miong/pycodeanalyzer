@@ -2,7 +2,7 @@ import subprocess
 import os
 import platform
 
-from updateReadme import updateReadme
+from updateTemplatedDocs import updateTemplates
 
 pythonCmd = 'python'
 if platform.system() == 'Linux' or platform.system() == 'Darwin':
@@ -34,11 +34,13 @@ def runUpdateDocs():
     if res:
         res = subprocess.run([pythonCmd, "-m", "pycodeanalyzer", "--no-ui", "--exportDiagrams", "docs/source/code/diagrams", "pycodeanalyzer"]).returncode == 0
     if res:
+        res = subprocess.run([pythonCmd, "-m", "pycodeanalyzer", "--no-ui", "--exportDiagrams", "docs/source/code/diagrams", "--exportFormat", "plantuml", "pycodeanalyzer"]).returncode == 0
+    if res:
         res = subprocess.run(["make", "html"], cwd="docs").returncode == 0
     return res
 
-def runUpdateReadme():
-    updateReadme()
+def runUpdateTemplatedDocs():
+    updateTemplates()
 
 def main():
     print("Preparing to commit")
@@ -54,6 +56,8 @@ def main():
         print("Mypy not passing, fix before commit")
         exit(1)
     print("Mypy passing")
+    runUpdateTemplatedDocs()
+    print("Templated docs generated")
     if not runUpdateDocs():
         print("Failed to update the documentation, fix before commit")
         exit(1)
@@ -66,7 +70,6 @@ def main():
         print("QA is not passing, fix before commit")
         exit(1)
     print("QA is passing")
-    runUpdateReadme()
 
 if __name__ == "__main__":
     main()

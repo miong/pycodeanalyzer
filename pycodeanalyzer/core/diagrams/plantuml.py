@@ -78,12 +78,12 @@ class PlantUMLClassDiagramBuild(IClassDiagramBuild):
                     paramstr += self.__getTypeString(param[0]) + " " + param[1] + ", "
                 res += (
                     self.__getVisibilityMark(method[3])
+                    + self.__getTypeString(method[0])
+                    + " "
                     + method[1]
                     + "("
                     + paramstr[:-2]
-                    + ") "
-                    + self.__getTypeString(method[0])
-                    + "\n"
+                    + ")\n"
                 )
             res += "}\n"
         for enum in self.enums:

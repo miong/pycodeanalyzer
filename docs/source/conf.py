@@ -69,7 +69,12 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_rtd_theme',
     'sphinxcontrib.mermaid',
+    'sphinxcontrib.plantuml',
 ]
+
+# PlantUML
+
+plantuml = 'java -jar '+os.path.join(os.path.dirname(__file__), '..', '..', 'tools', 'plantuml-1.2022.4.jar')
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

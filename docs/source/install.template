@@ -1,0 +1,29 @@
+Installation guide
+==================
+
+pycodeanlyzer is available on PyPI::
+
+        pip install -U pycodeanalyzer
+
+see https://pip.pypa.io/en/stable/installation/ for more detail on pip
+
+see https://test.pypi.org/search/?q=pycodeanalyzer to see the last release candidate::
+
+        pip install --pre --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple -U pycodeanalyzer
+
+
+Requirements
+------------
+
+The following pyhton requirements will be automatically installed by pip:
+
+[[REQUIREMENTS]]
+
+Macos
+^^^^^
+
+On MacOS, you will need to install libmagic::
+
+    brew install libmagic
+
+This is not needed for other platforms.

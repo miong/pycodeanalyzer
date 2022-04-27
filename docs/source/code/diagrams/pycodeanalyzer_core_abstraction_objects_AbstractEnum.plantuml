@@ -1,0 +1,23 @@
+@startuml
+class AbstractEnum <<Class>>
+{
++ str namespace
++ str type
++ List<str> values
++None Constructor(str name, str namespace, str origin, List<str> values)
++str getFullName()
++None print()
+}
+class AbstractObject <<Class>>
+{
++ str name
++ str type
++ str origin
++ AbstractObjectLanguage language
++ List<str> usingNS
++ List<str> linkedGenericTypes
++None Constructor(str name, str origin)
++None addUsingNamespace(str namespace)
+}
+AbstractEnum --|> AbstractObject
+@enduml
