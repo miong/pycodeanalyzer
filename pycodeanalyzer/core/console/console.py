@@ -32,6 +32,7 @@ class Console:
         parser.add_argument(
             "--log",
             default="INFO",
+            choices=["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"],
             required=False,
             help="Log level to be used",
             dest="loglevel",
