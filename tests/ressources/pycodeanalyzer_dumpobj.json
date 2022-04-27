@@ -1429,6 +1429,113 @@
         "members": [
             {
                 "py/tuple": [
+                    "Any",
+                    "logger",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "name"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "reset",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "createClass",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "target"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractClass>",
+                                "linkedClasses"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractEnum>",
+                                "linkedEnums"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractFunction>",
+                                "linkedFunctions"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "createEnum",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractEnum",
+                                "target"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "build",
+                    [],
+                    "public"
+                ]
+            }
+        ],
+        "name": "IClassDiagramBuild",
+        "namespace": "pycodeanalyzer::core::diagrams::iclassdiagrambuild",
+        "origin": "/pycodeanalyzer/core/diagrams/iclassdiagrambuild.py",
+        "parents": [],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::logging::loggerfactory"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "linkedGenericTypes": [],
+        "members": [
+            {
+                "py/tuple": [
                     "List<AbstractClass>",
                     "klasses",
                     "public"
@@ -1642,12 +1749,21 @@
         "name": "ClassDiagramBuild",
         "namespace": "pycodeanalyzer::core::diagrams::mermaid",
         "origin": "/pycodeanalyzer/core/diagrams/mermaid.py",
-        "parents": [],
+        "parents": [
+            {
+                "py/tuple": [
+                    "IClassDiagramBuild",
+                    "IClassDiagramBuild",
+                    "public"
+                ]
+            }
+        ],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
         "type": "Class",
         "usingNS": [
             "typing",
-            "pycodeanalyzer::core::abstraction::objects"
+            "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::diagrams::iclassdiagrambuild"
         ]
     },
     {
@@ -1726,7 +1842,246 @@
         "type": "Class",
         "usingNS": [
             "typing",
-            "pycodeanalyzer::core::abstraction::objects"
+            "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::diagrams::iclassdiagrambuild"
+        ]
+    },
+    {
+        "language": {
+            "py/id": 2
+        },
+        "linkedGenericTypes": [],
+        "members": [
+            {
+                "py/tuple": [
+                    "List<AbstractClass>",
+                    "klasses",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<AbstractEnum>",
+                    "enums",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Tuple<str,str>>",
+                    "relations",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "List<Tuple<str,str>>",
+                    "parents",
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "AbstractObject",
+                    "target",
+                    "public"
+                ]
+            }
+        ],
+        "methodes": [
+            {
+                "py/tuple": [
+                    "None",
+                    "Constructor",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "reset",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "createClass",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "target"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractClass>",
+                                "linkedClasses"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractEnum>",
+                                "linkedEnums"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractFunction>",
+                                "linkedFunctions"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "createEnum",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractEnum",
+                                "target"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "build",
+                    [],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "addInheritance",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "target"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "AbstractObject",
+                                "linkedObject"
+                            ]
+                        }
+                    ],
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "addDependancy",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractObject",
+                                "target"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "AbstractObject",
+                                "linkedObject"
+                            ]
+                        }
+                    ],
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "addClass",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractClass",
+                                "abstractClass"
+                            ]
+                        }
+                    ],
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "addEnum",
+                    [
+                        {
+                            "py/tuple": [
+                                "AbstractEnum",
+                                "abstractEnum"
+                            ]
+                        }
+                    ],
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "getVisibilityMark",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "text"
+                            ]
+                        }
+                    ],
+                    "private"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "str",
+                    "getTypeString",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "type"
+                            ]
+                        }
+                    ],
+                    "private"
+                ]
+            }
+        ],
+        "name": "PlantUMLClassDiagramBuild",
+        "namespace": "pycodeanalyzer::core::diagrams::plantuml",
+        "origin": "/pycodeanalyzer/core/diagrams/plantuml.py",
+        "parents": [
+            {
+                "py/tuple": [
+                    "IClassDiagramBuild",
+                    "IClassDiagramBuild",
+                    "public"
+                ]
+            }
+        ],
+        "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
+        "type": "Class",
+        "usingNS": [
+            "typing",
+            "pycodeanalyzer::core::abstraction::objects",
+            "pycodeanalyzer::core::diagrams::iclassdiagrambuild"
         ]
     },
     {
@@ -1849,7 +2204,9 @@
             "pycodeanalyzer::core::analyzer::identification",
             "pycodeanalyzer::core::analyzer::search",
             "pycodeanalyzer::core::configuration::configuration",
+            "pycodeanalyzer::core::diagrams::iclassdiagrambuild",
             "pycodeanalyzer::core::diagrams::mermaid",
+            "pycodeanalyzer::core::diagrams::plantuml",
             "pycodeanalyzer::core::filetree::filefetcher",
             "pycodeanalyzer::core::languages::filedispatcher",
             "pycodeanalyzer::core::logging::loggerfactory",
@@ -2203,6 +2560,12 @@
                                 "str",
                                 "exportPath"
                             ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "exportFormat"
+                            ]
                         }
                     ],
                     "public"
@@ -2246,7 +2609,9 @@
             "pycodeanalyzer::core::analyzer::identification",
             "pycodeanalyzer::core::analyzer::search",
             "pycodeanalyzer::core::configuration::configuration",
+            "pycodeanalyzer::core::diagrams::iclassdiagrambuild",
             "pycodeanalyzer::core::diagrams::mermaid",
+            "pycodeanalyzer::core::diagrams::plantuml",
             "pycodeanalyzer::core::filetree::filefetcher",
             "pycodeanalyzer::core::languages::filedispatcher",
             "pycodeanalyzer::core::logging::loggerfactory",

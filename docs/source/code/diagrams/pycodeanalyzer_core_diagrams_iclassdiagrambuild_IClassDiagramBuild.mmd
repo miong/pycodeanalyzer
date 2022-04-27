@@ -1,23 +1,4 @@
 classDiagram
-class ClassDiagramBuild {
-<<Class>>
-+ List~AbstractClass~ klasses
-+ List~AbstractEnum~ enums
-+ List&lt;Tuple&lt;str,str&gt;&gt; relations
-+ List&lt;Tuple&lt;str,str&gt;&gt; parents
-+ AbstractObject target
-+Constructor() None
-+reset() None
-+createClass(AbstractClass target, List~AbstractClass~ linkedClasses, List~AbstractEnum~ linkedEnums, List~AbstractFunction~ linkedFunctions) None
-+createEnum(AbstractEnum target) None
-+build() str
--addInheritance(AbstractClass target, AbstractObject linkedObject) None
--addDependancy(AbstractObject target, AbstractObject linkedObject) None
--addClass(AbstractClass abstractClass) None
--addEnum(AbstractEnum abstractEnum) None
--getVisibilityMark(str text) str
--getTypeString(str type) str
-}
 class IClassDiagramBuild {
 <<Class>>
 + Any logger
@@ -27,7 +8,6 @@ class IClassDiagramBuild {
 +createEnum(AbstractEnum target) None
 +build() str
 }
-link IClassDiagramBuild "class££pycodeanalyzer::core::diagrams::iclassdiagrambuild::IClassDiagramBuild"
 class AbstractClass {
 <<Class>>
 + str namespace
@@ -77,20 +57,6 @@ class AbstractFunction {
 +getFullDef() str
 }
 link AbstractFunction "class££pycodeanalyzer::core::abstraction::objects::AbstractFunction"
-class AbstractObject {
-<<Class>>
-+ str name
-+ str type
-+ str origin
-+ AbstractObjectLanguage language
-+ List~str~ usingNS
-+ List~str~ linkedGenericTypes
-+Constructor(str name, str origin) None
-+addUsingNamespace(str namespace) None
-}
-link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
-ClassDiagramBuild --|> IClassDiagramBuild
-ClassDiagramBuild ..> AbstractClass
-ClassDiagramBuild ..> AbstractEnum
-ClassDiagramBuild ..> AbstractFunction
-ClassDiagramBuild ..> AbstractObject
+IClassDiagramBuild ..> AbstractClass
+IClassDiagramBuild ..> AbstractEnum
+IClassDiagramBuild ..> AbstractFunction

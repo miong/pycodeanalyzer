@@ -10,7 +10,9 @@ from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
 from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
 from pycodeanalyzer.core.analyzer.search import SearchAnalyser
 from pycodeanalyzer.core.configuration.configuration import Configuration
+from pycodeanalyzer.core.diagrams.iclassdiagrambuild import IClassDiagramBuild
 from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild, PieCharBuild
+from pycodeanalyzer.core.diagrams.plantuml import PlantUMLClassDiagramBuild
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
@@ -112,7 +114,7 @@ class Engine:
             with open("dumpobj.json", "w") as file:
                 file.write(jsonpickle.encode(abstractObjects))
         if args.exportPath:
-            self.doExport(args.exportPath)
+            self.doExport(args.exportPath, args.exportFormat)
 
     def recordStats(self, duration: float) -> None:
         self.stats.nbFiles = self.nbFiles
@@ -281,7 +283,14 @@ class Engine:
         )
         self.uiBrowseListener.notifySearchResult(searchRes)
 
-    def doExport(self, exportPath: str) -> None:
+    def doExport(self, exportPath: str, exportFormat: str) -> None:
+        builder: IClassDiagramBuild = self.classDiagramBuild
+        extension = ".mmd"
+        if exportFormat == "plantuml":
+            builder = PlantUMLClassDiagramBuild()
+            extension = ".plantuml"
+        self.logger.info("Exporting diagrams in %s format", exportFormat)
+
         if not os.path.isdir(exportPath):
             if not os.path.isfile(exportPath):
                 os.makedirs(exportPath)
@@ -297,25 +306,23 @@ class Engine:
                 self.identityAnalyser.getEnums(),
                 klass,
             )
-            self.classDiagramBuild.reset()
-            self.classDiagramBuild.createClass(
-                objects[0], objects[1], objects[2], objects[3]
-            )
-            mermaidDiag = self.classDiagramBuild.build()
-            classFileName = klass.getFullName().replace("::", "_") + ".mmd"
+            builder.reset()
+            builder.createClass(objects[0], objects[1], objects[2], objects[3])
+            diag = builder.build()
+            classFileName = klass.getFullName().replace("::", "_") + extension
             exportedFile = os.path.join(exportPath, classFileName)
             self.logger.info("Exporting %s", klass.getFullName())
             with open(exportedFile, "w", encoding="utf-8") as diagFile:
-                diagFile.write(mermaidDiag)
+                diagFile.write(diag)
         for enum in self.identityAnalyser.getEnums():
-            self.classDiagramBuild.reset()
-            self.classDiagramBuild.createEnum(enum)
-            mermaidDiag = self.classDiagramBuild.build()
-            enumFileName = enum.getFullName().replace("::", "_") + ".mmd"
+            builder.reset()
+            builder.createEnum(enum)
+            diag = builder.build()
+            enumFileName = enum.getFullName().replace("::", "_") + extension
             exportedFile = os.path.join(exportPath, enumFileName)
             self.logger.info("Exporting %s", enum.getFullName())
             with open(exportedFile, "w", encoding="utf-8") as diagFile:
-                diagFile.write(mermaidDiag)
+                diagFile.write(diag)
 
     def setUsedByActivation(self, activated: bool) -> None:
         self.useByActivated = activated

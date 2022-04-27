@@ -82,7 +82,9 @@ Usage
 -----
 The following is the help of pycodeanalyzer::
 
-	usage: pycodeanalyzer [-h] [--config CONFIGFILE] [--create-config TEMPLATEFILE] [--log {CRITICAL,ERROR,WARNING,INFO,DEBUG}] [--exportDiagrams EXPORTPATH] [--dumpobj] [--no-ui] [path [path ...]]
+	usage: pycodeanalyzer [-h] [--config CONFIGFILE] [--create-config TEMPLATEFILE] [--log {CRITICAL,ERROR,WARNING,INFO,DEBUG}] [--exportDiagrams EXPORTPATH] [--exportFormat {mermaid,plantuml}] [--dumpobj]
+	                      [--no-ui]
+	                      [path [path ...]]
 	
 	positional arguments:
 	  path                  Path of a root directory to be analysed
@@ -95,6 +97,8 @@ The following is the help of pycodeanalyzer::
 	  --log {CRITICAL,ERROR,WARNING,INFO,DEBUG}
 	                        Log level to be used
 	  --exportDiagrams EXPORTPATH
+	                        Export all class diagrams to the path specified
+	  --exportFormat {mermaid,plantuml}
 	                        Export all class diagrams to the path specified
 	  --dumpobj             Serialize objets found, mainly for test purpose
 	  --no-ui               Discard UI, mainly for test purpose

@@ -45,6 +45,14 @@ class Console:
             dest="exportPath",
         )
         parser.add_argument(
+            "--exportFormat",
+            default="mermaid",
+            required=False,
+            choices=["mermaid", "plantuml"],
+            help="Export all class diagrams to the path specified",
+            dest="exportFormat",
+        )
+        parser.add_argument(
             "--dumpobj",
             required=False,
             help="Serialize objets found, mainly for test purpose",
