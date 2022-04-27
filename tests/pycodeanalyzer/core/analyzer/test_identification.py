@@ -26,7 +26,7 @@ class TestIdentityAnalyser:
             objectList = jsonpickle.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
-        assert len(analyzer.mapping["Classes"]) == 32
+        assert len(analyzer.mapping["Classes"]) == 34
         assert len(analyzer.mapping["Enums"]) == 1
         assert len(analyzer.mapping["Functions"]) == 17
         for obj in objectList:
@@ -236,7 +236,9 @@ class TestIdentityAnalyser:
                                                 'search.py']},
                      'configuration': {'__files__': ['configuration.py']},
                      'console': {'__files__': ['console.py']},
-                     'diagrams': {'__files__': ['mermaid.py']},
+                     'diagrams': {'__files__': ['iclassdiagrambuild.py',
+                                                'mermaid.py',
+                                                'plantuml.py']},
                      'encoding': {'__files__': ['encodings.py']},
                      'engine': {'__files__': ['engine.py']},
                      'filetree': {'__files__': ['filefetcher.py']},
@@ -269,7 +271,9 @@ class TestIdentityAnalyser:
             '/pycodeanalyzer/core/analyzer/search.py',
             '/pycodeanalyzer/core/configuration/configuration.py',
             '/pycodeanalyzer/core/console/console.py',
+            '/pycodeanalyzer/core/diagrams/iclassdiagrambuild.py',
             '/pycodeanalyzer/core/diagrams/mermaid.py',
+            '/pycodeanalyzer/core/diagrams/plantuml.py',
             '/pycodeanalyzer/core/encoding/encodings.py',
             '/pycodeanalyzer/core/engine/engine.py',
             '/pycodeanalyzer/core/filetree/filefetcher.py',

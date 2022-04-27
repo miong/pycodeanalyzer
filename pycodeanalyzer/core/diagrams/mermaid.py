@@ -11,6 +11,7 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractFunction,
     AbstractObject,
 )
+from pycodeanalyzer.core.diagrams.iclassdiagrambuild import IClassDiagramBuild
 
 
 class PieCharBuild:
@@ -32,10 +33,11 @@ class PieCharBuild:
         return res
 
 
-class ClassDiagramBuild:
+class ClassDiagramBuild(IClassDiagramBuild):
     """Mermaid.js class diagram builder"""
 
     def __init__(self) -> None:
+        super().__init__(__name__)
         self.reset()
 
     def reset(self) -> None:

@@ -13,7 +13,9 @@ pycodeanalyzer.core.diagrams
     .. toctree::
        :maxdepth: 1
 
+       pycodeanalyzer.core.diagrams.iclassdiagrambuild
        pycodeanalyzer.core.diagrams.mermaid
+       pycodeanalyzer.core.diagrams.plantuml
 
 
 

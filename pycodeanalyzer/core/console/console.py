@@ -32,6 +32,7 @@ class Console:
         parser.add_argument(
             "--log",
             default="INFO",
+            choices=["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"],
             required=False,
             help="Log level to be used",
             dest="loglevel",
@@ -42,6 +43,14 @@ class Console:
             required=False,
             help="Export all class diagrams to the path specified",
             dest="exportPath",
+        )
+        parser.add_argument(
+            "--exportFormat",
+            default="mermaid",
+            required=False,
+            choices=["mermaid", "plantuml"],
+            help="Export all class diagrams to the path specified",
+            dest="exportFormat",
         )
         parser.add_argument(
             "--dumpobj",

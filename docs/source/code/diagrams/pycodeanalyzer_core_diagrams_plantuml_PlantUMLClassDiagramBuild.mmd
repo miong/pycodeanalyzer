@@ -1,5 +1,5 @@
 classDiagram
-class ClassDiagramBuild {
+class PlantUMLClassDiagramBuild {
 <<Class>>
 + List~AbstractClass~ klasses
 + List~AbstractEnum~ enums
@@ -89,8 +89,8 @@ class AbstractObject {
 +addUsingNamespace(str namespace) None
 }
 link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
-ClassDiagramBuild --|> IClassDiagramBuild
-ClassDiagramBuild ..> AbstractClass
-ClassDiagramBuild ..> AbstractEnum
-ClassDiagramBuild ..> AbstractFunction
-ClassDiagramBuild ..> AbstractObject
+PlantUMLClassDiagramBuild --|> IClassDiagramBuild
+PlantUMLClassDiagramBuild ..> AbstractClass
+PlantUMLClassDiagramBuild ..> AbstractEnum
+PlantUMLClassDiagramBuild ..> AbstractFunction
+PlantUMLClassDiagramBuild ..> AbstractObject
