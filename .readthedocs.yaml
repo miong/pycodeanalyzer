@@ -12,6 +12,7 @@ build:
     python: "3.7"
   apt_packages:
     - default-jdk
+    - graphviz
 
 python:
   install:
