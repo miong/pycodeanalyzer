@@ -111,7 +111,7 @@ class JavaAnalyzer(Analyzer):
                     paramType = self.deduceType(param.type)
                     params.append((paramType, paramName))
                 abstraction.addMethod(klass.name, item.name, params, visibility)
-        abstraction.language = AbstractObjectLanguage.Java
+        abstraction.objectLanguage = AbstractObjectLanguage.Java
         abstractObjects.append(abstraction)
 
     def handleEnum(
@@ -125,7 +125,7 @@ class JavaAnalyzer(Analyzer):
         for item in enum.body.constants:
             values.append(item.name)
         abstraction = AbstractEnum(enum.name, currentNS, path, values)
-        abstraction.language = AbstractObjectLanguage.Java
+        abstraction.objectLanguage = AbstractObjectLanguage.Java
         abstractObjects.append(abstraction)
 
     def handleParent(self, item: Any, klass: AbstractClass) -> None:

@@ -1,0 +1,10 @@
+@startuml
+enum AbstractClassClassifier <<Enum>>
+{
+NoClassifier
+External
+Generic
+Message
+Data
+}
+@enduml

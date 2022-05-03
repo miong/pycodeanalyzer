@@ -1,0 +1,8 @@
+@startuml
+class Pickler <<Class>>
+{
++None Constructor()
++str encode(Any obj)
++Any decode(str json)
+}
+@enduml

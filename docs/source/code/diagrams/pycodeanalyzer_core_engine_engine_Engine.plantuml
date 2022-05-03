@@ -70,6 +70,7 @@ class IdentityAnalyser <<Class>>
 + str commonFilePath
 +None Constructor()
 +None analyze(List<AbstractObject> objects)
++None analyzeClassifications()
 +List<AbstractClass> getClasses()
 +List<AbstractEnum> getEnums()
 +List<AbstractFunction> getFunctions()

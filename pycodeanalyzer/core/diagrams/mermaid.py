@@ -75,16 +75,10 @@ class ClassDiagramBuild(IClassDiagramBuild):
         for klass in self.klasses:
             res += "class " + klass.name
             if not klass.origin:
-                if (
-                    self.target.linkedGenericTypes
-                    and klass.name in self.target.linkedGenericTypes
-                ):
-                    res += "\n<<Generic>> " + klass.name + "\n"
-                else:
-                    res += "\n<<External>> " + klass.name + "\n"
+                res += "\n<<" + klass.getMainClassifier() + ">> " + klass.name + "\n"
                 continue
             res += " {\n"
-            res += "<<Class>>\n"
+            res += "<<" + klass.getMainClassifier() + ">>\n"
             for member in klass.members:
                 res += (
                     self.__getVisibilityMark(member[2])

@@ -23,6 +23,7 @@ pycodeanalyzer.core
        pycodeanalyzer.core.encoding
        pycodeanalyzer.core.engine
        pycodeanalyzer.core.filetree
+       pycodeanalyzer.core.json
        pycodeanalyzer.core.languages
        pycodeanalyzer.core.logging
        pycodeanalyzer.core.utils

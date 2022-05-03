@@ -1,17 +1,6 @@
 [
     {
-        "language": {
-            "py/reduce": [
-                {
-                    "py/type": "pycodeanalyzer.core.abstraction.objects.AbstractObjectLanguage"
-                },
-                {
-                    "py/tuple": [
-                        4
-                    ]
-                }
-            ]
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -105,6 +94,7 @@
         ],
         "name": "SecondaryConst",
         "namespace": "addons",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/classes.kt",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -112,9 +102,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -203,6 +191,7 @@
         ],
         "name": "BufferooDataRepository",
         "namespace": "org::buffer::android::boilerplate::data",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/BufferooDataRepository.kt",
         "parents": [
             {
@@ -228,9 +217,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -310,6 +297,7 @@
         ],
         "name": "JobExecutor",
         "namespace": "org::buffer::android::boilerplate::data::executor",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/executor/JobExecutor.kt",
         "parents": [
             {
@@ -332,9 +320,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -371,6 +357,7 @@
         ],
         "name": "JobThreadFactory",
         "namespace": "org::buffer::android::boilerplate::data::executor::JobExecutor",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/executor/JobExecutor.kt",
         "parents": [
             {
@@ -393,9 +380,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -440,6 +425,7 @@
         ],
         "name": "BufferooMapper",
         "namespace": "org::buffer::android::boilerplate::data::mapper",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/mapper/BufferooMapper.kt",
         "parents": [
             {
@@ -459,9 +445,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [
             "E",
             "D"
@@ -501,6 +485,7 @@
         ],
         "name": "Mapper",
         "namespace": "org::buffer::android::boilerplate::data::mapper",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/mapper/Mapper.kt",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -508,9 +493,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -566,6 +549,7 @@
         ],
         "name": "BufferooEntity",
         "namespace": "org::buffer::android::boilerplate::data::model",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/model/BufferooEntity.kt",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -573,9 +557,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -644,6 +626,7 @@
         ],
         "name": "BufferooCache",
         "namespace": "org::buffer::android::boilerplate::data::repository",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/repository/BufferooCache.kt",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -655,9 +638,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -695,6 +676,7 @@
         ],
         "name": "BufferooDataStore",
         "namespace": "org::buffer::android::boilerplate::data::repository",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/repository/BufferooDataStore.kt",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -706,9 +688,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -723,6 +703,7 @@
         ],
         "name": "BufferooRemote",
         "namespace": "org::buffer::android::boilerplate::data::repository",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/repository/BufferooRemote.kt",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -733,9 +714,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -796,6 +775,7 @@
         ],
         "name": "BufferooCacheDataStore",
         "namespace": "org::buffer::android::boilerplate::data::source",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/source/BufferooCacheDataStore.kt",
         "parents": [
             {
@@ -818,9 +798,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -900,6 +878,7 @@
         ],
         "name": "BufferooDataStoreFactory",
         "namespace": "org::buffer::android::boilerplate::data::source",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/source/BufferooDataStoreFactory.kt",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -911,9 +890,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -974,6 +951,7 @@
         ],
         "name": "BufferooRemoteDataStore",
         "namespace": "org::buffer::android::boilerplate::data::source",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/org/buffer/android/boilerplate/data/source/BufferooRemoteDataStore.kt",
         "parents": [
             {
@@ -996,12 +974,10 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
         "linkedGenericTypes": null,
         "name": "Color",
         "namespace": "addons",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/enums.kt",
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractEnum",
         "type": "Enum",
@@ -1013,12 +989,10 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
         "linkedGenericTypes": null,
         "name": "Direction",
         "namespace": "addons",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/enums.kt",
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractEnum",
         "type": "Enum",
@@ -1032,12 +1006,10 @@
     },
     {
         "doxygen": "",
-        "language": {
-            "py/id": 2
-        },
         "linkedGenericTypes": [],
         "name": "getZero",
         "namespace": "addons",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
         "parameters": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractFunction",
@@ -1047,14 +1019,12 @@
     },
     {
         "doxygen": "",
-        "language": {
-            "py/id": 2
-        },
         "linkedGenericTypes": [
             "K"
         ],
         "name": "identity",
         "namespace": "addons",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
         "parameters": [
             {
@@ -1071,12 +1041,10 @@
     },
     {
         "doxygen": "",
-        "language": {
-            "py/id": 2
-        },
         "linkedGenericTypes": [],
         "name": "inc",
         "namespace": "addons",
+        "objectLanguage": 4,
         "origin": "/tests/ressources/code/kotlin_android_clean_architecture/src/main/java/addons/FreeFunction.kt",
         "parameters": [
             {

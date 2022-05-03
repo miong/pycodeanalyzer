@@ -2,7 +2,6 @@ import os
 import time
 from typing import Any, Dict, List, Tuple
 
-import jsonpickle
 from injector import inject, singleton
 
 from pycodeanalyzer.core.abstraction.objects import AbstractObject
@@ -14,6 +13,7 @@ from pycodeanalyzer.core.diagrams.iclassdiagrambuild import IClassDiagramBuild
 from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild, PieCharBuild
 from pycodeanalyzer.core.diagrams.plantuml import PlantUMLClassDiagramBuild
 from pycodeanalyzer.core.filetree.filefetcher import FileFetcher
+from pycodeanalyzer.core.json.pickler import Pickler
 from pycodeanalyzer.core.languages.filedispatcher import FileDispatcher
 from pycodeanalyzer.core.logging.loggerfactory import LoggerFactory
 from pycodeanalyzer.core.utils.math import round_up
@@ -109,10 +109,9 @@ class Engine:
         end_time = time.time()
         self.recordStats(round_up(end_time - start_time, 2))
         if args.dumpobj:
-            jsonpickle.set_preferred_backend("simplejson")
-            jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
+            pickler = Pickler()
             with open("dumpobj.json", "w") as file:
-                file.write(jsonpickle.encode(abstractObjects))
+                file.write(pickler.encode(abstractObjects))
         if args.exportPath:
             self.doExport(args.exportPath, args.exportFormat)
 

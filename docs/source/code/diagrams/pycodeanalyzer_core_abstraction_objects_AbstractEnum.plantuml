@@ -13,8 +13,8 @@ class AbstractObject <<Class>>
 + str name
 + str type
 + str origin
-+ AbstractObjectLanguage language
 + List<str> usingNS
++ AbstractObjectLanguage objectLanguage
 + List<str> linkedGenericTypes
 +None Constructor(str name, str origin)
 +None addUsingNamespace(str namespace)

@@ -2,6 +2,7 @@ from typing import Dict, List, Optional, Tuple
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
+    AbstractClassClassifier,
     AbstractEnum,
     AbstractFunction,
     AbstractObject,
@@ -56,9 +57,12 @@ class DependancyAnalyser:
                 if linkedClass != target:
                     linkedClasses.append(linkedClass)
             else:
-                linkedClasses.append(
-                    AbstractClass(typeName, typeDeclaredNamespace, None)
-                )
+                newKlass = AbstractClass(typeName, typeDeclaredNamespace, None)
+                if typeName in target.linkedGenericTypes:
+                    newKlass.addClassifier(AbstractClassClassifier.Generic)
+                else:
+                    newKlass.addClassifier(AbstractClassClassifier.External)
+                linkedClasses.append(newKlass)
         return (target, linkedClasses, linkedEnums, linkedFunctions)
 
     def getParent(
