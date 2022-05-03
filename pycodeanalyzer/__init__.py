@@ -7,6 +7,6 @@ This said, any usage of the code will give me a smile.
 
 from typing import Any, List
 
-__version__: str = "0.0.5"
+__version__: str = "0.0.6"
 __author__: str = "Giovanni Mion <mion.ggb@gmail.com>"
 __all__: List[Any] = []
