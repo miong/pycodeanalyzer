@@ -1,17 +1,6 @@
 [
     {
-        "language": {
-            "py/reduce": [
-                {
-                    "py/type": "pycodeanalyzer.core.abstraction.objects.AbstractObjectLanguage"
-                },
-                {
-                    "py/tuple": [
-                        3
-                    ]
-                }
-            ]
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -140,6 +129,7 @@
         ],
         "name": "Adler32",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Adler32.java",
         "parents": [
             {
@@ -155,9 +145,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -329,6 +317,7 @@
         ],
         "name": "CRC32",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/CRC32.java",
         "parents": [
             {
@@ -344,9 +333,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -419,6 +406,7 @@
         ],
         "name": "Checksum",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Checksum.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -426,9 +414,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -510,6 +496,7 @@
         ],
         "name": "Config",
         "namespace": "com::jcraft::jzlib::Deflate",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Deflate.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -517,9 +504,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -2111,6 +2096,7 @@
         ],
         "name": "Deflate",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Deflate.java",
         "parents": [
             {
@@ -2126,9 +2112,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -2646,6 +2630,7 @@
         ],
         "name": "Deflater",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Deflater.java",
         "parents": [
             {
@@ -2661,9 +2646,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -2951,6 +2934,7 @@
         ],
         "name": "DeflaterOutputStream",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/DeflaterOutputStream.java",
         "parents": [
             {
@@ -2968,9 +2952,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -3000,6 +2982,7 @@
         ],
         "name": "GZIPException",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/GZIPException.java",
         "parents": [
             {
@@ -3015,9 +2998,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -3352,6 +3333,7 @@
         ],
         "name": "GZIPHeader",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/GZIPHeader.java",
         "parents": [
             {
@@ -3369,9 +3351,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -3516,6 +3496,7 @@
         ],
         "name": "GZIPInputStream",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/GZIPInputStream.java",
         "parents": [
             {
@@ -3533,9 +3514,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -3714,6 +3693,7 @@
         ],
         "name": "GZIPOutputStream",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/GZIPOutputStream.java",
         "parents": [
             {
@@ -3731,9 +3711,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [
             "T",
             "K"
@@ -3804,6 +3782,7 @@
         ],
         "name": "GenericClass",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Generics.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -3811,14 +3790,15 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [
+            4
+        ],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [],
         "name": "GenericClassIntImpl",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Generics.java",
         "parents": [
             {
@@ -3834,9 +3814,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -4275,6 +4253,7 @@
         ],
         "name": "InfBlocks",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/InfBlocks.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -4282,9 +4261,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -4697,6 +4674,7 @@
         ],
         "name": "InfCodes",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/InfCodes.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -4704,9 +4682,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -5120,6 +5096,7 @@
         ],
         "name": "InfTree",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/InfTree.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -5127,9 +5104,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -5740,6 +5715,7 @@
         ],
         "name": "Inflate",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Inflate.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -5747,9 +5723,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -5779,6 +5753,7 @@
         ],
         "name": "Return",
         "namespace": "com::jcraft::jzlib::Inflate",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Inflate.java",
         "parents": [
             {
@@ -5794,9 +5769,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -6188,6 +6161,7 @@
         ],
         "name": "Inflater",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Inflater.java",
         "parents": [
             {
@@ -6203,9 +6177,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -6538,6 +6510,7 @@
         ],
         "name": "InflaterInputStream",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/InflaterInputStream.java",
         "parents": [
             {
@@ -6555,9 +6528,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -6844,6 +6815,7 @@
         ],
         "name": "JZlib",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/JZlib.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -6851,9 +6823,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -7019,6 +6989,7 @@
         ],
         "name": "StaticTree",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/StaticTree.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -7026,9 +6997,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -7310,6 +7279,7 @@
         ],
         "name": "Tree",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/Tree.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -7317,9 +7287,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -7530,6 +7498,7 @@
         ],
         "name": "ZInputStream",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/ZInputStream.java",
         "parents": [
             {
@@ -7547,9 +7516,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -7796,6 +7763,7 @@
         ],
         "name": "ZOutputStream",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/ZOutputStream.java",
         "parents": [
             {
@@ -7813,9 +7781,7 @@
         ]
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [
             {
@@ -8768,6 +8734,7 @@
         ],
         "name": "ZStream",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/ZStream.java",
         "parents": [],
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractClass",
@@ -8775,9 +8742,7 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
+        "classifiers": [],
         "linkedGenericTypes": [],
         "members": [],
         "methodes": [
@@ -8807,6 +8772,7 @@
         ],
         "name": "ZStreamException",
         "namespace": "com::jcraft::jzlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/ZStreamException.java",
         "parents": [
             {
@@ -8822,12 +8788,10 @@
         "usingNS": []
     },
     {
-        "language": {
-            "py/id": 2
-        },
         "linkedGenericTypes": null,
         "name": "WrapperType",
         "namespace": "com::jcraft::jzlib::JZlib",
+        "objectLanguage": 3,
         "origin": "/tests/ressources/code/java_zlib/java/com/jcraft/jzlib/JZlib.java",
         "py/object": "pycodeanalyzer.core.abstraction.objects.AbstractEnum",
         "type": "Enum",

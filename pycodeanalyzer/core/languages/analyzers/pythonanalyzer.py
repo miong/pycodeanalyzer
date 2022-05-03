@@ -83,7 +83,7 @@ class PythonAnalyzer(Analyzer):
             if isinstance(subItem, Assign):
                 values.append(subItem.targets[0].name)
         abstraction = AbstractEnum(item.name, namespace, path, values)
-        abstraction.language = AbstractObjectLanguage.Python
+        abstraction.objectLanguage = AbstractObjectLanguage.Python
         abstractObjects.append(abstraction)
 
     def handleClass(
@@ -105,7 +105,7 @@ class PythonAnalyzer(Analyzer):
                     self.deduceNamespaceFromAttribute(parents) + "::" + parents.attrname
                 )
             abstraction.addParent(parentName, parentName, "public")
-        abstraction.language = AbstractObjectLanguage.Python
+        abstraction.objectLanguage = AbstractObjectLanguage.Python
         for subItem in item.body:
             if isinstance(subItem, FunctionDef):
                 funcname = subItem.name
@@ -170,7 +170,7 @@ class PythonAnalyzer(Analyzer):
         abstraction = AbstractFunction(
             funcname, path, rtype, params, namespace, doxygen
         )
-        abstraction.language = AbstractObjectLanguage.Python
+        abstraction.objectLanguage = AbstractObjectLanguage.Python
         abstractObjects.append(abstraction)
 
     def handleMembers(self, func: Any, abstraction: AbstractClass) -> None:

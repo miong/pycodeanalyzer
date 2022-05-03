@@ -1,5 +1,4 @@
 import pytest
-import jsonpickle
 import os
 
 from pycodeanalyzer.core.analyzer.identification import IdentityAnalyser
@@ -10,6 +9,7 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractFunction,
     AbstractObject,
 )
+from pycodeanalyzer.core.json.pickler import Pickler
 
 def getRessource(res):
     here = os.path.dirname(os.path.realpath(__file__))
@@ -17,17 +17,17 @@ def getRessource(res):
     res = os.path.abspath(os.path.join(resDir, res))
     return res
 
-
 class TestIdentityAnalyser:
 
     def test_analyze(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
-        assert len(analyzer.mapping["Classes"]) == 34
-        assert len(analyzer.mapping["Enums"]) == 1
+        assert len(analyzer.mapping["Classes"]) == 35
+        assert len(analyzer.mapping["Enums"]) == 2
         assert len(analyzer.mapping["Functions"]) == 17
         for obj in objectList:
             if obj.type == "Class":
@@ -40,7 +40,8 @@ class TestIdentityAnalyser:
     def test_getClasses(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         assert analyzer.getClasses() == analyzer.mapping["Classes"]
@@ -48,7 +49,8 @@ class TestIdentityAnalyser:
     def test_getEnums(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         assert analyzer.getEnums() == analyzer.mapping["Enums"]
@@ -56,7 +58,8 @@ class TestIdentityAnalyser:
     def test_getFunctions(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         assert analyzer.getFunctions() == analyzer.mapping["Functions"]
@@ -64,7 +67,8 @@ class TestIdentityAnalyser:
     def test_getClasseTree(self, mocker):
         objectList = []
         with open(getRessource("cpp_zlib_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         tree = analyzer.getClasseTree()
@@ -106,17 +110,19 @@ class TestIdentityAnalyser:
     def test_getEnumTree(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         tree = analyzer.getEnumTree()
         print(tree)
-        assert tree == {'pycodeanalyzer': {'core': {'abstraction': {'objects': {'__enums__': ['AbstractObjectLanguage']}}}}}
+        assert tree == {'pycodeanalyzer': {'core': {'abstraction': {'objects': {'__enums__': ['AbstractClassClassifier', 'AbstractObjectLanguage']}}}}}
 
     def test_getFunctionTree(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         tree = analyzer.getFunctionTree()
@@ -223,7 +229,8 @@ class TestIdentityAnalyser:
     def test_getFileTree(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         tree = analyzer.getFileTree()
@@ -242,6 +249,7 @@ class TestIdentityAnalyser:
                      'encoding': {'__files__': ['encodings.py']},
                      'engine': {'__files__': ['engine.py']},
                      'filetree': {'__files__': ['filefetcher.py']},
+                     'json': {'__files__': ['pickler.py']},
                      'languages': {'__files__': ['analyzer.py',
                                                  'filedispatcher.py'],
                                    'analyzers': {'__files__': ['cppanalyzer.py',
@@ -259,7 +267,8 @@ class TestIdentityAnalyser:
     def test_getFiles(self, mocker):
         objectList = []
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            pickler = Pickler()
+            objectList = pickler.decode(dataFile.read())
         analyzer = IdentityAnalyser()
         analyzer.analyze(objectList)
         list = analyzer.getFiles()
@@ -277,6 +286,7 @@ class TestIdentityAnalyser:
             '/pycodeanalyzer/core/encoding/encodings.py',
             '/pycodeanalyzer/core/engine/engine.py',
             '/pycodeanalyzer/core/filetree/filefetcher.py',
+            '/pycodeanalyzer/core/json/pickler.py',
             '/pycodeanalyzer/core/languages/analyzer.py',
             '/pycodeanalyzer/core/languages/analyzers/cppanalyzer.py',
             '/pycodeanalyzer/core/languages/analyzers/javaanalyzer.py',

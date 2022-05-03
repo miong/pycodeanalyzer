@@ -110,7 +110,7 @@ class KotlinAnalyzer(Analyzer):
                     pass
                 else:
                     self.logger.error("Unhandled member type %s", type(item))
-        abstraction.language = AbstractObjectLanguage.Kotlin
+        abstraction.objectLanguage = AbstractObjectLanguage.Kotlin
         abstractObjects.append(abstraction)
 
     def handleParent(
@@ -217,7 +217,7 @@ class KotlinAnalyzer(Analyzer):
         for item in enum.body.entries:
             values.append(item.name)
         abstraction = AbstractEnum(enum.name, currentNS, path, values)
-        abstraction.language = AbstractObjectLanguage.Kotlin
+        abstraction.objectLanguage = AbstractObjectLanguage.Kotlin
         abstractObjects.append(abstraction)
 
     def handleFunction(
@@ -247,7 +247,7 @@ class KotlinAnalyzer(Analyzer):
         if function.generics:
             for genType in function.generics:
                 abstraction.addGenericType(str(genType).strip())
-        abstraction.language = AbstractObjectLanguage.Kotlin
+        abstraction.objectLanguage = AbstractObjectLanguage.Kotlin
         abstractObjects.append(abstraction)
 
     def deduceVisibility(self, item: Any) -> str:

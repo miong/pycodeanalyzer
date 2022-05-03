@@ -3,6 +3,7 @@ from typing import Any, Dict, List, Optional, cast
 
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractClass,
+    AbstractClassClassifier,
     AbstractEnum,
     AbstractFunction,
     AbstractObject,
@@ -30,6 +31,16 @@ class IdentityAnalyser:
                 self.mapping["Enums"].append(cast(AbstractEnum, object))
             elif object.type == "Function":
                 self.mapping["Functions"].append(cast(AbstractFunction, object))
+        self.analyzeClassifications()
+
+    def analyzeClassifications(self) -> None:
+        for klass in self.getClasses():
+            if len(klass.methodes) == 0:
+                klass.addClassifier(AbstractClassClassifier.Data)
+            for parent in klass.parents:
+                if "protobuf" in parent[0]:
+                    klass.addClassifier(AbstractClassClassifier.Message)
+                    break
 
     def getClasses(self) -> List[AbstractClass]:
         return self.mapping["Classes"]

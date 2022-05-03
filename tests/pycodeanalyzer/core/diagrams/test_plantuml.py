@@ -1,6 +1,6 @@
 import pytest
 
-from pycodeanalyzer.core.diagrams.mermaid import ClassDiagramBuild
+from pycodeanalyzer.core.diagrams.plantuml import PlantUMLClassDiagramBuild
 from pycodeanalyzer.core.abstraction.objects import (
     AbstractObjectLanguage,
     AbstractClassClassifier,
@@ -10,21 +10,22 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractObject,
 )
 
-class TestClassDiagramBuild:
+class TestPlantUMLClassDiagramBuild:
 
     def test_buildEnum(self, mocker):
         enum = AbstractEnum("enumName", "enum::namespace", "dir/file.txt", ["value1", "value2", "value3"])
-        builder = ClassDiagramBuild()
+        builder = PlantUMLClassDiagramBuild()
         builder.reset()
         builder.createEnum(enum)
         res = builder.build()
-        expected = """classDiagram
-class enumName {
-<<Enum>>
-+ value1
-+ value2
-+ value3
+        expected = """@startuml
+enum enumName <<Enum>>
+{
+value1
+value2
+value3
 }
+@enduml
 """
         assert res == expected
 
@@ -45,35 +46,32 @@ class enumName {
         klass.addMember(*member2)
         klass.addMethod(*methode)
         klass.addParent(*parent)
-        builder = ClassDiagramBuild()
+        builder = PlantUMLClassDiagramBuild()
         builder.reset()
         builder.createClass(klass, [klassParent, klassLinked], [enum, enum2], [])
         res = builder.build()
-        expected = """classDiagram
-class className {
-<<Class>>
+        expected = """@startuml
+class className <<Class>>
+{
 # memberType memberName
 + memberType2 memberName2
--name(Map&lt;str, List&lt;param1Type&gt;&gt; param1Name, enumName param2Name) rtype
+-rtype name(Map<str, List<param1Type>> param1Name, enumName param2Name)
 }
-class parentType {
-<<Class>>
+class parentType <<Class>>
+{
 }
-link parentType "class££class::namespace::parentType"
-class param1Type
-<<External>> param1Type
-class enumName {
-<<Enum>>
-+ value1
-+ value2
-+ value3
+class param1Type <<External>>
+enum enumName <<Enum>>
+{
+value1
+value2
+value3
 }
-link enumName "enum££enum::namespace::enumName"
-class enumName2
-<<External>> enumName2
+enum enumName2 <<External>>
 className --|> parentType
-className ..> param1Type
-className ..> enumName
-className ..> enumName2
+className ..|> param1Type
+className ..|> enumName
+className ..|> enumName2
+@enduml
 """
         assert res == expected

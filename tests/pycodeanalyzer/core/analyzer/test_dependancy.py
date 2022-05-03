@@ -1,5 +1,4 @@
 import pytest
-import jsonpickle
 import os
 
 from pycodeanalyzer.core.analyzer.dependancy import DependancyAnalyser
@@ -10,12 +9,12 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractFunction,
     AbstractObject,
 )
+from pycodeanalyzer.core.json.pickler import Pickler
 
 def getRessource(res):
     here = os.path.dirname(os.path.realpath(__file__))
     resDir = os.path.abspath(os.path.join(here, os.pardir, os.pardir, os.pardir, "ressources"))
     res = os.path.abspath(os.path.join(resDir, res))
-    print(res)
     return res
 
 class TestDependancyAnalyser:
@@ -99,8 +98,9 @@ class TestDependancyAnalyser:
 
     def test_analyze(self, mocker):
         objectList = []
+        pickler = Pickler()
         with open(getRessource("pycodeanalyzer_dumpobj.json"),"r") as dataFile:
-            objectList = jsonpickle.decode(dataFile.read())
+            objectList = pickler.decode(dataFile.read())
         mapping = {
             "Classes": [],
             "Enums": [],
@@ -116,6 +116,7 @@ class TestDependancyAnalyser:
         abstractClassObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::abstraction::objects", "AbstractClass", mapping["Classes"], "", "", [])
         abstractObjectObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::abstraction::objects", "AbstractObject", mapping["Classes"], "", "", [])
         abstractObjectLanguageObj = analyzer._DependancyAnalyser__findEnum("pycodeanalyzer::core::abstraction::objects", "AbstractObjectLanguage", mapping["Enums"], "", "", [])
+        AbstractClassClassifierObj = analyzer._DependancyAnalyser__findEnum("pycodeanalyzer::core::abstraction::objects", "AbstractClassClassifier", mapping["Enums"], "", "", [])
         fileFetcherObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::filetree::filefetcher", "FileFetcher", mapping["Classes"], "", "", [])
         fileDispatcherObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::languages::filedispatcher", "FileDispatcher", mapping["Classes"], "", "", [])
         identityAnalyserObj = analyzer._DependancyAnalyser__findClass("pycodeanalyzer::core::analyzer::identification", "IdentityAnalyser", mapping["Classes"], "", "", [])
@@ -137,7 +138,7 @@ class TestDependancyAnalyser:
         target, classes, enums, functions = analyzer.analyze(mapping["Classes"], mapping["Enums"], abstractClassObj)
         assert target == abstractClassObj
         assert classes == [abstractObjectObj]
-        assert enums == []
+        assert enums == [AbstractClassClassifierObj]
         target, classes, enums, functions = analyzer.analyze(mapping["Classes"], mapping["Enums"], engineObj)
         assert target == engineObj
         assert classes == [

@@ -7,12 +7,15 @@ class AbstractClass {
 + List&lt;Tuple&lt;str,str,List&lt;Tuple&lt;str,str&gt;&gt;,str&gt;&gt; methodes
 + List&lt;Tuple&lt;str,str,str&gt;&gt; parents
 + List~str~ linkedGenericTypes
++ List~AbstractClassClassifier~ classifiers
 +Constructor(str name, str namespace, str origin) None
 +addGenericType(str genType) None
 +addMember(str type, str name, str visibility) None
 +hasMember(str name) bool
 +addMethod(str returnType, str name, List&lt;Tuple&lt;str,str&gt;&gt; parameters, str visibility) None
 +addParent(str completetype, str name, str visibility) None
++addClassifier(AbstractClassClassifier classifier) None
++getMainClassifier() str
 +getLinkedTypes() List~str~
 -isPotentialClassName(str type) bool
 -getDependanceFromType(str type) List~str~
@@ -28,11 +31,21 @@ class AbstractObject {
 + str name
 + str type
 + str origin
-+ AbstractObjectLanguage language
 + List~str~ usingNS
++ AbstractObjectLanguage objectLanguage
 + List~str~ linkedGenericTypes
 +Constructor(str name, str origin) None
 +addUsingNamespace(str namespace) None
 }
 link AbstractObject "class££pycodeanalyzer::core::abstraction::objects::AbstractObject"
+class AbstractClassClassifier {
+<<Enum>>
++ NoClassifier
++ External
++ Generic
++ Message
++ Data
+}
+link AbstractClassClassifier "enum££pycodeanalyzer::core::abstraction::objects::AbstractClassClassifier"
 AbstractClass --|> AbstractObject
+AbstractClass ..> AbstractClassClassifier

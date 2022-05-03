@@ -55,16 +55,9 @@ class PlantUMLClassDiagramBuild(IClassDiagramBuild):
         res = "@startuml\n"
         for klass in self.klasses:
             res += "class " + klass.name
+            res += " <<" + klass.getMainClassifier() + ">>\n"
             if not klass.origin:
-                if (
-                    self.target.linkedGenericTypes
-                    and klass.name in self.target.linkedGenericTypes
-                ):
-                    res += " <<Generic>>\n"
-                else:
-                    res += " <<External>>\n"
                 continue
-            res += " <<Class>>\n"
             res += "{\n"
             for member in klass.members:
                 res += (

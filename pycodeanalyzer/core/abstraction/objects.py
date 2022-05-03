@@ -6,11 +6,11 @@ This modules containes all the abstraction for code object manipulated by pycode
 from __future__ import annotations
 
 import re
-from enum import Enum
+from enum import IntEnum
 from typing import Any, Dict, List, Tuple
 
 
-class AbstractObjectLanguage(Enum):
+class AbstractObjectLanguage(IntEnum):
     """Language of the code source
 
     Enum representing supported languages
@@ -30,8 +30,8 @@ class AbstractObject:
         self.name = name
         self.type = "Object"
         self.origin: str = None if not origin else origin.replace("\\", "/")
-        self.language: AbstractObjectLanguage = AbstractObjectLanguage.Unknown
         self.usingNS: List[str] = []
+        self.objectLanguage: AbstractObjectLanguage = AbstractObjectLanguage.Unknown
         self.linkedGenericTypes: List[str] = None
 
     def addUsingNamespace(self, namespace: str) -> None:
@@ -100,6 +100,19 @@ class AbstractFunction(AbstractObject):
             ret = ret[:-2]
         ret += ")"
         return ret
+
+
+class AbstractClassClassifier(IntEnum):
+    """Classifier for class objects
+
+    Enum representing additionnal data
+    """
+
+    NoClassifier = 0
+    External = 1
+    Generic = 2
+    Message = 3
+    Data = 4
 
 
 class AbstractClass(AbstractObject):
@@ -201,6 +214,7 @@ class AbstractClass(AbstractObject):
         self.methodes: List[Tuple[str, str, List[Tuple[str, str]], str]] = []
         self.parents: List[Tuple[str, str, str]] = []
         self.linkedGenericTypes: List[str] = []
+        self.classifiers: List[AbstractClassClassifier] = []
 
     def addGenericType(self, genType: str) -> None:
         self.linkedGenericTypes.append(genType)
@@ -225,6 +239,21 @@ class AbstractClass(AbstractObject):
 
     def addParent(self, completetype: str, name: str, visibility: str) -> None:
         self.parents.append((completetype, name, visibility))
+
+    def addClassifier(self, classifier: AbstractClassClassifier) -> None:
+        if classifier not in self.classifiers:
+            self.classifiers.append(classifier)
+
+    def getMainClassifier(self) -> str:
+        if AbstractClassClassifier.External in self.classifiers:
+            return "External"
+        if AbstractClassClassifier.Generic in self.classifiers:
+            return "Generic"
+        if AbstractClassClassifier.Message in self.classifiers:
+            return "Message"
+        if AbstractClassClassifier.Data in self.classifiers:
+            return "Data"
+        return "Class"
 
     def getLinkedTypes(self) -> List[str]:
         types: List[str] = []
@@ -335,7 +364,8 @@ class AbstractClass(AbstractObject):
         cleaned_list = [
             x
             for x in typeList
-            if x not in AbstractClass.NonObjectTypes[self.language] and "std::" not in x
+            if x not in AbstractClass.NonObjectTypes[self.objectLanguage]
+            and "std::" not in x
         ]
         return cleaned_list
 

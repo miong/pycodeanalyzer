@@ -1,4 +1,3 @@
-import jsonpickle
 import os
 
 from pycodeanalyzer.core.abstraction.objects import (
@@ -8,17 +7,17 @@ from pycodeanalyzer.core.abstraction.objects import (
     AbstractFunction,
     AbstractObject,
 )
+from pycodeanalyzer.core.json.pickler import Pickler
 
 def main():
-    jsonpickle.set_preferred_backend('simplejson')
-    jsonpickle.set_encoder_options('simplejson', sort_keys=True, indent=4)
+    pickler = Pickler()
     with open("dumpobj.json", "r+") as dataFile:
         text = dataFile.read()
-        objectList = jsonpickle.decode(text)
+        objectList = pickler.decode(text)
         for object in objectList:
             object.origin = object.origin.replace(os.getcwd().replace("\\", "/"), "").replace("\\", "/")
         dataFile.seek(0)
-        text = jsonpickle.encode(objectList)
+        text = pickler.encode(objectList)
         dataFile.write(text)
         dataFile.truncate()
 

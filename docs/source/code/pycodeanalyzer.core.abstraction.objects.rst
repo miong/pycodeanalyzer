@@ -7,7 +7,7 @@ pycodeanalyzer.core.abstraction.objects
 .. currentmodule:: pycodeanalyzer.core.abstraction.objects
 
 .. automodule:: pycodeanalyzer.core.abstraction.objects
-    :members: AbstractClass, AbstractEnum, AbstractFunction, AbstractObject, AbstractObjectLanguage, compareAbstractObject, platformIndependantPathHash
+    :members: AbstractClass, AbstractClassClassifier, AbstractEnum, AbstractFunction, AbstractObject, AbstractObjectLanguage, compareAbstractObject, platformIndependantPathHash
     :undoc-members:
     :show-inheritance:
     :member-order: bysource
@@ -21,6 +21,7 @@ pycodeanalyzer.core.abstraction.objects
         :nosignatures:
 
         AbstractClass
+        AbstractClassClassifier
         AbstractEnum
         AbstractFunction
         AbstractObject
@@ -53,6 +54,15 @@ pycodeanalyzer.core.abstraction.objects
             :alt: AbstractClass class diagram is not available :/
 
         AbstractClass class diagram
+
+
+    AbstractClassClassifier
+    ^^^^^^^^^^^^^^^^^^^^^^^
+
+        .. mermaid:: diagrams/pycodeanalyzer_core_abstraction_objects_AbstractClassClassifier.mmd
+            :alt: AbstractClassClassifier class diagram is not available :/
+
+        AbstractClassClassifier class diagram
 
 
     AbstractEnum

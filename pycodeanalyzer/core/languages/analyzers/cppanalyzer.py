@@ -212,7 +212,7 @@ class CppAnalyzer(Analyzer):
 
                     # TODO handle using namespace
                     # TODO handle typedef
-                    # TODO handle templates (?)
+                    # TODO handle templates (for generics)
                     header: CustomCppHeader = CustomCppHeader(
                         code, argType="string", encoding=encoding
                     )
@@ -282,7 +282,7 @@ class CppAnalyzer(Analyzer):
         self.addMembers(abstraction, klass, "public")
         self.addMembers(abstraction, klass, "protected")
         self.addMembers(abstraction, klass, "private")
-        abstraction.language = AbstractObjectLanguage.CPP
+        abstraction.objectLanguage = AbstractObjectLanguage.CPP
         self.objectPaths.append(objectPath)
         abstractObjects.append(abstraction)
 
@@ -333,7 +333,7 @@ class CppAnalyzer(Analyzer):
         name = str(enum["name"]) if "name" in enum else "Anon-enum"
         namespace = self.clearNamespace(str(enum["namespace"]))
         abstraction = AbstractEnum(name, namespace, path, values)
-        abstraction.language = AbstractObjectLanguage.CPP
+        abstraction.objectLanguage = AbstractObjectLanguage.CPP
         abstractObjects.append(abstraction)
         self.objectPaths.append(objectPath)
 
@@ -355,7 +355,7 @@ class CppAnalyzer(Analyzer):
             namespace,
             doxygen,
         )
-        abstraction.language = AbstractObjectLanguage.CPP
+        abstraction.objectLanguage = AbstractObjectLanguage.CPP
         abstractObjects.append(abstraction)
 
     def clearNamespace(self, namespace: str) -> str:
