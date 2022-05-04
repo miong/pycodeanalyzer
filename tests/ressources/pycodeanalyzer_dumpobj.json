@@ -2988,6 +2988,54 @@
             },
             {
                 "py/tuple": [
+                    "bool",
+                    "isHeader",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
+                    "None",
+                    "handleHeader",
+                    [
+                        {
+                            "py/tuple": [
+                                "str",
+                                "path"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "encoding"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "str",
+                                "code"
+                            ]
+                        },
+                        {
+                            "py/tuple": [
+                                "List<AbstractObject>",
+                                "abstractObjects"
+                            ]
+                        }
+                    ],
+                    "public"
+                ]
+            },
+            {
+                "py/tuple": [
                     "None",
                     "handleClass",
                     [
