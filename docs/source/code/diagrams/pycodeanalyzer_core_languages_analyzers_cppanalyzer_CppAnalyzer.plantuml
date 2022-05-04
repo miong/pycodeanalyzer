@@ -9,6 +9,8 @@ class CppAnalyzer <<Class>>
 + List<str> defines
 +None Constructor(Configuration config)
 +List<AbstractObject> analyze(str rootDir, str path)
++bool isHeader(str path)
++None handleHeader(str path, str encoding, str code, List<AbstractObject> abstractObjects)
 +None handleClass(str path, Any klass, List<AbstractObject> abstractObjects)
 +None addMethods(AbstractClass abstraction, Any klass, str visibility)
 +None addMembers(AbstractClass abstraction, Any klass, str visibility)
